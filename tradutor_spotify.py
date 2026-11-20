@@ -591,232 +591,365 @@ HTML_TEMPLATE = """
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>~* xoxo My Music Diary *~</title>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <title>~* xoxo My Music Diary • Revista Teen *~</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;1,600;1,700&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             background-color: #E3F0E8;
-            background-image: radial-gradient(#b8d8c5 2.5px, transparent 2.5px);
-            background-size: 32px 32px;
+            background-image:
+                radial-gradient(#b8d8c5 2px, transparent 2px),
+                radial-gradient(#f3bfd4 1.5px, transparent 1.5px);
+            background-size: 32px 32px, 64px 64px;
+            background-position: 0 0, 16px 16px;
             font-family: 'Space Mono', monospace;
-            color: #2c2c2c;
-            padding: 50px;
+            color: #222222;
+            padding: 36px 28px 70px;
             min-height: 100vh;
         }
-        .container { max-width: 2050px; margin: 0 auto; }
-        .site-header { text-align: center; margin-bottom: 35px; }
-        .site-header h1 {
-            font-family: 'VT323', monospace;
-            font-size: 90px;
-            color: #B85D81;
-            text-shadow: 4px 4px 0px #FFFDF9;
-            letter-spacing: 6px;
+        .container { max-width: 1280px; margin: 0 auto; }
+
+        /* Capa / Cabeçalho estilo Todateen + Capricho + Atrevida */
+        .mag-masthead {
+            background: #FFFDF9;
+            border: 4px solid #1f1f1f;
+            border-radius: 28px;
+            padding: 28px 34px 24px;
+            box-shadow: 10px 10px 0px #1f1f1f;
+            margin-bottom: 24px;
+            position: relative;
         }
+        .mag-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+        .sticker {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border: 2.5px solid #1f1f1f;
+            border-radius: 999px;
+            box-shadow: 3px 3px 0px #1f1f1f;
+        }
+        .sticker-pink { background: #FF85B3; color: #1f1f1f; transform: rotate(-2deg); }
+        .sticker-yellow { background: #FFE66D; color: #1f1f1f; transform: rotate(1.5deg); }
+        .sticker-mint { background: #B8F2D0; color: #1f1f1f; transform: rotate(-1deg); }
+
+        .mag-title-wrap { text-align: center; }
+        .mag-kicker {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 20px;
+            color: #B85D81;
+            margin-bottom: 4px;
+        }
+        .mag-title {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 700;
+            font-size: clamp(44px, 7vw, 78px);
+            line-height: 1.02;
+            color: #B85D81;
+            text-shadow: 3px 3px 0px #FFE66D, 6px 6px 0px #1f1f1f;
+        }
+        .mag-sub {
+            font-family: 'VT323', monospace;
+            font-size: 26px;
+            color: #2c2c2c;
+            letter-spacing: 2px;
+            margin-top: 6px;
+        }
+
         .marquee-bar {
             background: #F9E4EC;
-            border: 3.5px solid #2c2c2c;
-            border-radius: 35px;
-            padding: 18px 30px;
-            font-size: 26px;
-            color: #B85D81;
-            font-weight: bold;
-            margin-bottom: 40px;
-            box-shadow: 7px 7px 0px #2c2c2c;
+            border: 3.5px solid #1f1f1f;
+            border-radius: 999px;
+            padding: 12px 22px;
+            font-size: 16px;
+            color: #9E3B63;
+            font-weight: 700;
+            margin-bottom: 28px;
+            box-shadow: 6px 6px 0px #1f1f1f;
         }
+
         .auth-box {
             background: #FFFDF9;
-            border: 4px solid #2c2c2c;
-            border-radius: 32px;
-            padding: 60px 40px;
+            border: 4px solid #1f1f1f;
+            border-radius: 28px;
+            padding: 48px 32px;
             text-align: center;
-            box-shadow: 12px 12px 0px #2c2c2c;
-            max-width: 900px;
-            margin: 40px auto;
+            box-shadow: 10px 10px 0px #1f1f1f;
+            max-width: 780px;
+            margin: 30px auto;
         }
         .auth-box p {
-            font-size: 26px;
-            line-height: 1.7;
-            margin-bottom: 35px;
+            font-size: 18px;
+            line-height: 1.75;
+            margin-bottom: 28px;
         }
         .spotify-btn {
             display: inline-block;
             background: #4A7C59;
             color: #FFFDF9;
-            font-size: 28px;
-            font-weight: bold;
+            font-size: 20px;
+            font-weight: 700;
             text-decoration: none;
-            padding: 18px 36px;
-            border: 4px solid #2c2c2c;
-            border-radius: 20px;
-            box-shadow: 7px 7px 0px #2c2c2c;
+            padding: 16px 32px;
+            border: 3.5px solid #1f1f1f;
+            border-radius: 18px;
+            box-shadow: 6px 6px 0px #1f1f1f;
         }
         .spotify-btn:hover { transform: translate(-2px, -2px); }
+
+        /* Player em destaque tipo matéria de capa */
         .player-card {
             background: #F9E4EC;
-            border: 4px solid #2c2c2c;
-            border-radius: 32px;
-            padding: 40px;
+            border: 4px solid #1f1f1f;
+            border-radius: 28px;
+            padding: 28px;
             display: flex;
             align-items: center;
-            gap: 45px;
-            margin-bottom: 45px;
-            box-shadow: 12px 12px 0px #2c2c2c;
+            gap: 32px;
+            margin-bottom: 24px;
+            box-shadow: 10px 10px 0px #1f1f1f;
         }
         .album-art {
-            width: 250px;
-            height: 250px;
-            border-radius: 22px;
-            border: 3.5px solid #2c2c2c;
+            width: 190px;
+            height: 190px;
+            border-radius: 20px;
+            border: 3.5px solid #1f1f1f;
             object-fit: cover;
             background: #FFFDF9;
+            flex-shrink: 0;
+            box-shadow: 5px 5px 0px #1f1f1f;
         }
-        .track-info { flex: 1; }
+        .track-info { flex: 1; min-width: 0; }
         .badge {
             display: inline-block;
             background: #4A7C59;
             color: #FFFDF9;
-            font-size: 22px;
-            padding: 10px 25px;
-            border-radius: 20px;
-            margin-bottom: 18px;
-            font-weight: bold;
+            font-size: 14px;
+            padding: 6px 16px;
+            border-radius: 999px;
+            border: 2.5px solid #1f1f1f;
+            margin-bottom: 12px;
+            font-weight: 700;
         }
         .track-title {
-            font-size: 50px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
             font-weight: 700;
-            color: #2c2c2c;
-            margin-bottom: 18px;
+            font-size: clamp(26px, 3.6vw, 40px);
+            color: #1f1f1f;
+            margin-bottom: 14px;
+            word-break: break-word;
         }
         .clipe-btn {
             display: inline-block;
-            color: #B85D81;
-            font-weight: bold;
+            color: #9E3B63;
+            font-weight: 700;
             text-decoration: none;
-            font-size: 24px;
-            margin-bottom: 25px;
-            background: #FFFDF9;
-            padding: 12px 28px;
-            border: 3.5px solid #2c2c2c;
-            border-radius: 16px;
+            font-size: 15px;
+            margin-bottom: 16px;
+            background: #FFE66D;
+            padding: 8px 18px;
+            border: 3px solid #1f1f1f;
+            border-radius: 14px;
+            box-shadow: 4px 4px 0px #1f1f1f;
         }
         .progress-wrapper {
             display: flex;
             align-items: center;
-            gap: 28px;
-            font-size: 24px;
-            font-weight: bold;
+            gap: 16px;
+            font-size: 15px;
+            font-weight: 700;
         }
         .progress-bg {
             flex: 1;
-            height: 26px;
+            height: 20px;
             background: #FFFDF9;
-            border: 3.5px solid #2c2c2c;
-            border-radius: 18px;
+            border: 3px solid #1f1f1f;
+            border-radius: 999px;
             overflow: hidden;
         }
         .progress-fill {
             height: 100%;
-            background: #4A7C59;
+            background: #FF85B3;
             width: 0%;
             transition: width 0.5s linear;
         }
-        .main-grid {
+
+        /* Navegação das 3 páginas/abas da revista */
+        .mag-tabs {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 45px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
         }
-        .column-side { display: flex; flex-direction: column; gap: 45px; }
-        .window-box-tall {
+        .tab-btn {
             background: #FFFDF9;
-            border: 4px solid #2c2c2c;
-            border-radius: 32px;
-            overflow: hidden;
-            box-shadow: 12px 12px 0px #2c2c2c;
-            display: flex;
-            flex-direction: column;
-            height: 1850px;
+            color: #1f1f1f;
+            border: 3.5px solid #1f1f1f;
+            border-radius: 20px;
+            padding: 16px 18px;
+            font-family: 'Space Mono', monospace;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 6px 6px 0px #1f1f1f;
+            transition: transform 0.12s ease, background 0.12s ease;
+            text-align: center;
         }
-        .window-box {
+        .tab-btn:hover { transform: translate(-2px, -2px); }
+        .tab-btn small {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            opacity: 0.85;
+        }
+        .tab-btn.active[data-tab="page-lyrics"] {
+            background: #EBF5EE;
+            box-shadow: 2px 2px 0px #1f1f1f;
+            transform: translate(3px, 3px);
+        }
+        .tab-btn.active[data-tab="page-gossip"] {
+            background: #FF85B3;
+            box-shadow: 2px 2px 0px #1f1f1f;
+            transform: translate(3px, 3px);
+        }
+        .tab-btn.active[data-tab="page-psych"] {
+            background: #FFE66D;
+            box-shadow: 2px 2px 0px #1f1f1f;
+            transform: translate(3px, 3px);
+        }
+
+        /* Página ativa da revista */
+        .mag-page {
+            display: none;
             background: #FFFDF9;
-            border: 4px solid #2c2c2c;
-            border-radius: 32px;
+            border: 4px solid #1f1f1f;
+            border-radius: 28px;
             overflow: hidden;
-            box-shadow: 12px 12px 0px #2c2c2c;
-            display: flex;
-            flex-direction: column;
-            height: 900px;
+            box-shadow: 10px 10px 0px #1f1f1f;
+            min-height: 540px;
         }
+        .mag-page.active { display: block; }
+
         .window-header {
-            padding: 22px 32px;
-            font-weight: bold;
-            font-size: 26px;
-            border-bottom: 4px solid #2c2c2c;
+            padding: 18px 26px;
+            font-weight: 700;
+            font-size: 18px;
+            border-bottom: 3.5px solid #1f1f1f;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 12px;
         }
-        .header-green { background: #EBF5EE; color: #4A7C59; }
-        .header-pink { background: #F9E4EC; color: #B85D81; }
-        .header-red { background: #FDEDEC; color: #C0392B; }
+        .header-green { background: #EBF5EE; color: #2d5a3c; }
+        .header-pink { background: #F9E4EC; color: #9E3B63; }
+        .header-yellow { background: #FFF5C0; color: #7A4900; }
+
+        .window-dots { display: flex; gap: 8px; flex-shrink: 0; }
         .window-dots span {
             display: inline-block;
-            width: 20px;
-            height: 20px;
+            width: 15px;
+            height: 15px;
             border-radius: 50%;
-            border: 3.5px solid #2c2c2c;
-            margin-left: 12px;
+            border: 2.5px solid #1f1f1f;
             background: #FFFDF9;
         }
+
         .window-content {
-            padding: 45px;
-            overflow-y: auto;
-            white-space: pre-wrap;
-            line-height: 2.1;
-            font-size: 28px;
+            padding: 32px;
+            line-height: 2.0;
+            font-size: 20px;
             font-weight: 700;
             color: #222222;
-            flex: 1;
+        }
+        .lyrics-text {
+            white-space: pre-wrap;
+            background: #FCFBF7;
+            border: 2.5px dashed #1f1f1f;
+            border-radius: 20px;
+            padding: 28px;
         }
         .gossip-card {
             background: #FFFDF9;
-            border: 3.5px solid #2c2c2c;
-            border-radius: 22px;
-            padding: 32px;
-            margin-bottom: 26px;
-            box-shadow: 7px 7px 0px #F9E4EC;
-            font-size: 28px;
-            line-height: 2.0;
-            color: #333;
+            border: 3px solid #1f1f1f;
+            border-radius: 20px;
+            padding: 24px 26px;
+            margin-bottom: 20px;
+            box-shadow: 6px 6px 0px #F9E4EC;
+            font-size: 19px;
+            line-height: 1.9;
+            font-weight: 400;
+            color: #222;
             position: relative;
         }
         .gossip-card::before {
-            content: "♥";
+            content: "♥ XOXO";
             position: absolute;
-            top: 14px;
-            right: 22px;
+            top: 10px;
+            right: 16px;
             color: #B85D81;
-            font-size: 24px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .psych-box {
+            background: #FFFDF9;
+            border: 3px solid #1f1f1f;
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 6px 6px 0px #FFE66D;
+            font-size: 19px;
+            line-height: 1.95;
+            font-weight: 400;
+        }
+
+        @media (max-width: 820px) {
+            .player-card { flex-direction: column; text-align: center; }
+            .progress-wrapper { flex-direction: column; gap: 8px; }
+            .progress-bg { width: 100%; }
+            .mag-tabs { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="site-header">
-            <h1>~* xoxo My Music Diary *~</h1>
-        </div>
+        <header class="mag-masthead">
+            <div class="mag-top-row">
+                <span class="sticker sticker-pink">★ TODATEEN & CAPRICHO MOOD</span>
+                <span class="sticker sticker-yellow">EDIÇÃO ESPECIAL • ATREVIDA</span>
+                <span class="sticker sticker-mint">♪ SPOTIFY LIVE</span>
+            </div>
+            <div class="mag-title-wrap">
+                <div class="mag-kicker">a sua revista secreta de som, drama & confissões</div>
+                <h1 class="mag-title">xoxo My Music Diary</h1>
+                <div class="mag-sub">~* TRÊS PÁGINAS • LETRA • BASTIDORES • MENTE *~</div>
+            </div>
+        </header>
 
         <div class="marquee-bar">
-            <marquee scrollamount="5">★ bem-vinda ao seu diário musical interativo ★ conectado ao seu spotify em tempo real ★ xoxo gossip girl ★</marquee>
+            <marquee scrollamount="5">★ EDIÇÃO DO DIA: pegue o seu diário, dê o play no spotify e troque de página como quem folheia a revista ★ xoxo ★</marquee>
         </div>
 
         {% if not logado %}
         <div class="auth-box">
-            <p>Conecte a sua conta do Spotify para acompanhar a música que está tocando agora, ver a tradução, curiosidades e análise psicológica em tempo real.</p>
+            <p>Conecte a sua conta do Spotify para folhear as três páginas da revista com a música que está tocando agora: <b>Letra & Tradução</b>, <b>Bastidores & Curiosidades</b> e <b>Análise Psicológica</b>.</p>
             <a href="/login" class="spotify-btn">♪ Entrar com o Spotify</a>
         </div>
         {% else %}
-        <div class="player-card">
+        <section class="player-card">
             <img id="album-img" class="album-art" src="https://via.placeholder.com/250/FFFDF9/B85D81?text=Play" alt="Capa">
             <div class="track-info">
                 <span class="badge" id="status-badge">● NOW PLAYING</span>
@@ -830,43 +963,69 @@ HTML_TEMPLATE = """
                     <span id="time-total">0:00</span>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="main-grid">
-            <div class="column-side">
-                <div class="window-box-tall">
-                    <div class="window-header header-green">
-                        <span>[ lyrics / tradução ]</span>
-                        <div class="window-dots"><span></span><span></span><span></span></div>
-                    </div>
-                    <div class="window-content" id="lyrics-box">Dê o play em uma música para ler a tradução aqui...</div>
-                </div>
+        <nav class="mag-tabs" aria-label="Páginas da revista">
+            <button type="button" class="tab-btn active" data-tab="page-lyrics" onclick="abrirPagina('page-lyrics', this)">
+                <small>PÁGINA 01 • ENCARTE</small>
+                ♪ Letra & Tradução
+            </button>
+            <button type="button" class="tab-btn" data-tab="page-gossip" onclick="abrirPagina('page-gossip', this)">
+                <small>PÁGINA 02 • FOFOCA & BASTIDORES</small>
+                ✨ Curiosidades XOXO
+            </button>
+            <button type="button" class="tab-btn" data-tab="page-psych" onclick="abrirPagina('page-psych', this)">
+                <small>PÁGINA 03 • COLUNA DE MENTE</small>
+                🧠 Análise Psicológica
+            </button>
+        </nav>
+
+        <!-- Página 1: Letra -->
+        <section id="page-lyrics" class="mag-page active">
+            <div class="window-header header-green">
+                <span>[ PÁGINA 01 • LETRA & TRADUÇÃO ]</span>
+                <div class="window-dots"><span></span><span></span><span></span></div>
             </div>
-
-            <div class="column-side">
-                <div class="window-box">
-                    <div class="window-header header-pink">
-                        <span>[ gossip girl / bastidores & curiosidades ]</span>
-                        <div class="window-dots"><span></span><span></span><span></span></div>
-                    </div>
-                    <div class="window-content" id="gossip-box">Os segredos e bastidores da faixa vão aparecer aqui em formato de revistinha! ✨</div>
-                </div>
-
-                <div class="window-box">
-                    <div class="window-header header-red">
-                        <span>[ psicologia ]</span>
-                        <div class="window-dots"><span></span><span></span><span></span></div>
-                    </div>
-                    <div class="window-content" id="psych-box">A análise psicológica da faixa vai aparecer aqui... 🧠</div>
-                </div>
+            <div class="window-content">
+                <div id="lyrics-box" class="lyrics-text">Dê o play em uma música para ler a tradução aqui...</div>
             </div>
-        </div>
+        </section>
+
+        <!-- Página 2: Curiosidades -->
+        <section id="page-gossip" class="mag-page">
+            <div class="window-header header-pink">
+                <span>[ PÁGINA 02 • GOSSIP GIRL / BASTIDORES & CURIOSIDADES ]</span>
+                <div class="window-dots"><span></span><span></span><span></span></div>
+            </div>
+            <div class="window-content">
+                <div id="gossip-box">Os segredos e bastidores da faixa vão aparecer aqui em formato de revistinha! ✨</div>
+            </div>
+        </section>
+
+        <!-- Página 3: Psicologia -->
+        <section id="page-psych" class="mag-page">
+            <div class="window-header header-yellow">
+                <span>[ PÁGINA 03 • PSICOLOGIA & COMPORTAMENTO ]</span>
+                <div class="window-dots"><span></span><span></span><span></span></div>
+            </div>
+            <div class="window-content">
+                <div id="psych-box" class="psych-box">A análise psicológica da faixa vai aparecer aqui... 🧠</div>
+            </div>
+        </section>
         {% endif %}
     </div>
 
     {% if logado %}
     <script>
         let currentTrackId = null;
+
+        function abrirPagina(pageId, botao) {
+            document.querySelectorAll('.mag-page').forEach(pg => pg.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            const alvo = document.getElementById(pageId);
+            if (alvo) alvo.classList.add('active');
+            if (botao) botao.classList.add('active');
+        }
 
         function formatTime(ms) {
             let totalSec = Math.floor(ms / 1000);
