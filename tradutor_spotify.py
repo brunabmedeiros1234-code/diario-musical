@@ -603,21 +603,19 @@ HTML_TEMPLATE = """
             background-size: 32px 32px, 64px 64px;
             background-position: 0 0, 16px 16px;
             font-family: 'Space Mono', monospace;
-            color: #222222;
-            padding: 36px 28px 70px;
+            color: #1f1f1f;
+            padding: 36px 24px 80px;
             min-height: 100vh;
         }
-        .container { max-width: 1280px; margin: 0 auto; }
+        .container { max-width: 1360px; margin: 0 auto; }
 
-        /* Capa / Cabeçalho estilo Todateen + Capricho + Atrevida */
         .mag-masthead {
             background: #FFFDF9;
             border: 4px solid #1f1f1f;
             border-radius: 28px;
-            padding: 28px 34px 24px;
+            padding: 30px 34px 26px;
             box-shadow: 10px 10px 0px #1f1f1f;
             margin-bottom: 24px;
-            position: relative;
         }
         .mag-top-row {
             display: flex;
@@ -625,15 +623,15 @@ HTML_TEMPLATE = """
             align-items: center;
             flex-wrap: wrap;
             gap: 12px;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
         }
         .sticker {
             display: inline-block;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 16px;
             letter-spacing: 1px;
             text-transform: uppercase;
-            padding: 6px 14px;
+            padding: 8px 16px;
             border: 2.5px solid #1f1f1f;
             border-radius: 999px;
             box-shadow: 3px 3px 0px #1f1f1f;
@@ -646,33 +644,33 @@ HTML_TEMPLATE = """
         .mag-kicker {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 20px;
-            color: #B85D81;
-            margin-bottom: 4px;
+            font-size: 26px;
+            color: #9E3B63;
+            margin-bottom: 6px;
         }
         .mag-title {
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-weight: 700;
-            font-size: clamp(44px, 7vw, 78px);
-            line-height: 1.02;
+            font-size: clamp(50px, 8vw, 88px);
+            line-height: 1.04;
             color: #B85D81;
             text-shadow: 3px 3px 0px #FFE66D, 6px 6px 0px #1f1f1f;
         }
         .mag-sub {
             font-family: 'VT323', monospace;
-            font-size: 26px;
-            color: #2c2c2c;
+            font-size: 34px;
+            color: #1f1f1f;
             letter-spacing: 2px;
-            margin-top: 6px;
+            margin-top: 8px;
         }
 
         .marquee-bar {
             background: #F9E4EC;
             border: 3.5px solid #1f1f1f;
             border-radius: 999px;
-            padding: 12px 22px;
-            font-size: 16px;
+            padding: 16px 24px;
+            font-size: 22px;
             color: #9E3B63;
             font-weight: 700;
             margin-bottom: 28px;
@@ -683,46 +681,45 @@ HTML_TEMPLATE = """
             background: #FFFDF9;
             border: 4px solid #1f1f1f;
             border-radius: 28px;
-            padding: 48px 32px;
+            padding: 52px 36px;
             text-align: center;
             box-shadow: 10px 10px 0px #1f1f1f;
-            max-width: 780px;
+            max-width: 840px;
             margin: 30px auto;
         }
         .auth-box p {
-            font-size: 18px;
-            line-height: 1.75;
-            margin-bottom: 28px;
+            font-size: 24px;
+            line-height: 1.8;
+            margin-bottom: 32px;
         }
         .spotify-btn {
             display: inline-block;
             background: #4A7C59;
             color: #FFFDF9;
-            font-size: 20px;
+            font-size: 26px;
             font-weight: 700;
             text-decoration: none;
-            padding: 16px 32px;
+            padding: 18px 36px;
             border: 3.5px solid #1f1f1f;
             border-radius: 18px;
             box-shadow: 6px 6px 0px #1f1f1f;
         }
         .spotify-btn:hover { transform: translate(-2px, -2px); }
 
-        /* Player em destaque tipo matéria de capa */
         .player-card {
             background: #F9E4EC;
             border: 4px solid #1f1f1f;
             border-radius: 28px;
-            padding: 28px;
+            padding: 32px;
             display: flex;
             align-items: center;
-            gap: 32px;
-            margin-bottom: 24px;
+            gap: 34px;
+            margin-bottom: 26px;
             box-shadow: 10px 10px 0px #1f1f1f;
         }
         .album-art {
-            width: 190px;
-            height: 190px;
+            width: 210px;
+            height: 210px;
             border-radius: 20px;
             border: 3.5px solid #1f1f1f;
             object-fit: cover;
@@ -735,20 +732,20 @@ HTML_TEMPLATE = """
             display: inline-block;
             background: #4A7C59;
             color: #FFFDF9;
-            font-size: 14px;
-            padding: 6px 16px;
+            font-size: 19px;
+            padding: 8px 18px;
             border-radius: 999px;
             border: 2.5px solid #1f1f1f;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             font-weight: 700;
         }
         .track-title {
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-weight: 700;
-            font-size: clamp(26px, 3.6vw, 40px);
+            font-size: clamp(32px, 4.5vw, 50px);
             color: #1f1f1f;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
             word-break: break-word;
         }
         .clipe-btn {
@@ -756,10 +753,10 @@ HTML_TEMPLATE = """
             color: #9E3B63;
             font-weight: 700;
             text-decoration: none;
-            font-size: 15px;
-            margin-bottom: 16px;
+            font-size: 20px;
+            margin-bottom: 18px;
             background: #FFE66D;
-            padding: 8px 18px;
+            padding: 10px 20px;
             border: 3px solid #1f1f1f;
             border-radius: 14px;
             box-shadow: 4px 4px 0px #1f1f1f;
@@ -767,13 +764,13 @@ HTML_TEMPLATE = """
         .progress-wrapper {
             display: flex;
             align-items: center;
-            gap: 16px;
-            font-size: 15px;
+            gap: 18px;
+            font-size: 21px;
             font-weight: 700;
         }
         .progress-bg {
             flex: 1;
-            height: 20px;
+            height: 24px;
             background: #FFFDF9;
             border: 3px solid #1f1f1f;
             border-radius: 999px;
@@ -786,21 +783,20 @@ HTML_TEMPLATE = """
             transition: width 0.5s linear;
         }
 
-        /* Navegação das 3 páginas/abas da revista */
         .mag-tabs {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-bottom: 24px;
+            gap: 18px;
+            margin-bottom: 26px;
         }
         .tab-btn {
             background: #FFFDF9;
             color: #1f1f1f;
             border: 3.5px solid #1f1f1f;
             border-radius: 20px;
-            padding: 16px 18px;
+            padding: 20px 18px;
             font-family: 'Space Mono', monospace;
-            font-size: 16px;
+            font-size: 22px;
             font-weight: 700;
             cursor: pointer;
             box-shadow: 6px 6px 0px #1f1f1f;
@@ -812,10 +808,10 @@ HTML_TEMPLATE = """
             display: block;
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 14px;
+            font-size: 18px;
             font-weight: 600;
-            margin-bottom: 4px;
-            opacity: 0.85;
+            margin-bottom: 6px;
+            opacity: 0.9;
         }
         .tab-btn.active[data-tab="page-lyrics"] {
             background: #EBF5EE;
@@ -833,7 +829,6 @@ HTML_TEMPLATE = """
             transform: translate(3px, 3px);
         }
 
-        /* Página ativa da revista */
         .mag-page {
             display: none;
             background: #FFFDF9;
@@ -846,9 +841,9 @@ HTML_TEMPLATE = """
         .mag-page.active { display: block; }
 
         .window-header {
-            padding: 18px 26px;
+            padding: 22px 28px;
             font-weight: 700;
-            font-size: 18px;
+            font-size: 24px;
             border-bottom: 3.5px solid #1f1f1f;
             display: flex;
             justify-content: space-between;
@@ -859,68 +854,72 @@ HTML_TEMPLATE = """
         .header-pink { background: #F9E4EC; color: #9E3B63; }
         .header-yellow { background: #FFF5C0; color: #7A4900; }
 
-        .window-dots { display: flex; gap: 8px; flex-shrink: 0; }
+        .window-dots { display: flex; gap: 10px; flex-shrink: 0; }
         .window-dots span {
             display: inline-block;
-            width: 15px;
-            height: 15px;
+            width: 18px;
+            height: 18px;
             border-radius: 50%;
             border: 2.5px solid #1f1f1f;
             background: #FFFDF9;
         }
 
         .window-content {
-            padding: 32px;
-            line-height: 2.0;
-            font-size: 20px;
+            padding: 36px;
+            line-height: 2.1;
+            font-size: 30px;
             font-weight: 700;
-            color: #222222;
+            color: #1a1a1a;
         }
         .lyrics-text {
             white-space: pre-wrap;
             background: #FCFBF7;
-            border: 2.5px dashed #1f1f1f;
-            border-radius: 20px;
-            padding: 28px;
+            border: 3px dashed #1f1f1f;
+            border-radius: 22px;
+            padding: 34px;
+            font-size: 32px;
+            line-height: 2.15;
         }
         .gossip-card {
             background: #FFFDF9;
-            border: 3px solid #1f1f1f;
-            border-radius: 20px;
-            padding: 24px 26px;
-            margin-bottom: 20px;
-            box-shadow: 6px 6px 0px #F9E4EC;
-            font-size: 19px;
-            line-height: 1.9;
+            border: 3.5px solid #1f1f1f;
+            border-radius: 22px;
+            padding: 30px 32px;
+            margin-bottom: 24px;
+            box-shadow: 7px 7px 0px #F9E4EC;
+            font-size: 30px;
+            line-height: 2.05;
             font-weight: 400;
-            color: #222;
+            color: #1a1a1a;
             position: relative;
         }
         .gossip-card::before {
             content: "♥ XOXO";
-            position: absolute;
-            top: 10px;
-            right: 16px;
+            display: block;
+            margin-bottom: 10px;
             color: #B85D81;
-            font-size: 13px;
+            font-size: 18px;
             font-weight: 700;
         }
         .psych-box {
             background: #FFFDF9;
-            border: 3px solid #1f1f1f;
-            border-radius: 20px;
-            padding: 28px;
-            box-shadow: 6px 6px 0px #FFE66D;
-            font-size: 19px;
-            line-height: 1.95;
+            border: 3.5px solid #1f1f1f;
+            border-radius: 22px;
+            padding: 34px;
+            box-shadow: 7px 7px 0px #FFE66D;
+            font-size: 30px;
+            line-height: 2.05;
             font-weight: 400;
+            color: #1a1a1a;
         }
 
         @media (max-width: 820px) {
             .player-card { flex-direction: column; text-align: center; }
-            .progress-wrapper { flex-direction: column; gap: 8px; }
+            .progress-wrapper { flex-direction: column; gap: 10px; }
             .progress-bg { width: 100%; }
             .mag-tabs { grid-template-columns: 1fr; }
+            .window-content { padding: 22px; }
+            .lyrics-text, .gossip-card, .psych-box { font-size: 26px; padding: 24px; }
         }
     </style>
 </head>
@@ -980,7 +979,6 @@ HTML_TEMPLATE = """
             </button>
         </nav>
 
-        <!-- Página 1: Letra -->
         <section id="page-lyrics" class="mag-page active">
             <div class="window-header header-green">
                 <span>[ PÁGINA 01 • LETRA & TRADUÇÃO ]</span>
@@ -991,7 +989,6 @@ HTML_TEMPLATE = """
             </div>
         </section>
 
-        <!-- Página 2: Curiosidades -->
         <section id="page-gossip" class="mag-page">
             <div class="window-header header-pink">
                 <span>[ PÁGINA 02 • GOSSIP GIRL / BASTIDORES & CURIOSIDADES ]</span>
@@ -1002,7 +999,6 @@ HTML_TEMPLATE = """
             </div>
         </section>
 
-        <!-- Página 3: Psicologia -->
         <section id="page-psych" class="mag-page">
             <div class="window-header header-yellow">
                 <span>[ PÁGINA 03 • PSICOLOGIA & COMPORTAMENTO ]</span>
