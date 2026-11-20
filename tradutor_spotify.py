@@ -472,6 +472,7 @@ E eu quero você mais do que qualquer música boba conseguiria expressar""",
 
 
 
+
 def normalizar_chave_faixa(texto):
     if not texto:
         return ""
@@ -596,1568 +597,1264 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XOXO My Music Diary • Revista Teen & Diário Musical (2013–2014)</title>
+    <title>~* xoxo My Music Diary *~ • Revista Teen 2013–2014</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Quicksand:wght@500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Quicksand:wght@500;600;700&family=Space+Mono:wght@400;700&family=VT323&display=swap" rel="stylesheet">
     <style>
         :root {
-            --pink: #F7B6CE;
-            --pink-hot: #E05A8D;
-            --pink-soft: #FCEAF1;
-            --mint: #C8EBD6;
-            --mint-deep: #3D7352;
-            --yellow: #FCE883;
-            --yellow-soft: #FFF8CE;
-            --cream: #FFFDF8;
-            --paper: #FAF5EA;
-            --ink: #1C1C1C;
-            --ink-soft: #3B3B3B;
-            --shadow: 6px 6px 0px #1C1C1C;
-            --shadow-lg: 9px 9px 0px #1C1C1C;
-            --shadow-sm: 4px 4px 0px #1C1C1C;
+            --rosa: #FF7EB6;
+            --rosa-forte: #D62872;
+            --rosa-claro: #FFE6F1;
+            --verde: #7CE0A8;
+            --verde-escuro: #1F6E43;
+            --amarelo: #FFE66D;
+            --amarelo-claro: #FFF8C9;
+            --lilas: #D8B4FE;
+            --creme: #FFFDF9;
+            --tinta: #141414;
+            --sombra: 7px 7px 0px #141414;
+            --sombra-alta: 11px 11px 0px #141414;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            background-color: #E5F2EA;
+            width: 100%;
+            min-height: 100vh;
+            background-color: #DFF5E9;
             background-image:
-                radial-gradient(#B5D8C3 2.2px, transparent 2.2px),
-                radial-gradient(#F3C2D6 1.6px, transparent 1.6px);
+                radial-gradient(#8ED0AC 2.4px, transparent 2.4px),
+                radial-gradient(#F8A5C8 1.9px, transparent 1.9px);
             background-size: 30px 30px, 60px 60px;
             background-position: 0 0, 15px 15px;
             font-family: 'Quicksand', sans-serif;
-            color: var(--ink);
-            padding: 24px 18px 80px;
-            min-height: 100vh;
-            line-height: 1.65;
+            color: var(--tinta);
+            padding: 18px 24px 80px;
+            font-size: 18px;
         }
 
-        .mag-shell {
-            max-width: 1240px;
-            margin: 0 auto;
+        .pagina-cheia {
+            width: 100%;
+            max-width: 100%;
         }
 
-        /* FAKE TAPE / SCRAPBOOK ACCENTS */
-        .tape {
-            position: absolute;
-            width: 88px;
-            height: 22px;
-            background: rgba(252, 232, 131, 0.85);
-            border: 2px solid var(--ink);
-            box-shadow: 2px 2px 0px var(--ink);
-            z-index: 4;
-            pointer-events: none;
-        }
-        .tape-tl { top: -10px; left: 26px; transform: rotate(-6deg); }
-        .tape-tr { top: -10px; right: 28px; transform: rotate(5deg); background: rgba(200, 235, 214, 0.9); }
-
-        /* SELOS E ETIQUETAS DE REVISTA TEEN 2013-2014 */
-        .badge-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-family: 'Space Mono', monospace;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.6px;
-            text-transform: uppercase;
-            padding: 5px 12px;
-            border: 2.5px solid var(--ink);
-            border-radius: 999px;
-            box-shadow: 3px 3px 0px var(--ink);
-            background: var(--cream);
-            color: var(--ink);
-        }
-        .tag-hot { background: var(--pink); transform: rotate(-2deg); }
-        .tag-new { background: var(--yellow); transform: rotate(1.5deg); }
-        .tag-mint { background: var(--mint); transform: rotate(-1deg); }
-        .tag-crush { background: #FFD6E6; transform: rotate(2deg); }
-
-        /* CAPA / CABEÇALHO EDITORIAL */
-        .masthead {
-            background: var(--cream);
-            border: 3.5px solid var(--ink);
+        /* CAPA DE REVISTA TEEN 2013-2014 EXPRESSIVA E COLORIDA */
+        .capa-revista {
+            width: 100%;
+            background: linear-gradient(125deg, #FFB8D8 0%, #FFF2F8 36%, #FFF8C9 72%, #C9F5DC 100%);
+            border: 4px solid var(--tinta);
             border-radius: 26px;
-            padding: 24px 28px 22px;
-            box-shadow: var(--shadow-lg);
-            position: relative;
+            padding: 20px 28px 18px;
+            box-shadow: var(--sombra-alta);
             margin-bottom: 18px;
         }
-        .masthead-strip {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-            padding-bottom: 14px;
-            border-bottom: 2.5px dashed var(--ink);
-            margin-bottom: 16px;
-        }
-        .masthead-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .issue-meta {
-            font-family: 'Space Mono', monospace;
-            font-size: 13px;
-            font-weight: 700;
-            background: var(--yellow-soft);
-            padding: 6px 12px;
-            border: 2px solid var(--ink);
-            border-radius: 12px;
-        }
-        .logo-block {
-            text-align: center;
-            padding: 6px 0 8px;
-        }
-        .logo-kicker {
-            font-family: 'Caveat', cursive;
-            font-size: 27px;
-            font-weight: 700;
-            color: var(--pink-hot);
-            line-height: 1.1;
-            transform: rotate(-1.5deg);
-            display: inline-block;
-        }
-        .logo-main {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-weight: 800;
-            font-size: clamp(40px, 7.2vw, 76px);
-            line-height: 1.02;
-            color: var(--pink-hot);
-            text-shadow: 3px 3px 0px var(--yellow), 6px 6px 0px var(--ink);
-            letter-spacing: -0.5px;
-            margin: 4px 0;
-        }
-        .logo-tagline {
-            font-family: 'VT323', monospace;
-            font-size: 26px;
-            letter-spacing: 2px;
-            color: var(--ink);
-        }
 
-        /* NAVEGAÇÃO PORTAL TEEN */
-        .portal-nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 16px;
-            padding-top: 16px;
-            border-top: 2.5px solid var(--ink);
-        }
-        .nav-pill {
-            background: var(--paper);
-            color: var(--ink);
-            border: 2.5px solid var(--ink);
-            border-radius: 14px;
-            padding: 9px 15px;
-            font-family: 'Space Mono', monospace;
-            font-size: 13px;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 3px 3px 0px var(--ink);
-            transition: transform 0.1s ease, background 0.1s ease;
-        }
-        .nav-pill:hover {
-            background: var(--yellow-soft);
-            transform: translate(-1px, -1px);
-        }
-        .nav-pill.active {
-            background: var(--pink);
-            transform: translate(2px, 2px);
-            box-shadow: 1px 1px 0px var(--ink);
-        }
-
-        /* MARQUEE */
-        .ticker-bar {
-            background: var(--pink-soft);
-            border: 3px solid var(--ink);
-            border-radius: 999px;
-            padding: 10px 18px;
-            margin-bottom: 22px;
-            box-shadow: var(--shadow-sm);
-            font-family: 'Space Mono', monospace;
-            font-size: 14px;
-            font-weight: 700;
-            color: #8A2B52;
-        }
-
-        /* SEÇÕES DO PORTAL (HOME, MÚSICAS, ARTISTAS, ÁLBUNS, PLAYLISTS, TESTES, SOBRE) */
-        .portal-section {
-            display: none;
-        }
-        .portal-section.active {
-            display: block;
-        }
-
-        /* TELA DE LOGIN SPOTIFY */
-        .auth-card {
-            background: var(--cream);
-            border: 3.5px solid var(--ink);
-            border-radius: 26px;
-            padding: 40px 28px;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-            max-width: 780px;
-            margin: 18px auto 32px;
-            position: relative;
-        }
-        .auth-card h2 {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 36px;
-            color: var(--pink-hot);
-            margin-bottom: 12px;
-        }
-        .auth-card p {
-            font-size: 18px;
-            font-weight: 500;
-            color: var(--ink-soft);
-            max-width: 600px;
-            margin: 0 auto 24px;
-        }
-        .btn-spotify {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--mint-deep);
-            color: #FFFFFF;
-            text-decoration: none;
-            font-family: 'Space Mono', monospace;
-            font-size: 17px;
-            font-weight: 700;
-            padding: 14px 28px;
-            border: 3px solid var(--ink);
-            border-radius: 16px;
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.12s ease;
-        }
-        .btn-spotify:hover { transform: translate(-2px, -2px); }
-
-        /* PLAYER DE BLOG ANTIGO (2013-2014) */
-        .retro-player {
-            background: linear-gradient(135deg, var(--pink-soft) 0%, var(--cream) 55%, var(--yellow-soft) 100%);
-            border: 3.5px solid var(--ink);
-            border-radius: 26px;
-            padding: 24px;
-            box-shadow: var(--shadow-lg);
-            margin-bottom: 24px;
-            position: relative;
-        }
-        .player-top-badges {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 16px;
-        }
-        .player-main {
-            display: grid;
-            grid-template-columns: 185px 1fr;
-            gap: 26px;
-            align-items: center;
-        }
-        .polaroid-frame {
-            background: #FFFFFF;
-            border: 3px solid var(--ink);
-            border-radius: 14px;
-            padding: 10px 10px 24px;
-            box-shadow: 5px 5px 0px var(--ink);
-            transform: rotate(-2deg);
-            text-align: center;
-        }
-        .polaroid-frame img {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            border: 2.5px solid var(--ink);
-            border-radius: 10px;
-            display: block;
-            background: var(--paper);
-        }
-        .polaroid-caption {
-            font-family: 'Caveat', cursive;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--ink);
-            margin-top: 6px;
-            line-height: 1.1;
-        }
-        .player-status-row {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 8px;
-        }
-        .status-pill {
-            background: var(--mint-deep);
-            color: #FFFDF8;
-            font-family: 'Space Mono', monospace;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 5px 13px;
-            border-radius: 999px;
-            border: 2px solid var(--ink);
-        }
-        .now-track-title {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-weight: 800;
-            font-size: clamp(26px, 4vw, 42px);
-            line-height: 1.15;
-            color: var(--ink);
-            margin-bottom: 4px;
-        }
-        .now-track-artist {
-            font-family: 'Space Mono', monospace;
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--pink-hot);
-            margin-bottom: 14px;
-        }
-        .player-actions {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 14px;
-        }
-        .btn-mini {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-family: 'Space Mono', monospace;
-            font-size: 13px;
-            font-weight: 700;
-            padding: 8px 14px;
-            border: 2.5px solid var(--ink);
-            border-radius: 12px;
-            box-shadow: 3px 3px 0px var(--ink);
-            background: var(--yellow);
-            color: var(--ink);
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .btn-mini:hover { transform: translate(-1px, -1px); }
-        .btn-mini.secondary { background: var(--cream); }
-        .btn-mini.spotify-link { background: var(--mint); }
-
-        .scrubber-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-family: 'Space Mono', monospace;
-            font-size: 13px;
-            font-weight: 700;
-        }
-        .scrubber-track {
-            flex: 1;
-            height: 18px;
-            background: var(--cream);
-            border: 2.5px solid var(--ink);
-            border-radius: 999px;
-            overflow: hidden;
-            position: relative;
-        }
-        .scrubber-fill {
-            height: 100%;
-            width: 0%;
-            background: repeating-linear-gradient(
-                -45deg,
-                var(--pink-hot),
-                var(--pink-hot) 10px,
-                var(--pink) 10px,
-                var(--pink) 20px
-            );
-            transition: width 0.45s linear;
-        }
-
-        /* SELETOR DE MÚSICA DO DIÁRIO PARA EXPLORAR QUALQUER FAIXA */
-        .diary-switcher {
-            background: var(--cream);
-            border: 3px solid var(--ink);
-            border-radius: 20px;
-            padding: 16px 20px;
-            box-shadow: var(--shadow);
-            margin-bottom: 24px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-        }
-        .diary-switcher-label {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-weight: 700;
-            font-size: 20px;
-        }
-        .track-chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .track-chip {
-            font-family: 'Space Mono', monospace;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 6px 12px;
-            border: 2px solid var(--ink);
-            border-radius: 12px;
-            background: var(--paper);
-            color: var(--ink);
-            cursor: pointer;
-            box-shadow: 2px 2px 0px var(--ink);
-        }
-        .track-chip.active {
-            background: var(--yellow);
-        }
-
-        /* ABAS PRINCIPAIS DA MATÉRIA (PÁGINA 01, 02, 03) */
-        .issue-tabs {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-            margin-bottom: 22px;
-        }
-        .issue-tab-btn {
-            background: var(--cream);
-            border: 3px solid var(--ink);
-            border-radius: 18px;
-            padding: 15px 16px;
-            text-align: left;
-            cursor: pointer;
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.12s ease, background 0.12s ease;
-        }
-        .issue-tab-btn:hover { transform: translate(-2px, -2px); }
-        .issue-tab-num {
-            display: block;
-            font-family: 'Space Mono', monospace;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--pink-hot);
-            margin-bottom: 3px;
-        }
-        .issue-tab-title {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-weight: 700;
-            font-size: 22px;
-            color: var(--ink);
-        }
-        .issue-tab-btn.active[data-page="tab-letra"] {
-            background: var(--mint);
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0px var(--ink);
-        }
-        .issue-tab-btn.active[data-page="tab-curiosidades"] {
-            background: var(--pink);
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0px var(--ink);
-        }
-        .issue-tab-btn.active[data-page="tab-psicologia"] {
-            background: var(--yellow);
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0px var(--ink);
-        }
-
-        .page-panel {
-            display: none;
-        }
-        .page-panel.active {
-            display: block;
-        }
-
-        /* CAIXAS EDITORIAIS E DIAGRAMAS ASSIMÉTRICOS */
-        .mag-box {
-            background: var(--cream);
-            border: 3.5px solid var(--ink);
-            border-radius: 24px;
-            padding: 24px 26px;
-            box-shadow: var(--shadow);
-            position: relative;
-            margin-bottom: 24px;
-        }
-        .mag-box-pink { background: var(--pink-soft); }
-        .mag-box-mint { background: #EFFAF3; }
-        .mag-box-yellow { background: var(--yellow-soft); }
-
-        .box-head {
+        .faixa-selos {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
             gap: 10px;
             padding-bottom: 12px;
-            margin-bottom: 18px;
-            border-bottom: 2.5px solid var(--ink);
+            margin-bottom: 14px;
+            border-bottom: 3px dashed var(--tinta);
         }
-        .box-heading {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-weight: 800;
-            font-size: 28px;
-            color: var(--ink);
-        }
-
-        .two-col-editorial {
-            display: grid;
-            grid-template-columns: 1.35fr 0.9fr;
-            gap: 24px;
-            align-items: start;
-        }
-
-        /* PÁGINA 01 — LETRA E TRADUÇÃO (SEM NEGRITO FORÇADO, ESTROFES CLARAS) */
-        .lyrics-toolbar {
+        .grupo-selos {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 16px;
         }
-        .mode-btn {
+        .selo {
+            display: inline-block;
+            font-family: 'Space Mono', monospace;
+            font-size: 12.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border: 2.5px solid var(--tinta);
+            border-radius: 999px;
+            box-shadow: 3px 3px 0px var(--tinta);
+            background: var(--creme);
+        }
+        .selo-rosa { background: var(--rosa); color: var(--tinta); transform: rotate(-2deg); }
+        .selo-amarelo { background: var(--amarelo); color: var(--tinta); transform: rotate(1.5deg); }
+        .selo-verde { background: var(--verde); color: var(--tinta); transform: rotate(-1deg); }
+        .selo-lilas { background: var(--lilas); color: var(--tinta); transform: rotate(2deg); }
+
+        .capa-grade {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 22px;
+        }
+        .chamada-lateral {
+            border: 3px solid var(--tinta);
+            border-radius: 18px;
+            padding: 14px 18px;
+            box-shadow: 5px 5px 0px var(--tinta);
+        }
+        .chamada-lateral.esq {
+            background: var(--rosa-claro);
+            transform: rotate(-1.5deg);
+        }
+        .chamada-lateral.dir {
+            background: var(--amarelo-claro);
+            transform: rotate(1.5deg);
+        }
+        .chamada-rotulo {
             font-family: 'Space Mono', monospace;
             font-size: 12px;
             font-weight: 700;
-            padding: 7px 13px;
-            border: 2.5px solid var(--ink);
-            border-radius: 12px;
-            background: var(--cream);
-            color: var(--ink);
-            cursor: pointer;
-            box-shadow: 2px 2px 0px var(--ink);
-        }
-        .mode-btn.active { background: var(--yellow); }
-
-        .lyrics-sheet {
-            background: #FFFFFF;
-            border: 2.5px solid var(--ink);
-            border-radius: 18px;
-            padding: 26px 28px;
-            font-family: 'Quicksand', sans-serif;
-            font-size: 21px;
-            font-weight: 500;
-            line-height: 2.05;
-            color: var(--ink);
-            white-space: pre-line;
-        }
-        .lyrics-sheet b, .lyrics-sheet strong {
-            font-weight: 700;
-        }
-
-        /* PÁGINA 02 — CURIOSIDADES E BASTIDORES */
-        .gossip-note {
-            background: #FFFFFF;
-            border: 3px solid var(--ink);
-            border-radius: 18px;
-            padding: 20px 22px;
-            margin-bottom: 16px;
-            box-shadow: 4px 4px 0px var(--pink);
-            font-size: 18px;
-            font-weight: 500;
-            line-height: 1.8;
-            color: var(--ink);
-        }
-
-        /* PÁGINA 03 — ANÁLISE PSICOLÓGICA (COLUNA EDITORIAL, SEM NEGRITO NO CORPO INTEIRO) */
-        .psych-column {
-            background: #FFFFFF;
-            border: 3px solid var(--ink);
-            border-radius: 20px;
-            padding: 28px 30px;
-            box-shadow: 5px 5px 0px var(--yellow);
-            font-size: 19px;
-            font-weight: 500;
-            line-height: 1.9;
-            color: var(--ink);
-        }
-        .psych-column p {
-            margin-bottom: 16px;
-        }
-
-        /* COLAGENS, POLAROIDS, CDs, FONES E ADESIVOS (SEM IMAGENS INVENTADAS OU QUEBRADAS) */
-        .collage-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-            margin-top: 8px;
-        }
-        .collage-card {
-            background: #FFFFFF;
-            border: 3px solid var(--ink);
-            border-radius: 18px;
-            padding: 14px;
-            box-shadow: 4px 4px 0px var(--ink);
-        }
-        .collage-card.tilt-l { transform: rotate(-1.5deg); }
-        .collage-card.tilt-r { transform: rotate(1.5deg); }
-
-        .visual-slot {
-            border: 2.5px dashed var(--ink);
-            border-radius: 14px;
-            min-height: 165px;
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(145deg, var(--pink-soft), var(--yellow-soft));
-            position: relative;
-        }
-        .visual-slot img.real-media {
-            width: 100%;
-            max-height: 230px;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 2px solid var(--ink);
-        }
-        .cd-disc {
-            width: 84px;
-            height: 84px;
-            border-radius: 50%;
-            border: 3px solid var(--ink);
-            background: conic-gradient(var(--pink), var(--yellow), var(--mint), var(--pink));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-            box-shadow: 3px 3px 0px var(--ink);
-        }
-        .cd-hole {
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: var(--cream);
-            border: 2.5px solid var(--ink);
-        }
-        .slot-label {
-            font-family: 'Space Mono', monospace;
-            font-size: 11px;
-            font-weight: 700;
+            color: var(--rosa-forte);
             text-transform: uppercase;
-            background: var(--cream);
-            border: 2px solid var(--ink);
-            border-radius: 8px;
-            padding: 3px 9px;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
-        .slot-title {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-weight: 700;
-            font-size: 19px;
-            color: var(--ink);
-        }
-        .slot-caption {
-            font-family: 'Caveat', cursive;
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--ink-soft);
-            margin-top: 8px;
-            line-height: 1.2;
-        }
-
-        /* QUADROS EDITORIAIS EXTRAS COM FORMATOS DIFERENTES */
-        .editorial-extras-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 22px;
-            margin-top: 24px;
-        }
-        .frame-letter {
-            background: var(--cream);
-            border: 3px solid var(--ink);
-            border-radius: 6px 24px 18px 24px;
-            padding: 22px;
-            box-shadow: var(--shadow);
-        }
-        .frame-speech {
-            background: var(--pink-soft);
-            border: 3px solid var(--ink);
-            border-radius: 26px 26px 26px 4px;
-            padding: 22px;
-            box-shadow: var(--shadow);
-        }
-        .frame-vibe {
-            background: var(--yellow-soft);
-            border: 3px solid var(--ink);
-            border-radius: 22px;
-            padding: 22px;
-            box-shadow: var(--shadow);
-        }
-        .frame-tape {
-            background: #EFFAF3;
-            border: 3px dashed var(--ink);
-            border-radius: 18px;
-            padding: 22px;
-            box-shadow: var(--shadow-sm);
-        }
-        .frame-quote {
-            grid-column: 1 / -1;
-            background: linear-gradient(90deg, var(--pink-soft), var(--cream), var(--yellow-soft));
-            border: 3.5px solid var(--ink);
-            border-radius: 24px;
-            padding: 26px;
-            box-shadow: var(--shadow-lg);
-            text-align: center;
-        }
-        .quote-big {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: clamp(24px, 3.5vw, 34px);
-            font-weight: 700;
-            color: var(--ink);
-            margin: 10px 0;
-        }
-        .quadro-title {
+        .chamada-texto {
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-weight: 800;
+            font-size: 20px;
+            line-height: 1.25;
+        }
+
+        .titulo-central {
+            text-align: center;
+        }
+        .sobre-titulo {
+            font-family: 'Caveat', cursive;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--rosa-forte);
+        }
+        .titulo-principal {
+            font-family: 'VT323', monospace;
+            font-size: clamp(56px, 7.2vw, 96px);
+            line-height: 0.94;
+            color: var(--rosa-forte);
+            text-shadow: 3px 3px 0px var(--amarelo), 6px 6px 0px var(--tinta);
+            letter-spacing: 3px;
+        }
+        .sub-revista {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--tinta);
+            margin-top: 4px;
+        }
+
+        .barra-secoes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 3px solid var(--tinta);
+        }
+        .btn-secao {
+            flex: 1 1 130px;
+            background: var(--creme);
+            color: var(--tinta);
+            border: 3px solid var(--tinta);
+            border-radius: 15px;
+            padding: 10px 12px;
+            font-family: 'Space Mono', monospace;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 4px 4px 0px var(--tinta);
+            text-align: center;
+        }
+        .btn-secao:hover { background: var(--amarelo-claro); transform: translate(-1px, -1px); }
+        .btn-secao.ativa { background: var(--rosa); box-shadow: 2px 2px 0px var(--tinta); }
+
+        .letreiro-topo {
+            width: 100%;
+            background: var(--amarelo);
+            border: 3.5px solid var(--tinta);
+            border-radius: 999px;
+            padding: 10px 22px;
+            margin-bottom: 20px;
+            box-shadow: var(--sombra);
+            font-family: 'Space Mono', monospace;
+            font-size: 14.5px;
+            font-weight: 700;
+            color: var(--tinta);
+        }
+
+        .secao-portal { display: none; width: 100%; }
+        .secao-portal.ativa { display: block; }
+
+        .caixa-login {
+            width: 100%;
+            background: var(--creme);
+            border: 4px solid var(--tinta);
+            border-radius: 26px;
+            padding: 32px 28px;
+            text-align: center;
+            box-shadow: var(--sombra-alta);
+            margin-bottom: 22px;
+        }
+        .caixa-login p {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 12px auto 20px;
+            max-width: 960px;
+        }
+        .botao-spotify {
+            display: inline-block;
+            background: var(--verde-escuro);
+            color: #FFFFFF;
+            text-decoration: none;
+            font-family: 'Space Mono', monospace;
+            font-size: 19px;
+            font-weight: 700;
+            padding: 14px 28px;
+            border: 3.5px solid var(--tinta);
+            border-radius: 18px;
+            box-shadow: var(--sombra);
+        }
+
+        /* PLAYER ESTILO BLOG ANTIGO OCUPANDO A LARGURA TODA */
+        .player-blog {
+            width: 100%;
+            background: linear-gradient(95deg, #FFD4E8 0%, #FFFDF9 50%, #FFF2A6 100%);
+            border: 4px solid var(--tinta);
+            border-radius: 26px;
+            padding: 22px 28px;
+            box-shadow: var(--sombra-alta);
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 200px 1fr auto;
+            gap: 26px;
+            align-items: center;
+        }
+        .polaroid {
+            background: #FFFFFF;
+            border: 3px solid var(--tinta);
+            border-radius: 14px;
+            padding: 10px 10px 22px;
+            box-shadow: 5px 5px 0px var(--tinta);
+            transform: rotate(-2.5deg);
+            text-align: center;
+        }
+        .polaroid img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border: 2.5px solid var(--tinta);
+            border-radius: 10px;
+            background: var(--creme);
+        }
+        .polaroid-legenda {
+            font-family: 'Caveat', cursive;
             font-size: 22px;
+            font-weight: 700;
+            margin-top: 6px;
+        }
+        .badge-ao-vivo {
+            display: inline-block;
+            background: var(--verde-escuro);
+            color: #FFFFFF;
+            font-family: 'Space Mono', monospace;
+            font-size: 13.5px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 999px;
+            border: 2.5px solid var(--tinta);
             margin-bottom: 10px;
+        }
+        .nome-faixa-player {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 800;
+            font-size: clamp(28px, 3.8vw, 46px);
+            line-height: 1.15;
+            margin-bottom: 6px;
+        }
+        .artista-faixa-player {
+            font-family: 'Space Mono', monospace;
+            font-size: 16.5px;
+            font-weight: 700;
+            color: var(--rosa-forte);
+            margin-bottom: 14px;
+        }
+        .controles-player {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .btn-acao {
+            display: inline-block;
+            font-family: 'Space Mono', monospace;
+            font-size: 13.5px;
+            font-weight: 700;
+            padding: 9px 15px;
+            border: 2.5px solid var(--tinta);
+            border-radius: 13px;
+            box-shadow: 3px 3px 0px var(--tinta);
+            background: var(--amarelo);
+            color: var(--tinta);
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .btn-acao.verde { background: var(--verde); }
+        .btn-acao.rosa { background: var(--rosa); }
+        .btn-acao.branco { background: var(--creme); }
+
+        .linha-progresso {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 14px;
+            font-family: 'Space Mono', monospace;
+            font-size: 15px;
+            font-weight: 700;
         }
-        .vibe-tags {
+        .trilho-progresso {
+            flex: 1;
+            height: 20px;
+            background: #FFFFFF;
+            border: 3px solid var(--tinta);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+        .preenchimento-progresso {
+            height: 100%;
+            width: 0%;
+            background: repeating-linear-gradient(-45deg, var(--rosa-forte), var(--rosa-forte) 10px, var(--rosa) 10px, var(--rosa) 20px);
+            transition: width 0.45s linear;
+        }
+
+        .mini-colagem-lateral {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 245px;
+        }
+        .adesivo-bloco {
+            background: var(--creme);
+            border: 3px solid var(--tinta);
+            border-radius: 16px;
+            padding: 11px 14px;
+            box-shadow: 4px 4px 0px var(--tinta);
+            font-weight: 700;
+            font-size: 13.5px;
+        }
+        .adesivo-bloco.rot1 { transform: rotate(2deg); background: var(--amarelo); }
+        .adesivo-bloco.rot2 { transform: rotate(-1.5deg); background: var(--verde); }
+        .adesivo-bloco.rot3 { transform: rotate(1deg); background: var(--lilas); }
+
+        .barra-musicas {
+            width: 100%;
+            background: var(--creme);
+            border: 3.5px solid var(--tinta);
+            border-radius: 22px;
+            padding: 16px 22px;
+            box-shadow: var(--sombra);
+            margin-bottom: 20px;
+        }
+        .lista-chips {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
             margin-top: 10px;
         }
-        .vibe-chip {
-            background: #FFFFFF;
-            border: 2px solid var(--ink);
-            border-radius: 999px;
-            padding: 4px 12px;
+        .chip-musica {
+            font-family: 'Space Mono', monospace;
             font-size: 13px;
             font-weight: 700;
+            padding: 7px 14px;
+            border: 2.5px solid var(--tinta);
+            border-radius: 12px;
+            background: var(--rosa-claro);
+            color: var(--tinta);
+            cursor: pointer;
+            box-shadow: 3px 3px 0px var(--tinta);
         }
-        .checklist-teen {
+        .chip-musica.ativa { background: var(--amarelo); }
+
+        /* 3 ABAS PRINCIPAIS COM CORES VIVAS DE REVISTA */
+        .abas-materia {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .aba-btn {
+            background: var(--creme);
+            border: 3.5px solid var(--tinta);
+            border-radius: 20px;
+            padding: 16px 20px;
+            box-shadow: var(--sombra);
+            cursor: pointer;
+            text-align: left;
+        }
+        .aba-btn:hover { transform: translate(-2px, -2px); }
+        .aba-rotulo {
+            display: block;
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--rosa-forte);
+            margin-bottom: 4px;
+        }
+        .aba-titulo {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 800;
+            font-size: 24px;
+        }
+        .aba-btn.ativa[data-aba="aba-01"] { background: var(--verde); box-shadow: 3px 3px 0px var(--tinta); transform: translate(2px, 2px); }
+        .aba-btn.ativa[data-aba="aba-02"] { background: var(--rosa); box-shadow: 3px 3px 0px var(--tinta); transform: translate(2px, 2px); }
+        .aba-btn.ativa[data-aba="aba-03"] { background: var(--amarelo); box-shadow: 3px 3px 0px var(--tinta); transform: translate(2px, 2px); }
+
+        .conteudo-aba { display: none; width: 100%; }
+        .conteudo-aba.ativa { display: block; }
+
+        .caixa-revista {
+            width: 100%;
+            background: var(--creme);
+            border: 4px solid var(--tinta);
+            border-radius: 26px;
+            padding: 26px 30px;
+            box-shadow: var(--sombra-alta);
+            margin-bottom: 22px;
+        }
+        .caixa-verde { background: #E9FBF0; }
+        .caixa-rosa { background: #FFF0F7; }
+        .caixa-amarela { background: #FFFBE0; }
+
+        .cabecalho-caixa {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 14px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--tinta);
+        }
+        .titulo-caixa {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 800;
+            font-size: 30px;
+        }
+
+        .duas-colunas {
+            display: grid;
+            grid-template-columns: 1.55fr 1fr;
+            gap: 26px;
+            align-items: start;
+        }
+
+        /* LETRA E TRADUÇÃO: SEM NEGRITO NO TEXTO INTEIRO, BEM RESPIRO ENTRE ESTROFES */
+        .folha-letra {
+            background: #FFFFFF;
+            border: 3px solid var(--tinta);
+            border-radius: 20px;
+            padding: 28px 32px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 22px;
+            font-weight: 500;
+            line-height: 2.05;
+            color: var(--tinta);
+            white-space: pre-line;
+            box-shadow: 6px 6px 0px var(--verde);
+        }
+
+        .cartao-curiosidade {
+            background: #FFFFFF;
+            border: 3px solid var(--tinta);
+            border-radius: 20px;
+            padding: 22px 26px;
+            margin-bottom: 16px;
+            box-shadow: 6px 6px 0px var(--rosa);
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1.85;
+        }
+
+        .coluna-psico {
+            background: #FFFFFF;
+            border: 3px solid var(--tinta);
+            border-radius: 20px;
+            padding: 28px 32px;
+            box-shadow: 6px 6px 0px var(--amarelo);
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1.9;
+        }
+        .coluna-psico p { margin-bottom: 16px; }
+
+        .grade-colagem {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .recorte-foto {
+            background: #FFFFFF;
+            border: 3px solid var(--tinta);
+            border-radius: 18px;
+            padding: 14px;
+            box-shadow: 5px 5px 0px var(--tinta);
+            text-align: center;
+        }
+        .recorte-foto.esq { transform: rotate(-1.8deg); }
+        .recorte-foto.dir { transform: rotate(1.8deg); }
+        .area-ilustracao {
+            border: 2.5px dashed var(--tinta);
+            border-radius: 14px;
+            padding: 18px 12px;
+            background: linear-gradient(135deg, #FFE4F0, #FFF6C2, #D5F7E3);
+            min-height: 165px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .disco-cd {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid var(--tinta);
+            background: conic-gradient(var(--rosa), var(--amarelo), var(--verde), var(--lilas), var(--rosa));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+        .miolo-cd {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            border: 2.5px solid var(--tinta);
+        }
+        .legenda-scrap {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        /* QUADROS COLORIDOS ESPALHADOS PELA LARGURA DA REVISTA */
+        .grade-quadros {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .quadro {
+            border: 3.5px solid var(--tinta);
+            border-radius: 22px;
+            padding: 22px 24px;
+            box-shadow: var(--sombra);
+            background: var(--creme);
+        }
+        .quadro-rosa { background: #FFDDF0; border-radius: 26px 26px 26px 6px; }
+        .quadro-amarelo { background: #FFF4B8; border-radius: 22px; }
+        .quadro-verde { background: #DDF8E8; border: 3.5px dashed var(--tinta); }
+        .quadro-lilas { background: #F1E2FF; border-radius: 8px 26px 20px 26px; }
+        .quadro-destaque-largo {
+            grid-column: 1 / -1;
+            background: linear-gradient(95deg, #FFD4E8, #FFF8C9, #D7F8E5);
+            border: 4px solid var(--tinta);
+            border-radius: 26px;
+            padding: 26px 30px;
+            box-shadow: var(--sombra-alta);
+            text-align: center;
+        }
+        .titulo-quadro {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 800;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .frase-marcante {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 800;
+            font-size: clamp(24px, 3.4vw, 36px);
+            margin: 10px 0;
+        }
+        .lista-situacoes {
             list-style: none;
             margin-top: 8px;
         }
-        .checklist-teen li {
-            padding: 6px 0;
-            border-bottom: 1.5px dotted var(--ink);
-            font-size: 16px;
+        .lista-situacoes li {
+            padding: 7px 0;
+            border-bottom: 1.5px dotted var(--tinta);
             font-weight: 600;
+            font-size: 17px;
         }
-        .checklist-teen li:last-child { border-bottom: none; }
+        .lista-situacoes li:last-child { border-bottom: none; }
 
-        .rec-cards-row {
+        .grade-recs {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 14px;
             margin-top: 12px;
         }
-        .rec-mini-card {
+        .card-rec {
             background: #FFFFFF;
-            border: 2.5px solid var(--ink);
+            border: 2.5px solid var(--tinta);
             border-radius: 16px;
             padding: 14px;
-            box-shadow: 3px 3px 0px var(--ink);
+            box-shadow: 3px 3px 0px var(--tinta);
             cursor: pointer;
         }
-        .rec-mini-card:hover { background: var(--yellow-soft); }
+        .card-rec:hover { background: var(--amarelo-claro); }
 
-        .rating-stars {
-            font-family: 'Space Mono', monospace;
-            font-size: 18px;
-            font-weight: 700;
-            background: #FFFFFF;
-            display: inline-block;
-            padding: 6px 14px;
-            border: 2.5px solid var(--ink);
-            border-radius: 12px;
-            margin: 8px 0 12px;
-        }
-
-        .reader-box textarea {
-            width: 100%;
-            min-height: 92px;
-            border: 2.5px solid var(--ink);
-            border-radius: 14px;
-            padding: 12px;
-            font-family: 'Quicksand', sans-serif;
-            font-size: 16px;
-            font-weight: 600;
-            background: #FFFFFF;
-            color: var(--ink);
-            margin-top: 10px;
-        }
-        .reader-notes-list {
-            margin-top: 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .reader-note-item {
-            background: #FFFFFF;
-            border: 2px solid var(--ink);
-            border-radius: 12px;
-            padding: 10px 14px;
-            font-size: 15px;
-            font-weight: 600;
-        }
-
-        /* SEÇÕES DO PORTAL (HOME, MÚSICAS, ARTISTAS, ÁLBUNS, PLAYLISTS, TESTES, SOBRE) */
-        .home-grid {
+        .grade-catalogo {
             display: grid;
-            grid-template-columns: 1.3fr 1fr;
-            gap: 22px;
-            margin-bottom: 24px;
-        }
-        .catalog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 16px;
             margin-top: 14px;
         }
-        .catalog-card {
+        .card-cat {
             background: #FFFFFF;
-            border: 3px solid var(--ink);
+            border: 3px solid var(--tinta);
             border-radius: 18px;
             padding: 16px;
-            box-shadow: 4px 4px 0px var(--ink);
+            box-shadow: 4px 4px 0px var(--tinta);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             gap: 10px;
         }
-        .catalog-title {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-weight: 700;
-            font-size: 22px;
-            color: var(--ink);
-        }
-        .catalog-sub {
-            font-family: 'Space Mono', monospace;
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--pink-hot);
-            text-transform: uppercase;
-        }
-        .quiz-option {
+        .opcao-teste {
             display: block;
             width: 100%;
             text-align: left;
             background: #FFFFFF;
-            border: 2.5px solid var(--ink);
+            border: 2.5px solid var(--tinta);
             border-radius: 14px;
-            padding: 12px 16px;
+            padding: 13px 16px;
             margin-bottom: 10px;
             font-family: 'Quicksand', sans-serif;
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 700;
             cursor: pointer;
-            box-shadow: 3px 3px 0px var(--ink);
+            box-shadow: 3px 3px 0px var(--tinta);
         }
-        .quiz-option:hover { background: var(--pink-soft); }
+        .opcao-teste:hover { background: var(--rosa-claro); }
 
-        @media (max-width: 860px) {
-            .player-main { grid-template-columns: 1fr; text-align: center; }
-            .polaroid-frame { max-width: 210px; margin: 0 auto; }
-            .player-status-row, .player-actions, .scrubber-row { justify-content: center; }
-            .issue-tabs { grid-template-columns: 1fr; }
-            .two-col-editorial, .home-grid, .collage-grid, .editorial-extras-grid, .rec-cards-row {
+        textarea.campo-caderno {
+            width: 100%;
+            min-height: 90px;
+            border: 2.5px solid var(--tinta);
+            border-radius: 14px;
+            padding: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 17px;
+            font-weight: 600;
+            background: #FFFFFF;
+            margin-top: 10px;
+        }
+        .nota-salva {
+            background: #FFFFFF;
+            border: 2.5px solid var(--tinta);
+            border-radius: 12px;
+            padding: 10px 14px;
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 960px) {
+            body { padding: 14px 12px 70px; }
+            .capa-grade, .player-blog, .duas-colunas, .abas-materia, .grade-quadros, .grade-recs, .grade-colagem {
                 grid-template-columns: 1fr;
             }
-            .lyrics-sheet { font-size: 19px; padding: 20px; }
+            .mini-colagem-lateral { width: 100%; }
+            .polaroid { max-width: 220px; margin: 0 auto; }
         }
     </style>
 </head>
 <body>
-    <div class="mag-shell">
-        <header class="masthead">
-            <div class="tape tape-tl"></div>
-            <div class="tape tape-tr"></div>
-            <div class="masthead-strip">
-                <div class="masthead-tags">
-                    <span class="badge-tag tag-hot">★ HOT NEWS</span>
-                    <span class="badge-tag tag-new">NEW MUSIC</span>
-                    <span class="badge-tag tag-crush">CRUSH ALERT</span>
-                    <span class="badge-tag tag-mint">GIRL TALK</span>
+    <div class="pagina-cheia">
+        <header class="capa-revista">
+            <div class="faixa-selos">
+                <div class="grupo-selos">
+                    <span class="selo selo-rosa">★ OMG!</span>
+                    <span class="selo selo-amarelo">HOT NEWS</span>
+                    <span class="selo selo-verde">NEW MUSIC</span>
+                    <span class="selo selo-lilas">CRUSH ALERT</span>
+                    <span class="selo selo-rosa">GIRL TALK</span>
                 </div>
-                <div class="issue-meta">EDIÇÃO 2013–2014 • MUSIC DIARY</div>
+                <span class="selo selo-amarelo">MUSIC DIARY • 2013–2014</span>
             </div>
 
-            <div class="logo-block">
-                <div class="logo-kicker">diário secreto, letras, bastidores &amp; mente em 2013–2014</div>
-                <h1 class="logo-main">XOXO My Music Diary</h1>
-                <div class="logo-tagline">~* ON REPEAT • PLAY NOW • EXCLUSIVE • XOXO *~</div>
+            <div class="capa-grade">
+                <div class="chamada-lateral esq">
+                    <div class="chamada-rotulo">EXCLUSIVE • ENCARTE</div>
+                    <div class="chamada-texto">Letras traduzidas, bastidores secretos &amp; o que ninguém te contou</div>
+                </div>
+
+                <div class="titulo-central">
+                    <div class="sobre-titulo">revista &amp; diário musical adolescente</div>
+                    <h1 class="titulo-principal">~* xoxo My Music Diary *~</h1>
+                    <div class="sub-revista">edição especial de som, sentimentos &amp; mente</div>
+                </div>
+
+                <div class="chamada-lateral dir">
+                    <div class="chamada-rotulo">ON REPEAT • PLAY NOW</div>
+                    <div class="chamada-texto">Coluna de psicologia, testes e o seu Spotify em tempo real</div>
+                </div>
             </div>
 
-            <nav class="portal-nav" aria-label="Navegação da revista">
-                <button type="button" class="nav-pill active" data-sec="sec-home" onclick="irSecao('sec-home', this)">🏠 HOME</button>
-                <button type="button" class="nav-pill" data-sec="sec-musicas" onclick="irSecao('sec-musicas', this)">🎵 MÚSICAS</button>
-                <button type="button" class="nav-pill" data-sec="sec-artistas" onclick="irSecao('sec-artistas', this)">🎤 ARTISTAS</button>
-                <button type="button" class="nav-pill" data-sec="sec-albuns" onclick="irSecao('sec-albuns', this)">💿 ÁLBUNS</button>
-                <button type="button" class="nav-pill" data-sec="sec-playlists" onclick="irSecao('sec-playlists', this)">🎧 PLAYLISTS</button>
-                <button type="button" class="nav-pill" data-sec="sec-testes" onclick="irSecao('sec-testes', this)">💌 TESTES</button>
-                <button type="button" class="nav-pill" data-sec="sec-sobre" onclick="irSecao('sec-sobre', this)">📖 SOBRE A REVISTA</button>
+            <nav class="barra-secoes" aria-label="Seções da revista">
+                <button type="button" class="btn-secao ativa" data-sec="sec-home" onclick="abrirSecao('sec-home', this)">🏠 HOME</button>
+                <button type="button" class="btn-secao" data-sec="sec-musicas" onclick="abrirSecao('sec-musicas', this)">🎵 MÚSICAS</button>
+                <button type="button" class="btn-secao" data-sec="sec-artistas" onclick="abrirSecao('sec-artistas', this)">🎤 ARTISTAS</button>
+                <button type="button" class="btn-secao" data-sec="sec-albuns" onclick="abrirSecao('sec-albuns', this)">💿 ÁLBUNS</button>
+                <button type="button" class="btn-secao" data-sec="sec-playlists" onclick="abrirSecao('sec-playlists', this)">🎧 PLAYLISTS</button>
+                <button type="button" class="btn-secao" data-sec="sec-testes" onclick="abrirSecao('sec-testes', this)">💌 TESTES</button>
+                <button type="button" class="btn-secao" data-sec="sec-sobre" onclick="abrirSecao('sec-sobre', this)">📖 SOBRE A REVISTA</button>
             </nav>
         </header>
 
-        <div class="ticker-bar">
-            <marquee scrollamount="5">★ OMG! A sua revista musical de 2013–2014 está no ar ★ Folheie Letra &amp; Tradução, Curiosidades e Análise Psicológica ★ XOXO MUSIC DIARY ★ ON REPEAT ★</marquee>
+        <div class="letreiro-topo">
+            <marquee scrollamount="5">★ XOXO • A sua revista musical estilo 2013–2014 ★ Folheie Letra &amp; Tradução, Curiosidades e Análise Psicológica ★ ON REPEAT ★ PLAY NOW ★</marquee>
         </div>
 
-        <!-- SEÇÃO PRINCIPAL: HOME (PLAYER + MATÉRIA COMPLETA + VITRINE DA REVISTA) -->
-        <section id="sec-home" class="portal-section active">
+        <section id="sec-home" class="secao-portal ativa">
             {% if not logado %}
-            <div class="auth-card">
-                <span class="badge-tag tag-hot" style="margin-bottom:12px;">PLAY NOW • SPOTIFY</span>
-                <h2>Conecte seu Spotify para abrir o diário ao vivo</h2>
-                <p>Entre com a sua conta do Spotify para acompanhar o som do momento com letra, tradução, curiosidades, análise psicológica e quadros de revista teen. Você também pode explorar as matérias cadastradas no catálogo abaixo.</p>
-                <a href="/login" class="btn-spotify">♪ Entrar com o Spotify</a>
+            <div class="caixa-login">
+                <span class="selo selo-rosa">PLAY NOW • SPOTIFY</span>
+                <h2 class="titulo-caixa" style="margin-top:10px;">Conecte sua conta do Spotify para abrir o diário ao vivo</h2>
+                <p>Entre com o seu Spotify para acompanhar o que está tocando agora com letra, tradução, curiosidades, análise psicológica e quadros da revista. Você também pode clicar em qualquer faixa cadastrada no diário logo abaixo.</p>
+                <a href="/login" class="botao-spotify">♪ Entrar com o Spotify</a>
             </div>
             {% else %}
-            <div class="retro-player">
-                <div class="player-top-badges">
-                    <span class="badge-tag tag-new">ON REPEAT • PLAYER DO DIÁRIO</span>
-                    <span class="badge-tag tag-mint" id="spotify-account-tag">SESSÃO ISOLADA ATIVA</span>
+            <div class="player-blog">
+                <div class="polaroid">
+                    <img id="album-img" src="" alt="Capa da música" style="display:none;">
+                    <div id="album-placeholder" class="area-ilustracao" style="min-height:155px; padding:10px;">
+                        <div class="disco-cd"><div class="miolo-cd"></div></div>
+                        <div style="font-weight:700; font-size:14px;">Capa ao dar play</div>
+                    </div>
+                    <div class="polaroid-legenda" id="polaroid-legenda">xoxo • no repeat</div>
                 </div>
-                <div class="player-main">
-                    <div class="polaroid-frame">
-                        <img id="album-img" src="" alt="Capa da faixa atual" style="display:none;">
-                        <div id="album-placeholder-slot" class="visual-slot" style="min-height:145px; padding:10px;">
-                            <div class="cd-disc"><div class="cd-hole"></div></div>
-                            <div class="slot-title" style="font-size:15px;">Capa ao dar play</div>
-                        </div>
-                        <div class="polaroid-caption" id="polaroid-caption">xoxo • agora no som</div>
+
+                <div>
+                    <span class="badge-ao-vivo" id="status-badge">● AGUARDANDO PLAY</span>
+                    <div class="nome-faixa-player" id="track-title">Dê o play em uma música no Spotify</div>
+                    <div class="artista-faixa-player" id="track-artist">ou escolha uma música do diário logo abaixo</div>
+
+                    <div class="controles-player">
+                        <button type="button" class="btn-acao" id="btn-pausa-tela" onclick="alternarPausaTela()">❚❚ Pausar / Retomar</button>
+                        <a id="spotify-link" href="https://open.spotify.com" target="_blank" rel="noopener" class="btn-acao verde">♪ Ouvir no Spotify</a>
+                        <span id="clipe-container"></span>
                     </div>
 
-                    <div>
-                        <div class="player-status-row">
-                            <span class="status-pill" id="status-badge">● AGUARDANDO PLAY</span>
-                            <span class="badge-tag tag-crush" id="source-badge">DIÁRIO / SPOTIFY</span>
+                    <div class="linha-progresso">
+                        <span id="time-current">0:00</span>
+                        <div class="trilho-progresso">
+                            <div class="preenchimento-progresso" id="progress-bar"></div>
                         </div>
-                        <div class="now-track-title" id="track-title">Dê o play em uma música no Spotify</div>
-                        <div class="now-track-artist" id="track-artist">ou escolha uma faixa do diário logo abaixo</div>
-
-                        <div class="player-actions">
-                            <button type="button" class="btn-mini" id="btn-toggle-play" onclick="alternarEstadoVisualPlayer()">❚❚ Pausar / Retomar</button>
-                            <a id="spotify-open-link" href="https://open.spotify.com" target="_blank" rel="noopener" class="btn-mini spotify-link">♪ Ouvir no Spotify</a>
-                            <span id="clipe-container"></span>
-                        </div>
-
-                        <div class="scrubber-row">
-                            <span id="time-current">0:00</span>
-                            <div class="scrubber-track">
-                                <div class="scrubber-fill" id="progress-bar"></div>
-                            </div>
-                            <span id="time-total">0:00</span>
-                        </div>
+                        <span id="time-total">0:00</span>
                     </div>
+                </div>
+
+                <div class="mini-colagem-lateral">
+                    <div class="adesivo-bloco rot1">♥ XOXO • DIÁRIO TEEN</div>
+                    <div class="adesivo-bloco rot2">🎧 ON REPEAT • 2013–2014</div>
+                    <div class="adesivo-bloco rot3">✂️ LETRA • BASTIDORES • MENTE</div>
                 </div>
             </div>
             {% endif %}
 
-            <!-- SELETOR RÁPIDO DAS MÚSICAS DO DIÁRIO -->
-            <div class="diary-switcher">
-                <span class="diary-switcher-label">✂ Matérias no arquivo do diário:</span>
-                <div class="track-chips" id="track-chips-container"></div>
+            <div class="barra-musicas">
+                <strong style="font-family:'Playfair Display', serif; font-style:italic; font-size:22px;">✂ Músicas cadastradas no diário (clique para abrir a matéria):</strong>
+                <div class="lista-chips" id="chips-musicas"></div>
             </div>
 
-            <!-- 3 PÁGINAS PRINCIPAIS DA MATÉRIA -->
-            <div class="issue-tabs" role="tablist">
-                <button type="button" class="issue-tab-btn active" data-page="tab-letra" onclick="abrirPaginaMateria('tab-letra', this)">
-                    <span class="issue-tab-num">PÁGINA 01 • ENCARTE</span>
-                    <span class="issue-tab-title">♪ Letra e Tradução</span>
+            <div class="abas-materia">
+                <button type="button" class="aba-btn ativa" data-aba="aba-01" onclick="abrirAbaMateria('aba-01', this)">
+                    <span class="aba-rotulo">PÁGINA 01 • ENCARTE</span>
+                    <span class="aba-titulo">♪ Letra e Tradução</span>
                 </button>
-                <button type="button" class="issue-tab-btn" data-page="tab-curiosidades" onclick="abrirPaginaMateria('tab-curiosidades', this)">
-                    <span class="issue-tab-num">PÁGINA 02 • BASTIDORES</span>
-                    <span class="issue-tab-title">✨ Curiosidades e Bastidores</span>
+                <button type="button" class="aba-btn" data-aba="aba-02" onclick="abrirAbaMateria('aba-02', this)">
+                    <span class="aba-rotulo">PÁGINA 02 • BASTIDORES</span>
+                    <span class="aba-titulo">✨ Curiosidades e Bastidores</span>
                 </button>
-                <button type="button" class="issue-tab-btn" data-page="tab-psicologia" onclick="abrirPaginaMateria('tab-psicologia', this)">
-                    <span class="issue-tab-num">PÁGINA 03 • COLUNA</span>
-                    <span class="issue-tab-title">🧠 Análise Psicológica</span>
+                <button type="button" class="aba-btn" data-aba="aba-03" onclick="abrirAbaMateria('aba-03', this)">
+                    <span class="aba-rotulo">PÁGINA 03 • COLUNA</span>
+                    <span class="aba-titulo">🧠 Análise Psicológica</span>
                 </button>
             </div>
 
-            <!-- PÁGINA 01: LETRA E TRADUÇÃO -->
-            <div id="tab-letra" class="page-panel active">
-                <div class="mag-box mag-box-mint">
-                    <div class="box-head">
-                        <h2 class="box-heading">♪ Página 01 — Letra e Tradução</h2>
-                        <span class="badge-tag tag-mint">ESTROFES &amp; LEITURA</span>
+            <div id="aba-01" class="conteudo-aba ativa">
+                <div class="caixa-revista caixa-verde">
+                    <div class="cabecalho-caixa">
+                        <h2 class="titulo-caixa">♪ Página 01 — Letra e Tradução</h2>
+                        <span class="selo selo-verde">ESTROFES &amp; TRADUÇÃO</span>
                     </div>
-                    <div class="two-col-editorial">
+                    <div class="duas-colunas">
                         <div>
-                            <div class="lyrics-toolbar">
-                                <button type="button" class="mode-btn active" id="btn-mode-pt" onclick="setLyricsMode('pt', this)">Tradução (PT-BR)</button>
-                                <button type="button" class="mode-btn" id="btn-mode-orig" onclick="setLyricsMode('orig', this)">Referência Original</button>
+                            <div class="controles-player" style="margin-bottom:14px;">
+                                <button type="button" class="btn-acao" id="btn-modo-pt" onclick="mudarModoLetra('pt', this)">Tradução (PT-BR)</button>
+                                <button type="button" class="btn-acao branco" id="btn-modo-orig" onclick="mudarModoLetra('orig', this)">Referência Original</button>
                             </div>
-                            <div id="lyrics-box" class="lyrics-sheet">Selecione uma música ou dê o play no Spotify para ler a tradução aqui.</div>
+                            <div id="lyrics-box" class="folha-letra">Escolha uma faixa ou dê o play no Spotify para ler aqui.</div>
                         </div>
-                        <div class="collage-grid">
-                            <div class="collage-card tilt-l">
-                                <div class="visual-slot">
-                                    <span class="slot-label">ENCARTE • CD</span>
-                                    <div class="cd-disc"><div class="cd-hole"></div></div>
-                                    <div class="slot-title" id="collage-cd-title">Faixa em destaque</div>
-                                    <div class="slot-caption">anote seus versos favoritos no caderno!</div>
-                                </div>
-                            </div>
-                            <div class="collage-card tilt-r">
-                                <div class="visual-slot">
-                                    <span class="slot-label">FONES • ON REPEAT</span>
-                                    <div style="font-size:38px; margin-bottom:6px;">🎧</div>
-                                    <div class="slot-title">Modo Imersão</div>
-                                    <div class="slot-caption">cada estrofe guarda uma cena inteira</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- PÁGINA 02: CURIOSIDADES E BASTIDORES -->
-            <div id="tab-curiosidades" class="page-panel">
-                <div class="mag-box mag-box-pink">
-                    <div class="box-head">
-                        <h2 class="box-heading">✨ Página 02 — Curiosidades e Bastidores</h2>
-                        <span class="badge-tag tag-hot">EXCLUSIVE • XOXO</span>
-                    </div>
-                    <div class="two-col-editorial">
-                        <div id="gossip-box">As curiosidades e bastidores da faixa aparecem aqui.</div>
-                        <div class="collage-grid">
-                            <div class="collage-card tilt-r">
-                                <div class="visual-slot">
-                                    <span class="slot-label">RECORTE DE REVISTA</span>
-                                    <div style="font-size:34px; margin-bottom:6px;">✂️📰</div>
-                                    <div class="slot-title">Bastidores &amp; Referências</div>
-                                    <div class="slot-caption">detalhes que só quem presta atenção nota!</div>
+                        <div class="grade-colagem">
+                            <div class="recorte-foto esq">
+                                <div class="area-ilustracao">
+                                    <span class="selo selo-amarelo" style="margin-bottom:8px;">CD &amp; ENCARTE</span>
+                                    <div class="disco-cd"><div class="miolo-cd"></div></div>
+                                    <div style="font-weight:700;" id="nome-cd-colagem">Faixa em destaque</div>
                                 </div>
+                                <div class="legenda-scrap">versos que marcam o caderno</div>
                             </div>
-                            <div class="collage-card tilt-l">
-                                <div class="visual-slot">
-                                    <span class="slot-label">POLAROID • ESTÚDIO</span>
-                                    <div style="font-size:34px; margin-bottom:6px;">📷✨</div>
-                                    <div class="slot-title">Clima da Era</div>
-                                    <div class="slot-caption">memórias de estúdio e estética pop</div>
+                            <div class="recorte-foto dir">
+                                <div class="area-ilustracao">
+                                    <span class="selo selo-rosa" style="margin-bottom:8px;">FONES ON</span>
+                                    <div style="font-size:40px; margin-bottom:6px;">🎧</div>
+                                    <div style="font-weight:700;">Modo Revista</div>
                                 </div>
+                                <div class="legenda-scrap">leia acompanhando o som</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- PÁGINA 03: ANÁLISE PSICOLÓGICA -->
-            <div id="tab-psicologia" class="page-panel">
-                <div class="mag-box mag-box-yellow">
-                    <div class="box-head">
-                        <h2 class="box-heading">🧠 Página 03 — Análise Psicológica</h2>
-                        <span class="badge-tag tag-new">COLUNA DE MENTE</span>
+            <div id="aba-02" class="conteudo-aba">
+                <div class="caixa-revista caixa-rosa">
+                    <div class="cabecalho-caixa">
+                        <h2 class="titulo-caixa">✨ Página 02 — Curiosidades e Bastidores</h2>
+                        <span class="selo selo-rosa">EXCLUSIVE • XOXO</span>
                     </div>
-                    <div id="psych-box" class="psych-column">A análise psicológica da faixa aparece aqui.</div>
+                    <div class="duas-colunas">
+                        <div id="gossip-box">As curiosidades e bastidores aparecem aqui.</div>
+                        <div class="grade-colagem">
+                            <div class="recorte-foto dir">
+                                <div class="area-ilustracao">
+                                    <span class="selo selo-lilas" style="margin-bottom:8px;">RECORTE</span>
+                                    <div style="font-size:36px; margin-bottom:6px;">✂️📰</div>
+                                    <div style="font-weight:700;">Bastidores da Faixa</div>
+                                </div>
+                                <div class="legenda-scrap">detalhes de estúdio e história</div>
+                            </div>
+                            <div class="recorte-foto esq">
+                                <div class="area-ilustracao">
+                                    <span class="selo selo-verde" style="margin-bottom:8px;">POLAROID</span>
+                                    <div style="font-size:36px; margin-bottom:6px;">📷✨</div>
+                                    <div style="font-weight:700;">Clima &amp; Referências</div>
+                                </div>
+                                <div class="legenda-scrap">tudo que passa despercebido</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- QUADROS EDITORIAIS EXTRAS COM IDENTIDADE VISUAL PRÓPRIA -->
-            <div class="editorial-extras-grid">
-                <article class="frame-speech">
-                    <div class="quadro-title">💗 AFINAL, SOBRE O QUE É ESSA MÚSICA?</div>
-                    <p id="quadro-sobre" style="font-size:17px; font-weight:600;"></p>
+            <div id="aba-03" class="conteudo-aba">
+                <div class="caixa-revista caixa-amarela">
+                    <div class="cabecalho-caixa">
+                        <h2 class="titulo-caixa">🧠 Página 03 — Análise Psicológica</h2>
+                        <span class="selo selo-amarelo">COLUNA ESPECIAL</span>
+                    </div>
+                    <div id="psych-box" class="coluna-psico">A análise psicológica aparece aqui.</div>
+                </div>
+            </div>
+
+            <div class="grade-quadros">
+                <article class="quadro quadro-rosa">
+                    <div class="titulo-quadro">💗 AFINAL, SOBRE O QUE É ESSA MÚSICA?</div>
+                    <p id="q-sobre" style="font-weight:600;"></p>
                 </article>
 
-                <article class="frame-letter">
-                    <div class="quadro-title">👀 VOCÊ PERCEBEU?</div>
-                    <p id="quadro-percebeu" style="font-size:17px; font-weight:600;"></p>
+                <article class="quadro quadro-lilas">
+                    <div class="titulo-quadro">👀 VOCÊ PERCEBEU?</div>
+                    <p id="q-percebeu" style="font-weight:600;"></p>
                 </article>
 
-                <article class="frame-vibe">
-                    <div class="quadro-title">🎀 VIBE CHECK</div>
-                    <p id="quadro-vibe-desc" style="font-size:16px; font-weight:600;"></p>
-                    <div class="vibe-tags" id="quadro-vibe-tags"></div>
+                <article class="quadro quadro-amarelo">
+                    <div class="titulo-quadro">🎀 VIBE CHECK</div>
+                    <p id="q-vibe" style="font-weight:600;"></p>
+                    <div class="lista-chips" id="q-vibe-selos"></div>
                 </article>
 
-                <article class="frame-tape">
-                    <div class="quadro-title">💌 ESSA MÚSICA É PRA VOCÊ SE...</div>
-                    <ul class="checklist-teen" id="quadro-pra-voce"></ul>
+                <article class="quadro quadro-verde">
+                    <div class="titulo-quadro">💌 ESSA MÚSICA É PRA VOCÊ SE...</div>
+                    <ul class="lista-situacoes" id="q-pra-voce"></ul>
                 </article>
 
-                <article class="frame-letter">
-                    <div class="quadro-title">📼 VOLTANDO NO TEMPO</div>
-                    <p id="quadro-epoca" style="font-size:17px; font-weight:600;"></p>
+                <article class="quadro quadro-lilas">
+                    <div class="titulo-quadro">📼 VOLTANDO NO TEMPO</div>
+                    <p id="q-epoca" style="font-weight:600;"></p>
                 </article>
 
-                <article class="frame-vibe">
-                    <div class="quadro-title">⭐ NOTA DA REDAÇÃO</div>
-                    <div class="rating-stars" id="quadro-nota-estrelas">★★★★★</div>
-                    <p id="quadro-nota-texto" style="font-size:16px; font-weight:600;"></p>
+                <article class="quadro quadro-amarelo">
+                    <div class="titulo-quadro">⭐ NOTA DA REDAÇÃO</div>
+                    <div class="selo selo-rosa" style="margin-bottom:10px;">★★★★★ DESTAQUE DO DIÁRIO</div>
+                    <p id="q-nota" style="font-weight:600;"></p>
                 </article>
 
-                <article class="frame-quote">
-                    <span class="badge-tag tag-crush">💭 A FRASE QUE FICA</span>
-                    <div class="quote-big" id="quadro-frase"></div>
-                    <p id="quadro-frase-nota" style="font-size:16px; font-weight:600; max-width:780px; margin:0 auto;"></p>
+                <article class="quadro-destaque-largo">
+                    <span class="selo selo-amarelo">💭 A FRASE QUE FICA</span>
+                    <div class="frase-marcante" id="q-frase"></div>
+                    <p id="q-frase-legenda" style="font-weight:600;"></p>
                 </article>
 
-                <article class="frame-speech" style="grid-column: 1 / -1;">
-                    <div class="quadro-title">🎧 SE VOCÊ GOSTOU DESSA...</div>
-                    <p style="font-size:16px; font-weight:600;">Clique em outra faixa do diário para continuar a maratona:</p>
-                    <div class="rec-cards-row" id="quadro-recomendacoes"></div>
+                <article class="quadro quadro-rosa" style="grid-column: 1 / -1;">
+                    <div class="titulo-quadro">🎧 SE VOCÊ GOSTOU DESSA...</div>
+                    <p style="font-weight:600;">Outras matérias do diário para continuar lendo:</p>
+                    <div class="grade-recs" id="q-recs"></div>
                 </article>
 
-                <article class="frame-tape reader-box" style="grid-column: 1 / -1;">
-                    <div class="quadro-title">💬 E VOCÊ?</div>
-                    <p style="font-size:16px; font-weight:600;">Qual trecho bateu mais forte hoje? Escreva seu comentário no caderno da revista:</p>
-                    <textarea id="reader-comment-input" placeholder="Escreva o que essa música fez você sentir..."></textarea>
+                <article class="quadro quadro-verde" style="grid-column: 1 / -1;">
+                    <div class="titulo-quadro">💬 E VOCÊ?</div>
+                    <p style="font-weight:600;">Deixe o seu comentário ou o que essa música significa pra você:</p>
+                    <textarea id="input-comentario" class="campo-caderno" placeholder="Escreva aqui como numa página de diário..."></textarea>
                     <div style="margin-top:10px;">
-                        <button type="button" class="btn-mini" onclick="salvarComentarioLeitora()">♥ Guardar no caderno</button>
+                        <button type="button" class="btn-acao" onclick="adicionarComentario()">♥ Guardar no caderno</button>
                     </div>
-                    <div class="reader-notes-list" id="reader-comments-list"></div>
+                    <div id="lista-comentarios"></div>
                 </article>
             </div>
+        </section>
 
-            <!-- VITRINE HOME: ÚLTIMAS MÚSICAS, ARTISTAS, PLAYLISTS E TESTES -->
-            <div class="home-grid" style="margin-top:26px;">
-                <div class="mag-box">
-                    <div class="box-head">
-                        <h2 class="box-heading">★ Últimas Músicas &amp; Matérias</h2>
-                        <span class="badge-tag tag-hot">ARQUIVO</span>
-                    </div>
-                    <div id="home-latest-list" style="display:flex; flex-direction:column; gap:10px;"></div>
+        <section id="sec-musicas" class="secao-portal">
+            <div class="caixa-revista">
+                <div class="cabecalho-caixa">
+                    <h2 class="titulo-caixa">🎵 Todas as Músicas do Diário</h2>
+                    <span class="selo selo-rosa">MÚSICAS</span>
                 </div>
-
-                <div class="mag-box mag-box-pink">
-                    <div class="box-head">
-                        <h2 class="box-heading">🎧 Playlists &amp; Clima</h2>
-                        <span class="badge-tag tag-new">2013–2014</span>
-                    </div>
-                    <p style="font-size:16px; font-weight:600; margin-bottom:12px;">Escolha um mood para filtrar as músicas da revista:</p>
-                    <div class="vibe-tags">
-                        <button type="button" class="vibe-chip" onclick="irSecaoPorNome('sec-musicas')">Todas as músicas</button>
-                        <button type="button" class="vibe-chip" onclick="irSecaoPorNome('sec-playlists')">Madrugada &amp; Intensidade</button>
-                        <button type="button" class="vibe-chip" onclick="irSecaoPorNome('sec-testes')">Teste: Qual faixa é a sua cara?</button>
-                    </div>
-                </div>
+                <div class="grade-catalogo" id="cat-musicas"></div>
             </div>
         </section>
 
-        <!-- SEÇÃO MÚSICAS -->
-        <section id="sec-musicas" class="portal-section">
-            <div class="mag-box">
-                <div class="box-head">
-                    <h2 class="box-heading">🎵 Todas as Músicas do Diário</h2>
-                    <span class="badge-tag tag-hot">CATÁLOGO</span>
+        <section id="sec-artistas" class="secao-portal">
+            <div class="caixa-revista caixa-rosa">
+                <div class="cabecalho-caixa">
+                    <h2 class="titulo-caixa">🎤 Artistas</h2>
+                    <span class="selo selo-amarelo">ARTISTAS</span>
                 </div>
-                <p style="font-size:17px; font-weight:600;">Clique em qualquer música para abrir a matéria completa com Letra &amp; Tradução, Curiosidades e Análise Psicológica.</p>
-                <div class="catalog-grid" id="grid-musicas"></div>
+                <div class="grade-catalogo" id="cat-artistas"></div>
             </div>
         </section>
 
-        <!-- SEÇÃO ARTISTAS -->
-        <section id="sec-artistas" class="portal-section">
-            <div class="mag-box mag-box-pink">
-                <div class="box-head">
-                    <h2 class="box-heading">🎤 Artistas em Destaque</h2>
-                    <span class="badge-tag tag-crush">SPOTLIGHT</span>
+        <section id="sec-albuns" class="secao-portal">
+            <div class="caixa-revista caixa-verde">
+                <div class="cabecalho-caixa">
+                    <h2 class="titulo-caixa">💿 Álbuns &amp; Eras</h2>
+                    <span class="selo selo-verde">ÁLBUNS</span>
                 </div>
-                <div class="catalog-grid" id="grid-artistas"></div>
+                <div class="grade-catalogo" id="cat-albuns"></div>
             </div>
         </section>
 
-        <!-- SEÇÃO ÁLBUNS -->
-        <section id="sec-albuns" class="portal-section">
-            <div class="mag-box mag-box-mint">
-                <div class="box-head">
-                    <h2 class="box-heading">💿 Eras &amp; Álbuns</h2>
-                    <span class="badge-tag tag-mint">ENCARTES</span>
+        <section id="sec-playlists" class="secao-portal">
+            <div class="caixa-revista caixa-amarela">
+                <div class="cabecalho-caixa">
+                    <h2 class="titulo-caixa">🎧 Playlists Temáticas</h2>
+                    <span class="selo selo-rosa">PLAYLISTS</span>
                 </div>
-                <div class="catalog-grid" id="grid-albuns"></div>
+                <div class="grade-catalogo" id="cat-playlists"></div>
             </div>
         </section>
 
-        <!-- SEÇÃO PLAYLISTS -->
-        <section id="sec-playlists" class="portal-section">
-            <div class="mag-box mag-box-yellow">
-                <div class="box-head">
-                    <h2 class="box-heading">🎧 Playlists Temáticas da Redação</h2>
-                    <span class="badge-tag tag-new">ON REPEAT</span>
+        <section id="sec-testes" class="secao-portal">
+            <div class="caixa-revista">
+                <div class="cabecalho-caixa">
+                    <h2 class="titulo-caixa">💌 Testes da Revista</h2>
+                    <span class="selo selo-lilas">GIRL TALK</span>
                 </div>
-                <div class="catalog-grid" id="grid-playlists"></div>
+                <p style="font-weight:700; margin-bottom:12px;">Qual é o seu mood de hoje na revista?</p>
+                <button type="button" class="opcao-teste" onclick="resultadoTeste('a')">A) Intensidade máxima, sem meio-termo</button>
+                <button type="button" class="opcao-teste" onclick="resultadoTeste('b')">B) Madrugada, saudade e pensamentos profundos</button>
+                <button type="button" class="opcao-teste" onclick="resultadoTeste('c')">C) Conexão, entrega e romance no ar</button>
+                <div id="caixa-resultado-teste" class="cartao-curiosidade" style="display:none; margin-top:12px;"></div>
             </div>
         </section>
 
-        <!-- SEÇÃO TESTES -->
-        <section id="sec-testes" class="portal-section">
-            <div class="mag-box">
-                <div class="box-head">
-                    <h2 class="box-heading">💌 Teste da Revista: Qual é o seu Mood Musical?</h2>
-                    <span class="badge-tag tag-hot">GIRL TALK</span>
+        <section id="sec-sobre" class="secao-portal">
+            <div class="caixa-revista caixa-rosa">
+                <div class="cabecalho-caixa">
+                    <h2 class="titulo-caixa">📖 Sobre a Revista</h2>
+                    <span class="selo selo-amarelo">XOXO MY MUSIC DIARY</span>
                 </div>
-                <p style="font-size:17px; font-weight:600; margin-bottom:14px;">Responda como numa página clássica de revista teen para descobrir uma indicação do diário:</p>
-                <button type="button" class="quiz-option" onclick="mostrarResultadoTeste('intensidade')">A) Tô vivendo tudo no limite, sem meio-termo e com o coração acelerado.</button>
-                <button type="button" class="quiz-option" onclick="mostrarResultadoTeste('saudade')">B) Tô naquela saudade de madrugada pensando no que ficou pra trás.</button>
-                <button type="button" class="quiz-option" onclick="mostrarResultadoTeste('entrega')">C) Tô pronta pra baixar a guarda e me entregar de verdade.</button>
-                <div id="quiz-resultado" class="gossip-note" style="display:none; margin-top:14px;"></div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO SOBRE A REVISTA -->
-        <section id="sec-sobre" class="portal-section">
-            <div class="mag-box mag-box-pink">
-                <div class="box-head">
-                    <h2 class="box-heading">📖 Sobre a XOXO My Music Diary</h2>
-                    <span class="badge-tag tag-hot">XOXO</span>
-                </div>
-                <p style="font-size:18px; font-weight:600; margin-bottom:14px;">A XOXO My Music Diary reúne a nostalgia das revistas adolescentes de 2013–2014, o clima afetivo dos blogs e do Tumblr e um olhar cuidadoso sobre letras, bastidores e psicologia das canções.</p>
-                <p style="font-size:17px; font-weight:500;">Cada música cadastrada no código ou nos arquivos JSON da pasta <code>musicas_extras/</code> preserva integralmente seus textos originais de tradução, curiosidades e análise psicológica.</p>
+                <p style="font-size:19px; font-weight:600; margin-bottom:12px;">XOXO My Music Diary une a nostalgia das revistas adolescentes brasileiras de 2013–2014, o clima de blogs e diário pessoal e a análise de letras, bastidores e psicologia das músicas.</p>
+                <p style="font-size:18px; font-weight:500;">Todos os seus textos originais e arquivos JSON em <code>musicas_extras/</code> continuam preservados.</p>
             </div>
         </section>
     </div>
 
     <script>
-        const CATALOGO_MANUAL = {{ catalogo_json | safe }};
-        const CHAVES_CATALOGO = Object.keys(CATALOGO_MANUAL);
+        const CATALOGO = {{ catalogo_json | safe }};
+        const CHAVES = Object.keys(CATALOGO);
 
-        let currentTrackId = null;
-        let selectedManualKey = CHAVES_CATALOGO[0] || null;
-        let currentLyricsPt = "";
-        let currentLyricsOrig = "";
-        let lyricsMode = "pt";
-        let visualPaused = false;
+        let idFaixaAtual = null;
+        let chaveSelecionada = CHAVES[0] || null;
+        let letraPt = "";
+        let letraOrig = "";
+        let modoLetra = "pt";
+        let pausadoNaTela = false;
 
-        function normalizarChave(txt) {
-            if (!txt) return "";
-            return txt.toLowerCase().replace(/[’‘´`]/g, "'").trim();
+        function normalizar(t) {
+            return (t || "").toLowerCase().replace(/[’‘´`]/g, "'").trim();
         }
 
-        function encontrarChaveCatalogo(titulo) {
-            const norm = normalizarChave(titulo);
-            if (!norm) return null;
-            if (CATALOGO_MANUAL[norm]) return norm;
-            const limpo = norm.split("(")[0].split(" - ")[0].trim();
-            if (CATALOGO_MANUAL[limpo]) return limpo;
-            for (const ch of CHAVES_CATALOGO) {
-                if (norm.includes(ch)) return ch;
+        function acharChave(titulo) {
+            const n = normalizar(titulo);
+            if (!n) return null;
+            if (CATALOGO[n]) return n;
+            const curto = n.split("(")[0].split(" - ")[0].trim();
+            if (CATALOGO[curto]) return curto;
+            for (const c of CHAVES) {
+                if (n.includes(c)) return c;
             }
             return null;
         }
 
-        function irSecao(secId, btn) {
-            document.querySelectorAll('.portal-section').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.nav-pill').forEach(b => b.classList.remove('active'));
-            const alvo = document.getElementById(secId);
-            if (alvo) alvo.classList.add('active');
-            if (btn) btn.classList.add('active');
+        function abrirSecao(idSec, btn) {
+            document.querySelectorAll('.secao-portal').forEach(s => s.classList.remove('ativa'));
+            document.querySelectorAll('.btn-secao').forEach(b => b.classList.remove('ativa'));
+            const el = document.getElementById(idSec);
+            if (el) el.classList.add('ativa');
+            if (btn) btn.classList.add('ativa');
         }
 
-        function irSecaoPorNome(secId) {
-            const btn = document.querySelector(`.nav-pill[data-sec="${secId}"]`);
-            irSecao(secId, btn);
+        function abrirAbaMateria(idAba, btn) {
+            document.querySelectorAll('.conteudo-aba').forEach(c => c.classList.remove('ativa'));
+            document.querySelectorAll('.aba-btn').forEach(b => b.classList.remove('ativa'));
+            const el = document.getElementById(idAba);
+            if (el) el.classList.add('ativa');
+            if (btn) btn.classList.add('ativa');
         }
 
-        function abrirPaginaMateria(pageId, btn) {
-            document.querySelectorAll('.page-panel').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.issue-tab-btn').forEach(b => b.classList.remove('active'));
-            const alvo = document.getElementById(pageId);
-            if (alvo) alvo.classList.add('active');
-            if (btn) btn.classList.add('active');
+        function mudarModoLetra(modo, btn) {
+            modoLetra = modo;
+            document.querySelectorAll('[id^="btn-modo-"]').forEach(b => b.classList.remove('ativa'));
+            if (btn) btn.classList.add('ativa');
+            renderizarLetra();
         }
 
-        function setLyricsMode(mode, btn) {
-            lyricsMode = mode;
-            document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
-            if (btn) btn.classList.add('active');
-            renderLyricsSheet();
-        }
-
-        function renderLyricsSheet() {
+        function renderizarLetra() {
             const box = document.getElementById('lyrics-box');
             if (!box) return;
-            if (lyricsMode === 'pt') {
-                box.textContent = currentLyricsPt || "Tradução não cadastrada para esta faixa.";
-            } else {
-                box.textContent = currentLyricsOrig || currentLyricsPt || "Letra original não disponível.";
-            }
+            box.textContent = modoLetra === 'pt'
+                ? (letraPt || "Tradução não disponível para esta faixa.")
+                : (letraOrig || letraPt || "Letra original não disponível.");
         }
 
-        function formatTime(ms) {
-            const totalSec = Math.max(0, Math.floor((ms || 0) / 1000));
-            const min = Math.floor(totalSec / 60);
-            const sec = totalSec % 60;
-            return min + ":" + (sec < 10 ? "0" : "") + sec;
+        function formatarTempo(ms) {
+            const s = Math.max(0, Math.floor((ms || 0) / 1000));
+            const m = Math.floor(s / 60);
+            const r = s % 60;
+            return m + ":" + (r < 10 ? "0" : "") + r;
         }
 
-        function alternarEstadoVisualPlayer() {
-            visualPaused = !visualPaused;
+        function alternarPausaTela() {
+            pausadoNaTela = !pausadoNaTela;
             const badge = document.getElementById('status-badge');
-            if (badge && visualPaused) {
-                badge.textContent = "❚❚ PAUSADO NA TELA";
-            }
+            if (badge && pausadoNaTela) badge.textContent = "❚❚ PAUSADO NA TELA";
         }
 
-        function extrairTrechoDestaque(texto) {
-            if (!texto) return "“Cada verso guarda um sentimento que a gente nem sempre sabe dizer em voz alta.”";
-            const limpo = texto.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
-            const linhas = texto.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
-            if (linhas.length > 0) {
-                const amostra = linhas.slice(0, 2).join(" / ");
-                return "“" + amostra.slice(0, 130) + (amostra.length > 130 ? "..." : "") + "”";
-            }
-            return "“" + limpo.slice(0, 120) + "...”";
-        }
+        function aplicarMateria(titulo, artista, info) {
+            letraPt = (info && info.letra_limpa) ? info.letra_limpa : "Letra não encontrada para esta faixa.";
+            letraOrig = (info && info.letra_original) ? info.letra_original : "";
+            renderizarLetra();
 
-        function renderQuadrosEditoriais(titulo, artista, dadosFaixa) {
-            const letra = (dadosFaixa && dadosFaixa.letra_limpa) ? dadosFaixa.letra_limpa : "";
-            const curiosidades = (dadosFaixa && Array.isArray(dadosFaixa.curiosidades_lista)) ? dadosFaixa.curiosidades_lista : [];
-            const psicologia = (dadosFaixa && dadosFaixa.psicologia) ? dadosFaixa.psicologia.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim() : "";
-
-            const sobreEl = document.getElementById('quadro-sobre');
-            if (sobreEl) {
-                sobreEl.textContent = curiosidades.length > 0
-                    ? curiosidades[0].replace(/<[^>]+>/g, "")
-                    : `“${titulo}” (${artista}) traz uma narrativa marcante que mistura emoção, atmosfera sonora e identificação imediata.`;
+            const gossip = document.getElementById('gossip-box');
+            if (gossip) {
+                const lista = (info && Array.isArray(info.curiosidades_lista) && info.curiosidades_lista.length)
+                    ? info.curiosidades_lista
+                    : [`<b>BASTIDORES:</b><br>Faixa <b>${titulo}</b> de <b>${artista}</b> no diário.`];
+                gossip.innerHTML = lista.map(item => `<div class="cartao-curiosidade">${item}</div>`).join("");
             }
 
-            const percEl = document.getElementById('quadro-percebeu');
-            if (percEl) {
-                percEl.textContent = curiosidades.length > 1
-                    ? curiosidades[1].replace(/<[^>]+>/g, "")
-                    : (curiosidades.length === 1
-                        ? `Repare na construção da letra e nos contrastes de ritmo de “${titulo}” — cada repetição reforça o estado emocional da cena.`
-                        : `Observe como o refrão e os arranjos de “${titulo}” intensificam a mensagem principal ao longo da faixa.`);
+            const psych = document.getElementById('psych-box');
+            if (psych) {
+                const raw = (info && info.psicologia)
+                    ? info.psicologia
+                    : `<b>ANÁLISE PSICOLÓGICA — ${titulo.toUpperCase()}</b><br><br>Observe os sentimentos e emoções despertados por esta música.`;
+                const partes = raw.split(/<br\s*\/?>\s*<br\s*\/?>|
+\s*
+/).filter(p => p.trim());
+                psych.innerHTML = partes.map(p => `<p>${p.trim()}</p>`).join("");
             }
 
-            const vibeDesc = document.getElementById('quadro-vibe-desc');
-            const vibeTags = document.getElementById('quadro-vibe-tags');
-            if (vibeDesc) {
-                vibeDesc.textContent = psicologia
-                    ? psicologia.slice(0, 190) + (psicologia.length > 190 ? "..." : "")
-                    : `Atmosfera envolvente de ${artista}, ideal para ouvir com calma ou no repeat.`;
-            }
-            if (vibeTags) {
-                vibeTags.innerHTML = [
-                    `<span class="vibe-chip">♪ ${artista}</span>`,
-                    `<span class="vibe-chip">♥ Mood 2013–2014</span>`,
-                    `<span class="vibe-chip">✨ On Repeat</span>`
-                ].join("");
-            }
-
-            const praVoce = document.getElementById('quadro-pra-voce');
-            if (praVoce) {
-                praVoce.innerHTML = [
-                    `<li>★ Você precisa de trilha sonora pra organizar o que tá sentindo agora.</li>`,
-                    `<li>★ Gosta de letras que falam de vínculos, escolhas e intensidade.</li>`,
-                    `<li>★ Curte descobrir bastidores e o lado psicológico por trás do som.</li>`
-                ].join("");
-            }
-
-            const epocaEl = document.getElementById('quadro-epoca');
-            if (epocaEl) {
-                epocaEl.textContent = `No universo musical e de blogs/revistas teen que inspiram o diário, “${titulo}” (${artista}) ganha espaço especial pela força da interpretação e pela conexão com o público.`;
-            }
-
-            const notaTexto = document.getElementById('quadro-nota-texto');
-            if (notaTexto) {
-                notaTexto.textContent = `Letra, atmosfera e entrega emocional de “${titulo}” rendem destaque na redação do XOXO My Music Diary.`;
-            }
-
-            const fraseEl = document.getElementById('quadro-frase');
-            const fraseNota = document.getElementById('quadro-frase-nota');
-            if (fraseEl) fraseEl.textContent = extrairTrechoDestaque(letra);
-            if (fraseNota) fraseNota.textContent = `Trecho em destaque de “${titulo}” — ${artista}.`;
-
-            const recRow = document.getElementById('quadro-recomendacoes');
-            if (recRow) {
-                const outras = CHAVES_CATALOGO.filter(k => k !== normalizarChave(titulo)).slice(0, 3);
-                recRow.innerHTML = outras.map(k => {
-                    const item = CATALOGO_MANUAL[k];
-                    return `<div class="rec-mini-card" onclick="selecionarMusicaDoCatalogo('${k.replace(/'/g, "\\'")}')">
-                        <div class="catalog-sub">${item.artista || "Artista"}</div>
-                        <div class="catalog-title" style="font-size:18px;">${k}</div>
-                    </div>`;
-                }).join("");
-            }
-        }
-
-        function aplicarConteudoMateria(titulo, artista, dados) {
-            currentLyricsPt = (dados && dados.letra_limpa) ? dados.letra_limpa : "Letra não encontrada para esta faixa.";
-            currentLyricsOrig = (dados && dados.letra_original) ? dados.letra_original : "";
-            renderLyricsSheet();
-
-            const gossipBox = document.getElementById('gossip-box');
-            if (gossipBox) {
-                const lista = (dados && Array.isArray(dados.curiosidades_lista) && dados.curiosidades_lista.length > 0)
-                    ? dados.curiosidades_lista
-                    : [`<b>BASTIDORES DO DIÁRIO:</b><br>Faixa <b>${titulo}</b> de <b>${artista}</b> em destaque no player.`];
-                gossipBox.innerHTML = lista.map(txt => `<div class="gossip-note">${txt}</div>`).join("");
-            }
-
-            const psychBox = document.getElementById('psych-box');
-            if (psychBox) {
-                const textoPsico = (dados && dados.psicologia)
-                    ? dados.psicologia
-                    : `<b>ANÁLISE PSICOLÓGICA — ${titulo.toUpperCase()}</b><br><br>Observe as emoções, memórias e reações despertadas por esta canção durante a escuta.`;
-                const blocos = textoPsico.split(/<br\s*\/?>\s*<br\s*\/?>|\n\s*\n/).filter(b => b.trim());
-                psychBox.innerHTML = blocos.map(b => `<p>${b.trim()}</p>`).join("");
-            }
-
-            const cdTitle = document.getElementById('collage-cd-title');
-            if (cdTitle) cdTitle.textContent = `${titulo} — ${artista}`;
+            const cdNome = document.getElementById('nome-cd-colagem');
+            if (cdNome) cdNome.textContent = `${titulo} — ${artista}`;
 
             const clipeSpan = document.getElementById('clipe-container');
             if (clipeSpan) {
-                const linkClipe = dados && dados.link_clipe;
-                clipeSpan.innerHTML = linkClipe
-                    ? `<a href="${linkClipe}" target="_blank" rel="noopener" class="btn-mini secondary">▶ Clipe Oficial</a>`
+                clipeSpan.innerHTML = (info && info.link_clipe)
+                    ? `<a href="${info.link_clipe}" target="_blank" rel="noopener" class="btn-acao branco">▶ Ver Clipe</a>`
                     : "";
             }
 
-            renderQuadrosEditoriais(titulo, artista, dados);
+            const listaCur = (info && Array.isArray(info.curiosidades_lista)) ? info.curiosidades_lista : [];
+            const txtPsico = (info && info.psicologia) ? info.psicologia.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim() : "";
+
+            document.getElementById('q-sobre').textContent = listaCur[0]
+                ? listaCur[0].replace(/<[^>]+>/g, "")
+                : `“${titulo}” (${artista}) traz uma história envolvente que conecta letra, ritmo e emoção.`;
+
+            document.getElementById('q-percebeu').textContent = listaCur[1]
+                ? listaCur[1].replace(/<[^>]+>/g, "")
+                : `Repare em como os versos e o clima de “${titulo}” ganham força ao longo da faixa.`;
+
+            document.getElementById('q-vibe').textContent = txtPsico
+                ? txtPsico.slice(0, 180) + (txtPsico.length > 180 ? "..." : "")
+                : `Atmosfera marcante de ${artista} para ouvir no repeat.`;
+
+            document.getElementById('q-vibe-selos').innerHTML = [
+                `<span class="selo selo-rosa">♪ ${artista}</span>`,
+                `<span class="selo selo-amarelo">♥ 2013–2014</span>`,
+                `<span class="selo selo-verde">ON REPEAT</span>`
+            ].join("");
+
+            document.getElementById('q-pra-voce').innerHTML = [
+                "<li>★ Você quer trilha sonora cheia de personalidade pro seu momento.</li>",
+                "<li>★ Gosta de letras com emoção, drama e identificação.</li>",
+                "<li>★ Curte descobrir bastidores e o lado psicológico das músicas.</li>"
+            ].join("");
+
+            document.getElementById('q-epoca').textContent = `No espírito das revistas teen de 2013–2014 e dos blogs musicais, “${titulo}” (${artista}) ganha destaque pela força da letra e pela atmosfera.`;
+            document.getElementById('q-nota').textContent = `Destaque da redação para “${titulo}” (${artista}) pela intensidade e identidade da faixa.`;
+
+            const linhas = letraPt.split(/
+?
+/).map(l => l.trim()).filter(Boolean);
+            document.getElementById('q-frase').textContent = linhas.length
+                ? "“" + linhas.slice(0, 2).join(" / ").slice(0, 130) + "”"
+                : "“Cada verso tem uma história pra contar.”";
+            document.getElementById('q-frase-legenda').textContent = `${titulo} — ${artista}`;
+
+            const outras = CHAVES.filter(c => c !== normalizar(titulo)).slice(0, 3);
+            document.getElementById('q-recs').innerHTML = outras.map(c => {
+                const d = CATALOGO[c];
+                return `<div class="card-rec" onclick="escolherMusica('${c.replace(/'/g, "\'")}')">
+                    <div style="font-size:12px; font-weight:700; color:#D62872;">${d.artista || "Artista"}</div>
+                    <div style="font-family:'Playfair Display', serif; font-style:italic; font-weight:800; font-size:20px;">${c}</div>
+                </div>`;
+            }).join("");
         }
 
-        function selecionarMusicaDoCatalogo(chave) {
-            const dados = CATALOGO_MANUAL[chave];
-            if (!dados) return;
-            selectedManualKey = chave;
-            document.querySelectorAll('.track-chip').forEach(c => {
-                c.classList.toggle('active', c.dataset.key === chave);
-            });
-            const titleEl = document.getElementById('track-title');
-            const artistEl = document.getElementById('track-artist');
-            const srcBadge = document.getElementById('source-badge');
-            const capEl = document.getElementById('polaroid-caption');
-            if (titleEl) titleEl.textContent = chave;
-            if (artistEl) artistEl.textContent = dados.artista || "Artista do Diário";
-            if (srcBadge) srcBadge.textContent = "MATÉRIA DO DIÁRIO";
-            if (capEl) capEl.textContent = chave;
-            aplicarConteudoMateria(chave, dados.artista || "Artista", dados);
-            irSecaoPorNome('sec-home');
+        function escolherMusica(chave) {
+            const d = CATALOGO[chave];
+            if (!d) return;
+            chaveSelecionada = chave;
+            document.querySelectorAll('.chip-musica').forEach(ch => ch.classList.toggle('ativa', ch.dataset.k === chave));
+            const tEl = document.getElementById('track-title');
+            const aEl = document.getElementById('track-artist');
+            const leg = document.getElementById('polaroid-legenda');
+            if (tEl) tEl.textContent = chave;
+            if (aEl) aEl.textContent = d.artista || "Artista";
+            if (leg) leg.textContent = chave;
+            aplicarMateria(chave, d.artista || "Artista", d);
+            abrirSecao('sec-home', document.querySelector('.btn-secao[data-sec="sec-home"]'));
         }
 
-        function montarCatalogoVisual() {
-            const chipsContainer = document.getElementById('track-chips-container');
-            const gridMusicas = document.getElementById('grid-musicas');
-            const latestHome = document.getElementById('home-latest-list');
-            const gridArtistas = document.getElementById('grid-artistas');
-            const gridAlbuns = document.getElementById('grid-albuns');
-            const gridPlaylists = document.getElementById('grid-playlists');
+        function montarListas() {
+            const chips = document.getElementById('chips-musicas');
+            const catM = document.getElementById('cat-musicas');
+            const catA = document.getElementById('cat-artistas');
+            const catAl = document.getElementById('cat-albuns');
+            const catP = document.getElementById('cat-playlists');
 
-            if (chipsContainer) {
-                chipsContainer.innerHTML = CHAVES_CATALOGO.slice(0, 12).map((ch, idx) =>
-                    `<button type="button" class="track-chip ${idx === 0 ? 'active' : ''}" data-key="${ch.replace(/"/g, '&quot;')}" onclick="selecionarMusicaDoCatalogo('${ch.replace(/'/g, "\\'")}')">${ch}</button>`
+            if (chips) {
+                chips.innerHTML = CHAVES.map((c, i) =>
+                    `<button type="button" class="chip-musica ${i === 0 ? 'ativa' : ''}" data-k="${c.replace(/"/g, '&quot;')}" onclick="escolherMusica('${c.replace(/'/g, "\'")}')">${c}</button>`
                 ).join("");
             }
 
-            if (gridMusicas) {
-                gridMusicas.innerHTML = CHAVES_CATALOGO.map(ch => {
-                    const info = CATALOGO_MANUAL[ch];
-                    return `<div class="catalog-card">
+            if (catM) {
+                catM.innerHTML = CHAVES.map(c => {
+                    const d = CATALOGO[c];
+                    return `<div class="card-cat">
                         <div>
-                            <div class="catalog-sub">${info.artista || "Artista"}</div>
-                            <div class="catalog-title">${ch}</div>
+                            <div style="font-size:12px; font-weight:700; color:#D62872;">${d.artista || "Artista"}</div>
+                            <div style="font-family:'Playfair Display', serif; font-style:italic; font-weight:800; font-size:22px;">${c}</div>
                         </div>
-                        <button type="button" class="btn-mini" onclick="selecionarMusicaDoCatalogo('${ch.replace(/'/g, "\\'")}')">Abrir matéria →</button>
+                        <button type="button" class="btn-acao" onclick="escolherMusica('${c.replace(/'/g, "\'")}')">Abrir matéria →</button>
                     </div>`;
                 }).join("");
             }
 
-            if (latestHome) {
-                latestHome.innerHTML = CHAVES_CATALOGO.slice(0, 6).map(ch => {
-                    const info = CATALOGO_MANUAL[ch];
-                    return `<div class="reader-note-item" style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
-                        <span><b>${ch}</b> — ${info.artista || ""}</span>
-                        <button type="button" class="btn-mini secondary" onclick="selecionarMusicaDoCatalogo('${ch.replace(/'/g, "\\'")}')">Ler</button>
+            const artistas = [...new Set(CHAVES.map(c => (CATALOGO[c].artista || "").trim()).filter(Boolean))];
+            if (catA) {
+                catA.innerHTML = artistas.map(art => {
+                    const primeira = CHAVES.find(c => (CATALOGO[c].artista || "").trim() === art);
+                    return `<div class="card-cat">
+                        <div>
+                            <div style="font-size:12px; font-weight:700; color:#1F6E43;">ARTISTA</div>
+                            <div style="font-family:'Playfair Display', serif; font-style:italic; font-weight:800; font-size:22px;">${art}</div>
+                        </div>
+                        <button type="button" class="btn-acao verde" onclick="escolherMusica('${primeira.replace(/'/g, "\'")}')">Ver faixa →</button>
                     </div>`;
                 }).join("");
             }
 
-            const artistasUnicos = [...new Set(CHAVES_CATALOGO.map(ch => (CATALOGO_MANUAL[ch].artista || "").trim()).filter(Boolean))];
-            if (gridArtistas) {
-                gridArtistas.innerHTML = artistasUnicos.map(art => {
-                    const faixasArt = CHAVES_CATALOGO.filter(ch => (CATALOGO_MANUAL[ch].artista || "").trim() === art);
-                    return `<div class="catalog-card">
-                        <div>
-                            <div class="catalog-sub">ARTISTA • ${faixasArt.length} FAIXA(S)</div>
-                            <div class="catalog-title">${art}</div>
-                        </div>
-                        <button type="button" class="btn-mini" onclick="selecionarMusicaDoCatalogo('${faixasArt[0].replace(/'/g, "\\'")}')">Ver faixa em destaque</button>
-                    </div>`;
-                }).join("");
-            }
-
-            if (gridAlbuns) {
-                gridAlbuns.innerHTML = [
-                    { nome: "Mind of Mine & Eras Solo", sub: "ENCARTE ESPECIAL", faixa: "pillowtalk" },
-                    { nome: "Icarus Falls & Baladas", sub: "EDIÇÃO DO DIÁRIO", faixa: "common" },
-                    { nome: "Trilhas & Bastidores", sub: "COLEÇÃO 2013–2014", faixa: "who" }
-                ].filter(a => CATALOGO_MANUAL[a.faixa]).map(a =>
-                    `<div class="catalog-card">
-                        <div>
-                            <div class="catalog-sub">${a.sub}</div>
-                            <div class="catalog-title">${a.nome}</div>
-                        </div>
-                        <button type="button" class="btn-mini" onclick="selecionarMusicaDoCatalogo('${a.faixa}')">Explorar álbum</button>
+            if (catAl) {
+                catAl.innerHTML = [
+                    { t: "Mind of Mine & Eras Solo", k: "pillowtalk" },
+                    { t: "Icarus Falls & Baladas", k: "common" },
+                    { t: "Trilhas & Bastidores", k: "who" }
+                ].filter(x => CATALOGO[x.k]).map(x =>
+                    `<div class="card-cat">
+                        <div style="font-family:'Playfair Display', serif; font-style:italic; font-weight:800; font-size:22px;">${x.t}</div>
+                        <button type="button" class="btn-acao" onclick="escolherMusica('${x.k}')">Abrir encarte →</button>
                     </div>`
                 ).join("");
             }
 
-            if (gridPlaylists) {
-                gridPlaylists.innerHTML = [
-                    { nome: "Noite & Intensidade", sub: "PLAYLIST DA REDAÇÃO", faixa: "bordersz" },
-                    { nome: "Saudade & Madrugada", sub: "DIÁRIO DE BORDO", faixa: "it's you" },
-                    { nome: "Entrega & Descoberta", sub: "ON REPEAT", faixa: "natural" }
-                ].filter(p => CATALOGO_MANUAL[p.faixa]).map(p =>
-                    `<div class="catalog-card">
-                        <div>
-                            <div class="catalog-sub">${p.sub}</div>
-                            <div class="catalog-title">${p.nome}</div>
-                        </div>
-                        <button type="button" class="btn-mini" onclick="selecionarMusicaDoCatalogo('${p.faixa}')">Ouvir / Ler matéria</button>
+            if (catP) {
+                catP.innerHTML = [
+                    { t: "Noite & Intensidade", k: "bordersz" },
+                    { t: "Saudade & Madrugada", k: "it's you" },
+                    { t: "Conexão & Entrega", k: "natural" }
+                ].filter(x => CATALOGO[x.k]).map(x =>
+                    `<div class="card-cat">
+                        <div style="font-family:'Playfair Display', serif; font-style:italic; font-weight:800; font-size:22px;">${x.t}</div>
+                        <button type="button" class="btn-acao" onclick="escolherMusica('${x.k}')">Abrir playlist →</button>
                     </div>`
                 ).join("");
             }
 
-            if (selectedManualKey && CATALOGO_MANUAL[selectedManualKey]) {
-                selecionarMusicaDoCatalogo(selectedManualKey);
+            if (chaveSelecionada && CATALOGO[chaveSelecionada]) {
+                escolherMusica(chaveSelecionada);
             }
         }
 
-        function mostrarResultadoTeste(perfil) {
-            const box = document.getElementById('quiz-resultado');
+        function resultadoTeste(op) {
+            const box = document.getElementById('caixa-resultado-teste');
             if (!box) return;
             box.style.display = 'block';
-            if (perfil === 'intensidade') {
-                box.innerHTML = "<b>RESULTADO DO TESTE:</b> Seu mood pede intensidade! Dê uma olhada na matéria de <b>bordersz</b> ou <b>befour</b>.";
-            } else if (perfil === 'saudade') {
-                box.innerHTML = "<b>RESULTADO DO TESTE:</b> Seu mood tá sensível e reflexivo! Confira as matérias de <b>it's you</b> ou <b>like i would</b>.";
-            } else {
-                box.innerHTML = "<b>RESULTADO DO TESTE:</b> Seu mood pede conexão e entrega! Veja a matéria de <b>natural</b> ou <b>common</b>.";
-            }
+            if (op === 'a') box.textContent = "Seu mood hoje pede intensidade! Veja a matéria de bordersz ou befour.";
+            else if (op === 'b') box.textContent = "Seu mood hoje pede reflexão e madrugada! Veja it's you ou like i would.";
+            else box.textContent = "Seu mood hoje pede conexão! Veja natural ou common.";
         }
 
-        function salvarComentarioLeitora() {
-            const input = document.getElementById('reader-comment-input');
-            const list = document.getElementById('reader-comments-list');
-            if (!input || !list) return;
-            const val = input.value.trim();
-            if (!val) return;
-            const div = document.createElement('div');
-            div.className = 'reader-note-item';
-            div.textContent = "♥ " + val;
-            list.prepend(div);
-            input.value = "";
+        function adicionarComentario() {
+            const inp = document.getElementById('input-comentario');
+            const list = document.getElementById('lista-comentarios');
+            if (!inp || !list) return;
+            const txt = inp.value.trim();
+            if (!txt) return;
+            const d = document.createElement('div');
+            d.className = 'nota-salva';
+            d.textContent = "♥ " + txt;
+            list.prepend(d);
+            inp.value = "";
         }
 
-        async function atualizarSpotify() {
-            const statusBadge = document.getElementById('status-badge');
-            if (!statusBadge) return;
+        async function atualizarPlayer() {
+            const badge = document.getElementById('status-badge');
+            if (!badge) return;
             try {
                 const res = await fetch('/api/now-playing');
                 if (res.status === 401) {
@@ -2166,69 +1863,60 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                 }
                 const data = await res.json();
                 if (data.playing) {
-                    statusBadge.textContent = visualPaused ? "❚❚ PAUSADO NA TELA" : "● TOCANDO AGORA NO SPOTIFY";
-                    const titleEl = document.getElementById('track-title');
-                    const artistEl = document.getElementById('track-artist');
-                    const srcBadge = document.getElementById('source-badge');
-                    const spLink = document.getElementById('spotify-open-link');
-                    const curTime = document.getElementById('time-current');
-                    const totTime = document.getElementById('time-total');
-                    const progBar = document.getElementById('progress-bar');
+                    badge.textContent = pausadoNaTela ? "❚❚ PAUSADO NA TELA" : "● TOCANDO AGORA NO SPOTIFY";
+                    const tEl = document.getElementById('track-title');
+                    const aEl = document.getElementById('track-artist');
+                    const linkSp = document.getElementById('spotify-link');
+                    const tc = document.getElementById('time-current');
+                    const tt = document.getElementById('time-total');
+                    const pb = document.getElementById('progress-bar');
 
-                    if (titleEl) titleEl.textContent = data.name;
-                    if (artistEl) artistEl.textContent = data.artist;
-                    if (srcBadge) srcBadge.textContent = "SPOTIFY AO VIVO";
-                    if (spLink && data.spotify_url) spLink.href = data.spotify_url;
-                    if (curTime) curTime.textContent = formatTime(data.progress);
-                    if (totTime) totTime.textContent = formatTime(data.duration);
-                    if (progBar && data.duration > 0) {
-                        progBar.style.width = Math.min(100, (data.progress / data.duration) * 100) + "%";
+                    if (tEl) tEl.textContent = data.name;
+                    if (aEl) aEl.textContent = data.artist;
+                    if (linkSp && data.spotify_url) linkSp.href = data.spotify_url;
+                    if (tc) tc.textContent = formatarTempo(data.progress);
+                    if (tt) tt.textContent = formatarTempo(data.duration);
+                    if (pb && data.duration > 0) {
+                        pb.style.width = Math.min(100, (data.progress / data.duration) * 100) + "%";
                     }
 
-                    if (data.id !== currentTrackId) {
-                        currentTrackId = data.id;
-                        const imgEl = document.getElementById('album-img');
-                        const phSlot = document.getElementById('album-placeholder-slot');
-                        const capEl = document.getElementById('polaroid-caption');
-                        if (imgEl && data.image) {
-                            imgEl.src = data.image;
-                            imgEl.style.display = 'block';
-                            if (phSlot) phSlot.style.display = 'none';
+                    if (data.id !== idFaixaAtual) {
+                        idFaixaAtual = data.id;
+                        const img = document.getElementById('album-img');
+                        const ph = document.getElementById('album-placeholder');
+                        const leg = document.getElementById('polaroid-legenda');
+                        if (img && data.image) {
+                            img.src = data.image;
+                            img.style.display = 'block';
+                            if (ph) ph.style.display = 'none';
                         }
-                        if (capEl) capEl.textContent = data.name;
+                        if (leg) leg.textContent = data.name;
 
-                        const chaveMatch = encontrarChaveCatalogo(data.name);
-                        const dadosEnriquecidos = chaveMatch ? {
-                            ...CATALOGO_MANUAL[chaveMatch],
-                            letra_limpa: data.lyrics || CATALOGO_MANUAL[chaveMatch].letra_limpa,
-                            curiosidades_lista: (Array.isArray(data.gossip) && data.gossip.length) ? data.gossip : CATALOGO_MANUAL[chaveMatch].curiosidades_lista,
-                            psicologia: data.psychology || CATALOGO_MANUAL[chaveMatch].psicologia,
-                            link_clipe: data.clipe || CATALOGO_MANUAL[chaveMatch].link_clipe
-                        } : {
-                            artista: data.artist,
-                            letra_limpa: data.lyrics,
-                            curiosidades_lista: data.gossip,
-                            psicologia: data.psychology,
-                            link_clipe: data.clipe
-                        };
-                        aplicarConteudoMateria(data.name, data.artist, dadosEnriquecidos);
+                        const ch = acharChave(data.name);
+                        const base = ch ? CATALOGO[ch] : {};
+                        aplicarMateria(data.name, data.artist, {
+                            ...base,
+                            letra_limpa: data.lyrics || base.letra_limpa,
+                            curiosidades_lista: (Array.isArray(data.gossip) && data.gossip.length) ? data.gossip : base.curiosidades_lista,
+                            psicologia: data.psychology || base.psicologia,
+                            link_clipe: data.clipe || base.link_clipe
+                        });
                     }
                 } else {
-                    statusBadge.textContent = "❚❚ SPOTIFY PAUSADO";
+                    badge.textContent = "❚❚ SPOTIFY PAUSADO";
                 }
             } catch (e) {
                 console.log(e);
             }
         }
 
-        montarCatalogoVisual();
-        setInterval(atualizarSpotify, 1500);
-        atualizarSpotify();
+        montarListas();
+        setInterval(atualizarPlayer, 1500);
+        atualizarPlayer();
     </script>
 </body>
 </html>
 """
-
 
 def _catalogo_serializavel():
     saida = {}
