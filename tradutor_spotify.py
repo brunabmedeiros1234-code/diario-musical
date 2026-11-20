@@ -1,3 +1,5 @@
+import glob
+import json
 import os
 import uuid
 import requests
@@ -454,18 +456,14 @@ Como uma força da natureza""",
         "link_clipe": None
     },
     "stupid song": {
-        "artista": "zayn",
+        "artista": "olivia rodrigo",
         "letra_limpa": """Nova York nunca pareceu tão triste e cinzenta
 Meus amigos estão fumando uns baseados no banheiro
-Eles dizem que o amor de verdade é uma prisão que faz você se sentir livre
-
-Você é uma faísca no escuro e minhas roupas estão pegando fogo
-Sou um carro disparado pela avenida, sem freios
-E eu quero você mais do que qualquer música boba conseguiria expressar""",
+Eles dizem que o amor de verdade é uma prisão que faz você se sentir livre""",
         "curiosidades_lista": [
-            "💘 <b>QUANDO A PAIXÃO TOMA CONTA:</b> Explora o lado intenso e inquieto de estar apaixonada."
+            "💘 <b>“STUPID SONG”: QUANDO ESTAR APAIXONADA DEIXA A GENTE COMPLETAMENTE FORA DE ÓRBITA!</b> Explora o lado intenso, inquieto e quase incontrolável de estar apaixonada, quando a saudade e o desejo tomam conta dos pensamentos."
         ],
-        "psicologia": """🧠 <b>ANÁLISE PSICOLÓGICA — STUPID SONG</b><br><br>Aborda pensamentos recorrentes e a intensidade do desejo e da paixão.""",
+        "psicologia": """🧠 <b>ANÁLISE PSICOLÓGICA — STUPID SONG</b><br><br>Aborda pensamentos recorrentes, limerência e a dificuldade de regular emoções intensas quando uma paixão ganha força.""",
         "link_clipe": None
     }
 }
@@ -482,6 +480,53 @@ def normalizar_chave_faixa(texto):
         .replace("`", "'")
         .strip()
     )
+
+
+def _registrar_entrada_json(chave, info):
+    if not isinstance(info, dict):
+        return
+    chave_limpa = normalizar_chave_faixa(chave)
+    if not chave_limpa:
+        return
+    MUSICAS_MANUAIS[chave_limpa] = {
+        "artista": info.get("artista", ""),
+        "letra_limpa": info.get("letra_limpa", ""),
+        "curiosidades_lista": info.get("curiosidades_lista", []),
+        "psicologia": info.get("psicologia", ""),
+        "link_clipe": info.get("link_clipe"),
+    }
+
+
+def carregar_musicas_extras():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    pasta_extras = os.path.join(base_dir, "musicas_extras")
+    arquivo_raiz = os.path.join(base_dir, "musicas_extra.json")
+
+    arquivos_para_ler = []
+    if os.path.isdir(pasta_extras):
+        arquivos_para_ler.extend(sorted(glob.glob(os.path.join(pasta_extras, "*.json"))))
+    if os.path.exists(arquivo_raiz):
+        arquivos_para_ler.append(arquivo_raiz)
+
+    for caminho in arquivos_para_ler:
+        try:
+            with open(caminho, "r", encoding="utf-8") as f:
+                dados = json.load(f)
+            if not isinstance(dados, dict):
+                continue
+            # Suporta tanto {"nome da musica": {...}} quanto um JSON de uma única faixa {"artista": ..., "letra_limpa": ...}
+            if "letra_limpa" in dados or "curiosidades_lista" in dados or "psicologia" in dados:
+                chaves = dados.get("chaves") or [os.path.splitext(os.path.basename(caminho))[0].replace("_", " ")]
+                for ch in chaves:
+                    _registrar_entrada_json(ch, dados)
+            else:
+                for chave, info in dados.items():
+                    _registrar_entrada_json(chave, info)
+        except Exception as e:
+            print(f"[AVISO] Falha ao carregar JSON '{caminho}': {e}")
+
+
+carregar_musicas_extras()
 
 
 def encontrar_chave_manual(titulo_faixa):
