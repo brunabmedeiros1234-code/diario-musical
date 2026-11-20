@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: xoxo-my-music-diary
+    runtime: static
+    buildCommand: echo ready
+    staticPublishPath: .
