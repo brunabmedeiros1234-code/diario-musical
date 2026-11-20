@@ -1,4 +1,3 @@
-
 /* XOXO — site estático e conexão Spotify via Authorization Code + PKCE. */
 
 const $ = (q) => document.querySelector(q);
@@ -55,7 +54,7 @@ window.addEventListener('keydown', e => {
 const SPOTIFY_CLIENT_ID = '51ebc5fc21fa4e359bebdd37175c9f13';
 
 const getID = () =>
-  SPOTIFY_CLIENT_ID.trim() === 'const SPOTIFY_CLIENT_ID = '51ebc5fc21fa4e359bebdd37175c9f13';'
+  SPOTIFY_CLIENT_ID.trim() === 'COLE_SEU_CLIENT_ID_AQUI'
     ? ''
     : SPOTIFY_CLIENT_ID.trim();
 
