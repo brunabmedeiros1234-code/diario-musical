@@ -45,5 +45,25 @@
     ]
   ],
   "percebe": "O carro sem freios, o coração de cera e os sonhos repetidos mostram como a paixão parece ultrapassar o controle da personagem.",
-  "forYou": "Você tenta prestar atenção na festa, nas amigas e até no caminho de casa, mas sua cabeça insiste em voltar para aquela pessoa. Já sonhou com o crush, ficou nervosa só de ouvir seu nome e ensaiou declarações que nunca teve coragem de fazer? Então essa música poderia ser a trilha sonora do seu diário! 💗"
+  "forYou": "Você tenta prestar atenção na festa, nas amigas e até no caminho de casa, mas sua cabeça insiste em voltar para aquela pessoa. Já sonhou com o crush, ficou nervosa só de ouvir seu nome e ensaiou declarações que nunca teve coragem de fazer? Então essa música poderia ser a trilha sonora do seu diário! 💗",
+  "quizTitle": "VOCÊ JÁ VIVEU ISSO? — CRUSH FORA DE CONTROLE!",
+  "quizQuestions": [
+    "💗 Já ficou pensando tanto em alguém que até na hora de dormir o crush não saía da sua cabeça?",
+    "🔥 Já sentiu o coração disparar só de ouvir o nome daquela pessoa especial?",
+    "💌 Já quis contar para o mundo inteiro que estava apaixonada, mas ficou com vergonha de revelar seus sentimentos?",
+    "💭 Já gostou tanto de alguém que começou a imaginar mil histórias de amor, mesmo sem saber se o sentimento era recíproco?"
+  ],
+  "moodDescription": "Uma paixão intensa, meio caótica e completamente fora de controle: festa no fim da noite, cidade acesa e cartas cheias de sentimento.",
+  "moodboard": [
+    "musicas/olivia-rodrigo-stupid-song/festa.jpg",
+    "musicas/olivia-rodrigo-stupid-song/cidade.jpg",
+    "musicas/olivia-rodrigo-stupid-song/cartas.jpg"
+  ],
+  "palette": {
+    "vinho": "#6b1f3b",
+    "rosa": "#e57cad",
+    "rosaClaro": "#f6d1e0",
+    "preto": "#161316",
+    "azulCinza": "#7f8ca3"
+  }
 }
