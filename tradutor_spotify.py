@@ -14,9 +14,7 @@ SCOPES = "user-read-playback-state user-read-currently-playing"
 
 app = Flask(__name__)
 app.secret_key = os.getenv("FLASK_SECRET_KEY", "xoxo-music-diary-secret-key")
-
-TOKENS_POR_SESSAO = {}
-ULTIMA_MUSICA_POR_SESSAO = {}
+app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
 
 TRADUCAO_WHO = """Quando você estiver no escuro
 E não conseguir encontrar uma saída
@@ -514,9 +512,10 @@ def carregar_musicas_extras():
                 dados = json.load(f)
             if not isinstance(dados, dict):
                 continue
-            # Suporta tanto {"nome da musica": {...}} quanto um JSON de uma única faixa {"artista": ..., "letra_limpa": ...}
             if "letra_limpa" in dados or "curiosidades_lista" in dados or "psicologia" in dados:
-                chaves = dados.get("chaves") or [os.path.splitext(os.path.basename(caminho))[0].replace("_", " ")]
+                chaves = dados.get("chaves") or [
+                    os.path.splitext(os.path.basename(caminho))[0].replace("_", " ")
+                ]
                 for ch in chaves:
                     _registrar_entrada_json(ch, dados)
             else:
@@ -569,19 +568,19 @@ def criar_oauth():
 
 
 def obter_cliente_spotify_usuario():
-    sid = session.get("sid")
-    if not sid or sid not in TOKENS_POR_SESSAO:
+    token_info = session.get("spotify_token")
+    if not token_info:
         return None
 
-    token_info = TOKENS_POR_SESSAO[sid]
     auth_manager = criar_oauth()
 
     if auth_manager.is_token_expired(token_info):
         try:
             token_info = auth_manager.refresh_access_token(token_info["refresh_token"])
-            TOKENS_POR_SESSAO[sid] = token_info
+            session["spotify_token"] = token_info
+            session.modified = True
         except Exception:
-            TOKENS_POR_SESSAO.pop(sid, None)
+            session.pop("spotify_token", None)
             return None
 
     return spotipy.Spotify(auth=token_info["access_token"])
@@ -949,9 +948,6 @@ def login():
 
 @app.route("/callback")
 def callback():
-    if "sid" not in session:
-        session["sid"] = str(uuid.uuid4())
-
     error = request.args.get("error")
     if error:
         return f"Erro ao autorizar no Spotify: {error}", 400
@@ -962,7 +958,8 @@ def callback():
 
     auth_manager = criar_oauth()
     token_info = auth_manager.get_access_token(code, as_dict=True)
-    TOKENS_POR_SESSAO[session["sid"]] = token_info
+    session["spotify_token"] = token_info
+    session.modified = True
     return redirect("/")
 
 
@@ -972,7 +969,6 @@ def now_playing():
     if not sp:
         return jsonify({"playing": False, "logged_out": True}), 401
 
-    sid = session.get("sid")
     try:
         cur = sp.current_user_playing_track()
         if cur and cur.get("is_playing") and cur.get("item"):
@@ -983,9 +979,6 @@ def now_playing():
             img = tr["album"]["images"][0]["url"]
             p = cur.get("progress_ms", 0)
             dur = tr.get("duration_ms", 1)
-
-            if sid:
-                ULTIMA_MUSICA_POR_SESSAO[sid] = tid
 
             key = encontrar_chave_manual(tn)
             if key:
