@@ -49,10 +49,10 @@ window.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal();
 });
 
-// COLOQUE SEU CLIENT ID AQUI.
+// CLIENT ID DO SPOTIFY CONFIGURADO
 // NUNCA COLOQUE O CLIENT SECRET.
 
-const SPOTIFY_CLIENT_ID = 'COLE_SEU_CLIENT_ID_AQUI';
+const SPOTIFY_CLIENT_ID = '51ebc5fc21fa4e359bebdd37175c9f13';
 
 const getID = () =>
   SPOTIFY_CLIENT_ID.trim() === 'COLE_SEU_CLIENT_ID_AQUI'
