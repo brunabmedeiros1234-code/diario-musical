@@ -1,0 +1,168 @@
+:root{--pink:#fa8fc4;--deep:#e93e94;--mint:#dbfff0;--yellow:#fff3a8;--ink:#191619;--border:#242024;--paper:#fffdfa}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:'DM Sans',sans-serif;background-color:#e9fff4;background-image:radial-gradient(#b7d8c8 0.95px,transparent 0.95px);background-size:9px 9px}button,input{font:inherit}button{cursor:pointer}a{color:inherit}.browser{height:69px;background:linear-gradient(#f9e7f2,#fff);border-bottom:2px solid #fa6aa9;padding:6px 20px;display:flex;align-items:flex-start;gap:7px;position:relative;font-size:13px}.browser>span{color:#fb9ab6}.browser>span:nth-child(2){color:#ffca49}.browser>span:nth-child(3){color:#6dd17c}.browser .tab{height:28px;background:white;border-radius:9px 9px 0 0;padding:6px 20px;margin-left:12px;font-size:12px}.address{position:absolute;left:8%;right:8%;top:36px;background:white;border:1px solid #e4d5de;border-radius:20px;padding:4px 14px;color:#666}.site{max-width:1510px;padding:0 18px;margin:auto}.masthead{height:166px;display:flex;position:relative;align-items:center;justify-content:center}.brand-center{text-align:center;z-index:2;min-width:0;width:72%}.top-labels{display:flex;justify-content:space-around;gap:10px;align-items:center;margin:4px 0}.pill{display:inline-block;border:2px solid #161616;border-radius:30px;padding:6px 17px;font-family:'DM Mono',monospace;font-size:10px;font-weight:500;box-shadow:2px 3px 0 #1c1c1c;white-space:nowrap}.pink{background:#ff8ec6}.yellow{background:#fff2aa}.mint{background:#d7fff0}.slogan{font:italic 600 19px 'Playfair Display',serif;letter-spacing:1px;color:#d73b79;margin:3px}.masthead h1{font:italic 800 clamp(35px,5.3vw,77px)/1 'Playfair Display',serif;white-space:nowrap;letter-spacing:-3px;margin:0;color:#ec70b3;-webkit-text-stroke:1px #532c24;text-shadow:3px 4px 0 #ffdc72,5px 6px 0 #282027}.subbrand{font:600 clamp(10px,1.3vw,17px) 'DM Mono',monospace;letter-spacing:2px;margin:7px}.disc{font-size:128px;position:absolute;left:3%;top:4px;filter:drop-shadow(2px 3px 0 #111)}.scribble{font-size:58px;position:absolute;font-weight:700;z-index:2}.heart-head{left:17%;top:42px;color:#ed3e91;transform:rotate(-18deg)}.star-head{left:20%;top:14px;color:#f9c329}.headphones{position:absolute;right:15%;top:22px;font-size:74px;transform:rotate(12deg)}.top-polaroid{background:white;border:1px solid #555;box-shadow:3px 5px 0 #666;transform:rotate(8deg);padding:9px 9px 5px;position:absolute;right:1.5%;top:3px;width:165px;text-align:center;z-index:3}.top-polaroid img{width:100%;height:122px;object-fit:cover}.top-polaroid span{font:italic 19px 'Playfair Display',serif}.nav{background:linear-gradient(90deg,#f9c4e1,#f7cbe9);border:2px solid #221b20;border-radius:24px;min-height:49px;display:flex;align-items:center;gap:14px;padding:6px 3%;box-shadow:2px 4px 0 #ed75ae;position:relative;z-index:4}.nav-btn{font-weight:800;font-size:14px;white-space:nowrap;background:linear-gradient(white,#fff3f7);border:2px solid #252025;border-radius:8px;box-shadow:2px 2px 0 #444;padding:7px 15px;flex:1}.nav-btn.active{background:#fff3a6}.nav-btn:hover{background:#d5fff0}.search-box{display:flex;align-items:center;border:2px solid #151515;border-radius:30px;background:white;position:absolute;right:1%;top:23px;width:260px;height:39px;box-shadow:1px 2px 0 #555}.search-box input{width:100%;border:0;background:transparent;outline:0;padding:0 15px;font-size:12px}.search-box button{border:0;background:none;font-size:28px}.now{height:195px;display:flex;gap:14px;align-items:center;position:relative;padding:20px 0 10px 23%}.hero-person{position:absolute;left:3%;top:8px;width:23%;height:182px}.hero-person img{width:100%;height:100%;object-fit:cover;object-position:center 25%;border-radius:100px 100px 0 0;filter:drop-shadow(3px -2px 0 white)}.torn-label{position:absolute;left:-26px;bottom:18px;background:white;transform:rotate(-12deg);font:italic 24px 'Playfair Display',serif;color:#d63884;padding:8px;box-shadow:2px 3px 0 #aaa}.player{flex:1;min-width:0;height:147px;background:linear-gradient(125deg,#d4f2fc,#fce1ef 65%,#f8d9ed);border:2px solid #191419;border-radius:19px;box-shadow:4px 5px 0 #333;display:flex;align-items:center;padding:10px 15px;gap:16px;z-index:2}.cover-wrap{width:122px;min-width:122px;height:122px;border:3px solid #171717;border-radius:11px;overflow:hidden}.cover-wrap img{width:100%;height:100%;object-fit:cover}.player-info{flex:1;min-width:0}.playing{display:inline-block;background:#328453;color:white;border:2px solid #202020;padding:4px 11px;border-radius:22px;font:700 11px 'DM Mono',monospace}.player h2{font:italic 700 clamp(17px,2.4vw,34px) 'Playfair Display',serif;margin:4px 0 11px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.seek{display:flex;gap:10px;align-items:center;font:700 12px 'DM Mono',monospace}.progress{height:15px;border:2px solid black;background:white;border-radius:22px;flex:1;overflow:hidden}.progress>div{height:100%;background:linear-gradient(90deg,#ee80b9,#f86aac);width:0%}.player-info #syncNote{margin:6px 0 0;font-size:11px;color:#5e5360}.spotify-panel{border-left:2px solid #333;padding:3px 0 2px 20px;width:146px;min-width:146px;display:flex;flex-direction:column;gap:6px;align-items:center}.spotify-panel strong{font-size:26px;line-height:.8;letter-spacing:-1px;text-align:center}.spotify-panel small{font-size:11px;font-weight:700;letter-spacing:0}.spotify-go{background:#1db954;color:white;text-decoration:none;border:2px solid #111;border-radius:20px;padding:6px 11px;font-size:12px;font-weight:800;white-space:nowrap}.spotify-link{border:0;background:none;font-size:11px;font-weight:800;color:#b51764;text-decoration:underline}.repeat-sticker{position:absolute;right:8%;top:12px;transform:rotate(-13deg);background:#fffaaf;padding:9px 14px;border:1px solid #555;font:italic 20px 'Playfair Display',serif;z-index:2}.tape{position:absolute;right:1%;top:42px;font-size:72px;transform:rotate(10deg)}.feature-grid{display:grid;grid-template-columns:minmax(0,1.22fr) minmax(0,.98fr) minmax(235px,.71fr);gap:12px;align-items:start}.article{background:#fffefa;border:2px solid #211d20;border-radius:15px;overflow:hidden;box-shadow:2px 3px 0 #444}.breadcrumb{background:#ffe6f3;border-bottom:1px solid #777;padding:10px 15px;font:700 11px 'DM Mono',monospace}.article-intro{display:flex;min-height:242px;padding:10px 13px;gap:10px;background:linear-gradient(115deg,#fff,#fff9f6 60%,#ffe0f0)}.text-intro{flex:1;min-width:0}.text-intro h2{font:italic 800 clamp(34px,4vw,59px) 'Playfair Display',serif;color:#ec4799;line-height:1.1;margin:3px 0}.text-intro h3{font:italic 600 25px 'Playfair Display',serif;margin:0 0 8px}.text-intro p{font:600 13px/1.5 'DM Mono',monospace;max-width:390px}.hashtags{font:700 10px 'DM Mono',monospace;color:#bd3884;border-top:1px dashed #f5a7c7;margin-top:9px;padding-top:8px}.crush-polaroid{background:white;padding:9px 9px 5px;box-shadow:3px 5px 0 #888;transform:rotate(7deg);width:37%;align-self:center;text-align:center;flex-shrink:0}.crush-polaroid img{width:100%;height:195px;object-fit:cover}.crush-polaroid span{font:italic 17px 'Playfair Display',serif}.lyrics-switch{display:flex;background:linear-gradient(90deg,#fff1a0,#d7fff0);border:2px solid #111;border-radius:10px;margin:3px 10px 0;align-items:center}.lyrics-switch button{width:50%;border:0;background:none;font:700 13px 'DM Mono',monospace;padding:12px 3px}.lyrics-switch button.selected{background:#ffdf83;border-radius:8px}.lyrics-switch>span{font-size:27px}.lyrics-help{font-size:11px;color:#7b5470;margin:9px 17px}.lyrics{margin:10px 17px 17px;font:500 13px/1.72 'DM Mono',monospace;white-space:pre-line;max-height:480px;overflow:auto;padding-right:7px}.compact{padding:0 11px 12px;position:relative}.compact h3{font:italic 700 21px 'Playfair Display',serif;margin:0 -11px 10px;padding:6px 12px;background:#fce5f2}.compact p{font:500 12px/1.58 'DM Mono',monospace;margin:7px 1px}.about-song{min-height:104px}.about-song p{padding-right:50px}.floating-hearts{position:absolute;right:11px;top:44px;color:#f252a0;font-size:45px;line-height:.7;transform:rotate(25deg)}.middle-column{display:flex;flex-direction:column;gap:10px}.pair{display:grid;grid-template-columns:1fr 1fr;gap:9px}.pair .article{min-width:0}.vibe{background:linear-gradient(145deg,#fff6d5,#fffcfa)}.vibe h3{background:#fff2c7}.vibe-line{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:700;margin:11px 0}.vibe-line>span:first-child{min-width:73px}.meter{height:10px;flex:1;border:1px solid #888;background:#e8e8e8;border-radius:9px;overflow:hidden}.meter i{display:block;background:#ee78b1;height:100%}.vibe-line b{font-size:10px}.curios{background:#fffefa}.curios p{font-size:11px}.text-button{border:0;background:none;text-align:left;padding:5px 0;font:800 11px 'DM Mono',monospace;color:#d93785;text-decoration:underline}.psychology h3{background:#f8dce8}.psychology p,.percebe p{font-size:11px}.percebe{background:#fffce5}.percebe h3{background:#fff1ba}.foryou h3,.suggestions h3{font-size:18px}.foryou p{font-size:11px;line-height:1.25;margin:9px 0}.foryou p::before{content:'☑ ';color:#e74796}.suggestion{display:flex;align-items:center;gap:5px;border-bottom:1px solid #e3d5dc;padding:4px 0;font-size:12px;cursor:pointer}.suggestion>span:first-child{background:#ffdbef;padding:8px;border-radius:3px}.suggestion div{flex:1}.suggestion small{display:block;font:10px 'DM Mono',monospace}.suggestion>span:last-child{color:#d63c80}.right-column{display:flex;flex-direction:column;gap:10px}.side-card{position:relative;padding:32px 11px 10px;min-height:126px;background:#ffe9f5}.side-card h3{font:italic 700 19px/1.14 'Playfair Display',serif;margin:3px 0 9px 15px}.sticky-tag{position:absolute;left:9px;top:7px;transform:rotate(-9deg);background:#fff2a1;border:1px solid #555;box-shadow:2px 2px 0 #777;padding:4px 10px;font:italic 700 17px 'Playfair Display',serif}.quiz{background:#ffe1f4}.quiz button{background:#fff1a2;border:1px solid #666;border-radius:20px;padding:5px 10px;font-weight:800;margin-left:26px}.mini-photo{position:absolute;right:5px;top:11px;width:67px;height:89px;border:6px solid white;outline:1px solid #555;background:linear-gradient(135deg,#655360,#211b25);display:grid;place-items:center;color:#ffb7d8;font-size:58px;transform:rotate(8deg)}.playlist{background:#f2ffef}.playlist h3{font-size:19px}.playlist>a{background:#d9ffeb;border:1px solid black;border-radius:16px;padding:5px 10px;font-size:11px;text-decoration:none;font-weight:800}.playlist img{position:absolute;right:9px;top:10px;width:82px;height:90px;object-fit:cover;border:5px solid white;transform:rotate(10deg)}.newmusic{background:#fce3ef}.newmusic h4{font:italic 700 13px 'Playfair Display',serif;text-align:right;margin:1px 0 10px}.newmusic #moreSongs button{display:flex;justify-content:space-between;width:100%;border:0;border-bottom:1px solid #e3bfd1;background:transparent;text-align:left;font:700 11px 'DM Mono',monospace;padding:8px 3px}.newmusic #moreSongs button span{background:#faabd1;border:1px solid #222;border-radius:100px;padding:1px 5px}.more{background:#fff8f1}.more h3{margin-left:70px}.more button{display:block;border:0;border-bottom:1px solid pink;background:none;text-align:left;font:700 11px 'DM Mono',monospace;padding:8px 0;width:100%}footer{text-align:center;padding:28px;font:italic 16px 'Playfair Display',serif;color:#ab4775}.modal{position:fixed;inset:0;background:#20121ac9;z-index:100;display:grid;place-items:center;padding:20px}.modal.hidden{display:none}.modal-inner{width:min(760px,100%);max-height:90vh;overflow:auto;background:#fffdfb;border:3px solid #171717;border-radius:20px;padding:26px 28px;box-shadow:8px 9px 0 #ec75aa;position:relative}.modal-inner h2{font:italic 700 34px 'Playfair Display',serif;color:#d93987}.modal-inner p{font:15px/1.8 'DM Sans',sans-serif;white-space:pre-line}.modal-inner label{display:block;font-weight:800;margin:15px 0 5px}.modal-inner input{width:100%;border:2px solid black;border-radius:9px;padding:12px}.modal-inner button.action{background:#ffdf7e;border:2px solid black;border-radius:10px;padding:11px 14px;margin:12px 5px 0 0;font-weight:800}.close-modal{position:sticky;top:0;float:right;background:#f8a3ce;border:2px solid #111;border-radius:50%;width:38px;height:38px;z-index:2;font-weight:800}.modal-inner .chapter{border-bottom:1px dashed #e9aaca;margin:18px 0;padding-bottom:15px}.modal-inner .chapter strong{font-size:18px}.modal-inner .chapter p{margin:5px 0}.notice{background:#fff5c1;border-left:4px solid #d94892;padding:12px}.no-content{margin:25px auto;padding:30px;border:2px dashed #db6da6;border-radius:12px;text-align:center}.result{border:2px solid #e69ac6;border-radius:13px;padding:15px;margin:12px 0;cursor:pointer}.result:hover{background:#fff0f7}@media(max-width:1150px){.site{padding:0 12px}.masthead h1{font-size:5vw}.disc{font-size:95px}.headphones{right:13%;font-size:50px}.top-polaroid{width:135px}.top-polaroid img{height:95px}.brand-center{width:79%}.nav{gap:5px;padding:7px}.nav-btn{padding:8px 6px;font-size:11px}.feature-grid{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}.right-column{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr)}.crush-polaroid img{height:160px}.now{padding-left:24%}}@media(max-width:720px){.browser{height:47px}.address{display:none}.masthead{height:140px}.disc{font-size:58px;top:39px;left:0}.top-polaroid{width:74px;top:15px;right:0;padding:4px}.top-polaroid img{height:58px}.top-polaroid span{font-size:9px}.headphones,.scribble{display:none}.brand-center{width:100%;padding:0 35px}.top-labels{gap:5px;justify-content:center;flex-wrap:wrap}.pill{font-size:7px;padding:4px 6px}.pill:last-child{display:none}.slogan{font-size:11px}.masthead h1{font-size:clamp(24px,6vw,42px);letter-spacing:-1px;white-space:normal}.subbrand{font-size:8px;letter-spacing:0}.nav{flex-wrap:wrap;justify-content:center;padding:7px 5px 40px;border-radius:15px}.nav-btn{flex:0 1 calc(33.3% - 5px);font-size:10px}.search-box{right:8%;left:8%;bottom:5px;top:auto;width:auto;height:30px}.now{height:auto;padding:14px 0 10px}.hero-person,.repeat-sticker,.tape{display:none}.player{height:auto;min-height:125px;padding:7px;gap:7px}.cover-wrap{width:72px;min-width:72px;height:88px}.playing{font-size:8px;padding:3px}.player h2{font-size:17px;white-space:normal}.seek{font-size:9px;gap:4px}.spotify-panel{width:89px;min-width:89px;padding-left:6px}.spotify-panel strong{font-size:17px}.spotify-go{padding:5px;font-size:9px}.spotify-link{font-size:9px}.player-info #syncNote{font-size:9px}.feature-grid{display:flex;flex-direction:column}.main-article,.middle-column,.right-column{width:100%}.article-intro{min-height:220px}.text-intro h2{font-size:40px}.text-intro h3{font-size:20px}.text-intro p{font-size:11px}.crush-polaroid{width:39%}.crush-polaroid img{height:145px}.pair{gap:7px}.right-column{display:grid;grid-template-columns:1fr 1fr}.side-card h3{font-size:15px}.mini-photo,.playlist img{display:none}.lyrics{max-height:700px}.modal-inner{padding:16px}.modal-inner h2{font-size:26px}}@media(max-width:360px){.right-column{grid-template-columns:1fr}.vibe-line>span:first-child{min-width:55px}.compact h3{font-size:17px}.crush-polaroid img{height:115px}}
+
+/* Edição revista compacta: colunas equilibradas, sem grandes áreas vazias. */
+@media(min-width:1151px){
+ .feature-grid{grid-template-columns:minmax(0,1.22fr) minmax(0,.98fr) minmax(235px,.71fr);align-items:stretch;gap:10px}
+ .main-article{height:100%;display:flex;flex-direction:column}
+ .main-article .lyrics{flex:1;max-height:none;min-height:350px;overflow:auto;max-height:480px}
+ .middle-column,.right-column{height:100%;gap:8px}
+ .middle-column .pair{gap:8px}
+ .middle-column .pair:last-child{flex:1;min-height:135px}
+ .middle-column .pair:last-child .article{height:100%}
+ .right-column>.side-card{flex:1;min-height:0}
+ .right-column>.newmusic{flex:1.3}
+ .right-column>.more{flex:.88}
+ .compact h3{margin-bottom:5px}
+ .compact{padding-bottom:8px}
+ .compact p{line-height:1.42;margin:5px 1px}
+ .vibe-line{margin:8px 0}
+ .curios #curiosityPreview{max-height:138px;overflow:hidden;position:relative}
+ .curios #curiosityPreview:after{content:'';position:absolute;bottom:0;left:0;right:0;height:30px;background:linear-gradient(transparent,#fffefa);pointer-events:none}
+ .psychology #psyPreview{max-height:147px;overflow:hidden;position:relative}
+ .psychology #psyPreview:after{content:'';position:absolute;bottom:0;left:0;right:0;height:26px;background:linear-gradient(transparent,#fffefa);pointer-events:none}
+ .percebe p{max-height:156px;overflow:auto}
+ .foryou p{margin:6px 0;line-height:1.25}
+ .suggestion{padding:3px 0}
+ .side-card{padding-top:32px}
+}
+@media (min-width:721px) and (max-width:1150px){
+ .feature-grid{align-items:stretch}
+ .main-article{display:flex;flex-direction:column}
+ .main-article .lyrics{flex:1;max-height:700px}
+ .middle-column .pair{grid-template-columns:1fr 1fr}
+ .curios #curiosityPreview{max-height:190px;overflow:hidden}
+ .psychology #psyPreview{max-height:220px;overflow:hidden}
+ .right-column{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+ .side-card{min-height:165px}
+}
+
+/* Revisão da matéria: somente a tradução e dois editoriais com conteúdo completo. */
+.translation-heading{margin:12px 10px 0;padding:13px 15px;border:2px solid #171717;border-radius:10px;background:linear-gradient(100deg,#fff1a2,#d9f9e8);font:800 15px 'DM Sans',sans-serif;text-align:center;letter-spacing:.04em}
+.translation-heading span{color:#cf3b89;margin-left:8px}
+.lyrics{white-space:pre-line;overflow-wrap:normal;word-break:normal;hyphens:none;font-size:13px;line-height:1.8}
+#percebePreview{max-height:190px;overflow:hidden;position:relative}
+#percebePreview p{font-size:11px;line-height:1.48}
+.percebe .text-button{margin-top:6px}
+.modal-inner .chapter p{white-space:normal;overflow-wrap:break-word}
+
+/* REVISTA XOXO — duas seções novas, sem os cartões vazios antigos */
+.last-pair{display:block}.last-pair .foryou{min-height:0;background:linear-gradient(110deg,#fff3d8,#fff9fb)}
+.last-pair .foryou #forYou{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px}
+.right-column{display:flex;flex-direction:column;gap:9px;min-height:0}
+.right-column .side-card{flex:none;min-height:0}
+.lived-card{background:linear-gradient(155deg,#ffe1f2 0%,#fff7fc 72%,#f9e9f6 100%);padding:45px 14px 14px}
+.lived-card h3{font-size:25px;line-height:1.08;margin:0 0 8px}
+.lived-card>p{font-size:12px;line-height:1.45;margin:0 0 13px}
+.quiz-icon{float:right;font-size:37px;transform:rotate(10deg);margin-top:-13px}
+.lived-questions{display:grid;gap:7px}
+.lived-question{display:flex;gap:8px;align-items:flex-start;padding:9px 8px;border:1px dashed #e18ab5;border-radius:9px;background:#fffefa;font-size:12px;line-height:1.35;cursor:pointer}
+.lived-question input{position:absolute;opacity:0;width:1px;height:1px}
+.heart-box{width:23px;height:23px;flex:none;border:1px solid #452539;border-radius:6px;background:#fff5a8;text-align:center;font-size:19px;line-height:20px;color:#d12d82}
+.lived-question input:checked+.heart-box{background:#f781ba;color:#fff}.lived-question input:checked+.heart-box::after{content:'✓';font-size:13px;position:relative;left:-8px;top:-2px}
+.lived-question:focus-within{outline:2px solid #cb2f87;outline-offset:1px}
+.quiz-submit{display:block;width:100%;border:2px solid #292129;border-radius:12px;background:#ffed9c;font-size:12px;font-weight:800;padding:10px 5px;margin:12px 0 3px;box-shadow:2px 2px 0 #292129}
+.quiz-outcome:not(:empty){background:#e3fff0;border:1px dashed #be4a83;border-radius:9px;padding:10px;margin-top:10px;font-size:12px;line-height:1.4;font-weight:800}
+.moodboard-card{background:linear-gradient(145deg,#e6ffef,#fff5fc 65%,#fff6cd);padding:49px 11px 12px;overflow:hidden}
+.moodboard-card h3{font-size:26px;line-height:1.04;margin:0 0 7px 8px}
+.mood-subtitle{font-size:12px;line-height:1.38;margin:3px 5px 14px}
+.mood-collage{height:335px;position:relative;background:radial-gradient(#e1bfcf 1px,transparent 1px);background-size:13px 13px;border:1px dashed #e89bbb;border-radius:13px}
+.mood-shot{position:absolute;margin:0;background:#fff;border:1px solid #7e6970;padding:6px 6px 17px;box-shadow:2px 4px 0 #715f64;text-align:center}
+.mood-shot img{width:100%;height:100%;object-fit:cover;display:block}
+.mood-shot figcaption{position:absolute;bottom:2px;left:0;width:100%;font:italic 11px 'Playfair Display',serif;color:#b33379}
+.shot-one{left:4%;top:14px;width:57%;height:159px;transform:rotate(-8deg);z-index:2}
+.shot-two{right:5%;top:32px;width:44%;height:144px;transform:rotate(10deg);z-index:3}
+.shot-three{right:8%;bottom:19px;width:60%;height:155px;transform:rotate(8deg);z-index:2}
+.mood-note{position:absolute;background:#fff0a3;border:1px solid #333;box-shadow:2px 2px 0 #333;padding:7px;font:italic 700 15px 'Playfair Display',serif;text-align:center;z-index:4}
+.note-one{left:8%;top:166px;transform:rotate(-13deg)}.note-two{left:5%;bottom:25px;transform:rotate(-9deg);background:#ffcce5}
+.mood-footer{font:italic 12px 'Playfair Display',serif;text-align:center;margin:12px 0 0;color:#bd3d7d}
+@media(min-width:1151px){.feature-grid{align-items:start!important}.middle-column,.right-column{height:auto!important}.right-column>.side-card{flex:none!important}.right-column>.newmusic,.right-column>.more{display:none}}
+@media(min-width:721px) and (max-width:1150px){.right-column{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;align-items:stretch}.right-column>.side-card{height:100%}.mood-collage{height:310px}}
+@media(max-width:720px){.right-column{display:grid;grid-template-columns:1fr 1fr;gap:8px}.lived-card,.moodboard-card{padding-left:9px;padding-right:9px}.lived-card h3,.moodboard-card h3{font-size:20px}.lived-question{font-size:11px;padding:7px 5px}.mood-collage{height:305px}.mood-note{font-size:12px}.last-pair .foryou #forYou{grid-template-columns:1fr 1fr}}
+@media(max-width:460px){.right-column{grid-template-columns:1fr}.mood-collage{height:330px}.lived-card h3,.moodboard-card h3{font-size:25px}}
+
+/* Texto editorial da seção Essa música é pra você se... */
+.last-pair .foryou #forYou{display:block}
+.last-pair .foryou #forYou .for-you-copy{font:500 13px/1.7 'DM Sans',sans-serif;margin:10px 3px 6px}
+.last-pair .foryou #forYou .for-you-copy::before{content:none}
+
+/* NOVA EDIÇÃO PHOTO DIARY — fotografias originais e colunas cheias */
+body{background-color:#f0fff5;background-image:radial-gradient(#acd4c0 0.9px,transparent 0.9px),linear-gradient(115deg,#fff4fa44,#e4fff244 48%,#fff6d444);background-size:9px 9px,100% 100%}
+.moodboard-card{background:linear-gradient(145deg,#fff0f8 0%,#fce4ee 27%,#fbf4d6 69%,#e4fff1 100%);display:flex;flex-direction:column}
+.mood-collage{isolation:isolate;flex:1;min-height:410px;height:auto;background:radial-gradient(#e8b6c9 1.05px,transparent 1.05px),linear-gradient(145deg,#fff7d6,#ffe3f2 55%,#f1f9df);background-size:11px 11px,100% 100%;overflow:hidden}
+.mood-shot{border:1.5px solid #30222b;padding:6px 6px 23px;background:#fffdf8;box-shadow:3px 5px 0 #6f5767;transition:transform .2s}
+.mood-shot img{object-fit:cover}
+.mood-shot figcaption{bottom:5px;color:#963865;font-size:12px;font-weight:700}
+.shot-one{top:3%;left:5%;width:61%;height:43%;transform:rotate(-5deg);z-index:2}
+.shot-one img{object-position:center 30%}
+.shot-two{right:4%;top:9%;width:48%;height:37%;transform:rotate(8deg);z-index:3}
+.shot-two img{object-position:43% 50%}
+.shot-three{left:18%;right:auto;bottom:5%;width:75%;height:48%;transform:rotate(4deg);z-index:2}
+.shot-three img{object-position:center 48%}
+.note-one{left:5%;top:49%;z-index:5;transform:rotate(-9deg);font-size:15px}
+.note-two{left:4%;bottom:7%;z-index:5;transform:rotate(-8deg);font-size:13px}
+.mood-shot:after{content:'✧';position:absolute;right:-7px;top:-22px;color:#e9529f;font-size:26px;text-shadow:1px 1px #fff}
+@media(min-width:1151px){
+ .feature-grid{align-items:stretch!important}
+ .middle-column,.right-column{height:100%!important}
+ .right-column>.side-card{flex:none!important}
+ .right-column>.moodboard-card{flex:1!important;min-height:570px}
+ .right-column .mood-collage{flex:1;min-height:440px}
+ .middle-column{justify-content:space-between}
+ .middle-column .last-pair{flex:1;min-height:150px;display:flex}
+ .middle-column .last-pair .foryou{width:100%}
+ .main-article{height:100%}
+}
+@media(min-width:721px) and (max-width:1150px){
+ .right-column>.moodboard-card{display:flex;flex-direction:column}
+ .mood-collage{height:auto;min-height:460px;flex:1}
+}
+@media(max-width:720px){
+ .mood-collage{height:auto;min-height:430px}
+ .moodboard-card{min-height:0}
+}
+@media(max-width:460px){.mood-collage{min-height:470px}}
+
+/* Edição sem áreas vazias: os cartões terminam exatamente no conteúdo. */
+@media (min-width:1151px) {
+  .feature-grid{align-items:start!important}
+  .main-article{height:auto!important;align-self:start!important;display:block!important}
+  .middle-column,.right-column{height:auto!important;justify-content:flex-start!important;align-self:start!important}
+  .middle-column .last-pair{flex:0 0 auto!important;min-height:0!important;display:block!important}
+  .middle-column .last-pair .foryou{height:auto!important;min-height:0!important}
+  .right-column>.moodboard-card{flex:0 0 auto!important;min-height:0!important}
+  .right-column .mood-collage{height:440px!important;min-height:0!important;flex:none!important}
+  .main-article .lyrics{flex:none!important;min-height:0!important;max-height:570px!important;overflow-y:auto!important}
+}
+/* A tradução é rolável, com todas as estrofes preservadas, sem esticar a coluna. */
+.main-article .lyrics{scrollbar-width:thin;scrollbar-color:#df74aa #fff0f7;padding-bottom:8px}
+.main-article .lyrics::-webkit-scrollbar{width:8px}
+.main-article .lyrics::-webkit-scrollbar-thumb{background:#df74aa;border-radius:20px}
+.main-article .lyrics::-webkit-scrollbar-track{background:#fff0f7}
+@media(max-width:1150px){.main-article{height:auto!important}.main-article .lyrics{max-height:650px!important;min-height:0!important;overflow-y:auto!important}.middle-column .last-pair{min-height:0!important;flex:none!important}.right-column>.moodboard-card{min-height:0!important}}
+
+/* EDIÇÃO FINAL — três colunas sem fundo exposto e sem cartões vazios */
+@media (min-width:1151px){
+  .feature-grid{align-items:stretch!important}
+  .main-article{height:100%!important;align-self:stretch!important;display:flex!important;flex-direction:column!important}
+  .main-article .lyrics{flex:1 1 auto!important;min-height:0!important;max-height:none!important;overflow-y:auto!important;line-height:1.73}
+  .middle-column,.right-column{height:100%!important;align-self:stretch!important;justify-content:flex-start!important}
+  .middle-column .last-pair{flex:0 0 auto!important;min-height:0!important;display:block!important}
+  .middle-column .pair:nth-of-type(2){flex:1 1 auto;min-height:0;align-items:stretch}
+  .middle-column .pair:nth-of-type(2) .article{height:100%;display:flex;flex-direction:column}
+  .psychology #psyPreview{max-height:none!important;overflow:visible!important;flex:1}
+  .psychology #psyPreview:after{display:none!important}
+  .percebe #percebePreview{max-height:none!important;overflow:visible!important;flex:1}
+  .right-column>.moodboard-card{flex:1 1 auto!important;min-height:0!important}
+  .right-column .mood-collage{flex:1 1 auto!important;height:auto!important;min-height:400px!important}
+}
+@media(min-width:1151px){
+  .feature-grid{height:1055px;grid-template-rows:minmax(0,1fr)}
+  .main-article{min-height:0!important;overflow:hidden}
+  .main-article .lyrics{min-height:0!important;overflow-y:auto!important;overscroll-behavior:contain}
+  .middle-column,.right-column{min-height:0!important;overflow:hidden}
+  .middle-column .pair:nth-of-type(2){min-height:0!important;overflow:hidden}
+  .middle-column .pair:nth-of-type(2) .article{min-height:0;overflow:hidden}
+  .psychology #psyPreview{overflow:hidden!important;min-height:0;line-height:1.46!important}
+  .percebe #percebePreview{overflow:hidden!important;min-height:0}
+  .right-column .mood-collage{min-height:0!important}
+}
