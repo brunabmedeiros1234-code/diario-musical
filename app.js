@@ -51,7 +51,7 @@ window.addEventListener('keydown', e => {
 // CLIENT ID DO SPOTIFY CONFIGURADO
 // NUNCA COLOQUE O CLIENT SECRET.
 
-const SPOTIFY_CLIENT_ID = '51ebc5fc21fa4e359bebdd37175c9f13';
+const SPOTIFY_CLIENT_ID = '1ab7d1db359b4f11b020a79363e8da3c';
 
 const getID = () =>
   SPOTIFY_CLIENT_ID.trim() === 'COLE_SEU_CLIENT_ID_AQUI'
