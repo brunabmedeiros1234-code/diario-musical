@@ -1,8 +1,8 @@
 
 /* ============================================
    XOXO MY MUSIC DIARY ♡
-   EDIÇÃO SCRAPBOOK COM ADESIVOS
-   CSS COMPLETO
+   REVISTA SCRAPBOOK — VERSÃO ENCAIXADA
+   ARQUIVO STYLES.CSS COMPLETO
    ============================================ */
 
 :root {
@@ -29,15 +29,7 @@ body {
   margin: 0;
   color: var(--ink);
   font-family: var(--body);
-
-  /* Fundo geral menos chamativo */
-  background:
-    linear-gradient(
-      135deg,
-      #ffe4f0 0%,
-      #fff1f7 50%,
-      #ffe1ed 100%
-    );
+  background: #ffe4f0;
 }
 
 button,
@@ -64,28 +56,18 @@ img {
   max-width: 100%;
 }
 
+/* ============================================
+   PÁGINA INTEIRA
+   ============================================ */
+
 .site {
   width: min(100%, 1450px);
   min-height: 100vh;
-  padding: 0 10px 20px;
   margin: auto;
-
-  /* A revista agora tem um fundo contínuo */
-  background:
-    repeating-linear-gradient(
-      90deg,
-      transparent 0 27px,
-      rgba(255,255,255,.15) 27px 28px
-    ),
-    linear-gradient(
-      180deg,
-      #ffe3ef,
-      #ffd8e9 45%,
-      #ffebf4
-    );
-
-  border-left: 1px solid #ebb0cb;
-  border-right: 1px solid #ebb0cb;
+  padding: 0 9px 12px;
+  background: #ffe6f1;
+  border-left: 1px solid #dca2bc;
+  border-right: 1px solid #dca2bc;
 }
 
 /* ============================================
@@ -93,20 +75,15 @@ img {
    ============================================ */
 
 .masthead {
-  min-height: 154px;
+  min-height: 145px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 12px 160px 12px 35px;
-
+  padding: 12px 155px 12px 30px;
   background:
-    radial-gradient(
-      #e89cbf 1px,
-      transparent 1px
-    ),
+    radial-gradient(#e89cbf 1px, transparent 1px),
     #ffe0ee;
-
   background-size: 9px 9px;
   border-bottom: 2px solid #c87a9e;
   overflow: hidden;
@@ -152,10 +129,7 @@ img {
 .masthead h1 {
   margin: 0;
   color: #ec4296;
-  font:
-    italic 800
-    clamp(35px, 4.8vw, 69px)/1.05
-    var(--title);
+  font: italic 800 clamp(35px, 4.8vw, 69px)/1.05 var(--title);
   letter-spacing: -2px;
   text-shadow: 2px 3px #fff0af;
 }
@@ -218,7 +192,7 @@ img {
   flex-wrap: wrap;
   align-items: center;
   gap: 7px;
-  padding: 9px;
+  padding: 8px;
   background: #ffe6f1;
   border-bottom: 2px solid #b47c9a;
 }
@@ -278,9 +252,9 @@ img {
   position: relative;
   display: flex;
   align-items: center;
-  min-height: 144px;
-  margin-bottom: 9px;
-  padding: 10px 0 8px 22%;
+  min-height: 140px;
+  margin-bottom: 7px;
+  padding: 9px 0 7px 22%;
 }
 
 .hero-person {
@@ -288,7 +262,7 @@ img {
   left: 4px;
   top: 0;
   width: 24%;
-  height: 142px;
+  height: 140px;
 }
 
 .hero-person img {
@@ -317,14 +291,9 @@ img {
   flex: 1;
   gap: 13px;
   min-width: 0;
-  min-height: 128px;
+  min-height: 125px;
   padding: 10px 13px;
-  background:
-    linear-gradient(
-      105deg,
-      #fff2f9,
-      #fdd2e8
-    );
+  background: linear-gradient(105deg, #fff2f9, #fdd2e8);
   border: 2px solid #533348;
   border-radius: 16px;
   box-shadow: 3px 4px #b57898;
@@ -333,9 +302,9 @@ img {
 }
 
 .cover-wrap {
-  flex: 0 0 105px;
-  width: 105px;
-  height: 105px;
+  flex: 0 0 103px;
+  width: 103px;
+  height: 103px;
   padding: 4px;
   background: white;
   border: 2px solid #51364a;
@@ -364,10 +333,7 @@ img {
 
 .player h2 {
   margin: 8px 0 10px;
-  font:
-    italic 800
-    clamp(19px, 2.4vw, 31px)/1.15
-    var(--title);
+  font: italic 800 clamp(19px, 2.4vw, 31px)/1.15 var(--title);
   overflow-wrap: anywhere;
 }
 
@@ -460,42 +426,28 @@ img {
 }
 
 /* ============================================
-   FOLHA COMPLETA DA REVISTA
+   ÁREA PRINCIPAL
+   SEM BURACOS DE FUNDO
    ============================================ */
 
 #content {
-  position: relative;
+  background: #fff9fc;
+  border-radius: 16px;
 }
 
 .feature-grid {
   display: grid;
 
   grid-template-columns:
-    minmax(0, 1.13fr)
-    minmax(0, 1.15fr)
-    minmax(258px, 0.9fr);
+    minmax(0, 1.14fr)
+    minmax(0, 1.16fr)
+    minmax(255px, 0.9fr);
 
-  /* As colunas acompanham a altura da tradução */
   align-items: stretch;
+  gap: 8px;
+  padding: 8px;
 
-  gap: 10px;
-  padding: 10px;
-
-  background:
-    radial-gradient(
-      #eaa4c5 0.8px,
-      transparent 0.8px
-    ),
-    linear-gradient(
-      120deg,
-      #fff4f9,
-      #ffedf5 60%,
-      #fff7fa
-    );
-
-  background-size:
-    9px 9px,
-    auto;
+  background: #fff6fa;
 
   border: 2px solid #9c5a80;
   border-radius: 16px;
@@ -506,17 +458,59 @@ img {
   min-width: 0;
 }
 
+/* O fundo de cada coluna vira papel da revista */
+
+.middle-column,
+.right-column {
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  padding: 7px;
+
+  background: #fff9fc;
+  border: 1px solid #edc8d9;
+  border-radius: 13px;
+}
+
+/* Coluna central sem vazio exposto */
+
+.middle-column {
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 30px,
+      rgba(241, 186, 211, .12) 30px 31px
+    ),
+    #fff8fc;
+}
+
+/* Coluna direita acompanhando a revista */
+
+.right-column {
+  background: #fff4fa;
+}
+
+/* ============================================
+   CAMINHO DA MÚSICA
+   ============================================ */
+
 .breadcrumb {
   grid-column: 1 / -1;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 9px;
-  margin: -4px -4px 1px;
+
+  margin: -3px -3px 1px;
   padding: 8px 12px;
+
   border: 1px solid #dba2be;
   border-radius: 9px;
   background: #fff4f9;
+
   font: 800 10px var(--mono);
 }
 
@@ -526,15 +520,15 @@ img {
 }
 
 /* ============================================
-   CARTÕES
+   CARTÕES DA REVISTA
    ============================================ */
 
 .article {
   position: relative;
   background: #fffaf8;
   border: 1.5px solid #5c394e;
-  border-radius: 15px;
-  box-shadow: 2px 3px #bd87a4;
+  border-radius: 14px;
+  box-shadow: 2px 2px #bd87a4;
   overflow: hidden;
   min-width: 0;
 }
@@ -554,8 +548,10 @@ img {
   display: flex;
   align-items: center;
   gap: 12px;
-  min-height: 335px;
-  padding: 19px 14px 16px;
+
+  min-height: 315px;
+  padding: 17px 13px 15px;
+
   background: #fffafa;
 }
 
@@ -567,20 +563,14 @@ img {
 .text-intro h2 {
   margin: 0 0 3px;
   color: #e4388e;
-  font:
-    italic 800
-    clamp(38px, 4vw, 62px)/1.04
-    var(--title);
+  font: italic 800 clamp(38px, 4vw, 62px)/1.04 var(--title);
   letter-spacing: -1px;
   overflow-wrap: anywhere;
 }
 
 .text-intro h3 {
   margin: 0 0 12px;
-  font:
-    italic 700
-    clamp(19px, 2vw, 27px)
-    var(--title);
+  font: italic 700 clamp(19px, 2vw, 27px) var(--title);
 }
 
 .intro-highlight {
@@ -589,7 +579,7 @@ img {
   color: #6f234f;
   border-radius: 8px;
   padding: 7px 9px;
-  margin-bottom: 13px;
+  margin-bottom: 12px;
   font: italic 800 13px/1.45 var(--title);
 }
 
@@ -617,14 +607,13 @@ img {
   color: #f3be29;
   right: 7px;
   top: 66px;
-  font-size: 25px;
 }
 
 .hashtags {
   display: flex;
   gap: 5px;
   flex-wrap: wrap;
-  margin-top: 15px;
+  margin-top: 13px;
 }
 
 .hashtags span {
@@ -634,6 +623,10 @@ img {
   color: #b02671;
   font: 800 10px var(--body);
 }
+
+/* ============================================
+   POLAROID
+   ============================================ */
 
 .crush-polaroid {
   position: relative;
@@ -649,7 +642,7 @@ img {
 
 .crush-polaroid img {
   width: 100%;
-  height: 210px;
+  height: 195px;
   object-fit: cover;
 }
 
@@ -669,8 +662,6 @@ img {
   transform: rotate(30deg);
 }
 
-/* ADESIVO DA FOTO */
-
 .crush-polaroid::after {
   content: "♡";
   position: absolute;
@@ -689,26 +680,16 @@ img {
 
 .translation-heading {
   position: relative;
-  margin: 13px 11px 8px;
-  padding: 13px 8px;
+  margin: 12px 11px 8px;
+  padding: 12px 8px;
 
-  background:
-    linear-gradient(
-      175deg,
-      transparent 88%,
-      #f6a9ce 88%
-    ),
-    #ffb7d8;
-
+  background: #ffb7d8;
   border: 1px solid #a36b8a;
   border-radius: 9px;
   box-shadow: 2px 3px #d68caf;
-  text-align: center;
 
-  font:
-    italic 800
-    clamp(17px, 1.9vw, 23px)
-    var(--title);
+  text-align: center;
+  font: italic 800 clamp(17px, 1.9vw, 23px) var(--title);
 }
 
 .translation-heading::before {
@@ -729,24 +710,20 @@ img {
   color: #dc397f;
 }
 
+/* A tradução fica mais compacta */
+
 .lyrics {
-  flex: 1;
-  min-height: 440px;
+  flex: 0 1 auto;
+
+  min-height: 390px;
+  max-height: 570px;
 
   margin: 6px 12px 13px;
   padding: 13px;
 
-  max-height: 770px;
   overflow-y: auto;
 
-  background:
-    repeating-linear-gradient(
-      180deg,
-      transparent 0 29px,
-      rgba(247, 190, 218, .23) 29px 30px
-    ),
-    #fffdfe;
-
+  background: #fffdfd;
   border: 1px solid #f1c6da;
   border-radius: 7px;
 
@@ -762,21 +739,6 @@ img {
 }
 
 /* ============================================
-   COLUNAS LATERAIS
-   ============================================ */
-
-.middle-column,
-.right-column {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  gap: 10px;
-
-  /* Faz ocupar toda a altura da revista */
-  height: 100%;
-}
-
-/* ============================================
    BLOCOS EDITORIAIS
    ============================================ */
 
@@ -788,10 +750,7 @@ img {
   margin: 0 -12px 10px;
   padding: 9px 12px;
 
-  font:
-    italic 800
-    clamp(18px, 1.7vw, 24px)/1.2
-    var(--title);
+  font: italic 800 clamp(18px, 1.7vw, 24px)/1.2 var(--title);
 
   color: #532640;
   background: #ffdce9;
@@ -804,9 +763,12 @@ img {
   margin: 8px 0;
 }
 
+/* ============================================
+   SOBRE A MÚSICA
+   ============================================ */
+
 .about-song {
   background: #fff8fb;
-  min-height: 145px;
   border-color: #d474a4;
 }
 
@@ -829,7 +791,7 @@ img {
 }
 
 /* ============================================
-   GRADE CENTRAL
+   QUATRO CARTÕES CENTRAIS
    ============================================ */
 
 .editorial-stacks {
@@ -841,7 +803,7 @@ img {
     "vibe curios"
     "psy percebe";
 
-  gap: 10px;
+  gap: 8px;
   align-items: stretch;
 }
 
@@ -905,8 +867,6 @@ img {
   font-size: 10px;
 }
 
-/* ADESIVO DE ESTRELA */
-
 .vibe::after {
   content: "✦";
   position: absolute;
@@ -914,7 +874,6 @@ img {
   bottom: 4px;
   font-size: 22px;
   color: #ecb939;
-  transform: rotate(15deg);
   pointer-events: none;
 }
 
@@ -945,8 +904,6 @@ img {
   margin: 8px 0;
 }
 
-/* ADESIVO DE CORAÇÃO */
-
 .curios::after {
   content: "♡";
   position: absolute;
@@ -955,12 +912,11 @@ img {
   color: #e04a96;
   font-size: 25px;
   font-weight: 800;
-  transform: rotate(15deg);
   pointer-events: none;
 }
 
 /* ============================================
-   PSICOLOGIA
+   ANÁLISE PSICOLÓGICA
    ============================================ */
 
 .psychology {
@@ -974,13 +930,11 @@ img {
 .psychology #psyPreview {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 12;
+  -webkit-line-clamp: 11;
   overflow: hidden;
   font-size: 12.5px;
   line-height: 1.65;
 }
-
-/* ADESIVO PSYCHOLOGY CORNER */
 
 .psychology::after {
   content: "♡";
@@ -1014,6 +968,10 @@ img {
   pointer-events: none;
 }
 
+/* ============================================
+   BOTÕES DE LEITURA
+   ============================================ */
+
 .text-button {
   border: 0;
   background: transparent;
@@ -1036,20 +994,12 @@ img {
 
 .foryou {
   position: relative;
+
   flex-grow: 1;
+  min-height: 170px;
 
-  background:
-    radial-gradient(
-      rgba(245, 152, 194, .14) 1px,
-      transparent 1px
-    ),
-    #fff2fa;
-
-  background-size: 10px 10px;
-
-  min-height: 160px;
-
-  padding-bottom: 44px;
+  background: #fff2fa;
+  padding-bottom: 47px;
 }
 
 .foryou h3 {
@@ -1064,25 +1014,26 @@ img {
   margin: 11px 3px;
 }
 
-/* CORAÇÃO NO CANTO */
+/* Decoração sem texto novo */
 
 .foryou::after {
-  content: "♡";
+  content: "♡   ✧   ♡";
   position: absolute;
-  right: 12px;
-  bottom: 2px;
+  right: 16px;
+  bottom: 6px;
+
   color: #e24797;
-  font-size: 48px;
+  font-size: 26px;
+  letter-spacing: 9px;
+
   pointer-events: none;
 }
-
-/* ADESIVO LOVE NOTE */
 
 .foryou::before {
   content: "LOVE NOTE ♡";
   position: absolute;
-  right: 65px;
-  bottom: 18px;
+  left: 15px;
+  bottom: 15px;
 
   padding: 5px 10px;
 
@@ -1090,24 +1041,20 @@ img {
   color: #89375f;
 
   border: 1px solid #b47d94;
-
   box-shadow: 2px 2px #d699b5;
 
-  font:
-    italic 800
-    12px
-    var(--title);
+  font: italic 800 12px var(--title);
+  transform: rotate(-7deg);
 
-  transform: rotate(-8deg);
   pointer-events: none;
 }
 
 /* ============================================
-   CARTÕES DA COLUNA DIREITA
+   CARTÕES DA DIREITA
    ============================================ */
 
 .side-card {
-  padding: 49px 12px 14px;
+  padding: 46px 12px 13px;
   position: relative;
   background: #fff0f8;
 }
@@ -1136,19 +1083,11 @@ img {
    ============================================ */
 
 .lived-card {
-  background:
-    linear-gradient(
-      #ffebf5,
-      #fff8fb
-    );
+  background: linear-gradient(#ffebf5, #fff8fb);
 }
 
 .lived-card h3 {
-  font:
-    italic 800
-    clamp(24px, 2.2vw, 31px)/1.2
-    var(--title);
-
+  font: italic 800 clamp(24px, 2.2vw, 31px)/1.2 var(--title);
   margin: 0 0 10px;
 }
 
@@ -1177,6 +1116,7 @@ img {
   display: flex;
   align-items: flex-start;
   gap: 9px;
+
   padding: 10px 9px;
 
   border: 1.5px dashed #e67fae;
@@ -1255,7 +1195,7 @@ img {
 }
 
 /* ============================================
-   PHOTO DIARY / MOODBOARD
+   PHOTO DIARY
    ============================================ */
 
 .moodboard-card {
@@ -1264,22 +1204,11 @@ img {
   display: flex;
   flex-direction: column;
 
-  background:
-    radial-gradient(
-      rgba(235, 117, 171, .15) 1px,
-      transparent 1px
-    ),
-    #ffe9f4;
-
-  background-size: 10px 10px;
+  background: #ffe9f4;
 }
 
 .moodboard-card h3 {
-  font:
-    italic 800
-    clamp(24px, 2.3vw, 31px)/1.12
-    var(--title);
-
+  font: italic 800 clamp(24px, 2.3vw, 31px)/1.12 var(--title);
   margin: 0 0 10px;
   color: #713049;
 }
@@ -1290,13 +1219,14 @@ img {
   line-height: 1.6;
 }
 
+/* Moodboard com altura equilibrada */
+
 .mood-collage {
   position: relative;
   isolation: isolate;
 
   flex: 1;
-  min-height: 390px;
-  max-height: 650px;
+  min-height: 330px;
 
   overflow: hidden;
 
@@ -1304,19 +1234,10 @@ img {
   border-radius: 10px;
 
   background:
-    radial-gradient(
-      #e8a9c8 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      140deg,
-      #ffe4f1,
-      #ffcce6
-    );
+    radial-gradient(#e8a9c8 1px, transparent 1px),
+    linear-gradient(140deg, #ffe4f1, #ffcce6);
 
-  background-size:
-    9px 9px,
-    auto;
+  background-size: 9px 9px, auto;
 }
 
 .mood-shot {
@@ -1327,7 +1248,6 @@ img {
   border: 1px solid #785269;
 
   background: white;
-
   box-shadow: 3px 4px #b4829c;
 
   text-align: center;
@@ -1346,11 +1266,7 @@ img {
   width: 100%;
 
   color: #ad4181;
-
-  font:
-    italic 700
-    12px
-    var(--title);
+  font: italic 700 12px var(--title);
 }
 
 .shot-one {
@@ -1388,7 +1304,6 @@ img {
   color: #6b3b52;
 
   border: 1px solid #976f86;
-
   box-shadow: 2px 3px #bd91a7;
 
   font: italic 800 12px var(--title);
@@ -1422,25 +1337,20 @@ img {
 
 .mood-footer {
   margin: 14px 0 0;
-
   color: #bc4c89;
 
   text-align: center;
-
-  font:
-    italic 700
-    12px
-    var(--title);
+  font: italic 700 12px var(--title);
 }
 
-/* ADESIVO XOXO NO MOODBOARD */
+/* Adesivo XOXO */
 
 .moodboard-card::after {
   content: "XOXO ♡";
 
   position: absolute;
-  right: 17px;
-  bottom: 28px;
+  right: 16px;
+  bottom: 29px;
 
   padding: 5px 10px;
 
@@ -1448,13 +1358,9 @@ img {
   color: #b83d7d;
 
   border: 1px solid #b9779e;
-
   box-shadow: 2px 2px #e7a1c3;
 
-  font:
-    italic 800
-    13px
-    var(--title);
+  font: italic 800 13px var(--title);
 
   transform: rotate(8deg);
   pointer-events: none;
@@ -1506,11 +1412,7 @@ img {
 
 .modal-inner h2 {
   color: #ba3278;
-
-  font:
-    italic 800
-    clamp(25px, 3vw, 34px)/1.3
-    var(--title);
+  font: italic 800 clamp(25px, 3vw, 34px)/1.3 var(--title);
 }
 
 .modal-inner p {
@@ -1568,7 +1470,6 @@ img {
   border-radius: 10px;
 
   background: #fff0f8;
-
   cursor: pointer;
 }
 
@@ -1637,15 +1538,10 @@ img {
   border: 2px solid var(--page-ink);
   border-radius: 16px;
 
-  padding:
-    43px
-    clamp(15px, 3vw, 32px)
-    27px;
-
+  padding: 43px clamp(15px, 3vw, 32px) 27px;
   margin: 15px 0;
 
   min-height: 245px;
-
   box-shadow: 3px 4px #ad7895;
 }
 
@@ -1660,25 +1556,17 @@ img {
   border: 1px solid var(--page-ink);
 
   padding: 6px 10px;
-
   transform: rotate(5deg);
 
-  font:
-    italic 800
-    13px
-    var(--title);
+  font: italic 800 13px var(--title);
 }
 
 .chapter-pager-paper .chapter-page-title {
   color: var(--page-ink);
 
-  font:
-    800
-    clamp(19px, 2.6vw, 24px)/1.42
-    Arial, sans-serif;
+  font: 800 clamp(19px, 2.6vw, 24px)/1.42 Arial, sans-serif;
 
   margin: 0 0 21px;
-
   overflow-wrap: anywhere;
 }
 
@@ -1686,7 +1574,6 @@ img {
   font-size: 16px;
   line-height: 1.85;
   color: #30212b;
-
   white-space: pre-line;
 }
 
@@ -1726,20 +1613,16 @@ img {
 }
 
 /* ============================================
-   ANÁLISE PSICOLÓGICA
+   LEITURA DA ANÁLISE PSICOLÓGICA
    ============================================ */
 
-.modal-inner:has(
-  #modalBody > p:nth-of-type(3)
-) {
+.modal-inner:has(#modalBody > p:nth-of-type(3)) {
   width: min(980px, 96vw);
   background: #e7bcd0;
   padding: 23px;
 }
 
-#modalBody:has(
-  > p:nth-of-type(3)
-) {
+#modalBody:has(> p:nth-of-type(3)) {
   background: #fff9f5;
 
   border: 1px solid #d9a9b9;
@@ -1748,9 +1631,7 @@ img {
   padding: clamp(20px, 4vw, 42px);
 }
 
-#modalBody:has(
-  > p:nth-of-type(3)
-) > h2 {
+#modalBody:has(> p:nth-of-type(3)) > h2 {
   max-width: 700px;
   margin: 0 auto 27px;
   padding-bottom: 22px;
@@ -1762,9 +1643,7 @@ img {
   font-style: normal;
 }
 
-.modal-inner #modalBody:has(
-  > p:nth-of-type(3)
-) > p {
+.modal-inner #modalBody:has(> p:nth-of-type(3)) > p {
   max-width: 65ch;
   margin: 0 auto 25px;
 
@@ -1773,9 +1652,7 @@ img {
   line-height: 1.9;
 }
 
-.modal-inner #modalBody:has(
-  > p:nth-of-type(3)
-) > p:first-of-type {
+.modal-inner #modalBody:has(> p:nth-of-type(3)) > p:first-of-type {
   font-weight: 800;
   font-size: clamp(18px, 2.3vw, 23px);
 
@@ -1792,24 +1669,16 @@ img {
    ============================================ */
 
 footer {
-  padding: 19px;
+  padding: 17px;
   text-align: center;
   color: #8f3969;
 
-  font:
-    italic 700
-    14px
-    var(--title);
+  font: italic 700 14px var(--title);
 
-  background:
-    repeating-linear-gradient(
-      90deg,
-      #f6a9d0 0 22px,
-      #ffd2e8 22px 44px
-    );
-
+  background: #f8b9d8;
   border-top: 2px solid #ba6d94;
-  margin-top: 12px;
+
+  margin-top: 9px;
 }
 
 /* ============================================
@@ -1833,9 +1702,12 @@ footer {
     grid-column: 1 / -1;
 
     display: grid;
-
     grid-template-columns:
       repeat(2, minmax(0, 1fr));
+  }
+
+  .moodboard-card {
+    flex-grow: 0;
   }
 
   .mood-collage {
@@ -1995,9 +1867,12 @@ footer {
     height: 156px;
   }
 
+  .lyrics {
+    max-height: 500px;
+  }
+
   .right-column {
     display: grid;
-
     grid-template-columns:
       repeat(2, minmax(0, 1fr));
   }
@@ -2027,6 +1902,7 @@ footer {
   }
 
   .foryou {
+    flex-grow: 0;
     min-height: 160px;
   }
 }
@@ -2104,15 +1980,13 @@ footer {
     font-size: 12px;
   }
 
-  #modalBody:has(
-    > p:nth-of-type(3)
-  ) {
+  #modalBody:has(> p:nth-of-type(3)) {
     padding: 18px;
   }
 
-  .foryou::before {
-    right: 45px;
-    bottom: 11px;
+  .middle-column,
+  .right-column {
+    padding: 5px;
   }
 }
 
@@ -2135,6 +2009,6 @@ footer {
 }
 
 /* ============================================
-   FIM DO ARQUIVO
+   FIM DO STYLES.CSS
    XOXO MY MUSIC DIARY ♡
    ============================================ */
