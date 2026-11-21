@@ -2,6 +2,7 @@
 /* ==========================================
    XOXO MY MUSIC DIARY ♡
    REVISTA TEEN — SCRAPBOOK EDITION
+   TRADUÇÃO EXPANDIDA
    ========================================== */
 
 :root {
@@ -31,7 +32,8 @@ body {
   background: #ffe4f0;
 }
 
-button, input {
+button,
+input {
   font: inherit;
 }
 
@@ -79,9 +81,11 @@ img {
   justify-content: center;
   position: relative;
   padding: 12px 155px 12px 30px;
+
   background:
     radial-gradient(#e89cbf 1px, transparent 1px),
     #ffe0ee;
+
   background-size: 9px 9px;
   border-bottom: 2px solid #c87a9e;
   overflow: hidden;
@@ -106,9 +110,17 @@ img {
   font-weight: 800;
 }
 
-.pill.pink { background: #f9aad0; }
-.pill.yellow { background: #fff0a3; }
-.pill.mint { background: #e0f7e9; }
+.pill.pink {
+  background: #f9aad0;
+}
+
+.pill.yellow {
+  background: #fff0a3;
+}
+
+.pill.mint {
+  background: #e0f7e9;
+}
 
 .slogan {
   color: #a23670;
@@ -235,7 +247,7 @@ img {
 }
 
 /* ==========================================
-   PLAYER
+   PLAYER DO SPOTIFY
    ========================================== */
 
 .now {
@@ -426,16 +438,19 @@ img {
 
 .feature-grid {
   display: grid;
+
   grid-template-columns:
     minmax(0, 1.08fr)
     minmax(0, 1.22fr)
     minmax(255px, .91fr);
 
   align-items: stretch;
+
   gap: 8px;
   padding: 8px;
 
   background: #fff6fa;
+
   border: 2px solid #9c5a80;
   border-radius: 16px;
   box-shadow: 3px 4px #e999bc;
@@ -509,10 +524,19 @@ img {
   min-width: 0;
 }
 
+/* ==========================================
+   COLUNA PRINCIPAL
+   PREENCHE TODA A ALTURA
+   ========================================== */
+
 .main-article {
   display: flex;
   flex-direction: column;
+
   height: 100%;
+  min-height: 0;
+
+  background: #fffaf8;
 }
 
 /* ==========================================
@@ -524,9 +548,13 @@ img {
   display: flex;
   align-items: center;
   gap: 12px;
+
   min-height: 315px;
   padding: 17px 13px 15px;
+
   background: #fffafa;
+
+  flex-shrink: 0;
 }
 
 .text-intro {
@@ -649,19 +677,25 @@ img {
 }
 
 /* ==========================================
-   TRADUÇÃO
+   TÍTULO DA TRADUÇÃO
    ========================================== */
 
 .translation-heading {
   position: relative;
+
   margin: 12px 11px 8px;
   padding: 12px 8px;
+
   background: #ffb7d8;
+
   border: 1px solid #a36b8a;
   border-radius: 9px;
   box-shadow: 2px 3px #d68caf;
+
   text-align: center;
   font: italic 800 clamp(17px, 1.9vw, 23px) var(--title);
+
+  flex-shrink: 0;
 }
 
 .translation-heading::before {
@@ -682,23 +716,66 @@ img {
   color: #dc397f;
 }
 
+/* ==========================================
+   TRADUÇÃO — ÁREA EXPANDIDA
+
+   O objetivo é que a tradução ocupe
+   todo o espaço restante da coluna,
+   sem deixar o fundo branco sobrando.
+   ========================================== */
+
 .lyrics {
-  flex: 0 1 auto;
-  min-height: 390px;
-  max-height: 540px;
+  flex: 1 1 0;
+
+  height: 0;
+  min-height: 380px;
+  max-height: none;
+
   margin: 6px 12px 13px;
-  padding: 14px;
+  padding: 17px 15px;
+
   overflow-y: auto;
-  background: #fffdfd;
+  overscroll-behavior: contain;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 34px,
+      rgba(246, 185, 214, .11) 35px
+    ),
+    #fffdfd;
+
   border: 1px solid #f1c6da;
-  border-radius: 7px;
+  border-radius: 9px;
+
+  color: #322032;
+
+  font-family: var(--body);
   font-size: 14px;
   font-weight: 500;
-  line-height: 1.9;
+  line-height: 1.95;
+
   white-space: pre-line;
   overflow-wrap: break-word;
+
   scrollbar-width: thin;
   scrollbar-color: #eb8cb9 #fff0f8;
+}
+
+.lyrics::-webkit-scrollbar {
+  width: 9px;
+}
+
+.lyrics::-webkit-scrollbar-track {
+  background: #fff0f8;
+  border-radius: 10px;
+}
+
+.lyrics::-webkit-scrollbar-thumb {
+  background: #ea8fba;
+  border-radius: 10px;
+  border: 2px solid #fff0f8;
 }
 
 /* ==========================================
@@ -771,13 +848,26 @@ img {
   height: auto;
 }
 
-.editorial-stacks .vibe { grid-area: vibe; }
-.editorial-stacks .curios { grid-area: curios; }
-.editorial-stacks .psychology { grid-area: psy; }
-.editorial-stacks .percebe { grid-area: percebe; }
+.editorial-stacks .vibe {
+  grid-area: vibe;
+}
+
+.editorial-stacks .curios {
+  grid-area: curios;
+}
+
+.editorial-stacks .psychology {
+  grid-area: psy;
+}
+
+.editorial-stacks .percebe {
+  grid-area: percebe;
+}
 
 /* ==========================================
    VIBE CHECK
+   ESTILOS PRESERVADOS, MAS A SEÇÃO
+   PODE ESTAR OCULTA PELO HTML ATUAL
    ========================================== */
 
 .vibe {
@@ -1122,7 +1212,7 @@ img {
 }
 
 /* ==========================================
-   PHOTO DIARY
+   MOODBOARD
    ========================================== */
 
 .moodboard-card {
@@ -1152,9 +1242,11 @@ img {
   overflow: hidden;
   border: 1.5px dashed #db91b3;
   border-radius: 10px;
+
   background:
     radial-gradient(#e8a9c8 1px, transparent 1px),
     linear-gradient(140deg, #ffe4f1, #ffcce6);
+
   background-size: 9px 9px, auto;
 }
 
@@ -1575,6 +1667,18 @@ footer {
   .star-right {
     display: none;
   }
+
+  /* A tradução mantém uma altura confortável
+     mesmo quando a página vira duas colunas. */
+
+  .main-article {
+    min-height: 100%;
+  }
+
+  .lyrics {
+    min-height: 430px;
+    max-height: none;
+  }
 }
 
 /* ==========================================
@@ -1713,8 +1817,14 @@ footer {
     height: 156px;
   }
 
+  /* No celular, a tradução não precisa
+     acompanhar outra coluna. */
+
   .lyrics {
-    max-height: 500px;
+    flex: none;
+    height: 570px;
+    min-height: 0;
+    max-height: 570px;
   }
 
   .right-column {
@@ -1809,6 +1919,13 @@ footer {
 
   .intro-highlight {
     font-size: 11px;
+  }
+
+  .lyrics {
+    height: 520px;
+    max-height: 520px;
+    font-size: 13px;
+    line-height: 1.85;
   }
 
   .chapter-pager {
