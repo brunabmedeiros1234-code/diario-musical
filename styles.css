@@ -1,8 +1,9 @@
 
-/* =========================================
-   XOXO MY MUSIC DIARY
-   EDIÇÃO REVISTA SCRAPBOOK
-   ========================================= */
+/* ============================================
+   XOXO MY MUSIC DIARY ♡
+   EDIÇÃO SCRAPBOOK COM ADESIVOS
+   CSS COMPLETO
+   ============================================ */
 
 :root {
   --ink: #2b1725;
@@ -16,38 +17,80 @@
   --mono: 'DM Mono', monospace;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
   color: var(--ink);
   font-family: var(--body);
-  background-color: #ffcae2;
-  background-image:
-    radial-gradient(#e999bf 0.75px, transparent 0.75px),
-    linear-gradient(90deg, #fff7fb40 1px, transparent 1px),
-    linear-gradient(#fff7fb40 1px, transparent 1px);
-  background-size: 10px 10px, 27px 27px, 27px 27px;
+
+  /* Fundo geral menos chamativo */
+  background:
+    linear-gradient(
+      135deg,
+      #ffe4f0 0%,
+      #fff1f7 50%,
+      #ffe1ed 100%
+    );
 }
 
-button, input { font: inherit; }
-button { cursor: pointer; }
-button:focus-visible, a:focus-visible {
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible {
   outline: 3px solid #c1287b;
   outline-offset: 3px;
 }
-a { color: inherit; }
-img { display: block; max-width: 100%; }
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
 
 .site {
   width: min(100%, 1450px);
+  min-height: 100vh;
   padding: 0 10px 20px;
   margin: auto;
+
+  /* A revista agora tem um fundo contínuo */
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 27px,
+      rgba(255,255,255,.15) 27px 28px
+    ),
+    linear-gradient(
+      180deg,
+      #ffe3ef,
+      #ffd8e9 45%,
+      #ffebf4
+    );
+
+  border-left: 1px solid #ebb0cb;
+  border-right: 1px solid #ebb0cb;
 }
 
-/* CABEÇALHO */
+/* ============================================
+   CABEÇALHO
+   ============================================ */
 
 .masthead {
   min-height: 154px;
@@ -56,15 +99,22 @@ img { display: block; max-width: 100%; }
   justify-content: center;
   position: relative;
   padding: 12px 160px 12px 35px;
+
   background:
-    radial-gradient(#e89cbf 1px, transparent 1px),
+    radial-gradient(
+      #e89cbf 1px,
+      transparent 1px
+    ),
     #ffe0ee;
+
   background-size: 9px 9px;
   border-bottom: 2px solid #c87a9e;
   overflow: hidden;
 }
 
-.brand-center { text-align: center; }
+.brand-center {
+  text-align: center;
+}
 
 .top-labels {
   display: flex;
@@ -80,9 +130,18 @@ img { display: block; max-width: 100%; }
   font-size: 9px;
   font-weight: 800;
 }
-.pill.pink { background: #f9aad0; }
-.pill.yellow { background: #fff0a3; }
-.pill.mint { background: #e0f7e9; }
+
+.pill.pink {
+  background: #f9aad0;
+}
+
+.pill.yellow {
+  background: #fff0a3;
+}
+
+.pill.mint {
+  background: #e0f7e9;
+}
 
 .slogan {
   color: #a23670;
@@ -93,7 +152,10 @@ img { display: block; max-width: 100%; }
 .masthead h1 {
   margin: 0;
   color: #ec4296;
-  font: italic 800 clamp(35px, 4.8vw, 69px)/1.05 var(--title);
+  font:
+    italic 800
+    clamp(35px, 4.8vw, 69px)/1.05
+    var(--title);
   letter-spacing: -2px;
   text-shadow: 2px 3px #fff0af;
 }
@@ -110,8 +172,18 @@ img { display: block; max-width: 100%; }
   font-size: 55px;
   -webkit-text-stroke: 1px #573149;
 }
-.star-left { left: 22px; top: 6px; transform: rotate(-13deg); }
-.star-right { right: 178px; bottom: 12px; font-size: 32px; }
+
+.star-left {
+  left: 22px;
+  top: 6px;
+  transform: rotate(-13deg);
+}
+
+.star-right {
+  right: 178px;
+  bottom: 12px;
+  font-size: 32px;
+}
 
 .top-polaroid {
   position: absolute;
@@ -125,17 +197,21 @@ img { display: block; max-width: 100%; }
   box-shadow: 3px 4px #bf81a4;
   text-align: center;
 }
+
 .top-polaroid img {
   width: 100%;
   height: 88px;
   object-fit: cover;
 }
+
 .top-polaroid span {
   font: italic 700 13px var(--title);
   color: #b32d78;
 }
 
-/* MENU */
+/* ============================================
+   MENU
+   ============================================ */
 
 .nav {
   display: flex;
@@ -156,8 +232,14 @@ img { display: block; max-width: 100%; }
   font-size: 11px;
   font-weight: 800;
 }
-.nav-btn.active { background: #ffed9a; }
-.nav-btn:hover { background: #ffd1e6; }
+
+.nav-btn.active {
+  background: #ffed9a;
+}
+
+.nav-btn:hover {
+  background: #ffd1e6;
+}
 
 .search-box {
   display: flex;
@@ -179,6 +261,7 @@ img { display: block; max-width: 100%; }
   padding: 0 12px;
   font-size: 12px;
 }
+
 .search-box button {
   border: 0;
   background: transparent;
@@ -187,7 +270,9 @@ img { display: block; max-width: 100%; }
   padding: 0 12px;
 }
 
-/* PLAYER SUPERIOR */
+/* ============================================
+   PLAYER DO SPOTIFY
+   ============================================ */
 
 .now {
   position: relative;
@@ -234,7 +319,12 @@ img { display: block; max-width: 100%; }
   min-width: 0;
   min-height: 128px;
   padding: 10px 13px;
-  background: linear-gradient(105deg, #fff2f9, #fdd2e8);
+  background:
+    linear-gradient(
+      105deg,
+      #fff2f9,
+      #fdd2e8
+    );
   border: 2px solid #533348;
   border-radius: 16px;
   box-shadow: 3px 4px #b57898;
@@ -251,6 +341,7 @@ img { display: block; max-width: 100%; }
   border: 2px solid #51364a;
   border-radius: 10px;
 }
+
 .cover-wrap img {
   width: 100%;
   height: 100%;
@@ -258,7 +349,10 @@ img { display: block; max-width: 100%; }
   border-radius: 5px;
 }
 
-.player-info { flex: 1; min-width: 0; }
+.player-info {
+  flex: 1;
+  min-width: 0;
+}
 
 .playing {
   background: #853157;
@@ -270,7 +364,10 @@ img { display: block; max-width: 100%; }
 
 .player h2 {
   margin: 8px 0 10px;
-  font: italic 800 clamp(19px, 2.4vw, 31px)/1.15 var(--title);
+  font:
+    italic 800
+    clamp(19px, 2.4vw, 31px)/1.15
+    var(--title);
   overflow-wrap: anywhere;
 }
 
@@ -280,6 +377,7 @@ img { display: block; max-width: 100%; }
   gap: 9px;
   font: 700 10px var(--mono);
 }
+
 .progress {
   flex: 1;
   height: 12px;
@@ -288,13 +386,19 @@ img { display: block; max-width: 100%; }
   border-radius: 20px;
   overflow: hidden;
 }
+
 .progress > div {
   width: 0;
   height: 100%;
   background: #eb4d9b;
   border-radius: inherit;
 }
-#syncNote { font-size: 10px; color: #73566a; margin: 7px 0 0; }
+
+#syncNote {
+  font-size: 10px;
+  color: #73566a;
+  margin: 7px 0 0;
+}
 
 .spotify-panel {
   flex: 0 0 142px;
@@ -305,11 +409,15 @@ img { display: block; max-width: 100%; }
   gap: 7px;
   padding-left: 12px;
 }
+
 .spotify-panel strong {
   text-align: center;
   font: 800 23px/1 var(--body);
 }
-.spotify-panel strong small { font-size: 10px; }
+
+.spotify-panel strong small {
+  font-size: 10px;
+}
 
 .spotify-go {
   display: block;
@@ -322,6 +430,7 @@ img { display: block; max-width: 100%; }
   font-weight: 800;
   padding: 7px 14px;
 }
+
 .spotify-link {
   border: 0;
   background: transparent;
@@ -341,6 +450,7 @@ img { display: block; max-width: 100%; }
   padding: 6px 10px;
   font: italic 700 14px var(--title);
 }
+
 .player-doodle {
   position: absolute;
   right: 6px;
@@ -349,27 +459,52 @@ img { display: block; max-width: 100%; }
   font-size: 33px;
 }
 
-/* ESTRUTURA DA REVISTA */
+/* ============================================
+   FOLHA COMPLETA DA REVISTA
+   ============================================ */
+
+#content {
+  position: relative;
+}
 
 .feature-grid {
   display: grid;
+
   grid-template-columns:
     minmax(0, 1.13fr)
     minmax(0, 1.15fr)
     minmax(258px, 0.9fr);
-  align-items: start;
+
+  /* As colunas acompanham a altura da tradução */
+  align-items: stretch;
+
   gap: 10px;
   padding: 10px;
+
   background:
-    radial-gradient(#eaa4c5 0.8px, transparent 0.8px),
-    linear-gradient(120deg, #ffedf6, #ffd8e9 60%, #ffe8f3);
-  background-size: 9px 9px, auto;
+    radial-gradient(
+      #eaa4c5 0.8px,
+      transparent 0.8px
+    ),
+    linear-gradient(
+      120deg,
+      #fff4f9,
+      #ffedf5 60%,
+      #fff7fa
+    );
+
+  background-size:
+    9px 9px,
+    auto;
+
   border: 2px solid #9c5a80;
   border-radius: 16px;
   box-shadow: 3px 4px #e999bc;
 }
 
-.feature-grid > * { min-width: 0; }
+.feature-grid > * {
+  min-width: 0;
+}
 
 .breadcrumb {
   grid-column: 1 / -1;
@@ -384,9 +519,15 @@ img { display: block; max-width: 100%; }
   background: #fff4f9;
   font: 800 10px var(--mono);
 }
-.crumb-separator { color: #d63584; font-size: 16px; }
 
-/* CARTÕES */
+.crumb-separator {
+  color: #d63584;
+  font-size: 16px;
+}
+
+/* ============================================
+   CARTÕES
+   ============================================ */
 
 .article {
   position: relative;
@@ -401,7 +542,12 @@ img { display: block; max-width: 100%; }
 .main-article {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
+
+/* ============================================
+   MATÉRIA PRINCIPAL
+   ============================================ */
 
 .article-intro {
   position: relative;
@@ -413,19 +559,28 @@ img { display: block; max-width: 100%; }
   background: #fffafa;
 }
 
-.text-intro { flex: 1; min-width: 0; }
+.text-intro {
+  flex: 1;
+  min-width: 0;
+}
 
 .text-intro h2 {
   margin: 0 0 3px;
   color: #e4388e;
-  font: italic 800 clamp(38px, 4vw, 62px)/1.04 var(--title);
+  font:
+    italic 800
+    clamp(38px, 4vw, 62px)/1.04
+    var(--title);
   letter-spacing: -1px;
   overflow-wrap: anywhere;
 }
 
 .text-intro h3 {
   margin: 0 0 12px;
-  font: italic 700 clamp(19px, 2vw, 27px) var(--title);
+  font:
+    italic 700
+    clamp(19px, 2vw, 27px)
+    var(--title);
 }
 
 .intro-highlight {
@@ -445,13 +600,25 @@ img { display: block; max-width: 100%; }
   margin: 0 0 12px;
 }
 
-.intro-heart, .intro-star {
+.intro-heart,
+.intro-star {
   position: absolute;
   pointer-events: none;
   font: 800 38px var(--title);
 }
-.intro-heart { color: #e53890; right: 14px; top: 20px; }
-.intro-star { color: #f3be29; right: 7px; top: 66px; font-size: 25px; }
+
+.intro-heart {
+  color: #e53890;
+  right: 14px;
+  top: 20px;
+}
+
+.intro-star {
+  color: #f3be29;
+  right: 7px;
+  top: 66px;
+  font-size: 25px;
+}
 
 .hashtags {
   display: flex;
@@ -459,6 +626,7 @@ img { display: block; max-width: 100%; }
   flex-wrap: wrap;
   margin-top: 15px;
 }
+
 .hashtags span {
   background: #ffd7e9;
   border-radius: 5px;
@@ -478,16 +646,19 @@ img { display: block; max-width: 100%; }
   transform: rotate(5deg);
   text-align: center;
 }
+
 .crush-polaroid img {
   width: 100%;
   height: 210px;
   object-fit: cover;
 }
+
 .crush-polaroid > span:last-child {
   display: block;
   font: italic 800 15px var(--title);
   margin-top: 7px;
 }
+
 .polaroid-clip {
   position: absolute;
   right: -5px;
@@ -498,52 +669,130 @@ img { display: block; max-width: 100%; }
   transform: rotate(30deg);
 }
 
+/* ADESIVO DA FOTO */
+
+.crush-polaroid::after {
+  content: "♡";
+  position: absolute;
+  right: -15px;
+  bottom: 30px;
+  z-index: 3;
+  color: #e93d91;
+  font-size: 38px;
+  transform: rotate(-12deg);
+  text-shadow: 1px 1px white;
+}
+
+/* ============================================
+   TRADUÇÃO
+   ============================================ */
+
 .translation-heading {
   position: relative;
   margin: 13px 11px 8px;
   padding: 13px 8px;
+
   background:
-    linear-gradient(175deg, transparent 88%, #f6a9ce 88%),
+    linear-gradient(
+      175deg,
+      transparent 88%,
+      #f6a9ce 88%
+    ),
     #ffb7d8;
+
   border: 1px solid #a36b8a;
   border-radius: 9px;
   box-shadow: 2px 3px #d68caf;
   text-align: center;
-  font: italic 800 clamp(17px, 1.9vw, 23px) var(--title);
+
+  font:
+    italic 800
+    clamp(17px, 1.9vw, 23px)
+    var(--title);
+}
+
+.translation-heading::before {
+  content: "✧";
+  position: absolute;
+  left: 10px;
+  top: -13px;
+  font-size: 28px;
+  color: #e93c92;
+}
+
+.translation-heading::after {
+  content: "♡";
+  position: absolute;
+  right: 9px;
+  top: -10px;
+  font-size: 26px;
+  color: #dc397f;
 }
 
 .lyrics {
+  flex: 1;
+  min-height: 440px;
+
   margin: 6px 12px 13px;
   padding: 13px;
+
   max-height: 770px;
   overflow-y: auto;
-  background: #fffdfe;
+
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 29px,
+      rgba(247, 190, 218, .23) 29px 30px
+    ),
+    #fffdfe;
+
   border: 1px solid #f1c6da;
   border-radius: 7px;
+
   font-size: 13.5px;
   font-weight: 500;
   line-height: 1.85;
+
   white-space: pre-line;
   overflow-wrap: break-word;
+
   scrollbar-width: thin;
   scrollbar-color: #eb8cb9 #fff0f8;
 }
 
-/* COLUNA CENTRAL */
+/* ============================================
+   COLUNAS LATERAIS
+   ============================================ */
 
-.middle-column, .right-column {
+.middle-column,
+.right-column {
   display: flex;
   flex-direction: column;
   min-width: 0;
   gap: 10px;
+
+  /* Faz ocupar toda a altura da revista */
+  height: 100%;
 }
 
-.compact { padding: 0 12px 11px; }
+/* ============================================
+   BLOCOS EDITORIAIS
+   ============================================ */
+
+.compact {
+  padding: 0 12px 11px;
+}
 
 .compact h3 {
   margin: 0 -12px 10px;
   padding: 9px 12px;
-  font: italic 800 clamp(18px, 1.7vw, 24px)/1.2 var(--title);
+
+  font:
+    italic 800
+    clamp(18px, 1.7vw, 24px)/1.2
+    var(--title);
+
   color: #532640;
   background: #ffdce9;
   border-bottom: 1px solid #e9b0ce;
@@ -560,12 +809,17 @@ img { display: block; max-width: 100%; }
   min-height: 145px;
   border-color: #d474a4;
 }
-.about-song h3 { background: #ffdce9; }
+
+.about-song h3 {
+  background: #ffdce9;
+}
+
 #aboutText {
   font-size: 13.5px;
   line-height: 1.7;
   margin: 5px 0 10px;
 }
+
 .card-doodle {
   position: absolute;
   top: 2px;
@@ -574,27 +828,50 @@ img { display: block; max-width: 100%; }
   font-size: 22px;
 }
 
+/* ============================================
+   GRADE CENTRAL
+   ============================================ */
+
 .editorial-stacks {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
   grid-template-areas:
     "vibe curios"
     "psy percebe";
+
   gap: 10px;
-  align-items: start;
+  align-items: stretch;
 }
 
-.editorial-stacks .vibe { grid-area: vibe; }
-.editorial-stacks .curios { grid-area: curios; }
-.editorial-stacks .psychology { grid-area: psy; }
-.editorial-stacks .percebe { grid-area: percebe; }
+.editorial-stacks .vibe {
+  grid-area: vibe;
+}
 
-/* VIBE */
+.editorial-stacks .curios {
+  grid-area: curios;
+}
+
+.editorial-stacks .psychology {
+  grid-area: psy;
+}
+
+.editorial-stacks .percebe {
+  grid-area: percebe;
+}
+
+/* ============================================
+   VIBE CHECK
+   ============================================ */
 
 .vibe {
   background: #fff6d9;
 }
-.vibe h3 { background: #fff0a5; }
+
+.vibe h3 {
+  background: #fff0a5;
+}
 
 .vibe-line {
   display: flex;
@@ -604,7 +881,10 @@ img { display: block; max-width: 100%; }
   font-size: 10px;
   font-weight: 800;
 }
-.vibe-line > span:first-child { min-width: 63px; }
+
+.vibe-line > span:first-child {
+  min-width: 63px;
+}
 
 .meter {
   height: 11px;
@@ -614,33 +894,83 @@ img { display: block; max-width: 100%; }
   border-radius: 20px;
   background: #f5d0dc;
 }
+
 .meter i {
   display: block;
   height: 100%;
   background: #ed4c9c;
 }
-.vibe-line b { font-size: 10px; }
 
-/* CURIOSIDADES */
+.vibe-line b {
+  font-size: 10px;
+}
 
-.curios { background: #fff5fa; }
-.curios h3 { background: #f8c7e3; }
-#curiosityPreview, #percebePreview {
+/* ADESIVO DE ESTRELA */
+
+.vibe::after {
+  content: "✦";
+  position: absolute;
+  right: 9px;
+  bottom: 4px;
+  font-size: 22px;
+  color: #ecb939;
+  transform: rotate(15deg);
+  pointer-events: none;
+}
+
+/* ============================================
+   CURIOSIDADES
+   ============================================ */
+
+.curios {
+  background: #fff5fa;
+}
+
+.curios h3 {
+  background: #f8c7e3;
+}
+
+#curiosityPreview,
+#percebePreview {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 8;
   overflow: hidden;
 }
-#curiosityPreview p, #percebePreview p {
+
+#curiosityPreview p,
+#percebePreview p {
   font-size: 12px;
   line-height: 1.6;
   margin: 8px 0;
 }
 
-/* PSICOLOGIA */
+/* ADESIVO DE CORAÇÃO */
 
-.psychology { background: #fff8ff; }
-.psychology h3 { background: #e6cef2; }
+.curios::after {
+  content: "♡";
+  position: absolute;
+  right: 6px;
+  top: 34px;
+  color: #e04a96;
+  font-size: 25px;
+  font-weight: 800;
+  transform: rotate(15deg);
+  pointer-events: none;
+}
+
+/* ============================================
+   PSICOLOGIA
+   ============================================ */
+
+.psychology {
+  background: #fff8ff;
+}
+
+.psychology h3 {
+  background: #e6cef2;
+}
+
 .psychology #psyPreview {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -650,10 +980,39 @@ img { display: block; max-width: 100%; }
   line-height: 1.65;
 }
 
-/* VOCÊ PERCEBEU */
+/* ADESIVO PSYCHOLOGY CORNER */
 
-.percebe { background: #fffdf0; }
-.percebe h3 { background: #fff0a9; }
+.psychology::after {
+  content: "♡";
+  position: absolute;
+  right: 7px;
+  bottom: 5px;
+  color: #b86bb4;
+  font-size: 25px;
+  pointer-events: none;
+}
+
+/* ============================================
+   VOCÊ PERCEBEU?
+   ============================================ */
+
+.percebe {
+  background: #fffdf0;
+}
+
+.percebe h3 {
+  background: #fff0a9;
+}
+
+.percebe::after {
+  content: "✧";
+  position: absolute;
+  right: 7px;
+  bottom: 4px;
+  color: #e0a43b;
+  font-size: 24px;
+  pointer-events: none;
+}
 
 .text-button {
   border: 0;
@@ -666,34 +1025,86 @@ img { display: block; max-width: 100%; }
   font-weight: 800;
   text-align: left;
 }
-.text-button:hover { color: #eb4495; }
 
-/* ESSA MÚSICA É PRA VOCÊ SE... */
+.text-button:hover {
+  color: #eb4495;
+}
+
+/* ============================================
+   ESSA MÚSICA É PRA VOCÊ SE...
+   ============================================ */
 
 .foryou {
-  background: #fff2fa;
+  position: relative;
+  flex-grow: 1;
+
+  background:
+    radial-gradient(
+      rgba(245, 152, 194, .14) 1px,
+      transparent 1px
+    ),
+    #fff2fa;
+
+  background-size: 10px 10px;
+
+  min-height: 160px;
+
+  padding-bottom: 44px;
 }
+
 .foryou h3 {
   background: #f9b6d8;
   font-size: clamp(19px, 2vw, 26px);
   color: #a3336e;
 }
+
 #forYou .for-you-copy {
   font-size: 13.5px;
   line-height: 1.7;
   margin: 11px 3px;
 }
+
+/* CORAÇÃO NO CANTO */
+
 .foryou::after {
   content: "♡";
   position: absolute;
-  right: 9px;
-  bottom: -11px;
+  right: 12px;
+  bottom: 2px;
   color: #e24797;
   font-size: 48px;
   pointer-events: none;
 }
 
-/* TESTE */
+/* ADESIVO LOVE NOTE */
+
+.foryou::before {
+  content: "LOVE NOTE ♡";
+  position: absolute;
+  right: 65px;
+  bottom: 18px;
+
+  padding: 5px 10px;
+
+  background: #fff0a3;
+  color: #89375f;
+
+  border: 1px solid #b47d94;
+
+  box-shadow: 2px 2px #d699b5;
+
+  font:
+    italic 800
+    12px
+    var(--title);
+
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
+/* ============================================
+   CARTÕES DA COLUNA DIREITA
+   ============================================ */
 
 .side-card {
   padding: 49px 12px 14px;
@@ -705,29 +1116,49 @@ img { display: block; max-width: 100%; }
   position: absolute;
   top: 12px;
   left: 12px;
+
   display: inline-block;
   transform: rotate(-5deg);
+
   padding: 6px 10px;
+
   background: #fff1a6;
+
   border: 1px solid #765744;
   box-shadow: 2px 3px #ba9d70;
+
   font: italic 800 15px var(--title);
   z-index: 3;
 }
 
+/* ============================================
+   CRUSH TEST
+   ============================================ */
+
 .lived-card {
-  background: linear-gradient(#ffebf5, #fff8fb);
+  background:
+    linear-gradient(
+      #ffebf5,
+      #fff8fb
+    );
 }
+
 .lived-card h3 {
-  font: italic 800 clamp(24px, 2.2vw, 31px)/1.2 var(--title);
+  font:
+    italic 800
+    clamp(24px, 2.2vw, 31px)/1.2
+    var(--title);
+
   margin: 0 0 10px;
 }
+
 .lived-card > p {
   font-size: 12px;
   font-weight: 600;
   line-height: 1.52;
   margin: 4px 0 15px;
 }
+
 .quiz-icon {
   position: absolute;
   top: 28px;
@@ -740,41 +1171,54 @@ img { display: block; max-width: 100%; }
   display: grid;
   gap: 8px;
 }
+
 .lived-question {
   position: relative;
   display: flex;
   align-items: flex-start;
   gap: 9px;
   padding: 10px 9px;
+
   border: 1.5px dashed #e67fae;
   border-radius: 8px;
+
   background: #fffdfd;
+
   font-size: 12px;
   line-height: 1.42;
+
   cursor: pointer;
 }
+
 .lived-question input {
   position: absolute;
   width: 1px;
   height: 1px;
   opacity: 0;
 }
+
 .heart-box {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+
   flex: 0 0 26px;
   height: 26px;
+
   background: white;
   color: #c52c7a;
+
   border: 2px solid #624153;
   border-radius: 6px;
+
   font-size: 20px;
 }
+
 .lived-question input:checked + .heart-box {
   background: #e85b9e;
   color: white;
 }
+
 .lived-question:focus-within {
   outline: 2px solid #c32d79;
 }
@@ -783,14 +1227,22 @@ img { display: block; max-width: 100%; }
   width: 100%;
   margin-top: 13px;
   padding: 12px 8px;
+
   background: #fff0a0;
+
   border: 1.5px solid #634638;
   border-radius: 12px;
+
   box-shadow: 2px 3px #9e7d5c;
+
   font-size: 14px;
   font-weight: 800;
 }
-.quiz-submit:hover { background: #ffe57e; }
+
+.quiz-submit:hover {
+  background: #ffe57e;
+}
+
 .quiz-outcome:not(:empty) {
   background: #fff1ad;
   border: 1px dashed #d377a5;
@@ -802,16 +1254,36 @@ img { display: block; max-width: 100%; }
   text-align: center;
 }
 
-/* PHOTO DIARY */
+/* ============================================
+   PHOTO DIARY / MOODBOARD
+   ============================================ */
 
 .moodboard-card {
-  background: #ffe9f4;
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  background:
+    radial-gradient(
+      rgba(235, 117, 171, .15) 1px,
+      transparent 1px
+    ),
+    #ffe9f4;
+
+  background-size: 10px 10px;
 }
+
 .moodboard-card h3 {
-  font: italic 800 clamp(24px, 2.3vw, 31px)/1.12 var(--title);
+  font:
+    italic 800
+    clamp(24px, 2.3vw, 31px)/1.12
+    var(--title);
+
   margin: 0 0 10px;
   color: #713049;
 }
+
 .mood-subtitle {
   margin: 3px 0 15px;
   font-size: 12px;
@@ -821,38 +1293,66 @@ img { display: block; max-width: 100%; }
 .mood-collage {
   position: relative;
   isolation: isolate;
-  height: 390px;
+
+  flex: 1;
+  min-height: 390px;
+  max-height: 650px;
+
   overflow: hidden;
+
   border: 1.5px dashed #db91b3;
   border-radius: 10px;
+
   background:
-    radial-gradient(#e8a9c8 1px, transparent 1px),
-    linear-gradient(140deg, #ffe4f1, #ffcce6);
-  background-size: 9px 9px, auto;
+    radial-gradient(
+      #e8a9c8 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      140deg,
+      #ffe4f1,
+      #ffcce6
+    );
+
+  background-size:
+    9px 9px,
+    auto;
 }
 
 .mood-shot {
   position: absolute;
   margin: 0;
   padding: 6px 6px 25px;
+
   border: 1px solid #785269;
+
   background: white;
+
   box-shadow: 3px 4px #b4829c;
+
   text-align: center;
 }
+
 .mood-shot img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .mood-shot figcaption {
   position: absolute;
   bottom: 5px;
   left: 0;
   width: 100%;
+
   color: #ad4181;
-  font: italic 700 12px var(--title);
+
+  font:
+    italic 700
+    12px
+    var(--title);
 }
+
 .shot-one {
   width: 61%;
   height: 44%;
@@ -861,6 +1361,7 @@ img { display: block; max-width: 100%; }
   transform: rotate(-5deg);
   z-index: 2;
 }
+
 .shot-two {
   width: 48%;
   height: 39%;
@@ -869,6 +1370,7 @@ img { display: block; max-width: 100%; }
   transform: rotate(8deg);
   z-index: 3;
 }
+
 .shot-three {
   width: 79%;
   height: 49%;
@@ -877,374 +1379,762 @@ img { display: block; max-width: 100%; }
   transform: rotate(4deg);
   z-index: 2;
 }
+
 .mood-note {
   position: absolute;
   padding: 8px;
+
   background: #fff1a2;
   color: #6b3b52;
+
   border: 1px solid #976f86;
+
   box-shadow: 2px 3px #bd91a7;
+
   font: italic 800 12px var(--title);
   z-index: 5;
 }
+
 .note-one {
   left: 2%;
   top: 49%;
   transform: rotate(-10deg);
 }
+
 .note-two {
   left: 3%;
   bottom: 8%;
   background: #ffc6e2;
   transform: rotate(-7deg);
 }
+
 .collage-star {
   position: absolute;
   right: 3%;
   bottom: 41%;
+
   color: #ffd641;
   font-size: 35px;
   z-index: 6;
+
   text-shadow: 1px 1px #8c5371;
 }
+
 .mood-footer {
   margin: 14px 0 0;
+
   color: #bc4c89;
+
   text-align: center;
-  font: italic 700 12px var(--title);
+
+  font:
+    italic 700
+    12px
+    var(--title);
 }
 
-/* JANELINHAS */
+/* ADESIVO XOXO NO MOODBOARD */
+
+.moodboard-card::after {
+  content: "XOXO ♡";
+
+  position: absolute;
+  right: 17px;
+  bottom: 28px;
+
+  padding: 5px 10px;
+
+  background: #fff0aa;
+  color: #b83d7d;
+
+  border: 1px solid #b9779e;
+
+  box-shadow: 2px 2px #e7a1c3;
+
+  font:
+    italic 800
+    13px
+    var(--title);
+
+  transform: rotate(8deg);
+  pointer-events: none;
+}
+
+/* ============================================
+   JANELINHAS
+   ============================================ */
 
 .modal {
   position: fixed;
   inset: 0;
   z-index: 9999;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: 16px;
+
   background: #2b1726bb;
 }
-.hidden, .modal.hidden { display: none !important; }
+
+.hidden,
+.modal.hidden {
+  display: none !important;
+}
 
 .modal-inner {
   position: relative;
+
   width: min(930px, 100%);
   max-height: 92vh;
+
   overflow-y: auto;
+
   padding: 25px;
+
   border: 2px solid #683d55;
   border-radius: 18px;
+
   background: #fffaf7;
+
   box-shadow: 6px 7px #df87ae;
+
   scrollbar-width: thin;
   scrollbar-color: #d77eab #ffe7f3;
 }
+
 .modal-inner h2 {
   color: #ba3278;
-  font: italic 800 clamp(25px, 3vw, 34px)/1.3 var(--title);
+
+  font:
+    italic 800
+    clamp(25px, 3vw, 34px)/1.3
+    var(--title);
 }
+
 .modal-inner p {
   font-size: 16px;
   line-height: 1.83;
 }
+
 .close-modal {
   position: sticky;
   float: right;
   top: 0;
   z-index: 5;
+
   width: 40px;
   height: 40px;
+
   border: 2px solid #4e3142;
   border-radius: 50%;
+
   background: #ff9ecb;
+
   font-size: 23px;
   font-weight: 800;
 }
+
 .modal-inner .action {
   padding: 11px 15px;
   margin: 6px;
+
   border: 2px solid #5d394b;
   border-radius: 10px;
+
   background: #ffc3df;
+
   font-weight: 800;
 }
+
 .modal-inner .notice {
   padding: 12px;
   background: #fff0b9;
   border-radius: 10px;
 }
+
 .modal-inner input {
   max-width: 100%;
   padding: 10px;
   margin: 8px 0;
 }
+
 .result {
   padding: 13px;
   margin: 8px 0;
+
   border: 1px solid #d99aba;
   border-radius: 10px;
+
   background: #fff0f8;
+
   cursor: pointer;
 }
-.result:hover { background: #fff0a7; }
 
-/* CURIOSIDADES EM PÁGINAS */
+.result:hover {
+  background: #fff0a7;
+}
+
+/* ============================================
+   CURIOSIDADES EM PÁGINAS
+   ============================================ */
 
 .chapter-pager {
   --page-ink: #812749;
   --page-bg: #f5c6d9;
+
   padding: 20px;
+
   background: #e9a8c5;
+
   border: 2px solid #8b305c;
   border-radius: 18px;
 }
+
 .chapter-pager--percebe {
   --page-ink: #805022;
   --page-bg: #fff4c7;
+
   background: #f2d58c;
   border-color: #a77935;
 }
+
 .chapter-pager-head {
   text-align: center;
   padding: 7px;
 }
+
 .chapter-pager-kicker {
   color: var(--page-ink);
   font: 800 10px var(--mono) !important;
   letter-spacing: 1px;
 }
+
 .modal-inner .chapter-pager-head h2 {
   color: var(--page-ink);
   margin: 9px 0;
 }
+
 .chapter-pager-count {
   display: inline-block;
   padding: 7px 15px;
+
   background: #fff9fb;
   color: var(--page-ink);
+
   border: 1px solid var(--page-ink);
   border-radius: 25px;
+
   font: 800 11px var(--mono);
 }
+
 .chapter-pager-paper {
   position: relative;
+
   background: var(--page-bg);
+
   border: 2px solid var(--page-ink);
   border-radius: 16px;
-  padding: 43px clamp(15px, 3vw, 32px) 27px;
+
+  padding:
+    43px
+    clamp(15px, 3vw, 32px)
+    27px;
+
   margin: 15px 0;
+
   min-height: 245px;
+
   box-shadow: 3px 4px #ad7895;
 }
+
 .chapter-pager-sticker {
   position: absolute;
   top: -9px;
   right: 16px;
+
   background: #fff8fb;
   color: var(--page-ink);
+
   border: 1px solid var(--page-ink);
+
   padding: 6px 10px;
+
   transform: rotate(5deg);
-  font: italic 800 13px var(--title);
+
+  font:
+    italic 800
+    13px
+    var(--title);
 }
+
 .chapter-pager-paper .chapter-page-title {
   color: var(--page-ink);
-  font: 800 clamp(19px, 2.6vw, 24px)/1.42 Arial, sans-serif;
+
+  font:
+    800
+    clamp(19px, 2.6vw, 24px)/1.42
+    Arial, sans-serif;
+
   margin: 0 0 21px;
+
   overflow-wrap: anywhere;
 }
+
 .modal-inner .chapter-page-body {
   font-size: 16px;
   line-height: 1.85;
   color: #30212b;
+
   white-space: pre-line;
 }
+
 .chapter-pager-navigation {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 9px;
 }
+
 .chapter-pager-pages {
   color: var(--page-ink);
   font: 800 12px var(--mono);
 }
+
 .chapter-pager-button {
   padding: 10px 17px;
+
   border: 2px solid #60354d;
   border-radius: 24px;
+
   background: #8b305c;
   color: white;
+
   font-size: 13px;
   font-weight: 800;
 }
+
 .chapter-pager--percebe .chapter-pager-button {
   background: #935223;
   border-color: #653817;
 }
+
 .chapter-pager-button:disabled {
   opacity: 0.45;
   cursor: not-allowed;
 }
 
-/* ANÁLISE PSICOLÓGICA — LEITURA CONFORTÁVEL */
+/* ============================================
+   ANÁLISE PSICOLÓGICA
+   ============================================ */
 
-.modal-inner:has(#modalBody > p:nth-of-type(3)) {
+.modal-inner:has(
+  #modalBody > p:nth-of-type(3)
+) {
   width: min(980px, 96vw);
   background: #e7bcd0;
   padding: 23px;
 }
-#modalBody:has(> p:nth-of-type(3)) {
+
+#modalBody:has(
+  > p:nth-of-type(3)
+) {
   background: #fff9f5;
+
   border: 1px solid #d9a9b9;
   border-radius: 16px;
+
   padding: clamp(20px, 4vw, 42px);
 }
-#modalBody:has(> p:nth-of-type(3)) > h2 {
+
+#modalBody:has(
+  > p:nth-of-type(3)
+) > h2 {
   max-width: 700px;
   margin: 0 auto 27px;
   padding-bottom: 22px;
+
   border-bottom: 2px solid #e2b7c5;
+
   color: #8e315d;
   text-align: center;
   font-style: normal;
 }
-.modal-inner #modalBody:has(> p:nth-of-type(3)) > p {
+
+.modal-inner #modalBody:has(
+  > p:nth-of-type(3)
+) > p {
   max-width: 65ch;
   margin: 0 auto 25px;
+
   color: #392f35;
   font-size: clamp(16px, 1.8vw, 18px);
   line-height: 1.9;
 }
-.modal-inner #modalBody:has(> p:nth-of-type(3)) > p:first-of-type {
+
+.modal-inner #modalBody:has(
+  > p:nth-of-type(3)
+) > p:first-of-type {
   font-weight: 800;
   font-size: clamp(18px, 2.3vw, 23px);
+
   color: #612c44;
+
   line-height: 1.45;
   padding-bottom: 15px;
+
   border-bottom: 1px solid #e4c1ce;
 }
 
-/* RODAPÉ */
+/* ============================================
+   RODAPÉ
+   ============================================ */
 
 footer {
   padding: 19px;
   text-align: center;
   color: #8f3969;
-  font: italic 700 14px var(--title);
+
+  font:
+    italic 700
+    14px
+    var(--title);
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #f6a9d0 0 22px,
+      #ffd2e8 22px 44px
+    );
+
+  border-top: 2px solid #ba6d94;
+  margin-top: 12px;
 }
 
-/* TABLET */
+/* ============================================
+   TABLETS
+   ============================================ */
 
 @media (max-width: 1100px) {
+
   .feature-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
   }
+
+  .middle-column,
+  .right-column {
+    height: auto;
+  }
+
   .right-column {
     grid-column: 1 / -1;
+
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
   }
-  .mood-collage { height: 360px; }
-  .masthead { padding-right: 130px; }
-  .top-polaroid { right: 10px; width: 110px; }
-  .star-right { display: none; }
+
+  .mood-collage {
+    height: 360px;
+    min-height: 360px;
+    flex: none;
+  }
+
+  .masthead {
+    padding-right: 130px;
+  }
+
+  .top-polaroid {
+    right: 10px;
+    width: 110px;
+  }
+
+  .star-right {
+    display: none;
+  }
 }
 
-/* CELULAR */
+/* ============================================
+   CELULARES
+   ============================================ */
 
 @media (max-width: 700px) {
-  .site { padding: 0 7px 12px; }
+
+  .site {
+    padding: 0 7px 12px;
+  }
+
   .masthead {
     min-height: 125px;
     padding: 12px;
   }
+
   .masthead h1 {
     font-size: clamp(31px, 8vw, 49px);
     letter-spacing: -1px;
   }
-  .slogan { font-size: 12px; }
-  .subbrand { font-size: 9px; }
-  .top-polaroid, .masthead-star { display: none; }
-  .pill { font-size: 8px; padding: 3px 6px; }
+
+  .slogan {
+    font-size: 12px;
+  }
+
+  .subbrand {
+    font-size: 9px;
+  }
+
+  .top-polaroid,
+  .masthead-star {
+    display: none;
+  }
+
+  .pill {
+    font-size: 8px;
+    padding: 3px 6px;
+  }
 
   .nav-btn {
     flex: 1 1 calc(33% - 7px);
     font-size: 10px;
   }
-  .search-box { flex: 1 1 100%; }
 
-  .now { padding: 8px 0; min-height: 125px; }
-  .hero-person, .repeat-sticker, .player-doodle {
+  .search-box {
+    flex: 1 1 100%;
+  }
+
+  .now {
+    padding: 8px 0;
+    min-height: 125px;
+  }
+
+  .hero-person,
+  .repeat-sticker,
+  .player-doodle {
     display: none;
   }
-  .player { min-height: 117px; padding: 8px; gap: 8px; }
-  .cover-wrap { flex-basis: 75px; width: 75px; height: 85px; }
-  .player h2 { font-size: 17px; }
-  .playing { font-size: 8px; }
-  .spotify-panel { flex-basis: 87px; padding-left: 6px; }
-  .spotify-panel strong { font-size: 16px; }
-  .spotify-go { font-size: 9px; padding: 6px; }
-  .spotify-link { font-size: 9px; }
-  .seek { gap: 4px; font-size: 9px; }
+
+  .player {
+    min-height: 117px;
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .cover-wrap {
+    flex-basis: 75px;
+    width: 75px;
+    height: 85px;
+  }
+
+  .player h2 {
+    font-size: 17px;
+  }
+
+  .playing {
+    font-size: 8px;
+  }
+
+  .spotify-panel {
+    flex-basis: 87px;
+    padding-left: 6px;
+  }
+
+  .spotify-panel strong {
+    font-size: 16px;
+  }
+
+  .spotify-go {
+    font-size: 9px;
+    padding: 6px;
+  }
+
+  .spotify-link {
+    font-size: 9px;
+  }
+
+  .seek {
+    gap: 4px;
+    font-size: 9px;
+  }
 
   .feature-grid {
     display: flex;
     flex-direction: column;
     padding: 8px;
   }
+
   .breadcrumb {
     width: 100%;
     margin: 0;
     font-size: 9px;
   }
-  .main-article, .middle-column, .right-column {
+
+  .main-article,
+  .middle-column,
+  .right-column {
     width: 100%;
+    height: auto;
   }
-  .article-intro { min-height: 260px; padding: 14px; }
-  .text-intro h2 { font-size: clamp(36px, 8vw, 53px); }
-  .text-intro h3 { font-size: 22px; }
-  .crush-polaroid img { height: 156px; }
+
+  .article-intro {
+    min-height: 260px;
+    padding: 14px;
+  }
+
+  .text-intro h2 {
+    font-size: clamp(36px, 8vw, 53px);
+  }
+
+  .text-intro h3 {
+    font-size: 22px;
+  }
+
+  .crush-polaroid img {
+    height: 156px;
+  }
 
   .right-column {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .mood-collage { height: 315px; }
-  .side-card { padding: 45px 9px 12px; }
-  .lived-card h3, .moodboard-card h3 { font-size: 22px; }
-  .lived-question { font-size: 11px; padding: 7px; }
 
-  .modal-inner { padding: 14px; }
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .mood-collage {
+    height: 315px;
+    min-height: 315px;
+    flex: none;
+  }
+
+  .side-card {
+    padding: 45px 9px 12px;
+  }
+
+  .lived-card h3,
+  .moodboard-card h3 {
+    font-size: 22px;
+  }
+
+  .lived-question {
+    font-size: 11px;
+    padding: 7px;
+  }
+
+  .modal-inner {
+    padding: 14px;
+  }
+
+  .foryou {
+    min-height: 160px;
+  }
 }
 
+/* ============================================
+   CELULARES PEQUENOS
+   ============================================ */
+
 @media (max-width: 520px) {
-  .right-column { grid-template-columns: 1fr; }
-  .mood-collage { height: 410px; }
-  .editorial-stacks { gap: 7px; }
-  .compact { padding: 0 9px 9px; }
-  .compact h3 { margin: 0 -9px 9px; font-size: 17px; }
-  .compact p { font-size: 12px; }
-  .vibe-line { font-size: 9px; }
-  .vibe-line > span:first-child { min-width: 56px; }
-  .article-intro { gap: 8px; }
-  .crush-polaroid { flex-basis: 36%; }
-  .crush-polaroid img { height: 135px; }
-  .text-intro p { font-size: 12px; }
-  .intro-highlight { font-size: 11px; }
-  .chapter-pager { padding: 11px; }
-  .chapter-pager-paper { padding: 42px 14px 21px; }
-  .chapter-pager-button { padding: 9px 10px; font-size: 12px; }
-  #modalBody:has(> p:nth-of-type(3)) { padding: 18px; }
+
+  .right-column {
+    grid-template-columns: 1fr;
+  }
+
+  .mood-collage {
+    height: 410px;
+    min-height: 410px;
+  }
+
+  .editorial-stacks {
+    gap: 7px;
+  }
+
+  .compact {
+    padding: 0 9px 9px;
+  }
+
+  .compact h3 {
+    margin: 0 -9px 9px;
+    font-size: 17px;
+  }
+
+  .compact p {
+    font-size: 12px;
+  }
+
+  .vibe-line {
+    font-size: 9px;
+  }
+
+  .vibe-line > span:first-child {
+    min-width: 56px;
+  }
+
+  .article-intro {
+    gap: 8px;
+  }
+
+  .crush-polaroid {
+    flex-basis: 36%;
+  }
+
+  .crush-polaroid img {
+    height: 135px;
+  }
+
+  .text-intro p {
+    font-size: 12px;
+  }
+
+  .intro-highlight {
+    font-size: 11px;
+  }
+
+  .chapter-pager {
+    padding: 11px;
+  }
+
+  .chapter-pager-paper {
+    padding: 42px 14px 21px;
+  }
+
+  .chapter-pager-button {
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+
+  #modalBody:has(
+    > p:nth-of-type(3)
+  ) {
+    padding: 18px;
+  }
+
+  .foryou::before {
+    right: 45px;
+    bottom: 11px;
+  }
 }
 
 @media (max-width: 375px) {
-  .editorial-stacks { grid-template-columns: 1fr; }
+
+  .editorial-stacks {
+    grid-template-columns: 1fr;
+  }
+
   .editorial-stacks .vibe,
   .editorial-stacks .curios,
   .editorial-stacks .psychology,
-  .editorial-stacks .percebe { grid-area: auto; }
-  .nav-btn { flex-basis: calc(50% - 7px); }
+  .editorial-stacks .percebe {
+    grid-area: auto;
+  }
+
+  .nav-btn {
+    flex-basis: calc(50% - 7px);
+  }
 }
+
+/* ============================================
+   FIM DO ARQUIVO
+   XOXO MY MUSIC DIARY ♡
+   ============================================ */
