@@ -1,19 +1,35 @@
 
-/* ==========================================
+/* ============================================
    XOXO MY MUSIC DIARY
-   STYLES.CSS COMPLETO
-   Revista teen 2013/2014
-   ========================================== */
+   EDIÇÃO SCRAPBOOK ROSA
+   Inspirada em revistas teen 2013/2014
+   ============================================ */
 
 :root {
-  --pink: #fa8fc4;
-  --deep: #e93e94;
-  --mint: #dbfff0;
-  --yellow: #fff3a8;
-  --ink: #191619;
+  --pink: #f179b0;
+  --pink-dark: #c82b78;
+  --pink-hot: #ec4095;
+  --pink-light: #ffe6f1;
+  --pink-paper: #fff0f7;
+  --pink-border: #e8a2c1;
+
+  --yellow: #fff1a3;
+  --lavender: #ead6f4;
+  --mint: #d9f3e5;
+  --cream: #fffaf5;
+
+  --ink: #2d1b28;
+  --soft-ink: #604557;
   --paper: #fffdfa;
-  --border: #242024;
+
+  --font-body: 'DM Sans', Arial, sans-serif;
+  --font-title: 'Playfair Display', Georgia, serif;
+  --font-mono: 'DM Mono', monospace;
 }
+
+/* ============================================
+   CONFIGURAÇÕES GERAIS
+   ============================================ */
 
 * {
   box-sizing: border-box;
@@ -26,13 +42,49 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  font-family: 'DM Sans', Arial, sans-serif;
-  background-color: #e9fff4;
-  background-image: radial-gradient(
-    #b7d8c8 .9px,
-    transparent .9px
-  );
-  background-size: 9px 9px;
+  font-family: var(--font-body);
+
+  background-color: #ffd9e9;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.18) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.18) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      rgba(235, 90, 155, 0.18) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    32px 32px,
+    32px 32px,
+    9px 9px;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 10% 10%,
+      rgba(255, 255, 255, 0.5),
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 90% 80%,
+      rgba(246, 138, 195, 0.20),
+      transparent 45%
+    );
 }
 
 button,
@@ -49,354 +101,445 @@ a {
 }
 
 img {
+  display: block;
   max-width: 100%;
 }
 
 .site {
-  max-width: 1510px;
-  margin: auto;
-  padding: 0 18px;
+  width: min(100%, 1510px);
+  margin: 0 auto;
+  padding: 0 16px 12px;
 }
 
-/* ==========================================
-   BARRA SUPERIOR
-   ========================================== */
+/* ============================================
+   BARRA DE NAVEGADOR RETRÔ
+   ============================================ */
 
 .browser {
-  height: 69px;
-  background: linear-gradient(#f9e7f2, #fff);
-  border-bottom: 2px solid #fa6aa9;
-  padding: 6px 20px;
-  display: flex;
-  align-items: flex-start;
-  gap: 7px;
+  height: 65px;
   position: relative;
+  display: flex;
+  gap: 7px;
+  align-items: flex-start;
+
+  padding: 6px 20px;
+
+  background: linear-gradient(
+    180deg,
+    #fce9f2,
+    #fff7fb
+  );
+
+  border-bottom: 2px solid #e47daf;
   font-size: 13px;
 }
 
 .browser > span {
-  color: #fb9ab6;
+  color: #ee8db6;
 }
 
 .browser > span:nth-child(2) {
-  color: #ffca49;
+  color: #eec95a;
 }
 
 .browser > span:nth-child(3) {
-  color: #6dd17c;
+  color: #80d5a0;
 }
 
 .browser .tab {
-  height: 28px;
-  background: white;
-  border-radius: 9px 9px 0 0;
-  padding: 6px 20px;
   margin-left: 12px;
+  padding: 6px 18px;
+
+  height: 28px;
+
+  background: white;
+  border: 1px solid #eac4d6;
+  border-radius: 9px 9px 0 0;
+
   font-size: 12px;
 }
 
 .address {
   position: absolute;
+  top: 35px;
   left: 8%;
   right: 8%;
-  top: 36px;
-  background: white;
-  border: 1px solid #e4d5de;
-  border-radius: 20px;
+
   padding: 4px 14px;
-  color: #666;
+
+  background: white;
+  border: 1px solid #ead6e1;
+  border-radius: 20px;
+
+  color: #887181;
+  font-size: 11px;
+
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-/* ==========================================
-   CABEÇALHO DA REVISTA
-   ========================================== */
+/* ============================================
+   CABEÇALHO XOXO
+   ============================================ */
 
 .masthead {
-  min-height: 166px;
-  display: flex;
   position: relative;
+  display: flex;
   align-items: center;
   justify-content: center;
+
+  min-height: 170px;
+  margin: 10px 0 4px;
 }
 
 .brand-center {
-  text-align: center;
+  position: relative;
   z-index: 2;
-  min-width: 0;
   width: 72%;
+
+  text-align: center;
 }
 
 .top-labels {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 10px;
   align-items: center;
-  margin: 4px 0;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 8px;
+  margin-bottom: 10px;
 }
 
 .pill {
   display: inline-block;
-  border: 2px solid #161616;
+
+  padding: 6px 13px;
+
+  border: 1.5px solid #34232c;
   border-radius: 30px;
-  padding: 6px 17px;
-  font: 500 10px 'DM Mono', monospace;
-  box-shadow: 2px 3px 0 #1c1c1c;
+
+  box-shadow: 2px 2px 0 #34232c;
+
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
 }
 
-.pink {
-  background: #ff8ec6;
+.pill.pink {
+  background: #f5a9cb;
 }
 
-.yellow {
-  background: #fff2aa;
+.pill.yellow {
+  background: #fff1a7;
 }
 
-.mint {
-  background: #d7fff0;
+.pill.mint {
+  background: #d5f4e1;
 }
 
 .slogan {
-  font: italic 600 19px 'Playfair Display', serif;
-  letter-spacing: 1px;
-  color: #d73b79;
-  margin: 3px;
+  margin: 4px 0;
+
+  color: #a83d71;
+
+  font-family: var(--font-title);
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 700;
 }
 
 .masthead h1 {
-  font: italic 800 clamp(35px, 5.3vw, 77px)/1
-    'Playfair Display', serif;
-  letter-spacing: -3px;
-  margin: 0;
-  color: #ec70b3;
-  -webkit-text-stroke: 1px #532c24;
+  margin: 3px 0;
+
+  color: #f05b9d;
+
+  font-family: var(--font-title);
+  font-size: clamp(34px, 5.5vw, 76px);
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -2px;
+
+  -webkit-text-stroke: 0.7px #662b46;
+
   text-shadow:
-    3px 4px 0 #ffdc72,
-    5px 6px 0 #282027;
+    2px 3px 0 #fff3ae,
+    4px 5px 0 #7e3658;
+
   overflow-wrap: anywhere;
 }
 
 .subbrand {
-  font: 600 clamp(10px, 1.3vw, 17px)
-    'DM Mono', monospace;
-  letter-spacing: 2px;
-  margin: 7px;
+  margin: 7px 0;
+
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
 }
 
 .disc {
-  font-size: 128px;
   position: absolute;
-  left: 3%;
-  top: 4px;
+  top: 0;
+  left: 2%;
+
+  font-size: 100px;
 }
 
 .scribble {
-  font-size: 58px;
   position: absolute;
-  font-weight: 700;
   z-index: 2;
+
+  font-size: 55px;
+  font-weight: 800;
+
   pointer-events: none;
 }
 
 .heart-head {
-  left: 17%;
-  top: 42px;
-  color: #ed3e91;
+  top: 40px;
+  left: 15%;
+
+  color: #ed4e99;
   transform: rotate(-18deg);
 }
 
 .star-head {
-  left: 20%;
-  top: 14px;
-  color: #f9c329;
+  top: 5px;
+  left: 19%;
+
+  color: #f1c448;
 }
 
 .headphones {
   position: absolute;
+  top: 17px;
   right: 15%;
-  top: 22px;
-  font-size: 74px;
+
+  font-size: 70px;
   transform: rotate(12deg);
 }
 
 .top-polaroid {
-  background: white;
-  border: 1px solid #555;
-  box-shadow: 3px 5px 0 #666;
-  transform: rotate(8deg);
-  padding: 9px 9px 5px;
   position: absolute;
-  right: 1.5%;
-  top: 3px;
-  width: 165px;
+  top: 4px;
+  right: 1%;
+
+  width: 158px;
+  padding: 8px 8px 5px;
+
+  background: #fff;
+  border: 1px solid #3c2b35;
+
+  box-shadow: 3px 4px 0 #9f718b;
+
   text-align: center;
+  transform: rotate(7deg);
+
   z-index: 3;
 }
 
 .top-polaroid img {
   width: 100%;
-  height: 122px;
+  height: 115px;
   object-fit: cover;
 }
 
 .top-polaroid span {
-  font: italic 19px 'Playfair Display', serif;
+  font-family: var(--font-title);
+  font-size: 18px;
+  font-style: italic;
+  color: #a23f72;
 }
 
-/* ==========================================
-   MENU
-   ========================================== */
+/* ============================================
+   MENU PRINCIPAL
+   ============================================ */
 
 .nav {
-  background: linear-gradient(
-    90deg,
-    #f9c4e1,
-    #f7cbe9
-  );
-  border: 2px solid #221b20;
-  border-radius: 24px;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 9px 10px;
-  padding: 10px 14px 12px;
-  box-shadow: 2px 4px 0 #ed75ae;
-  position: relative;
-  z-index: 4;
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  padding: 11px 14px;
+
+  background: linear-gradient(
+    90deg,
+    #ffd4e7,
+    #ffe8f3
+  );
+
+  border: 2px solid #392632;
+  border-radius: 19px;
+
+  box-shadow: 3px 4px 0 #d684ab;
 }
 
 .nav-btn {
-  font-weight: 800;
-  font-size: 13px;
-  line-height: 1.25;
-  background: linear-gradient(
-    white,
-    #fff3f7
-  );
-  border: 2px solid #252025;
-  border-radius: 8px;
-  box-shadow: 2px 2px 0 #444;
-  padding: 8px 10px;
-  flex: 1 1 125px;
-  min-width: 0;
-  max-width: 210px;
-  min-height: 38px;
-}
+  flex: 1 1 115px;
+  max-width: 180px;
 
-.nav-btn.active {
-  background: #fff3a6;
+  min-height: 37px;
+  padding: 8px 10px;
+
+  background: #fffafc;
+  border: 1.5px solid #5a3549;
+  border-radius: 9px;
+
+  box-shadow: 2px 2px 0 #7b5367;
+
+  font-size: 12px;
+  font-weight: 800;
 }
 
 .nav-btn:hover {
-  background: #d5fff0;
+  background: #fff1b0;
+}
+
+.nav-btn.active {
+  background: #fff1a3;
 }
 
 .search-box {
   display: flex;
   align-items: center;
-  position: relative;
+
   flex: 1 1 100%;
+
   width: 100%;
-  max-width: 470px;
+  max-width: 480px;
   height: 40px;
-  margin: 0 auto;
-  border: 2px solid #151515;
-  border-radius: 30px;
+
+  margin: 3px auto 0;
+
   background: white;
-  z-index: 1;
+  border: 2px solid #5a3549;
+  border-radius: 30px;
 }
 
 .search-box input {
   flex: 1;
   min-width: 0;
-  width: 100%;
-  border: 0;
-  background: transparent;
-  outline: none;
+
   padding: 0 15px;
-  font-size: 12px;
+
+  background: transparent;
+  border: 0;
+  outline: none;
+
+  font-size: 13px;
 }
 
 .search-box button {
   width: 43px;
-  min-width: 43px;
-  border: 0;
+
   background: transparent;
-  font-size: 26px;
-  line-height: 1;
+  border: 0;
+
+  font-size: 25px;
+  color: #a72b6f;
 }
 
-/* ==========================================
-   SPOTIFY
-   ========================================== */
+/* ============================================
+   PLAYER MUSICAL
+   ============================================ */
 
 .now {
-  min-height: 195px;
-  display: flex;
-  gap: 14px;
-  align-items: center;
   position: relative;
-  padding: 20px 0 10px 23%;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 185px;
+  margin: 9px 0 12px;
+
+  padding: 16px 0 7px 22%;
 }
 
 .hero-person {
   position: absolute;
-  left: 3%;
-  top: 8px;
+  left: 2%;
+  top: 0;
+
   width: 23%;
-  height: 182px;
+  height: 180px;
 }
 
 .hero-person img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
   object-position: center 25%;
-  border-radius: 100px 100px 0 0;
+
+  border-radius: 100px 100px 9px 9px;
+  border: 2px solid #72415b;
 }
 
 .torn-label {
   position: absolute;
-  left: -20px;
-  bottom: 18px;
-  background: white;
+  left: -7px;
+  bottom: 11px;
+
+  padding: 8px 10px;
+
+  background: #fff9fa;
+  border: 1px solid #e4a5c3;
+
+  box-shadow: 2px 3px 0 #b77a98;
+
+  color: #d73482;
+
+  font-family: var(--font-title);
+  font-size: 22px;
+  font-style: italic;
+
   transform: rotate(-12deg);
-  font: italic 24px 'Playfair Display', serif;
-  color: #d63884;
-  padding: 8px;
-  box-shadow: 2px 3px 0 #aaa;
 }
 
 .player {
-  flex: 1;
-  min-width: 0;
-  min-height: 147px;
-  background: linear-gradient(
-    125deg,
-    #d4f2fc,
-    #fce1ef 65%,
-    #f8d9ed
-  );
-  border: 2px solid #191419;
-  border-radius: 19px;
-  box-shadow: 4px 5px 0 #333;
+  position: relative;
+  z-index: 2;
+
   display: flex;
   align-items: center;
-  padding: 10px 15px;
+
+  flex: 1;
+  min-width: 0;
+  min-height: 145px;
+
   gap: 16px;
-  z-index: 2;
+  padding: 12px 15px;
+
+  background: linear-gradient(
+    110deg,
+    #ffe7f3 0%,
+    #fff3f9 50%,
+    #fce4f1 100%
+  );
+
+  border: 2px solid #49303f;
+  border-radius: 18px;
+
+  box-shadow: 4px 5px 0 #8b4e70;
 }
 
 .cover-wrap {
-  width: 122px;
-  min-width: 122px;
-  height: 122px;
-  border: 3px solid #171717;
+  width: 119px;
+  min-width: 119px;
+  height: 119px;
+
+  padding: 5px;
+
+  background: white;
+  border: 2px solid #513449;
   border-radius: 11px;
+
+  box-shadow: 2px 2px 0 #b67194;
   overflow: hidden;
 }
 
@@ -404,6 +547,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 .player-info {
@@ -413,18 +557,30 @@ img {
 
 .playing {
   display: inline-block;
-  background: #328453;
-  color: white;
-  border: 2px solid #202020;
-  padding: 4px 11px;
-  border-radius: 22px;
-  font: 700 11px 'DM Mono', monospace;
+
+  padding: 5px 10px;
+
+  background: #87315d;
+  color: #fff;
+
+  border-radius: 20px;
+  border: 1px solid #57233f;
+
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
 }
 
 .player h2 {
-  font: italic 700 clamp(17px, 2.4vw, 34px)
-    'Playfair Display', serif;
-  margin: 4px 0 11px;
+  margin: 7px 0 12px;
+
+  font-family: var(--font-title);
+  font-size: clamp(21px, 2.5vw, 34px);
+  font-style: italic;
+  font-weight: 800;
+
+  line-height: 1.15;
+
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -432,161 +588,238 @@ img {
 
 .seek {
   display: flex;
-  gap: 10px;
   align-items: center;
-  font: 700 12px 'DM Mono', monospace;
+
+  gap: 10px;
+
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
 }
 
 .progress {
-  height: 15px;
-  border: 2px solid black;
-  background: white;
-  border-radius: 22px;
   flex: 1;
+
+  height: 13px;
+
+  background: white;
+  border: 1.5px solid #5a3247;
+  border-radius: 20px;
+
   overflow: hidden;
 }
 
 .progress > div {
   height: 100%;
+  width: 0%;
+
   background: linear-gradient(
     90deg,
-    #ee80b9,
-    #f86aac
+    #f19ac5,
+    #ed4b9d
   );
-  width: 0%;
+
+  border-radius: 20px;
 }
 
 .player-info #syncNote {
-  margin: 6px 0 0;
+  margin: 8px 0 0;
+
+  color: #75566a;
   font-size: 11px;
-  color: #5e5360;
 }
 
 .spotify-panel {
-  border-left: 2px solid #333;
-  padding: 3px 0 2px 20px;
-  width: 146px;
-  min-width: 146px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
   align-items: center;
+
+  gap: 7px;
+
+  width: 145px;
+  min-width: 145px;
+
+  padding-left: 18px;
+
+  border-left: 1.5px solid #8b6480;
 }
 
 .spotify-panel strong {
-  font-size: 26px;
-  line-height: 1;
+  font-size: 25px;
+  line-height: 1.05;
   text-align: center;
 }
 
 .spotify-panel small {
   font-size: 11px;
-  font-weight: 700;
 }
 
 .spotify-go {
+  padding: 8px 13px;
+
   background: #1db954;
   color: white;
-  text-decoration: none;
-  border: 2px solid #111;
+
+  border: 1.5px solid #316448;
   border-radius: 20px;
-  padding: 6px 11px;
+
+  text-decoration: none;
   font-size: 12px;
   font-weight: 800;
+
   white-space: nowrap;
 }
 
+.spotify-go:hover {
+  background: #159c46;
+}
+
 .spotify-link {
+  padding: 2px;
+
   border: 0;
-  background: none;
+  background: transparent;
+
+  color: #c3327b;
+  text-decoration: underline;
+
   font-size: 11px;
   font-weight: 800;
-  color: #b51764;
-  text-decoration: underline;
 }
 
 .repeat-sticker {
   position: absolute;
-  right: 8%;
-  top: 12px;
-  transform: rotate(-13deg);
-  background: #fffaaf;
-  padding: 9px 14px;
-  border: 1px solid #555;
-  font: italic 20px 'Playfair Display', serif;
-  z-index: 2;
+  right: 13%;
+  top: 0;
+
+  z-index: 3;
+
+  padding: 7px 12px;
+
+  background: #fff2a7;
+  border: 1px solid #8b6379;
+
+  font-family: var(--font-title);
+  font-size: 17px;
+  font-style: italic;
+
+  transform: rotate(-9deg);
 }
 
 .tape {
   position: absolute;
-  right: 1%;
-  top: 42px;
-  font-size: 72px;
+  right: 0;
+  top: 35px;
+
+  font-size: 45px;
 }
 
-/* ==========================================
-   PÁGINA PRINCIPAL
-   ========================================== */
+/* ============================================
+   FOLHA PRINCIPAL DA REVISTA
+   ============================================ */
 
 .feature-grid {
+  position: relative;
+
   display: grid;
+
   grid-template-columns:
-    minmax(0, 1.16fr)
-    minmax(0, 1.04fr)
-    minmax(245px, .75fr);
+    minmax(0, 1.17fr)
+    minmax(0, 1.14fr)
+    minmax(265px, 0.91fr);
+
   align-items: start;
-  gap: 10px;
-  padding: 10px;
-  background: linear-gradient(
-    125deg,
-    #fff9f1,
-    #ffe9f3 50%,
-    #eafff2
-  );
-  border: 2px solid #2d232c;
-  border-radius: 18px;
-  box-shadow: 3px 4px 0 #5a4553;
-  min-width: 0;
+
+  gap: 12px;
+
+  padding: 13px;
+
+  background:
+    radial-gradient(
+      rgba(230, 102, 157, 0.15) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      130deg,
+      #fff3f8,
+      #ffe2ee 48%,
+      #ffedf5
+    );
+
+  background-size:
+    9px 9px,
+    100% 100%;
+
+  border: 2px solid #aa6287;
+  border-radius: 20px;
+
+  box-shadow: 4px 5px 0 #e18aac;
 }
 
 .feature-grid > * {
   min-width: 0;
 }
 
+/* ============================================
+   CARTÕES GERAIS
+   ============================================ */
+
 .article {
-  background: #fffefa;
-  border: 2px solid #211d20;
-  border-radius: 14px;
+  position: relative;
+
+  min-width: 0;
+
+  background: var(--paper);
+
+  border: 1.5px solid #754259;
+  border-radius: 17px;
+
+  box-shadow: 2px 3px 0 #c389a8;
+
   overflow: hidden;
-  box-shadow: 2px 3px 0 #444;
 }
 
-.breadcrumb {
-  background: #ffe6f3;
-  border-bottom: 1px solid #777;
-  padding: 10px 15px;
-  font: 700 11px/1.5 'DM Mono', monospace;
-  overflow-wrap: anywhere;
+.article:not(.main-article):hover {
+  border-color: #b45688;
 }
 
 .main-article {
   display: flex;
   flex-direction: column;
-  min-width: 0;
+}
+
+/* ============================================
+   MATÉRIA PRINCIPAL
+   ============================================ */
+
+.breadcrumb {
+  padding: 11px 13px;
+
+  background: #fff0f7;
+  border-bottom: 1px solid #d6a5be;
+
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+
+  overflow-wrap: anywhere;
 }
 
 .article-intro {
   display: flex;
-  min-width: 0;
-  min-height: 225px;
-  padding: 12px 13px;
-  gap: 10px;
-  background: linear-gradient(
-    115deg,
-    #fff,
-    #fff9f6 60%,
-    #ffe0f0
-  );
+  gap: 13px;
+
+  min-height: 280px;
+
+  padding: 21px 17px;
+
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(248, 169, 206, 0.22),
+      transparent 50%
+    ),
+    #fffdfa;
 }
 
 .text-intro {
@@ -595,446 +828,755 @@ img {
 }
 
 .text-intro h2 {
-  font: italic 800 clamp(33px, 4vw, 59px)/1.12
-    'Playfair Display', serif;
-  color: #ec4799;
-  margin: 3px 0;
-  padding-bottom: .08em;
+  margin: 0 0 7px;
+
+  color: #e43d92;
+
+  font-family: var(--font-title);
+  font-size: clamp(35px, 4.2vw, 62px);
+  font-style: italic;
+  font-weight: 800;
+
+  line-height: 1.08;
+  letter-spacing: -1px;
+
+  text-shadow: 1px 2px 0 #ffd2e5;
+
   overflow-wrap: anywhere;
 }
 
 .text-intro h3 {
-  font: italic 600 25px 'Playfair Display', serif;
-  margin: 0 0 8px;
+  margin: 0 0 14px;
+
+  font-family: var(--font-title);
+  font-size: clamp(19px, 2.1vw, 29px);
+  font-style: italic;
+
+  line-height: 1.1;
 }
 
 .text-intro p {
-  font: 600 12px/1.55 'DM Mono', monospace;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.66;
+
+  margin: 0;
+
   overflow-wrap: break-word;
 }
 
 .hashtags {
-  font: 700 10px/1.5 'DM Mono', monospace;
-  color: #bd3884;
-  border-top: 1px dashed #f5a7c7;
-  margin-top: 9px;
-  padding-top: 8px;
+  margin: 16px 0 0;
+  padding: 10px 0 0;
+
+  border-top: 1px dashed #edb4d0;
+
+  color: #c32f78;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.9;
+
   overflow-wrap: anywhere;
 }
 
 .crush-polaroid {
-  background: white;
-  padding: 9px 9px 5px;
-  box-shadow: 3px 5px 0 #888;
-  transform: rotate(4deg);
-  width: 36%;
-  align-self: center;
-  text-align: center;
+  position: relative;
+
   flex-shrink: 0;
+  align-self: center;
+
+  width: 37%;
+
+  padding: 9px 9px 6px;
+
+  background: white;
+  border: 1px solid #d3a1ba;
+
+  box-shadow: 4px 5px 0 #a9869a;
+
+  text-align: center;
+
+  transform: rotate(5deg);
+}
+
+.crush-polaroid::after {
+  content: "♡";
+  position: absolute;
+
+  top: -14px;
+  right: -15px;
+
+  color: #df428e;
+  font-size: 29px;
 }
 
 .crush-polaroid img {
   width: 100%;
-  height: 180px;
+  height: 205px;
+
   object-fit: cover;
 }
 
 .crush-polaroid span {
-  font: italic 16px 'Playfair Display', serif;
+  display: block;
+
+  padding-top: 8px;
+
+  font-family: var(--font-title);
+  font-size: 15px;
+  font-weight: 800;
+  font-style: italic;
 }
 
+/* ============================================
+   TRADUÇÃO
+   ============================================ */
+
 .translation-heading {
-  margin: 12px 10px 0;
-  padding: 12px 15px;
-  border: 2px solid #171717;
-  border-radius: 10px;
+  position: relative;
+
+  margin: 12px 12px 0;
+  padding: 14px 12px;
+
   background: linear-gradient(
-    100deg,
-    #fff1a2,
-    #d9f9e8
+    105deg,
+    #f7b4d4,
+    #ffe5f2 55%,
+    #f5a9cc
   );
-  font: 800 14px 'DM Sans', sans-serif;
+
+  border: 1.5px solid #a95780;
+  border-radius: 12px;
+
+  box-shadow: 2px 3px 0 #df90b4;
+
+  font-family: var(--font-title);
+  font-size: clamp(17px, 2vw, 23px);
+  font-style: italic;
+  font-weight: 800;
+
   text-align: center;
 }
 
+.translation-heading::before {
+  content: "✧";
+  position: absolute;
+  top: -12px;
+  left: 12px;
+
+  color: #d73782;
+  font-size: 23px;
+}
+
 .translation-heading span {
-  color: #d53d92;
+  color: #cd337f;
 }
 
 .lyrics {
-  margin: 12px 16px 16px;
-  padding: 0 10px 5px 0;
-  font: 500 12.5px/1.75
-    'DM Mono', monospace;
+  margin: 13px 15px 17px;
+  padding: 12px 12px 15px;
+
+  max-height: 670px;
+  overflow-y: auto;
+
+  background: #fffbff;
+
+  border: 1px solid #f0cada;
+  border-radius: 10px;
+
+  font-family: var(--font-body);
+  font-size: 13.2px;
+  font-weight: 500;
+  line-height: 1.86;
+
   white-space: pre-line;
   overflow-wrap: break-word;
-  word-break: normal;
-  hyphens: none;
-  max-height: 610px;
-  overflow-y: auto;
-  overscroll-behavior: contain;
+
   scrollbar-width: thin;
-  scrollbar-color: #e588b7 #ffeff7;
+  scrollbar-color: #ec8ebd #ffedf5;
+  overscroll-behavior: contain;
 }
 
-/* ==========================================
-   CARTÕES DA REVISTA
-   ========================================== */
+/* ============================================
+   COLUNA CENTRAL
+   ============================================ */
 
 .middle-column,
 .right-column {
   display: flex;
   flex-direction: column;
-  gap: 9px;
+
+  gap: 12px;
+
   min-width: 0;
 }
 
 .compact {
-  position: relative;
-  padding: 0 11px 11px;
+  padding: 0 13px 13px;
   min-width: 0;
 }
 
 .compact h3 {
-  font: italic 700 20px/1.22
-    'Playfair Display', serif;
-  margin: 0 -11px 9px;
-  padding: 9px 12px;
-  background: #fce5f2;
-  overflow-wrap: break-word;
+  margin: 0 -13px 11px;
+
+  padding: 11px 14px;
+
+  font-family: var(--font-title);
+  font-size: clamp(18px, 1.8vw, 25px);
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1.26;
+
+  color: #5b2442;
+  background: #ffe2f0;
+
+  border-bottom: 1px solid #edbad2;
+
+  overflow-wrap: anywhere;
 }
 
 .compact p {
-  font: 500 11px/1.58
-    'DM Mono', monospace;
-  margin: 7px 1px;
+  margin: 9px 1px;
+
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.7;
+
   overflow-wrap: break-word;
-  word-break: normal;
 }
 
 .about-song {
-  background: #fffefb;
+  background: #fffafc;
+  border-color: #d46c9e;
 }
 
-.about-song p {
-  padding-right: 0 !important;
-  font-size: 11.5px !important;
-  line-height: 1.6 !important;
+.about-song h3 {
+  background: #ffe3f0;
+  color: #6d2a4c;
+}
+
+.about-song p,
+.about-song #aboutText {
+  font-family: var(--font-body) !important;
+  font-size: 14px !important;
+  font-weight: 500;
+  line-height: 1.78 !important;
+
+  padding: 2px 0 5px !important;
 }
 
 .floating-hearts {
   display: none !important;
 }
 
+/* Cartões lado a lado */
+
+.pair,
 .editorial-stacks {
   display: grid;
+
   grid-template-columns:
     minmax(0, 1fr)
     minmax(0, 1fr);
-  gap: 8px;
-  align-items: start;
+
+  gap: 12px;
+
+  align-items: stretch;
+}
+
+.pair > *,
+.editorial-stacks > * {
+  min-width: 0;
 }
 
 .editorial-stack {
   display: flex;
   flex-direction: column;
-  gap: 9px;
+
+  gap: 12px;
+
   min-width: 0;
 }
 
+.last-pair {
+  grid-template-columns: 1fr;
+}
+
+/* ============================================
+   VIBE CHECK
+   ============================================ */
+
 .vibe {
-  background: linear-gradient(
-    145deg,
-    #fff6d5,
-    #fffcfa
-  );
+  background: #fff8df;
 }
 
 .vibe h3 {
-  background: #fff2c7;
+  background: linear-gradient(
+    90deg,
+    #fff0a4,
+    #ffe8bd
+  );
+
+  color: #60394b;
 }
 
 .vibe-line {
   display: flex;
   align-items: center;
-  gap: 4px;
-  font-size: 10px;
-  font-weight: 700;
-  margin: 8px 0;
+
+  gap: 6px;
+  margin: 12px 0;
+
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 800;
 }
 
 .vibe-line > span:first-child {
-  min-width: 60px;
+  min-width: 75px;
 }
 
 .meter {
-  height: 10px;
   flex: 1;
-  border: 1px solid #888;
-  background: #e8e8e8;
-  border-radius: 9px;
+  height: 12px;
+
+  background: #ffe2e9;
+
+  border: 1px solid #ac6a8b;
+  border-radius: 20px;
+
   overflow: hidden;
 }
 
 .meter i {
   display: block;
-  background: #ee78b1;
   height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    #ef8ebb,
+    #ed469a
+  );
 }
 
 .vibe-line b {
-  font-size: 10px;
+  font-size: 11px;
 }
 
-.psychology h3 {
-  background: #f8dce8;
+/* ============================================
+   CURIOSIDADES
+   ============================================ */
+
+.curios {
+  background: #fff6fa;
 }
 
 .curios h3 {
-  background: #fce5f2;
+  background: #f9d3e9;
 }
 
-.percebe {
-  background: #fffce5;
+#curiosityPreview,
+#percebePreview {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 11;
+
+  overflow: hidden;
 }
 
-.percebe h3 {
-  background: #fff1ba;
+#curiosityPreview p,
+#percebePreview p {
+  position: relative;
+  margin-bottom: 12px;
+
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.text-button {
+  display: inline-block;
+
+  padding: 9px 2px 5px;
+
+  background: transparent;
+  border: 0;
+
+  color: #bd2774;
+
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 800;
+
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  text-align: left;
+}
+
+.text-button:hover {
+  color: #ed4899;
+}
+
+/* ============================================
+   ANÁLISE PSICOLÓGICA
+   ============================================ */
+
+.psychology {
+  background: #fff9fe;
+}
+
+.psychology h3 {
+  background: #ecd8f5;
+  color: #65366c;
 }
 
 .psychology #psyPreview {
   display: -webkit-box;
-  -webkit-line-clamp: 14;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 13;
+
   overflow: hidden;
-  line-height: 1.5;
+
+  font-size: 12.5px;
+  line-height: 1.72;
 }
 
-.curios #curiosityPreview,
-.percebe #percebePreview {
-  display: -webkit-box;
-  -webkit-line-clamp: 11;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+/* ============================================
+   VOCÊ PERCEBEU?
+   ============================================ */
+
+.percebe {
+  background: #fffdf0;
 }
 
-.text-button {
-  border: 0;
-  background: none;
-  text-align: left;
-  padding: 7px 0;
-  font: 800 11px 'DM Mono', monospace;
-  color: #d93785;
-  text-decoration: underline;
-  white-space: normal;
+.percebe h3 {
+  background: #fff0ae;
+  color: #704b32;
 }
+
+/* ============================================
+   ESSA MÚSICA É PRA VOCÊ SE...
+   ============================================ */
 
 .foryou {
+  position: relative;
+
+  background: #fff6fb;
+}
+
+.foryou h3 {
   background: linear-gradient(
-    110deg,
-    #fff3d8,
-    #fff9fb
+    90deg,
+    #f6b4d5,
+    #ffe7f4
   );
+
+  color: #8c2d60;
+
+  font-size: clamp(20px, 2.1vw, 28px);
+}
+
+.foryou::after {
+  content: "♡";
+
+  position: absolute;
+  right: 12px;
+  bottom: 5px;
+
+  color: #d94b97;
+
+  font-size: 44px;
+  font-family: Georgia, serif;
+
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.foryou #forYou {
+  position: relative;
+  z-index: 1;
 }
 
 .foryou #forYou .for-you-copy {
-  font: 500 13px/1.65
-    'DM Sans', sans-serif;
-  margin: 10px 3px 6px;
+  margin: 9px 7px 12px;
+
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.75;
 }
 
-/* ==========================================
-   TESTE VOCÊ JÁ VIVEU ISSO?
-   ========================================== */
+/* ============================================
+   COLUNA DIREITA
+   ============================================ */
 
 .side-card {
   position: relative;
-  padding: 35px 11px 12px;
-  background: #ffe9f5;
+
+  padding: 46px 13px 15px;
+
+  background: #ffeff8;
 }
 
 .side-card h3 {
-  font: italic 700 20px/1.2
-    'Playfair Display', serif;
-  margin: 3px 0 9px 8px;
-  overflow-wrap: break-word;
+  margin: 4px 0 12px;
+
+  font-family: var(--font-title);
+  font-size: clamp(23px, 2.3vw, 31px);
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1.18;
 }
 
 .sticky-tag {
   position: absolute;
-  left: 9px;
-  top: 8px;
-  transform: rotate(-7deg);
-  background: #fff2a1;
-  border: 1px solid #555;
-  box-shadow: 2px 2px 0 #777;
-  padding: 4px 10px;
-  font: italic 700 16px/1.2
-    'Playfair Display', serif;
-  max-width: calc(100% - 20px);
+  top: 12px;
+  left: 12px;
+
+  max-width: calc(100% - 25px);
+
+  padding: 6px 12px;
+
+  background: #fff0a0;
+  border: 1.5px solid #513b37;
+  border-radius: 3px;
+
+  box-shadow: 2px 3px 0 #b09a6e;
+
+  font-family: var(--font-title);
+  font-size: 17px;
+  font-style: italic;
+  font-weight: 800;
+
+  transform: rotate(-5deg);
 }
+
+/* ============================================
+   CRUSH TEST
+   ============================================ */
 
 .lived-card {
   background: linear-gradient(
     155deg,
-    #ffe1f2,
-    #fff7fc 72%,
-    #f9e9f6
+    #ffe6f3,
+    #fff7fb 70%,
+    #ffe3f0
   );
-  padding-top: 65px;
 }
 
 .lived-card h3 {
-  font-size: 23px;
-  margin: 0 0 10px;
+  margin-top: 10px;
+  color: #602744;
 }
 
 .lived-card > p {
+  margin: 5px 0 17px;
+
   font-size: 12px;
-  line-height: 1.45;
-  margin: 0 0 13px;
+  font-weight: 600;
+  line-height: 1.5;
 }
 
 .quiz-icon {
-  float: right;
-  font-size: 35px;
-  margin-top: -7px;
+  position: absolute;
+  top: 45px;
+  right: 12px;
+
+  font-size: 31px;
 }
 
 .lived-questions {
-  display: grid;
-  gap: 7px;
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
 }
 
 .lived-question {
+  position: relative;
+
   display: flex;
-  gap: 8px;
   align-items: flex-start;
-  padding: 9px 8px;
-  border: 1px dashed #e18ab5;
-  border-radius: 9px;
-  background: #fffefa;
-  font-size: 12px;
-  line-height: 1.35;
+
+  gap: 10px;
+  padding: 12px 10px;
+
+  background: #fffdfc;
+
+  border: 1.5px dashed #e18ab7;
+  border-radius: 11px;
+
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.45;
+
   cursor: pointer;
+}
+
+.lived-question:hover {
+  background: #fff3f9;
 }
 
 .lived-question input {
   position: absolute;
-  opacity: 0;
+
   width: 1px;
   height: 1px;
+
+  opacity: 0;
 }
 
 .heart-box {
-  width: 23px;
-  height: 23px;
-  flex: none;
-  border: 1px solid #452539;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 26px;
+  height: 26px;
+
+  background: #fff5b0;
+
+  border: 1.5px solid #9c627c;
   border-radius: 6px;
-  background: #fff5a8;
-  text-align: center;
-  font-size: 19px;
-  line-height: 20px;
-  color: #d12d82;
+
+  color: #d4488e;
+  font-size: 20px;
+  font-weight: 800;
 }
 
 .lived-question input:checked + .heart-box {
-  background: #f781ba;
+  background: #ed7cb3;
   color: white;
 }
 
 .lived-question:focus-within {
-  outline: 2px solid #cb2f87;
-  outline-offset: 1px;
+  outline: 2px solid #d63c8b;
+  outline-offset: 2px;
 }
 
 .quiz-submit {
-  display: block;
   width: 100%;
-  border: 2px solid #292129;
-  border-radius: 12px;
-  background: #ffed9c;
-  font-size: 12px;
+
+  margin: 15px 0 4px;
+  padding: 14px 10px;
+
+  background: #fff0a6;
+
+  border: 1.5px solid #5a403e;
+  border-radius: 14px;
+
+  box-shadow: 2px 3px 0 #ad8473;
+
+  color: #36252d;
+
+  font-family: var(--font-body);
+  font-size: 14px;
   font-weight: 800;
-  padding: 10px 5px;
-  margin: 12px 0 3px;
-  box-shadow: 2px 2px 0 #292129;
+}
+
+.quiz-submit:hover {
+  background: #ffe68c;
 }
 
 .quiz-outcome:not(:empty) {
-  background: #e3fff0;
-  border: 1px dashed #be4a83;
-  border-radius: 9px;
-  padding: 10px;
-  margin-top: 10px;
-  font-size: 12px;
+  margin-top: 12px;
+  padding: 13px;
+
+  background: #fff4b8;
+
+  border: 1.5px dashed #d47caa;
+  border-radius: 11px;
+
+  color: #7f2c5a;
+
+  text-align: center;
+  font-size: 13px;
   font-weight: 800;
 }
 
-/* ==========================================
-   MOODBOARD
-   ========================================== */
+/* ============================================
+   MOODBOARD / PHOTO DIARY
+   ============================================ */
 
 .moodboard-card {
-  background: linear-gradient(
-    145deg,
-    #fff0f8,
-    #fce4ee 27%,
-    #fbf4d6 69%,
-    #e4fff1
-  );
-  padding: 48px 11px 12px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+
+  padding: 53px 14px 17px;
+
+  background: linear-gradient(
+    150deg,
+    #ffe5f2,
+    #fff4fa 52%,
+    #ffe8f3
+  );
 }
 
 .moodboard-card h3 {
-  font-size: 24px;
-  line-height: 1.15;
-  margin: 0 0 7px 6px;
+  margin: 6px 0 8px;
+
+  color: #632943;
+
+  font-family: var(--font-title);
+  font-size: clamp(25px, 2.4vw, 33px);
 }
 
 .mood-subtitle {
-  font-size: 12px;
-  line-height: 1.4;
-  margin: 3px 5px 12px;
+  margin: 5px 0 15px;
+
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.65;
 }
 
 .mood-collage {
   position: relative;
   isolation: isolate;
-  height: 350px;
-  min-height: 350px;
-  max-height: 350px;
-  flex: none;
+
+  flex-shrink: 0;
+
+  width: 100%;
+  height: 405px;
+
   background:
     radial-gradient(
-      #e8b6c9 1px,
+      #e6a7c6 1px,
       transparent 1px
     ),
     linear-gradient(
       145deg,
-      #fff7d6,
-      #ffe3f2 55%,
-      #f1f9df
+      #ffedf7,
+      #ffd8eb 55%,
+      #fbe0ef
     );
+
   background-size:
-    11px 11px,
+    10px 10px,
     100% 100%;
-  border: 1px dashed #e89bbb;
+
+  border: 1px dashed #df95b9;
   border-radius: 13px;
+
   overflow: hidden;
 }
 
 .mood-shot {
   position: absolute;
   margin: 0;
-  border: 1.5px solid #30222b;
-  padding: 6px 6px 23px;
-  background: #fffdf8;
-  box-shadow: 3px 5px 0 #6f5767;
+
+  padding: 7px 7px 25px;
+
+  background: white;
+  border: 1.5px solid #925c78;
+
+  box-shadow: 4px 5px 0 #ae8299;
+
   text-align: center;
 }
 
@@ -1042,101 +1584,132 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
 .mood-shot figcaption {
   position: absolute;
   bottom: 5px;
   left: 0;
+
   width: 100%;
-  font: italic 12px
-    'Playfair Display', serif;
-  color: #963865;
+
+  font-family: var(--font-title);
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 700;
+
+  color: #a3457e;
 }
 
 .mood-shot::after {
-  content: '✧';
+  content: "✦";
+
   position: absolute;
-  right: -7px;
-  top: -22px;
-  color: #e9529f;
-  font-size: 26px;
+  top: -21px;
+  right: -10px;
+
+  color: #f2b932;
+  font-size: 25px;
 }
 
 .shot-one {
-  top: 3%;
+  top: 5%;
   left: 5%;
-  width: 61%;
+
+  width: 60%;
   height: 43%;
-  transform: rotate(-5deg);
+
+  transform: rotate(-6deg);
   z-index: 2;
 }
 
 .shot-two {
+  top: 11%;
   right: 4%;
-  top: 9%;
-  width: 48%;
-  height: 37%;
+
+  width: 49%;
+  height: 38%;
+
   transform: rotate(8deg);
   z-index: 3;
 }
 
 .shot-three {
-  left: 18%;
-  bottom: 5%;
-  width: 75%;
+  bottom: 7%;
+  left: 15%;
+
+  width: 77%;
   height: 48%;
+
   transform: rotate(4deg);
   z-index: 2;
 }
 
 .mood-note {
   position: absolute;
-  background: #fff0a3;
-  border: 1px solid #333;
-  box-shadow: 2px 2px 0 #333;
-  padding: 7px;
-  font: italic 700 13px
-    'Playfair Display', serif;
-  text-align: center;
   z-index: 5;
+
+  padding: 8px 11px;
+
+  background: #fff0af;
+
+  border: 1px solid #92607c;
+  border-radius: 3px;
+
+  box-shadow: 2px 3px 0 #b48da1;
+
+  font-family: var(--font-title);
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 800;
+
+  text-align: center;
 }
 
 .note-one {
-  left: 5%;
-  top: 49%;
+  top: 50%;
+  left: 3%;
+
   transform: rotate(-9deg);
 }
 
 .note-two {
+  bottom: 8%;
   left: 4%;
-  bottom: 7%;
+
+  background: #ffd0e7;
   transform: rotate(-8deg);
-  background: #ffcce5;
 }
 
 .mood-footer {
-  font: italic 12px
-    'Playfair Display', serif;
+  margin: 18px 0 2px;
+
+  font-family: var(--font-title);
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 700;
+
   text-align: center;
-  margin: 11px 0 0;
-  color: #bd3d7d;
+
+  color: #bf4b88;
 }
 
-/* ==========================================
-   JANELINHAS DO SITE
-   ========================================== */
+/* ============================================
+   JANELINHAS / MODAIS
+   ============================================ */
 
 .modal {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: rgba(30, 18, 30, .72);
+
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+
+  padding: 18px;
+
+  background: rgba(47, 22, 42, 0.76);
 }
 
 .modal.hidden,
@@ -1146,118 +1719,148 @@ img {
 
 .modal-inner {
   position: relative;
-  width: min(850px, 100%);
-  max-height: 90vh;
+
+  width: min(920px, 100%);
+  max-height: 92vh;
+
+  padding: 24px;
+
   overflow-y: auto;
-  background: #fffdfa;
-  border: 3px solid #211d20;
-  border-radius: 18px;
-  padding: 25px;
-  box-shadow: 7px 7px 0 #f17db5;
+
+  background: #fffaf8;
+
+  border: 2px solid #673d54;
+  border-radius: 20px;
+
+  box-shadow: 7px 7px 0 #e48db9;
+
+  scrollbar-width: thin;
+  scrollbar-color: #da80ad #fff0f7;
 }
 
 .modal-inner h2 {
-  font: italic 700 31px/1.25
-    'Playfair Display', serif;
-  color: #d83f87;
+  color: #c6367c;
+
+  font-family: var(--font-title);
+  font-size: clamp(25px, 3vw, 34px);
+  font-style: italic;
+  font-weight: 800;
+
+  line-height: 1.3;
+
   overflow-wrap: break-word;
 }
 
 .modal-inner p {
-  font-size: 15px;
-  line-height: 1.8;
+  font-size: 16px;
+  line-height: 1.85;
+
   overflow-wrap: break-word;
 }
 
 .modal-inner .chapter {
-  margin: 18px 0;
-  padding-bottom: 14px;
-  border-bottom: 1px dashed #e7a2c5;
-}
+  margin: 17px 0;
+  padding-bottom: 15px;
 
-.modal-inner input {
-  display: block;
-  width: 100%;
-  border: 2px solid #333;
-  border-radius: 10px;
-  padding: 12px;
-  margin: 10px 0;
-  background: #fff;
-}
-
-.modal-inner .action {
-  border: 2px solid #222;
-  border-radius: 12px;
-  padding: 10px 15px;
-  background: #ffb5d8;
-  font-weight: 800;
-  margin: 6px;
-}
-
-.modal-inner .notice {
-  padding: 12px;
-  background: #fff3c8;
-  border-radius: 10px;
+  border-bottom: 1px dashed #e4a3c2;
 }
 
 .close-modal {
   position: sticky;
   top: 0;
+
   float: right;
-  z-index: 2;
-  width: 34px;
-  height: 34px;
-  border: 2px solid #222;
+
+  z-index: 5;
+
+  width: 42px;
+  height: 42px;
+
+  background: #ffa5ce;
+  border: 2px solid #442b3b;
   border-radius: 50%;
-  background: #ff9bce;
+
+  color: #36202d;
+  font-size: 23px;
   font-weight: 800;
 }
 
-.result {
-  border: 1px solid #e5a2c5;
-  background: #fff1f8;
+.close-modal:hover {
+  background: #f17ab3;
+}
+
+.modal-inner input {
+  display: block;
+
+  width: 100%;
+  margin: 10px 0;
   padding: 12px;
-  margin: 8px 0;
-  border-radius: 9px;
+
+  border: 2px solid #69445a;
+  border-radius: 10px;
+
+  background: white;
+}
+
+.modal-inner .action {
+  margin: 6px;
+  padding: 11px 15px;
+
+  background: #ffc1de;
+
+  border: 2px solid #69445a;
+  border-radius: 12px;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.modal-inner .notice {
+  padding: 12px;
+
+  background: #fff2c4;
+  border-radius: 10px;
+}
+
+.result {
+  margin: 9px 0;
+  padding: 13px;
+
+  background: #fff0f7;
+  border: 1px solid #e4a3c2;
+  border-radius: 10px;
+
   cursor: pointer;
 }
 
 .result:hover {
-  background: #fff0b0;
+  background: #fff2b8;
 }
 
-footer {
-  text-align: center;
-  padding: 16px 10px;
-  font: italic 14px
-    'Playfair Display', serif;
-  color: #9b4375;
-}
-
-/* ==========================================
+/* ============================================
    CURIOSIDADES EM PÁGINAS
-   FUNDO ROSA ANTIGO
-   ========================================== */
+   ============================================ */
 
 .chapter-pager {
   --page-accent: #812749;
-  --page-soft: #f5c6d9;
   --page-paper: #f5c6d9;
 
   display: flex;
   flex-direction: column;
+
   gap: 16px;
   padding: 22px;
+
   background: #e9a8c5;
+
   border: 2px solid #8b305c;
-  border-radius: 22px;
+  border-radius: 20px;
 }
 
 /* VOCÊ PERCEBEU? */
 
 .chapter-pager--percebe {
   --page-accent: #935223;
-  --page-soft: #ffe5a7;
   --page-paper: #fff4c7;
 
   background: #f2d58c;
@@ -1265,103 +1868,116 @@ footer {
 }
 
 .chapter-pager-head {
+  padding: 10px 10px 4px;
   text-align: center;
-  padding: 10px 42px 4px 0;
 }
 
 .chapter-pager-kicker {
-  font: 700 10px/1.4
-    'DM Mono', monospace !important;
+  margin: 0 0 10px !important;
+
   color: #682443;
+
+  font-family: var(--font-mono);
+  font-size: 10px !important;
+  font-weight: 800;
   letter-spacing: 1px;
-  margin: 0 0 9px !important;
 }
 
 .modal-inner .chapter-pager-head h2 {
-  font: italic 800 clamp(24px, 4vw, 35px)/1.2
-    'Playfair Display', serif;
+  margin: 0 0 13px;
+
   color: var(--page-accent);
-  margin: 0 0 11px;
-  overflow-wrap: anywhere;
+
+  font-family: var(--font-title);
+  font-size: clamp(24px, 3vw, 34px);
+  font-style: italic;
+  font-weight: 800;
 }
 
 .chapter-pager-count {
   display: inline-block;
-  border: 2px solid #8b305c;
-  background: #fff3f8;
-  color: #812749;
-  border-radius: 100px;
-  padding: 6px 14px;
-  font: 800 11px 'DM Mono', monospace;
-  box-shadow: 2px 2px 0 #8b305c;
-}
 
-.chapter-pager--percebe .chapter-pager-count {
-  border-color: #935223;
-  color: #75401c;
-  box-shadow: 2px 2px 0 #935223;
+  padding: 7px 15px;
+
+  background: #fff3f8;
+  border: 2px solid #8b305c;
+  border-radius: 30px;
+
+  color: #812749;
+
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
 }
 
 .chapter-pager-paper {
   position: relative;
+
+  min-height: 250px;
+
+  padding: 45px clamp(18px, 4vw, 35px) 29px;
+
   background: var(--page-paper);
+
   border: 2px solid #8b305c;
   border-radius: 18px;
+
   box-shadow: 4px 5px 0 #a85b80;
-  padding: 45px clamp(17px, 4vw, 35px) 29px;
-  min-height: 260px;
 }
 
 .chapter-pager--percebe .chapter-pager-paper {
-  background: #fff4c7;
   border-color: #a77935;
   box-shadow: 4px 5px 0 #bb9656;
 }
 
 .chapter-pager-sticker {
   position: absolute;
-  top: -9px;
-  right: 19px;
-  display: inline-block;
-  transform: rotate(5deg);
+
+  top: -10px;
+  right: 18px;
+
   padding: 6px 12px;
+
   background: #fff3f8;
+
   border: 1px solid #8b305c;
   border-radius: 4px;
+
   color: #6d2545;
-  font: italic 700 13px
-    'Playfair Display', serif;
-  box-shadow: 2px 2px 0 #8b305c;
-}
 
-.chapter-pager--percebe .chapter-pager-sticker {
-  background: #fff7dc;
-  border-color: #935223;
-  color: #75401c;
-  box-shadow: 2px 2px 0 #935223;
-}
+  font-family: var(--font-title);
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 800;
 
-/* TÍTULOS RETOS E FÁCEIS DE LER */
+  transform: rotate(5deg);
+}
 
 .chapter-pager-paper .chapter-page-title {
+  margin: 0 0 22px;
+
+  color: var(--page-accent);
+
   font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(19px, 2.5vw, 24px);
   font-style: normal;
   font-weight: 800;
-  font-size: clamp(19px, 2.6vw, 24px);
   line-height: 1.4;
-  letter-spacing: 0;
-  color: var(--page-accent);
-  text-transform: uppercase;
-  margin: 0 0 20px;
+
   overflow-wrap: anywhere;
 }
 
 .modal-inner .chapter-pager-paper .chapter-page-body {
-  font: 500 clamp(14px, 1.7vw, 16px)/1.85
-    'DM Sans', sans-serif;
-  white-space: pre-line;
   margin: 0;
+
   color: #30212b;
+
+  font-family: var(--font-body);
+  font-size: clamp(15px, 1.6vw, 17px);
+  font-weight: 500;
+  line-height: 1.85;
+
+  white-space: pre-line;
   overflow-wrap: anywhere;
 }
 
@@ -1369,30 +1985,33 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   gap: 10px;
-  margin-top: 3px;
 }
 
 .chapter-pager-pages {
-  font: 800 13px
-    'DM Mono', monospace;
-  white-space: nowrap;
   color: #682443;
-}
 
-.chapter-pager--percebe .chapter-pager-pages {
-  color: #75401c;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 800;
+
+  white-space: nowrap;
 }
 
 .chapter-pager-button {
+  padding: 11px 19px;
+
   background: #8b305c;
   color: white;
+
   border: 2px solid #512039;
-  border-radius: 24px;
-  padding: 10px 18px;
+  border-radius: 25px;
+
   box-shadow: 2px 3px 0 #512039;
-  font: 800 13px 'DM Sans', sans-serif;
-  cursor: pointer;
+
+  font-size: 13px;
+  font-weight: 800;
 }
 
 .chapter-pager-button:hover:not(:disabled) {
@@ -1400,173 +2019,148 @@ footer {
 }
 
 .chapter-pager-button:disabled {
-  background: #c894ac;
-  color: #58394a;
-  opacity: .65;
+  opacity: 0.5;
   cursor: not-allowed;
   box-shadow: none;
-}
-
-.chapter-pager-button:focus-visible {
-  outline: 3px solid var(--page-accent);
-  outline-offset: 3px;
 }
 
 .chapter-pager--percebe .chapter-pager-button {
   background: #935223;
   border-color: #653817;
-  box-shadow: 2px 3px 0 #653817;
 }
 
-.chapter-pager--percebe
-.chapter-pager-button:hover:not(:disabled) {
+.chapter-pager--percebe .chapter-pager-button:hover:not(:disabled) {
   background: #ad6a33;
 }
 
-.chapter-pager--percebe .chapter-pager-button:disabled {
-  background: #dfbd91;
-  color: #765d43;
-  box-shadow: none;
-}
-
-/* ==========================================
-   NOVO VISUAL DA ANÁLISE PSICOLÓGICA
-   ========================================== */
-
-/*
-   Identifica a janela de análise pelo
-   conjunto de parágrafos longos gerados
-   pelo app.js atual.
-*/
+/* ============================================
+   LEITURA DA ANÁLISE PSICOLÓGICA
+   ============================================ */
 
 .modal-inner:has(
   #modalBody > p:nth-of-type(3)
 ) {
   width: min(980px, 96vw);
+
+  padding: 24px;
+
   background: #e7bcd0;
+
   border-color: #8e315d;
   box-shadow: 7px 7px 0 #a6537f;
-  padding: 25px;
 }
-
-/* Folha interna da análise */
 
 #modalBody:has(
   > p:nth-of-type(3)
 ) {
-  background: #fff9f5;
-  border: 1px solid #d9a9b9;
-  border-radius: 20px;
-  padding: clamp(22px, 5vw, 48px);
   margin-top: 8px;
-  box-shadow: 0 5px 20px rgba(102, 40, 73, .10);
-}
 
-/* Título da análise */
+  padding: clamp(22px, 5vw, 44px);
+
+  background: #fff9f5;
+
+  border: 1px solid #d9a9b9;
+  border-radius: 18px;
+}
 
 #modalBody:has(
   > p:nth-of-type(3)
 ) > h2 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(27px, 4vw, 39px);
+  max-width: 720px;
+
+  margin: 0 auto 30px;
+  padding-bottom: 22px;
+
+  color: #8e315d;
+
+  font-family: var(--font-title);
+  font-size: clamp(27px, 3.5vw, 38px);
   font-style: normal;
   font-weight: 800;
+
   line-height: 1.3;
-  color: #8e315d;
-  max-width: 720px;
-  margin: 0 auto 32px;
   text-align: center;
-  padding-bottom: 22px;
+
   border-bottom: 2px solid #e2b7c5;
 }
-
-/* Parágrafos mais estreitos e legíveis */
 
 .modal-inner #modalBody:has(
   > p:nth-of-type(3)
 ) > p {
   max-width: 65ch;
-  margin: 0 auto 27px;
-  font-family: 'DM Sans', Arial, sans-serif;
-  font-size: clamp(16px, 1.8vw, 18px);
-  line-height: 1.95;
-  font-weight: 400;
-  letter-spacing: .1px;
-  color: #392f35;
-  text-align: left;
-  overflow-wrap: break-word;
-}
 
-/* O título que vem dentro do texto */
+  margin: 0 auto 27px;
+
+  color: #392f35;
+
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.8vw, 18px);
+  font-weight: 400;
+  line-height: 1.95;
+
+  text-align: left;
+}
 
 .modal-inner #modalBody:has(
   > p:nth-of-type(3)
 ) > p:first-of-type {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(19px, 2.5vw, 25px);
-  line-height: 1.5;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .2px;
-  color: #612c44;
   margin-bottom: 30px;
-  padding: 16px 0;
+  padding-bottom: 16px;
+
+  color: #612c44;
+
+  font-size: clamp(19px, 2.5vw, 24px);
+  font-weight: 800;
+  line-height: 1.5;
+
+  text-transform: uppercase;
+
   border-bottom: 1px solid #e4c1ce;
 }
 
-/* Pequena marca de revista entre parágrafos */
+/* ============================================
+   RODAPÉ
+   ============================================ */
 
-.modal-inner #modalBody:has(
-  > p:nth-of-type(3)
-) > p:nth-of-type(5n) {
-  border-left: 3px solid #cf79a2;
-  padding-left: 18px;
+footer {
+  padding: 21px 10px;
+
+  color: #9f3f75;
+
+  font-family: var(--font-title);
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 700;
+
+  text-align: center;
 }
 
-/* Botão fechar sempre visível */
-
-.modal-inner:has(
-  #modalBody > p:nth-of-type(3)
-) .close-modal {
-  background: #ff9bce;
-  border: 2px solid #512039;
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
-}
-
-/* Barra de rolagem */
-
-.modal-inner:has(
-  #modalBody > p:nth-of-type(3)
-) {
-  scrollbar-width: thin;
-  scrollbar-color: #bc7297 #f8e4ec;
-}
-
-/* ==========================================
-   RESPONSIVIDADE
-   ========================================== */
-
-@media (min-width: 1151px) {
-  .feature-grid {
-    min-height: 0;
-  }
-
-  .middle-column,
-  .right-column {
-    gap: 9px;
-  }
-
-  .psychology #psyPreview {
-    -webkit-line-clamp: 21;
-    line-height: 1.52;
-  }
-}
+/* ============================================
+   TELAS MÉDIAS
+   ============================================ */
 
 @media (max-width: 1150px) {
+
   .site {
     padding: 0 12px;
+  }
+
+  .feature-grid {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+  }
+
+  .right-column {
+    grid-column: 1 / -1;
+
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+
+    align-items: start;
   }
 
   .nav-btn {
@@ -1578,29 +2172,19 @@ footer {
     max-width: 100%;
   }
 
-  .feature-grid {
-    grid-template-columns:
-      minmax(0, 1.05fr)
-      minmax(0, 1fr);
-  }
-
-  .right-column {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns:
-      minmax(0, 1fr)
-      minmax(0, 1fr);
-    align-items: start;
-  }
-
-  .masthead h1 {
-    font-size: clamp(30px, 5vw, 55px);
+  .mood-collage {
+    height: 405px;
   }
 }
 
+/* ============================================
+   TABLETS E CELULARES
+   ============================================ */
+
 @media (max-width: 720px) {
+
   .browser {
-    height: 48px;
+    height: 49px;
     padding: 5px 10px;
   }
 
@@ -1619,7 +2203,7 @@ footer {
   }
 
   .masthead {
-    min-height: 135px;
+    min-height: 140px;
   }
 
   .brand-center {
@@ -1627,22 +2211,21 @@ footer {
   }
 
   .masthead h1 {
-    font-size: clamp(30px, 8vw, 48px);
+    font-size: clamp(30px, 8vw, 47px);
     letter-spacing: -1px;
   }
 
   .slogan {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .subbrand {
     font-size: 9px;
-    letter-spacing: 1px;
   }
 
   .pill {
     font-size: 8px;
-    padding: 4px 8px;
+    padding: 5px 8px;
   }
 
   .disc,
@@ -1653,28 +2236,29 @@ footer {
   }
 
   .nav {
-    padding: 9px 7px 10px;
     gap: 6px;
+    padding: 9px 7px;
   }
 
   .nav-btn {
     flex: 1 1 calc(33.333% - 8px);
-    max-width: none;
-    font-size: 10px;
+
+    padding: 7px 4px;
+
     min-height: 37px;
-    padding: 7px 3px;
+    max-width: none;
+
+    font-size: 10px;
   }
 
   .search-box {
     flex: 1 1 100%;
-    margin-top: 3px;
     height: 39px;
   }
 
   .now {
-    height: auto;
-    min-height: 140px;
-    padding: 14px 0 10px;
+    min-height: 138px;
+    padding: 13px 0 9px;
   }
 
   .hero-person,
@@ -1684,38 +2268,38 @@ footer {
   }
 
   .player {
-    min-height: 125px;
-    height: auto;
-    padding: 7px;
-    gap: 7px;
+    min-height: 122px;
+
+    padding: 8px;
+    gap: 9px;
   }
 
   .cover-wrap {
-    width: 72px;
-    min-width: 72px;
+    width: 75px;
+    min-width: 75px;
     height: 88px;
   }
 
   .playing {
     font-size: 8px;
-    padding: 3px;
+    padding: 4px 7px;
   }
 
   .player h2 {
     font-size: 17px;
     white-space: normal;
-    overflow-wrap: break-word;
   }
 
   .seek {
     font-size: 9px;
-    gap: 4px;
+    gap: 5px;
   }
 
   .spotify-panel {
-    width: 89px;
-    min-width: 89px;
-    padding-left: 6px;
+    width: 90px;
+    min-width: 90px;
+
+    padding-left: 7px;
   }
 
   .spotify-panel strong {
@@ -1723,8 +2307,8 @@ footer {
   }
 
   .spotify-go {
-    padding: 5px;
     font-size: 9px;
+    padding: 6px 7px;
   }
 
   .spotify-link {
@@ -1738,7 +2322,9 @@ footer {
   .feature-grid {
     display: flex;
     flex-direction: column;
-    gap: 9px;
+
+    gap: 12px;
+    padding: 10px;
   }
 
   .main-article,
@@ -1748,78 +2334,55 @@ footer {
   }
 
   .article-intro {
-    min-height: 220px;
-    gap: 8px;
-    padding: 12px 10px;
+    min-height: 230px;
+    padding: 15px 12px;
   }
 
   .text-intro h2 {
-    font-size: clamp(29px, 8vw, 45px);
+    font-size: clamp(32px, 8vw, 49px);
   }
 
   .text-intro h3 {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .text-intro p {
-    font-size: 11px;
+    font-size: 13px;
   }
 
   .crush-polaroid {
-    width: 37%;
-    transform: rotate(3deg);
+    width: 36%;
   }
 
   .crush-polaroid img {
-    height: 145px;
-  }
-
-  .compact h3 {
-    font-size: clamp(16px, 4vw, 21px);
+    height: 165px;
   }
 
   .right-column {
     display: grid;
+
     grid-template-columns:
       minmax(0, 1fr)
       minmax(0, 1fr);
-    gap: 8px;
+
+    gap: 12px;
   }
 
-  .lived-card {
-    padding: 65px 9px 12px;
-  }
-
-  .lived-card h3,
-  .moodboard-card h3 {
-    font-size: 20px;
+  .side-card h3 {
+    font-size: 23px;
   }
 
   .lived-question {
     font-size: 11px;
-    padding: 7px 5px;
-  }
-
-  .moodboard-card {
-    padding: 49px 9px 12px;
+    padding: 9px 7px;
   }
 
   .mood-collage {
-    height: 315px;
-    min-height: 315px;
-    max-height: 315px;
-  }
-
-  .lyrics {
-    max-height: 580px;
+    height: 330px;
   }
 
   .modal-inner {
-    padding: 16px;
-  }
-
-  .modal-inner h2 {
-    font-size: 26px;
+    padding: 15px;
   }
 
   .modal-inner:has(
@@ -1833,73 +2396,70 @@ footer {
   ) {
     padding: 22px;
   }
-
-  .modal-inner #modalBody:has(
-    > p:nth-of-type(3)
-  ) > p {
-    line-height: 1.85;
-    margin-bottom: 23px;
-  }
 }
 
-@media (max-width: 600px) {
-  .chapter-pager {
-    padding: 13px;
-  }
+/* ============================================
+   CELULARES PEQUENOS
+   ============================================ */
 
-  .chapter-pager-head {
-    padding-right: 10px;
-  }
+@media (max-width: 500px) {
 
-  .chapter-pager-paper {
-    min-height: 200px;
-    padding: 42px 16px 22px;
-  }
-
-  .chapter-pager-navigation {
-    gap: 6px;
-  }
-
-  .chapter-pager-button {
-    font-size: 12px;
-    padding: 10px 11px;
-  }
-
-  .chapter-pager-pages {
-    font-size: 11px;
-  }
-
-  .chapter-pager-paper .chapter-page-title {
-    font-size: 19px;
-    line-height: 1.45;
-  }
-}
-
-@media (max-width: 460px) {
   .right-column {
     grid-template-columns: 1fr;
   }
 
+  .pair,
+  .editorial-stacks {
+    gap: 8px;
+  }
+
+  .compact {
+    padding: 0 9px 10px;
+  }
+
+  .compact h3 {
+    margin: 0 -9px 9px;
+    padding: 10px;
+    font-size: 17px;
+  }
+
+  .compact p {
+    font-size: 12px;
+  }
+
+  .vibe-line {
+    gap: 4px;
+    font-size: 10px;
+  }
+
+  .vibe-line > span:first-child {
+    min-width: 61px;
+  }
+
   .lived-card h3,
   .moodboard-card h3 {
-    font-size: 25px;
+    font-size: 27px;
   }
 
   .mood-collage {
-    height: 410px;
-    min-height: 410px;
-    max-height: 410px;
+    height: 420px;
   }
 
-  .editorial-stacks {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+  .chapter-pager {
+    padding: 12px;
   }
 
-  #modalBody:has(
-    > p:nth-of-type(3)
-  ) {
-    padding: 16px;
+  .chapter-pager-paper {
+    padding: 42px 16px 22px;
+  }
+
+  .chapter-pager-button {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .chapter-pager-pages {
+    font-size: 11px;
   }
 
   .modal-inner #modalBody:has(
@@ -1911,27 +2471,30 @@ footer {
 }
 
 @media (max-width: 390px) {
+
   .nav-btn {
     flex-basis: calc(50% - 7px);
   }
 
+  .pair,
   .editorial-stacks {
     grid-template-columns: 1fr;
   }
 
-  .crush-polaroid {
-    width: 35%;
-  }
-
   .crush-polaroid img {
-    height: 115px;
+    height: 125px;
   }
 
   .vibe-line > span:first-child {
-    min-width: 55px;
+    min-width: 60px;
+  }
+
+  .text-intro h2 {
+    font-size: 31px;
   }
 }
 
-/* ==========================================
+/* ============================================
    FIM DO STYLES.CSS
-   ========================================== */
+   XOXO MY MUSIC DIARY ♡
+   ============================================ */
