@@ -1,32 +1,47 @@
 
-/* XOXO — site estático e conexão Spotify via Authorization Code + PKCE. */
+/* XOXO MY MUSIC DIARY
+   Site estático + Spotify PKCE
+   Curiosidades em páginas de revista
+*/
 
-const $ = (q) => document.querySelector(q);
-const $$ = (q) => Array.from(document.querySelectorAll(q));
+const $ = q => document.querySelector(q);
+const $$ = q => Array.from(document.querySelectorAll(q));
 
 const STORE = 'xoxo_spotify_pkce';
-
-let songs = [], current = null, playing = null;
-let lastProgress = 0, lastUpdate = 0;
-let refreshTimer = null;
-let selectedLyrics = 'translation';
-let currentView = 'music';
+const SPOTIFY_CLIENT_ID = '1ab7d1db359b4f11b020a79363e8da3c';
 
 const defaultCover = 'assets/album-drop-dead.webp';
 
-const escapeHTML = (s='') =>
-  String(s).replace(/[&<>"']/g, c => ({
-    '&':'&amp;',
-    '<':'&lt;',
-    '>':'&gt;',
-    '"':'&quot;',
-    "'":'&#39;'
-  }[c]));
+let songs = [];
+let current = null;
+let playing = null;
+let lastProgress = 0;
+let lastUpdate = 0;
+let refreshTimer = null;
+let currentView = 'music';
+let manualSelection = false;
+
+const escapeHTML = (value = '') =>
+  String(value).replace(/[&<>"']/g, char => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }[char]));
 
 const formatTime = ms => {
-  let s = Math.floor(Math.max(0, ms || 0) / 1000);
-  return `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;
+  const seconds = Math.floor(Math.max(0, ms || 0) / 1000);
+  return `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
 };
+
+const getID = () => SPOTIFY_CLIENT_ID.trim();
+
+const redirect = () => location.origin + location.pathname;
+
+/* ====================================
+   JANELINHAS DO SITE
+==================================== */
 
 function modal(html) {
   $('#modalBody').innerHTML = html;
@@ -41,27 +56,19 @@ function closeModal() {
 
 $('#closeModal').onclick = closeModal;
 
-$('#modal').addEventListener('click', e => {
-  if (e.target.id === 'modal') closeModal();
+$('#modal').addEventListener('click', event => {
+  if (event.target.id === 'modal') closeModal();
 });
 
-window.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeModal();
+window.addEventListener('keydown', event => {
+  if (event.key === 'Escape') closeModal();
 });
 
-// CLIENT ID DO SPOTIFY CONFIGURADO
-// NUNCA COLOQUE O CLIENT SECRET.
+/* ====================================
+   SPOTIFY
+==================================== */
 
-const SPOTIFY_CLIENT_ID = '1ab7d1db359b4f11b020a79363e8da3c';
-
-const getID = () =>
-  SPOTIFY_CLIENT_ID.trim() === 'COLE_SEU_CLIENT_ID_AQUI'
-    ? ''
-    : SPOTIFY_CLIENT_ID.trim();
-
-// JANELA DE CONEXÃO DO SPOTIFY
-
-function spotifySettings(message='') {
+function spotifySettings(message = '') {
   modal(`
     <h2>♡ Conecte seu Spotify</h2>
 
@@ -71,18 +78,12 @@ function spotifySettings(message='') {
       Cada pessoa verá apenas o Spotify dela.
     </p>
 
-    ${!getID()
-      ? '<div class="notice">O proprietário do site ainda precisa configurar o Client ID no arquivo app.js.</div>'
-      : ''
-    }
-
     ${message
       ? `<p class="notice">${escapeHTML(message)}</p>`
       : ''
     }
 
-    <button class="action" id="saveSpotify"
-      ${!getID() ? 'disabled' : ''}>
+    <button class="action" id="saveSpotify">
       ♡ Conectar meu Spotify
     </button>
 
@@ -91,7 +92,7 @@ function spotifySettings(message='') {
     </button>
   `);
 
-  $('#saveSpotify').onclick = () => startLogin();
+  $('#saveSpotify').onclick = startLogin;
 
   $('#disconnectSpotify').onclick = () => {
     localStorage.removeItem(STORE);
@@ -99,49 +100,45 @@ function spotifySettings(message='') {
     sessionStorage.removeItem('xoxo_oauth_state');
 
     playing = null;
+    manualSelection = false;
+    window.xoxoLastKey = null;
+
     closeModal();
 
     $('#playingStatus').textContent = '♡ MODO REVISTA';
     $('#syncNote').textContent =
-      'Spotify desconectado — você pode explorar a revista normalmente.';
+      'Spotify desconectado — explore a revista normalmente.';
   };
 }
 
-// AUTORIZAÇÃO SEGURA DO SPOTIFY
-
-function randomString(n=64) {
+function randomString(length = 64) {
   const letters =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~';
 
-  const nums = crypto.getRandomValues(new Uint8Array(n));
+  const numbers = crypto.getRandomValues(
+    new Uint8Array(length)
+  );
 
   return Array.from(
-    nums,
-    n => letters[n % letters.length]
+    numbers,
+    number => letters[number % letters.length]
   ).join('');
 }
 
-async function sha256(s) {
+async function sha256(value) {
   return crypto.subtle.digest(
     'SHA-256',
-    new TextEncoder().encode(s)
+    new TextEncoder().encode(value)
   );
 }
 
-const b64url = buf =>
-  btoa(String.fromCharCode(...new Uint8Array(buf)))
-    .replace(/\+/g,'-')
-    .replace(/\//g,'_')
-    .replace(/=+$/,'');
-
-const redirect = () =>
-  location.origin + location.pathname;
+const b64url = buffer =>
+  btoa(String.fromCharCode(...new Uint8Array(buffer)))
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_')
+    .replace(/=+$/, '');
 
 async function startLogin() {
-  const id = getID();
-
-  if (!id) return spotifySettings();
-
   const verifier = randomString();
   const state = randomString(24);
   const challenge = b64url(await sha256(verifier));
@@ -149,9 +146,9 @@ async function startLogin() {
   sessionStorage.setItem('xoxo_pkce_verifier', verifier);
   sessionStorage.setItem('xoxo_oauth_state', state);
 
-  const p = new URLSearchParams({
+  const parameters = new URLSearchParams({
     response_type: 'code',
-    client_id: id,
+    client_id: getID(),
     scope: 'user-read-currently-playing user-read-playback-state',
     redirect_uri: redirect(),
     state,
@@ -160,10 +157,10 @@ async function startLogin() {
   });
 
   location.href =
-    'https://accounts.spotify.com/authorize?' + p;
+    'https://accounts.spotify.com/authorize?' + parameters;
 }
 
-async function exchange(params) {
+async function exchange(parameters) {
   const response = await fetch(
     'https://accounts.spotify.com/api/token',
     {
@@ -171,15 +168,16 @@ async function exchange(params) {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
-      body: new URLSearchParams(params)
+      body: new URLSearchParams(parameters)
     }
   );
 
   if (!response.ok) {
-    let err = await response.text();
+    const error = await response.text();
 
     throw new Error(
-      `Não foi possível autorizar o Spotify (${response.status}). Confira o Client ID e o Redirect URI. ${err.slice(0,120)}`
+      `Não foi possível autorizar o Spotify (${response.status}). ` +
+      `Confira o Client ID e o Redirect URI. ${error.slice(0, 120)}`
     );
   }
 
@@ -201,11 +199,14 @@ async function exchange(params) {
 }
 
 async function handleCallback() {
-  const u = new URL(location.href);
-  const error = u.searchParams.get('error');
-  const code = u.searchParams.get('code');
+  const url = new URL(location.href);
+
+  const error = url.searchParams.get('error');
+  const code = url.searchParams.get('code');
 
   if (!code && !error) return;
+
+  const state = url.searchParams.get('state');
 
   history.replaceState(
     {},
@@ -220,11 +221,15 @@ async function handleCallback() {
     return;
   }
 
-  const state = u.searchParams.get('state');
-  const correct = sessionStorage.getItem('xoxo_oauth_state');
-  const verifier = sessionStorage.getItem('xoxo_pkce_verifier');
+  const correctState = sessionStorage.getItem(
+    'xoxo_oauth_state'
+  );
 
-  if (!state || state !== correct || !verifier) {
+  const verifier = sessionStorage.getItem(
+    'xoxo_pkce_verifier'
+  );
+
+  if (!state || state !== correctState || !verifier) {
     spotifySettings(
       'A verificação de segurança expirou. Tente conectar novamente.'
     );
@@ -244,9 +249,8 @@ async function handleCallback() {
     sessionStorage.removeItem('xoxo_oauth_state');
 
     closeModal();
-
-  } catch(e) {
-    spotifySettings(e.message);
+  } catch (error) {
+    spotifySettings(error.message);
   }
 }
 
@@ -271,8 +275,7 @@ async function getToken() {
     });
 
     return data.access_token;
-
-  } catch(e) {
+  } catch (error) {
     localStorage.removeItem(STORE);
 
     $('#syncNote').textContent =
@@ -282,93 +285,8 @@ async function getToken() {
   }
 }
 
-// MÚSICA TOCANDO AGORA
-
-async function loadNow() {
-  const t = await getToken();
-
-  if (!t) {
-    if (getID()) {
-      $('#syncNote').textContent =
-        'Spotify ainda não autorizado. Clique em Conectar Spotify para concluir o acesso ♡';
-    }
-    return;
-  }
-
-  try {
-    const res = await fetch(
-      'https://api.spotify.com/v1/me/player/currently-playing',
-      {
-        headers: {
-          Authorization: `Bearer ${t}`
-        },
-        cache: 'no-store'
-      }
-    );
-
-    if (res.status === 204) {
-      $('#playingStatus').textContent = '♫ NADA TOCANDO';
-      $('#syncNote').textContent =
-        'Dê play em alguma música no Spotify ♡';
-      return;
-    }
-
-    if (res.status === 401) {
-      const d = JSON.parse(
-        localStorage.getItem(STORE) || '{}'
-      );
-
-      d.expires_at = 0;
-      localStorage.setItem(STORE, JSON.stringify(d));
-      return;
-    }
-
-    if (res.status === 403) {
-      $('#syncNote').textContent =
-        'A API do Spotify não liberou o acesso. Confira as permissões e o usuário autorizado.';
-      return;
-    }
-
-    if (!res.ok) {
-      throw new Error(`Spotify respondeu ${res.status}`);
-    }
-
-    const d = await res.json();
-
-    if (!d.item || d.currently_playing_type !== 'track') {
-      return;
-    }
-
-    playing = d;
-    lastProgress = d.progress_ms || 0;
-    lastUpdate = Date.now();
-
-    renderNow(d);
-
-    const tSong = d.item;
-    const key = (tSong.id || '') + '-' + tSong.name;
-
-    if (window.xoxoLastKey !== key) {
-      window.xoxoLastKey = key;
-
-      applyTrack({
-        title: tSong.name,
-        artist: tSong.artists?.map(a => a.name).join(', ') || 'Artista',
-        cover: tSong.album?.images?.[0]?.url || defaultCover,
-        spotifyUrl: tSong.external_urls?.spotify || '',
-        duration: tSong.duration_ms,
-        trackId: tSong.id
-      }, true);
-    }
-
-  } catch(e) {
-    $('#syncNote').textContent =
-      'Não foi possível atualizar: ' + e.message;
-  }
-}
-
-function renderNow(d) {
-  $('#playingStatus').textContent = d.is_playing
+function renderNow(data) {
+  $('#playingStatus').textContent = data.is_playing
     ? '▶ TOCANDO AGORA'
     : 'Ⅱ MÚSICA PAUSADA';
 
@@ -379,7 +297,7 @@ function renderNow(d) {
 }
 
 function paintProgress() {
-  const ms =
+  const duration =
     playing?.item?.duration_ms || current?.duration || 0;
 
   const progress = playing
@@ -391,25 +309,124 @@ function paintProgress() {
     : 0;
 
   $('#elapsed').textContent = formatTime(progress);
-  $('#duration').textContent = formatTime(ms);
+  $('#duration').textContent = formatTime(duration);
 
-  $('#progressFill').style.width = ms
-    ? `${Math.min(100, progress/ms*100)}%`
+  $('#progressFill').style.width = duration
+    ? `${Math.min(100, progress / duration * 100)}%`
     : '0%';
 }
 
-// CONTEÚDO DA REVISTA
+async function loadNow() {
+  const token = await getToken();
+
+  if (!token) {
+    if (!manualSelection) {
+      $('#syncNote').textContent =
+        'Conecte seu Spotify para sincronizar automaticamente ♡';
+    }
+    return;
+  }
+
+  try {
+    const response = await fetch(
+      'https://api.spotify.com/v1/me/player/currently-playing',
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        cache: 'no-store'
+      }
+    );
+
+    if (response.status === 204) {
+      $('#playingStatus').textContent = '♫ NADA TOCANDO';
+
+      if (!manualSelection) {
+        $('#syncNote').textContent =
+          'Dê play em alguma música no Spotify ♡';
+      }
+
+      return;
+    }
+
+    if (response.status === 401) {
+      const data = JSON.parse(
+        localStorage.getItem(STORE) || '{}'
+      );
+
+      data.expires_at = 0;
+
+      localStorage.setItem(STORE, JSON.stringify(data));
+      return;
+    }
+
+    if (response.status === 403) {
+      $('#syncNote').textContent =
+        'A API do Spotify não liberou o acesso. Confira as permissões.';
+      return;
+    }
+
+    if (!response.ok) {
+      throw new Error(`Spotify respondeu ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (!data.item || data.currently_playing_type !== 'track') {
+      return;
+    }
+
+    playing = data;
+    lastProgress = data.progress_ms || 0;
+    lastUpdate = Date.now();
+
+    if (manualSelection) {
+      $('#playingStatus').textContent = '♡ NA REVISTA';
+      $('#syncNote').textContent =
+        'Você está lendo uma matéria da revista ♡';
+      return;
+    }
+
+    renderNow(data);
+
+    const track = data.item;
+    const key = (track.id || '') + '-' + track.name;
+
+    if (window.xoxoLastKey !== key) {
+      window.xoxoLastKey = key;
+
+      applyTrack({
+        title: track.name,
+        artist: track.artists?.map(a => a.name).join(', ') || 'Artista',
+        cover: track.album?.images?.[0]?.url || defaultCover,
+        spotifyUrl: track.external_urls?.spotify || '',
+        duration: track.duration_ms,
+        trackId: track.id
+      }, true);
+    }
+  } catch (error) {
+    $('#syncNote').textContent =
+      'Não foi possível atualizar: ' + error.message;
+  }
+}
+
+/* ====================================
+   DADOS DAS MÚSICAS
+==================================== */
 
 function findSong(title, artist) {
-  return songs.find(
-    s =>
-      s.title.toLowerCase() === title.toLowerCase() &&
-      s.artist.toLowerCase() === artist.toLowerCase()
+  return songs.find(song =>
+    song.title.toLowerCase() === title.toLowerCase() &&
+    song.artist.toLowerCase() === artist.toLowerCase()
   ) || null;
 }
 
-function applyTrack(track, isLive=false) {
+function applyTrack(track, isLive = false) {
   const song = findSong(track.title, track.artist);
+
+  if (!isLive) {
+    manualSelection = true;
+  }
 
   current = {
     ...track,
@@ -441,21 +458,20 @@ function applyTrack(track, isLive=false) {
 
   $('#articleDescription').textContent =
     current.intro ||
-    'Sua trilha sonora virou matéria de revista! ♡ Ainda não cadastramos a tradução, as curiosidades e a análise desta música.';
+    'Sua trilha sonora virou matéria de revista! ♡ Ainda não cadastramos o conteúdo desta música.';
 
   $('#aboutText').textContent =
     current.intro ||
-    `Agora é ${current.title}, de ${current.artist}, que está na sua playlist. Que sentimentos essa música desperta em você?`;
+    `Agora é ${current.title}, de ${current.artist}, que está na sua playlist.`;
 
   const curiosityItems = current.curiosities || [];
-  const cut = 5;
 
-  const curiosityPart = curiosityItems.slice(0,cut);
-  const detailsPart = curiosityItems.slice(cut);
+  const curiosityPart = curiosityItems.slice(0, 5);
+  const detailsPart = curiosityItems.slice(5);
 
   $('#percebePreview').innerHTML = detailsPart.length
-    ? detailsPart.slice(0,2).map(x =>
-        `<p>♡ ${escapeHTML(x).slice(0,235)}${x.length>235?'…':''}</p>`
+    ? detailsPart.slice(0, 2).map(text =>
+        `<p>♡ ${escapeHTML(text).slice(0, 235)}${text.length > 235 ? '…' : ''}</p>`
       ).join('')
     : `<p>${escapeHTML(
         current.percebe ||
@@ -463,56 +479,54 @@ function applyTrack(track, isLive=false) {
       )}</p>`;
 
   $('#photoArtist').src =
-    (song?.title === 'drop dead')
+    song?.title === 'drop dead'
       ? 'assets/olivia-photo.webp'
       : (track.cover || defaultCover);
 
   $('#heroPortrait').src =
-    (song?.title === 'drop dead')
+    song?.title === 'drop dead'
       ? 'assets/olivia-hero.webp'
       : (track.cover || defaultCover);
 
   $('#heroArtist').innerHTML =
-    escapeHTML(current.artist).replace(/ /g,'<br>') + ' ♡';
+    escapeHTML(current.artist).replace(/ /g, '<br>') + ' ♡';
 
   const vibes = current.vibes || [
-    ['No repeat',95],
-    ['Meu momento',80],
-    ['Playlist',90],
-    ['Favorita',75]
+    ['No repeat', 95],
+    ['Meu momento', 80],
+    ['Playlist', 90],
+    ['Favorita', 75]
   ];
 
-  $('#vibes').innerHTML = vibes.map(
-    ([name,n]) => `
-      <div class="vibe-line">
-        <span>${escapeHTML(name)} ♡</span>
-        <span class="meter">
-          <i style="width:${Number(n)}%"></i>
-        </span>
-        <b>${Number(n)}%</b>
-      </div>
-    `
-  ).join('');
+  $('#vibes').innerHTML = vibes.map(([name, number]) => `
+    <div class="vibe-line">
+      <span>${escapeHTML(name)} ♡</span>
+      <span class="meter">
+        <i style="width:${Number(number)}%"></i>
+      </span>
+      <b>${Number(number)}%</b>
+    </div>
+  `).join('');
 
   $('#forYou').innerHTML =
     typeof current.forYou === 'string'
       ? `<p class="for-you-copy">${escapeHTML(current.forYou)}</p>`
       : Array.isArray(current.forYou)
-        ? current.forYou.map(x =>
-            `<p>${escapeHTML(x)} ♡</p>`
+        ? current.forYou.map(text =>
+            `<p>${escapeHTML(text)} ♡</p>`
           ).join('')
         : '<p class="for-you-copy">Uma música especial para guardar no seu diário! ♡</p>';
 
   $('#curiosityPreview').innerHTML =
     (curiosityPart.length
-      ? curiosityPart.slice(0,2)
+      ? curiosityPart.slice(0, 2)
       : ['Essa música ainda não tem curiosidades cadastradas.']
-    ).map(x =>
-      `<p>♡ ${escapeHTML(x).slice(0,230)}${x.length>230?'…':''}</p>`
+    ).map(text =>
+      `<p>♡ ${escapeHTML(text).slice(0, 230)}${text.length > 230 ? '…' : ''}</p>`
     ).join('');
 
   $('#psyPreview').textContent = current.psychology
-    ? current.psychology.replace(/^[^\n]*\n*/,'').slice(0,1050) + '…'
+    ? current.psychology.replace(/^[^\n]*\n*/, '').slice(0, 1050) + '…'
     : 'A análise psicológica desta faixa ainda não foi escrita.';
 
   renderLivedQuiz();
@@ -525,10 +539,8 @@ function applyTrack(track, isLive=false) {
     paintProgress();
 
     $('#playingStatus').textContent = '♡ NA REVISTA';
-
-    $('#syncNote').textContent = getID()
-      ? 'Aguardando atualização do Spotify...'
-      : 'Conecte o Spotify para sincronizar automaticamente ♡';
+    $('#syncNote').textContent =
+      'Você está explorando a revista ♡';
   }
 
   history.replaceState(
@@ -539,60 +551,207 @@ function applyTrack(track, isLive=false) {
   );
 }
 
-// TRADUÇÃO
+/* ====================================
+   TRADUÇÃO
+==================================== */
 
 function renderLyrics() {
-  const txt =
+  const text =
     current?.translation ||
     'Ainda não temos tradução cadastrada para esta música.';
 
-  $('#lyricsText').textContent = txt
-    .replace(/ +(?=\n)/g,'')
-    .replace(/\n{3,}/g,'\n\n');
+  $('#lyricsText').textContent = text
+    .replace(/ +(?=\n)/g, '')
+    .replace(/\n{3,}/g, '\n\n');
 }
 
-$('#connectSpotify').onclick = () => spotifySettings();
+$('#connectSpotify').onclick = spotifySettings;
 
-// CURIOSIDADES E ANÁLISE PSICOLÓGICA
+/* ====================================
+   CURIOSIDADES EM PÁGINAS
+==================================== */
 
-function showChapters(title,items) {
-  modal(`
-    <h2>${escapeHTML(title)} — ${escapeHTML(current.title)}</h2>
+/*
+  ESTA É A PARTE NOVA!
 
-    ${items.length
-      ? items.map(t =>
-          `<div class="chapter">
-            <p>${escapeHTML(t)}</p>
-          </div>`
-        ).join('')
-      : '<p>Ainda não há textos cadastrados para esta seção.</p>'
+  Quando a pessoa clica em
+  "Ver todas as curiosidades",
+  aparece uma curiosidade por vez.
+
+  Botões: Voltar e Avançar.
+
+  As curiosidades continuam sendo
+  carregadas do dados.json ou songs.json.
+*/
+
+function showPagedChapters(title, items, variant = 'curios') {
+  const chapters = Array.isArray(items) && items.length
+    ? items
+    : ['Ainda não há textos cadastrados para esta seção.'];
+
+  let index = 0;
+
+  modal('<div id="chapterPager"></div>');
+
+  function renderPage() {
+    const chapter = String(chapters[index] || '');
+
+    /*
+      Se o texto começar com um título,
+      separa o título do restante.
+
+      Também reconhece o padrão:
+      💘 TÍTULO! Texto da curiosidade...
+    */
+
+    let heading = '';
+    let body = chapter;
+
+    const lineBreak = chapter.indexOf('\n');
+
+    if (lineBreak > 0 && lineBreak < 180) {
+      heading = chapter.slice(0, lineBreak).trim();
+      body = chapter.slice(lineBreak + 1).trim();
+    } else {
+      const match = chapter.match(
+        /^(.{5,160}?[!?])\s+([\s\S]+)$/
+      );
+
+      if (match) {
+        heading = match[1].trim();
+        body = match[2].trim();
+      }
     }
-  `);
+
+    const content = heading
+      ? `
+        <h3 class="chapter-page-title">
+          ${escapeHTML(heading)}
+        </h3>
+        <p class="chapter-page-body">
+          ${escapeHTML(body)}
+        </p>
+      `
+      : `
+        <p class="chapter-page-body">
+          ${escapeHTML(chapter)}
+        </p>
+      `;
+
+    $('#chapterPager').innerHTML = `
+      <section
+        class="chapter-pager chapter-pager--${variant}"
+        aria-label="${escapeHTML(title)}"
+      >
+
+        <div class="chapter-pager-head">
+          <p class="chapter-pager-kicker">
+            XOXO MY MUSIC DIARY · EDIÇÃO ESPECIAL ♡
+          </p>
+
+          <h2>
+            ${escapeHTML(title)} —
+            ${escapeHTML(current.title)}
+          </h2>
+
+          <span class="chapter-pager-count">
+            PÁGINA ${index + 1} DE ${chapters.length}
+          </span>
+        </div>
+
+        <div class="chapter-pager-paper">
+          <span
+            class="chapter-pager-sticker"
+            aria-hidden="true"
+          >
+            ✧ EXCLUSIVO!
+          </span>
+
+          ${content}
+        </div>
+
+        <div class="chapter-pager-navigation">
+          <button
+            class="chapter-pager-button"
+            id="prevChapter"
+            ${index === 0 ? 'disabled' : ''}
+          >
+            ← Voltar
+          </button>
+
+          <span
+            class="chapter-pager-pages"
+            aria-live="polite"
+          >
+            ${index + 1} / ${chapters.length}
+          </span>
+
+          <button
+            class="chapter-pager-button"
+            id="nextChapter"
+            ${index === chapters.length - 1 ? 'disabled' : ''}
+          >
+            Avançar →
+          </button>
+        </div>
+      </section>
+    `;
+
+    $('#prevChapter').onclick = () => {
+      if (index > 0) {
+        index--;
+        renderPage();
+      }
+    };
+
+    $('#nextChapter').onclick = () => {
+      if (index < chapters.length - 1) {
+        index++;
+        renderPage();
+      }
+    };
+
+    const scroller = document.querySelector('.modal-inner');
+
+    if (scroller) {
+      scroller.scrollTop = 0;
+    }
+  }
+
+  renderPage();
 }
 
 function showCurios() {
-  showChapters(
+  showPagedChapters(
     '☆ Curiosidades',
-    (current.curiosities || []).slice(0,5)
+    (current.curiosities || []).slice(0, 5),
+    'curios'
   );
 }
 
 function showPercebe() {
-  showChapters(
+  showPagedChapters(
     '⌕ Você percebeu?',
-    (current.curiosities || []).slice(5)
+    (current.curiosities || []).slice(5),
+    'percebe'
   );
 }
 
 function showPsy() {
   modal(`
-    <h2>🧠 Análise psicológica: ${escapeHTML(current.title)}</h2>
+    <h2>
+      🧠 Análise psicológica:
+      ${escapeHTML(current.title)}
+    </h2>
 
-    ${current.psychology
-      ? current.psychology.split(/\n\n+/).map(
-          p => `<p>${escapeHTML(p)}</p>`
-        ).join('')
-      : '<p>Esta análise ainda não foi cadastrada.</p>'
+    ${
+      current.psychology
+        ? current.psychology
+            .split(/\n\n+/)
+            .map(paragraph =>
+              `<p>${escapeHTML(paragraph)}</p>`
+            ).join('')
+        : '<p>Esta análise ainda não foi cadastrada.</p>'
     }
   `);
 }
@@ -601,7 +760,9 @@ $('#allCuriosities').onclick = showCurios;
 $('#allPercebe').onclick = showPercebe;
 $('#readPsychology').onclick = showPsy;
 
-// QUIZ VOCÊ JÁ VIVEU ISSO?
+/* ====================================
+   TESTE VOCÊ JÁ VIVEU ISSO?
+==================================== */
 
 const dropDeadQuestions = [
   'Já pesquisou a vida de um crush na internet antes de conhecê-lo melhor?',
@@ -622,23 +783,35 @@ function renderLivedQuiz() {
     current.title.toLowerCase() === 'drop dead' &&
     current.artist.toLowerCase().includes('olivia rodrigo');
 
-  const questions = Array.isArray(current.quizQuestions) && current.quizQuestions.length
-    ? current.quizQuestions
-    : (isDrop ? dropDeadQuestions : genericQuestions);
+  const questions =
+    Array.isArray(current.quizQuestions) &&
+    current.quizQuestions.length
+      ? current.quizQuestions
+      : (isDrop ? dropDeadQuestions : genericQuestions);
 
-  $('#quizIntro').textContent = current.quizIntro ||
-    (current.quizTitle && !isDrop
-      ? current.quizTitle.replace(/^VOCÊ JÁ VIVEU ISSO?\s*[—–-]\s*/i, '')
-      : isDrop
-        ? 'Uma paixão que começa com frio na barriga e mil possibilidades na cabeça... soa familiar?'
-        : `Escutando ${current.title}, de ${current.artist}, será que você também já viveu uma história parecida?`);
+  $('#quizIntro').textContent =
+    current.quizIntro ||
+    (
+      current.quizTitle && !isDrop
+        ? current.quizTitle.replace(
+            /^VOCÊ JÁ VIVEU ISSO?\s*[—–-]\s*/i,
+            ''
+          )
+        : isDrop
+          ? 'Uma paixão que começa com frio na barriga e mil possibilidades na cabeça... soa familiar?'
+          : `Escutando ${current.title}, será que você já viveu uma história parecida?`
+    );
 
   $('#livedQuestions').innerHTML = questions.map(
-    (q,i) => `
+    (question, index) => `
       <label class="lived-question">
-        <input type="checkbox" name="lived" value="${i}">
+        <input
+          type="checkbox"
+          name="lived"
+          value="${index}"
+        >
         <span class="heart-box">♡</span>
-        <span>${escapeHTML(q)}</span>
+        <span>${escapeHTML(question)}</span>
       </label>
     `
   ).join('');
@@ -647,23 +820,25 @@ function renderLivedQuiz() {
 }
 
 $('#livedResultButton').onclick = () => {
-  const n = $$('#livedQuestions input:checked').length;
+  const checked = $$('#livedQuestions input:checked').length;
 
-  const msg = n===0
+  const message = checked === 0
     ? 'Ainda não viveu essa história? Talvez a próxima música seja a sua!'
-    : n===1
+    : checked === 1
       ? 'Um pedacinho dessa história já parece familiar!'
-      : n===2
+      : checked === 2
         ? 'Alerta de protagonista: você entende bem essa vibe!'
-        : n===3
+        : checked === 3
           ? 'Você e essa música têm mais em comum do que parece!'
           : 'MATCH TOTAL! Essa música poderia ser uma página do seu diário!';
 
   $('#livedOutcome').textContent =
-    `${n}/4 ♡ ${msg}`;
+    `${checked}/4 ♡ ${message}`;
 };
 
-// MOODBOARD DA MÚSICA
+/* ====================================
+   MOODBOARD
+==================================== */
 
 function renderMoodboard() {
   const drop =
@@ -674,58 +849,86 @@ function renderMoodboard() {
     current.title.toLowerCase() === 'stupid song' &&
     current.artist.toLowerCase().includes('olivia rodrigo');
 
-  $('#moodDescription').textContent = current.moodDescription ||
-    (stupid
-      ? 'Uma paixão intensa, meio caótica e completamente fora de controle: festa no fim da noite, cidade acesa e cartas cheias de sentimento.'
-      : drop
-      ? 'Versalhes, borboletas no estômago, bilhetinhos rosa e um encontro que não deveria acabar...'
-      : `Recortes visuais para entrar no universo de ${current.title}.`);
+  $('#moodDescription').textContent =
+    current.moodDescription ||
+    (
+      stupid
+        ? 'Uma paixão intensa, meio caótica e completamente fora de controle: festa no fim da noite, cidade acesa e cartas cheias de sentimento.'
+        : drop
+          ? 'Versalhes, borboletas no estômago, bilhetinhos rosa e um encontro que não deveria acabar...'
+          : `Recortes visuais para entrar no universo de ${current.title}.`
+    );
 
-  const img = $$('#moodCollage img');
+  const images = $$('#moodCollage img');
+
   const fallback = drop
-    ? ['assets/mood-bar.webp', 'assets/mood-versailles.webp', 'assets/mood-hands.webp']
+    ? [
+        'assets/mood-bar.webp',
+        'assets/mood-versailles.webp',
+        'assets/mood-hands.webp'
+      ]
     : stupid
-      ? ['musicas/olivia-rodrigo-stupid-song/festa.jpg',
-         'musicas/olivia-rodrigo-stupid-song/cidade.jpg',
-         'musicas/olivia-rodrigo-stupid-song/cartas.jpg']
-      : [current.cover || defaultCover, current.cover || defaultCover, current.cover || defaultCover];
+      ? [
+          'musicas/olivia-rodrigo-stupid-song/festa.jpg',
+          'musicas/olivia-rodrigo-stupid-song/cidade.jpg',
+          'musicas/olivia-rodrigo-stupid-song/cartas.jpg'
+        ]
+      : [
+          current.cover || defaultCover,
+          current.cover || defaultCover,
+          current.cover || defaultCover
+        ];
 
-  img.forEach((el, i) => {
-    const source = Array.isArray(current.moodboard) ? current.moodboard[i] : null;
-    el.src = source || fallback[i] || defaultCover;
-    el.alt = `Moodboard de ${current.title} — foto ${i + 1}`;
+  images.forEach((image, index) => {
+    const source = Array.isArray(current.moodboard)
+      ? current.moodboard[index]
+      : null;
+
+    image.src = source || fallback[index] || defaultCover;
+
+    image.alt =
+      `Moodboard de ${current.title} — foto ${index + 1}`;
   });
 }
 
-// BUSCA DE MÚSICAS
+/* ====================================
+   BUSCA DE MÚSICAS
+==================================== */
 
-function songSearch(q) {
-  q = (q || '').trim();
+function songSearch(query) {
+  query = (query || '').trim();
 
-  if (!q) return;
+  if (!query) return;
 
-  const matches = songs.filter(
-    s =>
-      (s.title + ' ' + s.artist)
-        .toLowerCase()
-        .includes(q.toLowerCase())
+  const matches = songs.filter(song =>
+    (song.title + ' ' + song.artist)
+      .toLowerCase()
+      .includes(query.toLowerCase())
   );
 
   modal(`
     <h2>⌕ Buscar no XOXO</h2>
-    <p>Resultados para: <b>${escapeHTML(q)}</b></p>
 
-    ${matches.map(
-      s => `
-        <div class="result" data-select="${escapeHTML(s.title)}">
-          ♡ <b>${escapeHTML(s.title)}</b>
-          — ${escapeHTML(s.artist)}
+    <p>
+      Resultados para:
+      <b>${escapeHTML(query)}</b>
+    </p>
+
+    ${
+      matches.map(song => `
+        <div
+          class="result"
+          data-select="${escapeHTML(song.title)}"
+        >
+          ♡ <b>${escapeHTML(song.title)}</b>
+          — ${escapeHTML(song.artist)}
           <br>
-          <small>Ver tradução, curiosidades e análise</small>
+          <small>
+            Ver tradução, curiosidades e análise
+          </small>
         </div>
-      `
-    ).join('') ||
-    '<p>Nenhuma matéria cadastrada com esse nome. Você ainda pode ouvir a música no Spotify e a capa mudará automaticamente quando estiver tocando.</p>'
+      `).join('') ||
+      '<p>Nenhuma matéria cadastrada com esse nome.</p>'
     }
   `);
 }
@@ -733,152 +936,192 @@ function songSearch(q) {
 $('#searchGo').onclick = () =>
   songSearch($('#search').value);
 
-$('#search').addEventListener('keydown', e => {
-  if (e.key === 'Enter') {
+$('#search').addEventListener('keydown', event => {
+  if (event.key === 'Enter') {
     songSearch($('#search').value);
   }
 });
 
-document.addEventListener('click', e => {
-  const t = e.target.closest('[data-select]');
+document.addEventListener('click', event => {
+  const selected = event.target.closest('[data-select]');
 
-  if (t) {
-    const s = songs.find(
-      s => s.title === t.dataset.select
+  if (selected) {
+    const song = songs.find(
+      item => item.title === selected.dataset.select
     );
 
-    if (s) {
+    if (song) {
       closeModal();
+
       applyTrack({
-        ...s,
+        ...song,
         cover: defaultCover
       }, false);
     }
   }
 
-  const suggested = e.target.closest('[data-song]');
+  const suggested = event.target.closest('[data-song]');
 
   if (suggested) {
-    const q = suggested.dataset.song;
-
     window.open(
       'https://open.spotify.com/search/' +
-      encodeURIComponent(q),
+      encodeURIComponent(suggested.dataset.song),
       '_blank',
       'noopener,noreferrer'
     );
   }
 });
 
-// NAVEGAÇÃO DA REVISTA
+/* ====================================
+   MENU DA REVISTA
+==================================== */
 
-$$('.nav-btn').forEach(btn => btn.onclick = () => {
-  currentView = btn.dataset.view;
+$$('.nav-btn').forEach(button => {
+  button.onclick = () => {
+    currentView = button.dataset.view;
 
-  $$('.nav-btn').forEach(
-    b => b.classList.toggle('active', b===btn)
-  );
+    $$('.nav-btn').forEach(item => {
+      item.classList.toggle('active', item === button);
+    });
 
-  if (currentView === 'music' || currentView === 'home') {
     if (currentView === 'home') {
       window.scrollTo({
         top: 0,
         behavior: 'smooth'
       });
+      return;
     }
-    return;
-  }
 
-  const pages = {
-    artists: [
-      '☆ Artistas',
-      'Conheça os artistas pelas músicas que você adicionar ao diário.'
-    ],
-    playlists: [
-      '♫ Playlists',
-      'Crie uma trilha sonora para seus crushes, dramas e dias inesquecíveis.'
-    ],
-    tests: [
-      '♡ Testes',
-      'Descubra qual música combina com você!'
-    ],
-    about: [
-      'ⓘ Sobre o XOXO',
-      'Um diário musical com visual de revista teen dos anos 2013/2014. As músicas que você ouve no Spotify ganham uma capa especial aqui. As matérias completas dependem dos textos que você cadastrar.'
-    ]
-  };
+    if (currentView === 'music') return;
 
-  const [title,description] = pages[currentView];
-
-  modal(`
-    <h2>${title}</h2>
-    <p>${description}</p>
-
-    ${currentView === 'tests'
-      ? '<button class="action" id="launchQuiz">Fazer teste ♡</button>'
-      : currentView === 'artists'
-        ? songs.map(
-            s => `
-              <div class="result" data-select="${escapeHTML(s.title)}">
-                ♡ ${escapeHTML(s.artist)} — ${escapeHTML(s.title)}
-              </div>
-            `
-          ).join('')
-        : ''
-    }
-  `);
-
-  if (currentView === 'tests') {
-    $('#launchQuiz').onclick = () => {
-      closeModal();
-
-      $('#livedQuestions').scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
-      });
+    const pages = {
+      artists: [
+        '☆ Artistas',
+        'Conheça os artistas pelas músicas que você adicionar ao diário.'
+      ],
+      playlists: [
+        '♫ Playlists',
+        'Crie uma trilha sonora para seus crushes, dramas e dias inesquecíveis.'
+      ],
+      tests: [
+        '♡ Testes',
+        'Descubra qual música combina com você!'
+      ],
+      about: [
+        'ⓘ Sobre o XOXO',
+        'Um diário musical com visual de revista teen dos anos 2013/2014.'
+      ]
     };
-  }
+
+    const [title, description] = pages[currentView];
+
+    modal(`
+      <h2>${title}</h2>
+      <p>${description}</p>
+
+      ${
+        currentView === 'tests'
+          ? '<button class="action" id="launchQuiz">Fazer teste ♡</button>'
+          : currentView === 'artists'
+            ? songs.map(song => `
+                <div
+                  class="result"
+                  data-select="${escapeHTML(song.title)}"
+                >
+                  ♡ ${escapeHTML(song.artist)}
+                  — ${escapeHTML(song.title)}
+                </div>
+              `).join('')
+            : ''
+      }
+    `);
+
+    if (currentView === 'tests') {
+      $('#launchQuiz').onclick = () => {
+        closeModal();
+
+        $('#livedQuestions').scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+      };
+    }
+  };
 });
 
-// INICIALIZAÇÃO DO SITE
+/* ====================================
+   INICIALIZAÇÃO DO SITE
+==================================== */
 
 async function init() {
   try {
-    const response = await fetch('songs.json');
+    const response = await fetch('songs.json', {
+      cache: 'no-store'
+    });
 
     if (!response.ok) {
       throw new Error('songs.json indisponível');
     }
 
-    // Aceita tanto musicas antigas no songs.json quanto caminhos de subpastas.
-    const catalogo = (await response.json()).songs || [];
-    const carregadas = await Promise.all(catalogo.map(async entrada => {
-      if (typeof entrada !== 'string') return entrada;
-      try {
-        const res = await fetch(entrada, {cache: 'no-store'});
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return await res.json();
-      } catch (e) {
-        console.warn('Não foi possível abrir a música:', entrada, e);
-        return null;
-      }
-    }));
-    songs = carregadas.filter(s => s && s.title && s.artist);
+    const catalog = (await response.json()).songs || [];
 
-  } catch(e) {
+    /*
+      O songs.json aceita:
+      - músicas escritas diretamente nele;
+      - caminhos para dados.json em subpastas.
+    */
+
+    const loaded = await Promise.all(
+      catalog.map(async entry => {
+        if (typeof entry !== 'string') return entry;
+
+        try {
+          const result = await fetch(entry, {
+            cache: 'no-store'
+          });
+
+          if (!result.ok) {
+            throw new Error(`HTTP ${result.status}`);
+          }
+
+          return await result.json();
+        } catch (error) {
+          console.warn(
+            'Não foi possível abrir a música:',
+            entry,
+            error
+          );
+
+          return null;
+        }
+      })
+    );
+
+    songs = loaded.filter(
+      song => song && song.title && song.artist
+    );
+
+  } catch (error) {
     $('#syncNote').textContent =
-      'Erro ao carregar músicas: ' + e.message;
+      'Erro ao carregar músicas: ' + error.message;
   }
 
   await handleCallback();
 
-  let s = songs[0];
+  const firstSong = songs[0];
 
-  if (s) {
+  if (firstSong) {
+    /*
+      Na primeira abertura, mostra a
+      primeira música da revista.
+    */
+
     applyTrack({
-      ...s,
+      ...firstSong,
       cover: defaultCover
     }, false);
+
+    manualSelection = false;
   }
 
   await loadNow();
