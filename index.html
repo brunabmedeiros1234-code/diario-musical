@@ -1,32 +1,137 @@
 
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
   <meta name="theme-color" content="#ffd5e8">
-  <meta name="description" content="XOXO My Music Diary — sua revista musical com traduções, curiosidades e psicologia.">
+
+  <meta
+    name="description"
+    content="XOXO My Music Diary — sua revista musical com traduções, curiosidades e psicologia."
+  >
 
   <title>XOXO My Music Diary ♡</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- FONTES -->
 
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
 
-  <link rel="stylesheet" href="styles.css?v=xoxo-revista-atual">
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,600;1,700;1,800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- CSS DO SITE -->
+
+  <link
+    rel="stylesheet"
+    href="styles.css?v=xoxo-fotos-nitidas-01"
+  >
 
   <style>
-    /* ====================================
-       ORGANIZAÇÃO DAS MATÉRIAS
-       ==================================== */
+
+    /* =====================================
+       FOTOS DE STUPID SONG
+       ===================================== */
+
+    /*
+      A foto grande mostra a imagem
+      original sem esticar nem deformar.
+    */
+
+    .hero-person img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+      object-position: center;
+
+      background: #8fabbc;
+    }
+
+    /*
+      O formato quadrado da capa é
+      preservado no player.
+    */
+
+    .cover-wrap {
+      overflow: hidden;
+    }
+
+    .cover-wrap img {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+      object-position: center;
+
+      image-rendering: auto;
+    }
+
+    /*
+      O polaroid mantém a fotografia
+      sem deformar.
+    */
+
+    .crush-polaroid img {
+      width: 100%;
+
+      object-fit: contain;
+      object-position: center;
+
+      background: #92b2c2;
+      image-rendering: auto;
+    }
+
+    /* =====================================
+       CHAMADA DA MATÉRIA PRINCIPAL
+       ===================================== */
+
+    #articleDescription {
+      font-family: 'DM Sans', Arial, sans-serif;
+
+      font-size: clamp(13px, 1.1vw, 15px);
+      font-weight: 500;
+      line-height: 1.75;
+
+      color: #432c3d;
+
+      white-space: pre-line;
+    }
+
+    /* =====================================
+       ORGANIZAÇÃO DA COLUNA CENTRAL
+       ===================================== */
 
     .middle-column .editorial-stacks {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
       grid-template-areas:
         "psychology psychology"
         "curios percebe";
+
       align-items: start;
       gap: 9px;
     }
@@ -56,6 +161,7 @@
     .middle-column .psychology #psyPreview {
       font-size: 13.5px;
       line-height: 1.8;
+
       -webkit-line-clamp: 7;
     }
 
@@ -63,34 +169,22 @@
       display: none !important;
     }
 
-    /* ====================================
-       INTRODUÇÃO DA MATÉRIA PRINCIPAL
-       ==================================== */
-
-    #articleDescription {
-      font-family: 'DM Sans', Arial, sans-serif;
-      font-size: clamp(13px, 1.1vw, 15px);
-      font-weight: 500;
-      line-height: 1.75;
-      color: #432c3d;
-      white-space: pre-line;
-    }
-
-    .intro-highlight {
-      font-family: 'Playfair Display', Georgia, serif;
-    }
-
-    /* ====================================
-       LOVE LAB — PRÉVIA
-       ==================================== */
+    /* =====================================
+       LOVE LAB — CARTÃO
+       ===================================== */
 
     .love-lab {
       position: relative;
+
       flex: 0 0 auto;
+
       background: #fff9fc;
+
       border: 2px solid #a45a87;
       border-radius: 15px;
+
       box-shadow: 3px 4px 0 #d498b7;
+
       overflow: hidden;
     }
 
@@ -100,70 +194,98 @@
 
     .love-lab-header {
       position: relative;
+
       padding: 17px 17px 15px;
+
       background: linear-gradient(
         120deg,
         #efd6f3,
         #f8d5e7 55%,
         #ffe3ef
       );
+
       border-bottom: 1px dashed #c68da9;
     }
 
     .love-lab-header::after {
       content: "♡";
+
       position: absolute;
       top: 9px;
       right: 11px;
+
       color: #c64a8c;
       font-size: 27px;
     }
 
     .love-lab-tag {
       display: inline-block;
+
       padding: 5px 9px;
+
       background: #fff0a8;
+
       border: 1px solid #81596a;
       border-radius: 4px;
+
       color: #713a55;
+
       font: 700 9px 'DM Mono', monospace;
+
       transform: rotate(-2deg);
     }
 
     .love-lab-brand {
       margin: 13px 0 0;
-      font: italic 800 clamp(23px, 2.7vw, 32px)/1.2
+
+      font: italic 800
+        clamp(23px, 2.7vw, 32px)/1.2
         'Playfair Display', Georgia, serif;
+
       color: #a42c70;
     }
 
     .love-lab-preview {
       padding: 19px 18px 17px;
+
       background: #fffaf7;
     }
 
     .love-lab-preview h3 {
       margin: 0 0 13px;
+
       color: #802b59;
-      font: 800 clamp(18px, 2vw, 23px)/1.4
+
+      font: 800
+        clamp(18px, 2vw, 23px)/1.4
         'DM Sans', Arial, sans-serif;
     }
 
     .love-lab-preview p {
       margin: 0 0 14px;
+
       color: #513347;
-      font: 600 14px/1.8 'DM Sans', Arial, sans-serif;
+
+      font: 600 14px/1.8
+        'DM Sans', Arial, sans-serif;
     }
 
     .love-lab-read {
       display: inline-block;
+
       padding: 9px 0;
+
       background: transparent;
       border: 0;
+
       color: #b52a79;
-      font: 800 13px 'DM Sans', Arial, sans-serif;
+
+      font: 800 13px
+        'DM Sans', Arial, sans-serif;
+
       text-decoration: underline;
       text-underline-offset: 4px;
+
       cursor: pointer;
     }
 
@@ -171,9 +293,9 @@
       color: #e34298;
     }
 
-    /* ====================================
-       LOVE LAB — JANELA COMPLETA
-       ==================================== */
+    /* =====================================
+       LOVE LAB — MATÉRIA COMPLETA
+       ===================================== */
 
     .love-lab-modal {
       padding: 13px 5px 18px;
@@ -181,128 +303,184 @@
 
     .love-lab-modal-header {
       text-align: center;
+
       padding: 24px 18px;
+
       background: linear-gradient(
         130deg,
         #efd6f3,
         #f7d6e8,
         #ffe8f2
       );
+
       border: 1px solid #d7a4c4;
       border-radius: 15px;
     }
 
     .love-lab-modal-tag {
       display: inline-block;
+
       padding: 7px 12px;
+
       background: #fff1a9;
+
       border: 1px solid #9c6c85;
       border-radius: 30px;
+
       color: #79425e;
+
       font: 700 11px 'DM Mono', monospace;
     }
 
     .modal-inner .love-lab-modal-title {
       margin: 17px 0 8px;
+
       color: #a42c70;
-      font: italic 800 clamp(27px, 4vw, 39px)/1.2
+
+      font: italic 800
+        clamp(27px, 4vw, 39px)/1.2
         'Playfair Display', Georgia, serif;
     }
 
     .love-lab-modal-subtitle {
       margin: 0;
+
       color: #80506b;
+
       font: 700 12px 'DM Mono', monospace;
     }
 
     .love-lab-modal-paper {
       max-width: 760px;
+
       margin: 18px auto 0;
       padding: clamp(19px, 4vw, 40px);
+
       background: #fffaf7;
+
       border: 1px solid #e1bacb;
       border-radius: 16px;
-      box-shadow: 0 4px 15px rgba(80,30,55,.07);
+
+      box-shadow:
+        0 4px 15px rgba(80, 30, 55, .07);
     }
 
     .love-lab-modal-paper h3 {
       margin: 0 0 22px;
+
       color: #802b59;
-      font: 800 clamp(22px, 3vw, 29px)/1.4
+
+      font: 800
+        clamp(22px, 3vw, 29px)/1.4
         'DM Sans', Arial, sans-serif;
     }
 
     .modal-inner .love-lab-modal-paper > p {
       max-width: 65ch;
+
       margin: 0 auto 23px;
+
       color: #3e313b;
-      font: 400 clamp(16px, 1.8vw, 18px)/1.9
+
+      font: 400
+        clamp(16px, 1.8vw, 18px)/1.9
         'DM Sans', Arial, sans-serif;
     }
 
-    .modal-inner .love-lab-modal-paper > p.love-lab-lead {
+    .modal-inner
+    .love-lab-modal-paper
+    > p.love-lab-lead {
       padding: 19px;
+
       background: #ffe3ef;
+
       border-left: 4px solid #d54e96;
       border-radius: 0 10px 10px 0;
+
       color: #543349;
+
       font-weight: 700;
     }
 
     .love-lab-message {
       margin: 30px 0 25px;
       padding: 22px;
+
       background: #f5c7df;
+
       border: 1.5px solid #ba6793;
       border-radius: 12px;
+
       box-shadow: 3px 4px 0 #e7a2c2;
     }
 
     .love-lab-message h4 {
       margin: 0 0 11px;
+
       color: #852b5d;
-      font: 800 15px 'DM Sans', Arial, sans-serif;
+
+      font: 800 15px
+        'DM Sans', Arial, sans-serif;
     }
 
     .modal-inner .love-lab-message p {
       margin: 0;
+
       color: #542c44;
-      font: 600 16px/1.85 'DM Sans', Arial, sans-serif;
+
+      font: 600 16px/1.85
+        'DM Sans', Arial, sans-serif;
     }
 
     .love-lab-source {
       padding: 18px;
+
       background: #e9e0f4;
+
       border: 1px dashed #ad83b6;
       border-radius: 10px;
     }
 
     .love-lab-source strong {
       display: block;
+
       margin-bottom: 10px;
+
       color: #69406e;
+
       font-size: 14px;
       font-weight: 800;
     }
 
     .modal-inner .love-lab-source p {
       margin: 0;
+
       color: #56435e;
+
       font-size: 14px;
       line-height: 1.8;
     }
 
     .love-lab-modal-footer {
       padding: 18px 8px 0;
+
       color: #a34277;
+
       text-align: center;
+
       font: italic 700 15px
         'Playfair Display', Georgia, serif;
     }
 
+    /* =====================================
+       CELULARES
+       ===================================== */
+
     @media (max-width: 440px) {
+
       .middle-column .editorial-stacks {
         grid-template-columns: 1fr;
+
         grid-template-areas:
           "psychology"
           "curios"
@@ -328,89 +506,186 @@
       .love-lab-message {
         padding: 17px;
       }
+
     }
+
   </style>
 </head>
 
 <body>
+
   <div class="site">
 
-    <!-- CABEÇALHO -->
+    <!-- =====================================
+         CABEÇALHO
+         ===================================== -->
 
     <header class="masthead">
-      <span class="masthead-star star-left">☆</span>
-      <span class="masthead-star star-right">✦</span>
+
+      <span class="masthead-star star-left">
+        ☆
+      </span>
+
+      <span class="masthead-star star-right">
+        ✦
+      </span>
 
       <div class="brand-center">
+
         <div class="top-labels">
-          <span class="pill pink">♡ CAPRICHO MOOD</span>
-          <span class="pill yellow">EDIÇÃO ESPECIAL</span>
-          <span class="pill mint">SPOTIFY LIVE</span>
+
+          <span class="pill pink">
+            ♡ CAPRICHO MOOD
+          </span>
+
+          <span class="pill yellow">
+            EDIÇÃO ESPECIAL
+          </span>
+
+          <span class="pill mint">
+            SPOTIFY LIVE
+          </span>
+
         </div>
 
         <p class="slogan">
           a sua revista secreta de som, drama &amp; confissões
         </p>
 
-        <h1>XOXO My Music Diary</h1>
+        <h1>
+          XOXO My Music Diary
+        </h1>
 
         <p class="subbrand">
           ♡ LETRAS · CRUSHES · CURIOSIDADES · PSICOLOGIA ♡
         </p>
+
       </div>
 
       <div class="top-polaroid">
-        <img src="assets/olivia-top.webp" alt="Olivia Rodrigo">
-        <span>dear diary ♡</span>
+
+        <img
+          src="assets/olivia-top.webp"
+          alt="Olivia Rodrigo"
+        >
+
+        <span>
+          dear diary ♡
+        </span>
+
       </div>
+
     </header>
 
-    <!-- MENU -->
+    <!-- =====================================
+         MENU
+         ===================================== -->
 
     <nav class="nav">
-      <button class="nav-btn" data-view="home">⌂ HOME</button>
-      <button class="nav-btn active" data-view="music">♫ MÚSICAS</button>
-      <button class="nav-btn" data-view="artists">☆ ARTISTAS</button>
-      <button class="nav-btn" data-view="playlists">☷ PLAYLISTS</button>
-      <button class="nav-btn" data-view="tests">♡ TESTES</button>
-      <button class="nav-btn" data-view="about">ⓘ SOBRE</button>
+
+      <button
+        class="nav-btn"
+        data-view="home"
+      >
+        ⌂ HOME
+      </button>
+
+      <button
+        class="nav-btn active"
+        data-view="music"
+      >
+        ♫ MÚSICAS
+      </button>
+
+      <button
+        class="nav-btn"
+        data-view="artists"
+      >
+        ☆ ARTISTAS
+      </button>
+
+      <button
+        class="nav-btn"
+        data-view="playlists"
+      >
+        ☷ PLAYLISTS
+      </button>
+
+      <button
+        class="nav-btn"
+        data-view="tests"
+      >
+        ♡ TESTES
+      </button>
+
+      <button
+        class="nav-btn"
+        data-view="about"
+      >
+        ⓘ SOBRE
+      </button>
 
       <div class="search-box">
+
         <input
           id="search"
           placeholder="Buscar no XOXO..."
           aria-label="Buscar músicas"
         >
-        <button id="searchGo" aria-label="Buscar">⌕</button>
+
+        <button
+          id="searchGo"
+          type="button"
+          aria-label="Buscar"
+        >
+          ⌕
+        </button>
+
       </div>
+
     </nav>
 
-    <!-- SPOTIFY -->
+    <!-- =====================================
+         PLAYER DO SPOTIFY
+         ===================================== -->
 
     <section class="now">
+
       <div class="hero-person">
+
         <img
           id="heroPortrait"
           src="assets/olivia-hero.webp"
           alt="Foto da artista"
         >
 
-        <div class="torn-label" id="heroArtist">
+        <div
+          class="torn-label"
+          id="heroArtist"
+        >
           OLIVIA<br>RODRIGO ♡
         </div>
+
       </div>
 
       <div class="player">
+
         <div class="cover-wrap">
+
           <img
             id="albumCover"
             src="assets/album-drop-dead.webp"
             alt="Capa da música"
           >
+
         </div>
 
         <div class="player-info">
-          <span class="playing" id="playingStatus">
+
+          <span
+            class="playing"
+            id="playingStatus"
+          >
             ♡ NA REVISTA
           </span>
 
@@ -419,19 +694,29 @@
           </h2>
 
           <div class="seek">
-            <span id="elapsed">0:00</span>
+
+            <span id="elapsed">
+              0:00
+            </span>
+
             <div class="progress">
               <div id="progressFill"></div>
             </div>
-            <span id="duration">0:00</span>
+
+            <span id="duration">
+              0:00
+            </span>
+
           </div>
 
           <p id="syncNote">
             Sua trilha sonora virou matéria de revista ♡
           </p>
+
         </div>
 
         <div class="spotify-panel">
+
           <strong>
             ◉ <small>Ouça no</small><br>Spotify.
           </strong>
@@ -446,40 +731,87 @@
             ▶ Ouvir agora
           </a>
 
-          <button class="spotify-link" id="connectSpotify">
+          <button
+            class="spotify-link"
+            id="connectSpotify"
+            type="button"
+          >
             ♡ Conectar Spotify
           </button>
+
         </div>
+
       </div>
 
-      <span class="repeat-sticker">ON REPEAT ♡</span>
-      <span class="player-doodle">♫</span>
+      <span class="repeat-sticker">
+        ON REPEAT ♡
+      </span>
+
+      <span class="player-doodle">
+        ♫
+      </span>
+
     </section>
 
-    <!-- REVISTA -->
+    <!-- =====================================
+         REVISTA
+         ===================================== -->
 
     <main id="content">
+
       <section class="feature-grid">
 
+        <!-- CAMINHO DA MÚSICA -->
+
         <div class="breadcrumb">
-          <span>♡ HOME</span>
-          <span class="crumb-separator">›</span>
-          <span>MÚSICAS</span>
-          <span class="crumb-separator">›</span>
-          <span id="crumbTitle">DROP DEAD — OLIVIA RODRIGO</span>
+
+          <span>
+            ♡ HOME
+          </span>
+
+          <span class="crumb-separator">
+            ›
+          </span>
+
+          <span>
+            MÚSICAS
+          </span>
+
+          <span class="crumb-separator">
+            ›
+          </span>
+
+          <span id="crumbTitle">
+            DROP DEAD — OLIVIA RODRIGO
+          </span>
+
         </div>
 
-        <!-- COLUNA ESQUERDA -->
+        <!-- =====================================
+             COLUNA ESQUERDA
+             ===================================== -->
 
         <article class="article main-article">
+
           <div class="article-intro">
 
-            <span class="intro-heart">♡</span>
-            <span class="intro-star">✦</span>
+            <span class="intro-heart">
+              ♡
+            </span>
+
+            <span class="intro-star">
+              ✦
+            </span>
 
             <div class="text-intro">
-              <h2 id="articleTitle">drop dead</h2>
-              <h3 id="articleArtist">Olivia Rodrigo</h3>
+
+              <h2 id="articleTitle">
+                drop dead
+              </h2>
+
+              <h3 id="articleArtist">
+                Olivia Rodrigo
+              </h3>
 
               <div class="intro-highlight">
                 Aquela paixão que entra na sua cabeça
@@ -489,16 +821,24 @@
               <p id="articleDescription"></p>
 
               <div class="hashtags">
+
                 <span>#pop</span>
                 <span>#crush</span>
                 <span>#obsessão</span>
                 <span>#romance</span>
                 <span>#oliviarodrigo</span>
+
               </div>
+
             </div>
 
+            <!-- FOTO POLAROID -->
+
             <div class="crush-polaroid">
-              <span class="polaroid-clip">⌁</span>
+
+              <span class="polaroid-clip">
+                ⌁
+              </span>
 
               <img
                 id="photoArtist"
@@ -506,31 +846,59 @@
                 alt="Foto da artista"
               >
 
-              <span>CRUSH ALERT! ♡</span>
+              <span>
+                CRUSH ALERT! ♡
+              </span>
+
             </div>
+
           </div>
+
+          <!-- TRADUÇÃO -->
 
           <div class="translation-heading">
             ♡ TRADUÇÃO EM PORTUGUÊS ♡
           </div>
 
-          <div class="lyrics" id="lyricsText"></div>
+          <div
+            class="lyrics"
+            id="lyricsText"
+          ></div>
+
         </article>
 
-        <!-- COLUNA CENTRAL -->
+        <!-- =====================================
+             COLUNA CENTRAL
+             ===================================== -->
 
         <div class="middle-column">
 
+          <!-- SOBRE A MÚSICA -->
+
           <article class="article compact about-song">
-            <h3>♡ Sobre o que é essa música?</h3>
+
+            <h3>
+              ♡ Sobre o que é essa música?
+            </h3>
+
             <p id="aboutText"></p>
-            <span class="card-doodle">〰♡</span>
+
+            <span class="card-doodle">
+              〰♡
+            </span>
+
           </article>
+
+          <!-- OUTRAS MATÉRIAS -->
 
           <div class="editorial-stacks">
 
             <article class="article compact psychology">
-              <h3>🧠 Análise Psicológica</h3>
+
+              <h3>
+                🧠 Análise Psicológica
+              </h3>
+
               <p id="psyPreview"></p>
 
               <button
@@ -540,10 +908,15 @@
               >
                 Ler análise completa →
               </button>
+
             </article>
 
             <article class="article compact curios">
-              <h3>☆ Curiosidades</h3>
+
+              <h3>
+                ☆ Curiosidades
+              </h3>
+
               <div id="curiosityPreview"></div>
 
               <button
@@ -553,10 +926,15 @@
               >
                 Ler todas as curiosidades →
               </button>
+
             </article>
 
             <article class="article compact percebe">
-              <h3>♡ Você percebeu?</h3>
+
+              <h3>
+                ♡ Você percebeu?
+              </h3>
+
               <div id="percebePreview"></div>
 
               <button
@@ -566,22 +944,41 @@
               >
                 Ler todos os detalhes →
               </button>
+
             </article>
+
           </div>
 
-          <!-- MANTÉM O ID UTILIZADO PELO APP.JS -->
+          <!-- ID MANTIDO PARA O APP.JS -->
 
-          <div id="vibes" hidden aria-hidden="true"></div>
+          <div
+            id="vibes"
+            hidden
+            aria-hidden="true"
+          ></div>
+
+          <!-- ESSA MÚSICA É PRA VOCÊ SE... -->
 
           <article class="article compact foryou">
-            <h3>♡ Essa música é pra você se...</h3>
+
+            <h3>
+              ♡ Essa música é pra você se...
+            </h3>
+
             <div id="forYou"></div>
+
           </article>
 
-          <!-- LOVE LAB: PRÉVIA -->
+          <!-- LOVE LAB -->
 
-          <article class="love-lab" id="loveLab" hidden>
+          <article
+            class="love-lab"
+            id="loveLab"
+            hidden
+          >
+
             <div class="love-lab-header">
+
               <span class="love-lab-tag">
                 EDIÇÃO #01 | OS MISTÉRIOS DA PAIXÃO
               </span>
@@ -589,9 +986,11 @@
               <h2 class="love-lab-brand">
                 ♡ LOVE LAB — Experimentos do coração
               </h2>
+
             </div>
 
             <div class="love-lab-preview">
+
               <h3>
                 💘 Por que a gente não consegue
                 tirar o crush da cabeça?
@@ -613,26 +1012,44 @@
               >
                 Ler matéria completa →
               </button>
+
             </div>
+
           </article>
+
         </div>
 
-        <!-- COLUNA DIREITA -->
+        <!-- =====================================
+             COLUNA DIREITA
+             ===================================== -->
 
         <aside class="right-column">
 
-          <article class="article side-card lived-card">
-            <span class="sticky-tag">♡ CRUSH TEST!</span>
-            <span class="quiz-icon">✧</span>
+          <!-- CRUSH TEST -->
 
-            <h3>Você já viveu isso?</h3>
+          <article class="article side-card lived-card">
+
+            <span class="sticky-tag">
+              ♡ CRUSH TEST!
+            </span>
+
+            <span class="quiz-icon">
+              ✧
+            </span>
+
+            <h3>
+              Você já viveu isso?
+            </h3>
 
             <p id="quizIntro">
               Uma paixão que começa com frio na barriga...
               soa familiar?
             </p>
 
-            <div class="lived-questions" id="livedQuestions"></div>
+            <div
+              class="lived-questions"
+              id="livedQuestions"
+            ></div>
 
             <button
               class="quiz-submit"
@@ -647,42 +1064,71 @@
               id="livedOutcome"
               aria-live="polite"
             ></div>
+
           </article>
 
+          <!-- MOODBOARD -->
+
           <article class="article side-card moodboard-card">
-            <span class="sticky-tag">📸 PHOTO DIARY ♡</span>
 
-            <h3>♡ Moodboard da música</h3>
+            <span class="sticky-tag">
+              📸 PHOTO DIARY ♡
+            </span>
 
-            <p class="mood-subtitle" id="moodDescription">
+            <h3>
+              ♡ Moodboard da música
+            </h3>
+
+            <p
+              class="mood-subtitle"
+              id="moodDescription"
+            >
               Pequenos recortes de uma paixão
               que parece um filme...
             </p>
 
-            <div class="mood-collage" id="moodCollage">
+            <div
+              class="mood-collage"
+              id="moodCollage"
+            >
 
               <figure class="mood-shot shot-one">
+
                 <img
                   src="assets/mood-bar.webp"
                   alt="Primeira foto do moodboard"
                 >
-                <figcaption>11 PM · date night ♡</figcaption>
+
+                <figcaption>
+                  11 PM · date night ♡
+                </figcaption>
+
               </figure>
 
               <figure class="mood-shot shot-two">
+
                 <img
                   src="assets/mood-versailles.webp"
                   alt="Segunda foto do moodboard"
                 >
-                <figcaption>just like heaven ♡</figcaption>
+
+                <figcaption>
+                  just like heaven ♡
+                </figcaption>
+
               </figure>
 
               <figure class="mood-shot shot-three">
+
                 <img
                   src="assets/mood-hands.webp"
                   alt="Terceira foto do moodboard"
                 >
-                <figcaption>hold my hand ♡</figcaption>
+
+                <figcaption>
+                  hold my hand ♡
+                </figcaption>
+
               </figure>
 
               <div class="mood-note note-one">
@@ -693,25 +1139,37 @@
                 dear diary...<br>i'm in love!
               </div>
 
-              <span class="collage-star">✦</span>
+              <span class="collage-star">
+                ✦
+              </span>
+
             </div>
 
             <p class="mood-footer">
-              ✶ um universo inteiro dentro de uma música ✶
+              ✶ um universo inteiro dentro
+              de uma música ✶
             </p>
+
           </article>
+
         </aside>
 
       </section>
+
     </main>
+
+    <!-- RODAPÉ -->
 
     <footer>
       feito com ♡, glitter e dramas musicais ·
       XOXO My Music Diary
     </footer>
+
   </div>
 
-  <!-- MODAL UTILIZADO PELO APP.JS -->
+  <!-- =====================================
+       JANELA DA REVISTA
+       ===================================== -->
 
   <div
     class="modal hidden"
@@ -720,7 +1178,9 @@
     aria-modal="true"
     aria-label="Detalhes"
   >
+
     <div class="modal-inner">
+
       <button
         class="close-modal"
         id="closeModal"
@@ -731,15 +1191,21 @@
       </button>
 
       <div id="modalBody"></div>
+
     </div>
+
   </div>
 
-  <!-- MATÉRIA COMPLETA DO LOVE LAB -->
+  <!-- =====================================
+       TEXTO COMPLETO DO LOVE LAB
+       ===================================== -->
 
   <template id="loveLabFullArticle">
+
     <article class="love-lab-modal">
 
       <div class="love-lab-modal-header">
+
         <span class="love-lab-modal-tag">
           EDIÇÃO #01 | OS MISTÉRIOS DA PAIXÃO
         </span>
@@ -751,11 +1217,14 @@
         <p class="love-lab-modal-subtitle">
           XOXO MY MUSIC DIARY · SCIENCE OF LOVE ♡
         </p>
+
       </div>
 
       <div class="love-lab-modal-paper">
+
         <h3>
-          💘 Por que a gente não consegue tirar o crush da cabeça?
+          💘 Por que a gente não consegue
+          tirar o crush da cabeça?
         </h3>
 
         <p class="love-lab-lead">
@@ -769,202 +1238,354 @@
           Em <em>stupid song</em>, Olivia Rodrigo conta
           que passa as madrugadas sonhando com alguém
           e sente uma paixão tão intensa que parece
-          estar perdendo o controle dos próprios pensamentos.
-          E, acredite, a ciência já investigou
-          algo muito parecido!
+          estar perdendo o controle dos próprios
+          pensamentos. E, acredite, a ciência já
+          investigou algo muito parecido!
         </p>
 
         <p>
-          Em 2005, pesquisadores liderados por Arthur Aron
-          e Helen Fisher analisaram o cérebro de pessoas
-          intensamente apaixonadas. Ao observarem fotografias
-          de quem amavam, os participantes apresentaram
-          atividade em regiões relacionadas à motivação
-          e à recompensa, incluindo áreas associadas
-          à dopamina.
+          Em 2005, pesquisadores liderados por Arthur
+          Aron e Helen Fisher analisaram o cérebro
+          de pessoas intensamente apaixonadas.
+          Ao observarem fotografias de quem amavam,
+          os participantes apresentaram atividade
+          em regiões relacionadas à motivação
+          e à recompensa, incluindo áreas
+          associadas à dopamina.
         </p>
 
         <p>
-          Isso ajuda a explicar por que uma pessoa apaixonada
-          pode concentrar tanta atenção em alguém. O cérebro
-          passa a atribuir um valor especial àquela pessoa,
-          e até pequenas interações podem ganhar uma
+          Isso ajuda a explicar por que uma pessoa
+          apaixonada pode concentrar tanta atenção
+          em alguém. O cérebro passa a atribuir um
+          valor especial àquela pessoa, e até
+          pequenas interações podem ganhar uma
           importância enorme.
         </p>
 
         <p>
-          E sabe aquela sensação de ficar imaginando conversas,
-          encontros e situações que nem aconteceram?
-          Os pensamentos recorrentes sobre a pessoa amada
-          também são características estudadas nas fases
+          E sabe aquela sensação de ficar imaginando
+          conversas, encontros e situações que nem
+          aconteceram? Os pensamentos recorrentes
+          sobre a pessoa amada também são
+          características estudadas nas fases
           iniciais da paixão.
         </p>
 
         <div class="love-lab-message">
-          <h4>💌 O RECADO DO LOVE LAB:</h4>
+
+          <h4>
+            💌 O RECADO DO LOVE LAB:
+          </h4>
 
           <p>
-            Sentir borboletas no estômago é uma delícia,
-            mas intensidade não é sinônimo de reciprocidade!
-            Seu cérebro pode estar completamente encantado
-            por alguém antes mesmo de você descobrir se
+            Sentir borboletas no estômago é uma
+            delícia, mas intensidade não é sinônimo
+            de reciprocidade! Seu cérebro pode estar
+            completamente encantado por alguém
+            antes mesmo de você descobrir se
             o sentimento é correspondido.
           </p>
+
         </div>
 
         <div class="love-lab-source">
-          <strong>🔬 CIÊNCIA POR TRÁS DO CRUSH:</strong>
+
+          <strong>
+            🔬 CIÊNCIA POR TRÁS DO CRUSH:
+          </strong>
 
           <p>
             Aron e colaboradores (2005) —
             <em>
-              Reward, Motivation, and Emotion Systems
-              Associated With Early-Stage Intense Romantic Love
+              Reward, Motivation, and Emotion
+              Systems Associated With Early-Stage
+              Intense Romantic Love
             </em>.
           </p>
+
         </div>
+
       </div>
 
       <div class="love-lab-modal-footer">
         ♡ LOVE LAB · Porque até o coração
         tem seus mistérios! ♡
       </div>
+
     </article>
+
   </template>
 
-  <!-- MANTÉM O JAVASCRIPT E O SPOTIFY -->
+  <!-- =====================================
+       APP ORIGINAL COM SPOTIFY
+       ===================================== -->
 
   <script src="app.js" defer></script>
 
-  <!-- TEXTOS EDITORIAIS E LOVE LAB -->
+  <!-- =====================================
+       TEXTOS E FOTOS DE STUPID SONG
+       ===================================== -->
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
 
-      const aboutDropDead =
-        "Sabe aquela paixão que chega do nada e faz seu coração bater a mil? É exatamente disso que Olivia Rodrigo fala em “drop dead”! A cantora conta sobre a emoção de conhecer alguém especial e ficar completamente encantada, entre borboletas no estômago, indiretas para o crush e mil fantasias românticas. O problema? Ela quer ir com calma, mas já está imaginando um futuro juntinho dessa pessoa! Ai, quem nunca, né?";
+    document.addEventListener(
+      'DOMContentLoaded',
+      () => {
 
-      /*
-        NOVO TEXTO DA MATÉRIA PRINCIPAL
-        DE STUPID SONG.
+        /* FOTO QUE VOCÊ ENVIOU */
 
-        É DIFERENTE DO TEXTO DO CARTÃO
-        "SOBRE O QUE É ESSA MÚSICA?".
-      */
+        const stupidSongCover =
+          'assets/stupid-song-cover.png';
 
-      const editorialStupidSong =
-        "Nova York, madrugadas sem dormir e um crush que simplesmente não sai da cabeça. Em “stupid song”, Olivia Rodrigo transforma uma paixão completamente fora de controle em uma declaração cheia de exageros, drama e sentimentos à flor da pele.\n\nEntre pensamentos insistentes e um coração acelerado, fica a pergunta: como saber se é amor ou se estamos apaixonadas pela ideia de alguém? 💌";
+        /* TEXTOS EDITORIAIS */
 
-      const aboutText = document.querySelector('#aboutText');
-      const articleDescription =
-        document.querySelector('#articleDescription');
+        const aboutDropDead =
+          "Sabe aquela paixão que chega do nada e faz seu coração bater a mil? É exatamente disso que Olivia Rodrigo fala em “drop dead”! A cantora conta sobre a emoção de conhecer alguém especial e ficar completamente encantada, entre borboletas no estômago, indiretas para o crush e mil fantasias românticas. O problema? Ela quer ir com calma, mas já está imaginando um futuro juntinho dessa pessoa! Ai, quem nunca, né?";
 
-      const title = document.querySelector('#articleTitle');
-      const artist = document.querySelector('#articleArtist');
-      const loveLab = document.querySelector('#loveLab');
-      const readLoveLab = document.querySelector('#readLoveLab');
-      const template = document.querySelector('#loveLabFullArticle');
-      const modalElement = document.querySelector('#modal');
-      const modalBody = document.querySelector('#modalBody');
+        const editorialStupidSong =
+          "Nova York, madrugadas sem dormir e um crush que simplesmente não sai da cabeça. Em “stupid song”, Olivia Rodrigo transforma uma paixão completamente fora de controle em uma declaração cheia de exageros, drama e sentimentos à flor da pele.\n\nEntre pensamentos insistentes e um coração acelerado, fica a pergunta: como saber se é amor ou se estamos apaixonadas pela ideia de alguém? 💌";
 
-      if (!aboutText || !articleDescription || !title || !artist) {
-        return;
-      }
+        /* ELEMENTOS DA PÁGINA */
 
-      function updateEditorial() {
-        const songTitle =
-          title.textContent.trim().toLowerCase();
+        const title =
+          document.querySelector('#articleTitle');
 
-        const artistName =
-          artist.textContent.trim().toLowerCase();
+        const artist =
+          document.querySelector('#articleArtist');
 
-        const isOlivia = artistName.includes('olivia rodrigo');
+        const aboutText =
+          document.querySelector('#aboutText');
 
-        const isDropDead =
-          isOlivia && songTitle === 'drop dead';
+        const description =
+          document.querySelector('#articleDescription');
 
-        const isStupidSong =
-          isOlivia && songTitle === 'stupid song';
+        const loveLab =
+          document.querySelector('#loveLab');
 
-        /* DROP DEAD: MANTÉM A SINOPSE ORIGINAL */
+        const readLoveLab =
+          document.querySelector('#readLoveLab');
+
+        const template =
+          document.querySelector('#loveLabFullArticle');
+
+        const modal =
+          document.querySelector('#modal');
+
+        const modalBody =
+          document.querySelector('#modalBody');
+
+        const albumCover =
+          document.querySelector('#albumCover');
+
+        const heroPortrait =
+          document.querySelector('#heroPortrait');
+
+        const photoArtist =
+          document.querySelector('#photoArtist');
+
+        if (!title || !artist) {
+          return;
+        }
+
+        /* VERIFICA QUAL MÚSICA ESTÁ ABERTA */
+
+        function isStupidSong() {
+
+          return (
+            title.textContent.trim().toLowerCase() ===
+              'stupid song' &&
+
+            artist.textContent
+              .trim()
+              .toLowerCase()
+              .includes('olivia rodrigo')
+          );
+
+        }
+
+        /* TROCA AS FOTOS QUANDO FOR STUPID SONG */
+
+        function updatePhotos() {
+
+          if (!isStupidSong()) {
+            return;
+          }
+
+          const photos = [
+            albumCover,
+            heroPortrait,
+            photoArtist
+          ];
+
+          photos.forEach(img => {
+
+            if (!img) {
+              return;
+            }
+
+            /*
+              Só muda o endereço se for diferente,
+              evitando atualizações repetidas.
+            */
+
+            if (
+              !img.getAttribute('src') ||
+              !img.getAttribute('src')
+                .startsWith(stupidSongCover)
+            ) {
+
+              img.src = stupidSongCover;
+
+            }
+
+          });
+
+        }
+
+        /* SINOPSE E LOVE LAB */
+
+        function updateEditorial() {
+
+          const songTitle =
+            title.textContent.trim().toLowerCase();
+
+          const artistName =
+            artist.textContent.trim().toLowerCase();
+
+          const isOlivia =
+            artistName.includes('olivia rodrigo');
+
+          const isDropDead =
+            isOlivia && songTitle === 'drop dead';
+
+          const isStupid =
+            isOlivia && songTitle === 'stupid song';
+
+          /* SINOPSE ORIGINAL DE DROP DEAD */
+
+          if (
+            isDropDead &&
+            aboutText &&
+            aboutText.textContent !== aboutDropDead
+          ) {
+
+            aboutText.textContent = aboutDropDead;
+
+          }
+
+          /* CHAMADA DIFERENTE PARA STUPID SONG */
+
+          if (
+            isStupid &&
+            description &&
+            description.textContent !== editorialStupidSong
+          ) {
+
+            description.textContent = editorialStupidSong;
+
+          }
+
+          /* LOVE LAB EXCLUSIVO DE STUPID SONG */
+
+          if (loveLab) {
+            loveLab.hidden = !isStupid;
+          }
+
+          updatePhotos();
+
+        }
+
+        /* ABRE A MATÉRIA DO LOVE LAB */
 
         if (
-          isDropDead &&
-          aboutText.textContent !== aboutDropDead
+          readLoveLab &&
+          template &&
+          modal &&
+          modalBody
         ) {
-          aboutText.textContent = aboutDropDead;
+
+          readLoveLab.addEventListener(
+            'click',
+            () => {
+
+              modalBody.innerHTML =
+                template.innerHTML;
+
+              modal.classList.remove('hidden');
+
+              document.body.style.overflow =
+                'hidden';
+
+              const scroller =
+                modal.querySelector('.modal-inner');
+
+              if (scroller) {
+                scroller.scrollTop = 0;
+              }
+
+              const closeButton =
+                document.querySelector('#closeModal');
+
+              if (closeButton) {
+                closeButton.focus();
+              }
+
+            }
+          );
+
         }
+
+        /* ACOMPANHA AS TROCAS DE MÚSICA */
+
+        const editorialObserver =
+          new MutationObserver(updateEditorial);
+
+        [
+          title,
+          artist
+        ].forEach(element => {
+
+          editorialObserver.observe(element, {
+            childList: true,
+            characterData: true,
+            subtree: true
+          });
+
+        });
 
         /*
-          STUPID SONG:
-          MUDA APENAS A INTRODUÇÃO DA ESQUERDA.
-          O CARTÃO "SOBRE" CONTINUA COMPLETO.
+          O app.js também altera as fotos.
+          Este observador garante que a foto
+          enviada seja mantida em stupid song.
         */
 
-        if (
-          isStupidSong &&
-          articleDescription.textContent !== editorialStupidSong
-        ) {
-          articleDescription.textContent = editorialStupidSong;
-        }
+        const photoObserver =
+          new MutationObserver(updatePhotos);
 
-        /* O LOVE LAB SÓ APARECE EM STUPID SONG */
+        [
+          albumCover,
+          heroPortrait,
+          photoArtist
+        ].forEach(img => {
 
-        if (loveLab) {
-          loveLab.hidden = !isStupidSong;
-        }
-      }
-
-      /* ABRE A MATÉRIA COMPLETA DO LOVE LAB */
-
-      if (
-        readLoveLab &&
-        template &&
-        modalElement &&
-        modalBody
-      ) {
-        readLoveLab.addEventListener('click', () => {
-          modalBody.innerHTML = template.innerHTML;
-
-          modalElement.classList.remove('hidden');
-
-          document.body.style.overflow = 'hidden';
-
-          const modalScroller =
-            modalElement.querySelector('.modal-inner');
-
-          if (modalScroller) {
-            modalScroller.scrollTop = 0;
+          if (!img) {
+            return;
           }
 
-          const closeButton =
-            document.querySelector('#closeModal');
+          photoObserver.observe(img, {
+            attributes: true,
+            attributeFilter: ['src']
+          });
 
-          if (closeButton) {
-            closeButton.focus();
-          }
         });
+
+        updateEditorial();
+
       }
+    );
 
-      /* ACOMPANHA AS MUDANÇAS FEITAS PELO SPOTIFY */
-
-      const observer = new MutationObserver(updateEditorial);
-
-      [
-        aboutText,
-        articleDescription,
-        title,
-        artist
-      ].forEach(element => {
-        observer.observe(element, {
-          childList: true,
-          characterData: true,
-          subtree: true
-        });
-      });
-
-      updateEditorial();
-    });
   </script>
+
 </body>
 </html>
