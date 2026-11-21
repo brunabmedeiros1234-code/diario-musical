@@ -10,10 +10,7 @@
     content="width=device-width, initial-scale=1"
   >
 
-  <meta
-    name="theme-color"
-    content="#ffd5e8"
-  >
+  <meta name="theme-color" content="#ffd5e8">
 
   <meta
     name="description"
@@ -22,7 +19,7 @@
 
   <title>XOXO My Music Diary ♡</title>
 
-  <!-- FONTES DA REVISTA -->
+  <!-- FONTES -->
 
   <link
     rel="preconnect"
@@ -40,21 +37,20 @@
     rel="stylesheet"
   >
 
-  <!-- CSS ORIGINAL DO SITE -->
+  <!-- CSS ORIGINAL -->
 
   <link
     rel="stylesheet"
-    href="styles.css?v=xoxo-love-lab-01"
+    href="styles.css?v=xoxo-love-lab-leitura-02"
   >
 
-  <!-- ESTILOS EXCLUSIVOS DO LOVE LAB -->
+  <!-- ESTILOS DO LOVE LAB -->
 
   <style>
 
-    /* ======================================
-       ORGANIZAÇÃO DA COLUNA CENTRAL
-       SEM VIBE CHECK
-       ====================================== */
+    /* ========================================
+       ORGANIZAÇÃO DAS MATÉRIAS
+       ======================================== */
 
     .middle-column .editorial-stacks {
       display: grid;
@@ -67,8 +63,8 @@
         "psychology psychology"
         "curios percebe";
 
-      gap: 9px;
       align-items: start;
+      gap: 9px;
     }
 
     .middle-column .editorial-stacks .psychology {
@@ -96,25 +92,20 @@
     .middle-column .psychology #psyPreview {
       font-size: 13.5px;
       line-height: 1.8;
-
       -webkit-line-clamp: 7;
     }
-
-    /* O VIBE CHECK SAI DA TELA
-       O ID FICA PARA NÃO PREJUDICAR
-       O JAVASCRIPT EXISTENTE */
 
     #vibes {
       display: none !important;
     }
 
-    /* ======================================
-       LOVE LAB
-       VISUAL DE MATÉRIA DE REVISTA
-       ====================================== */
+    /* ========================================
+       LOVE LAB — CARTÃO PRINCIPAL
+       ======================================== */
 
     .love-lab {
       position: relative;
+
       flex: 0 0 auto;
 
       background: #fff9fc;
@@ -125,237 +116,99 @@
       box-shadow: 3px 4px 0 #d498b7;
 
       overflow: hidden;
-      isolation: isolate;
     }
 
     .love-lab[hidden] {
       display: none !important;
     }
 
-    /* CABEÇALHO */
-
     .love-lab-header {
       position: relative;
 
-      padding: 24px 20px 20px;
+      padding: 17px 17px 15px;
 
-      background:
-        radial-gradient(
-          rgba(174, 84, 138, .15) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          120deg,
-          #efd6f3,
-          #f8d5e7 55%,
-          #ffe3ef
-        );
+      background: linear-gradient(
+        120deg,
+        #efd6f3,
+        #f8d5e7 55%,
+        #ffe3ef
+      );
 
-      background-size: 10px 10px, auto;
-
-      border-bottom: 2px dashed #c68da9;
-    }
-
-    .love-lab-header::before {
-      content: "✦";
-
-      position: absolute;
-      top: 9px;
-      right: 17px;
-
-      font-size: 29px;
-      color: #cd5093;
+      border-bottom: 1px dashed #c68da9;
     }
 
     .love-lab-header::after {
       content: "♡";
 
       position: absolute;
-      right: 15px;
-      bottom: 4px;
+      top: 9px;
+      right: 11px;
 
-      font-size: 42px;
-      line-height: 1;
-
-      color: rgba(192, 56, 125, .22);
-      pointer-events: none;
+      color: #c64a8c;
+      font-size: 27px;
     }
 
     .love-lab-tag {
       display: inline-block;
 
-      padding: 6px 12px;
+      padding: 5px 9px;
 
       background: #fff0a8;
-      border: 1.5px solid #81596a;
-      border-radius: 4px;
 
-      box-shadow: 2px 3px 0 #c393a8;
+      border: 1px solid #81596a;
+      border-radius: 4px;
 
       color: #713a55;
 
-      font-family:
-        'DM Mono',
-        monospace;
-
-      font-size: 10px;
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
       font-weight: 700;
-
-      letter-spacing: .5px;
 
       transform: rotate(-2deg);
     }
 
     .love-lab-brand {
-      margin: 19px 0 8px;
+      margin: 13px 0 0;
 
       font-family:
         'Playfair Display',
         Georgia,
         serif;
 
-      font-size: clamp(25px, 3vw, 37px);
-      font-style: italic;
+      font-size: clamp(23px, 2.7vw, 32px);
       font-weight: 800;
-      line-height: 1.15;
+      font-style: italic;
+      line-height: 1.2;
 
       color: #a42c70;
-      overflow-wrap: anywhere;
     }
 
-    .love-lab-edition {
-      margin: 0;
+    /* SOMENTE A CHAMADA APARECE NA PÁGINA */
 
-      font-family:
-        'DM Mono',
-        monospace;
-
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .6px;
-
-      color: #7b4a68;
+    .love-lab-preview {
+      padding: 19px 18px 17px;
+      background: #fffaf7;
     }
 
-    /* CORPO DA REPORTAGEM */
-
-    .love-lab-content {
-      position: relative;
-
-      padding: 22px 22px 25px;
-
-      background:
-        repeating-linear-gradient(
-          180deg,
-          transparent 0 34px,
-          rgba(229, 177, 202, .12) 34px 35px
-        ),
-        #fffaf7;
-    }
-
-    .love-lab-title {
-      margin: 0 0 18px;
-
-      font-family:
-        'Playfair Display',
-        Georgia,
-        serif;
-
-      font-size: clamp(21px, 2.6vw, 29px);
-      font-style: normal;
-      font-weight: 800;
-      line-height: 1.3;
+    .love-lab-preview h3 {
+      margin: 0 0 13px;
 
       color: #802b59;
-      overflow-wrap: anywhere;
-    }
-
-    .love-lab-lead {
-      margin: 0 0 19px;
-
-      padding: 14px 15px;
-
-      background: #ffe4f1;
-
-      border-left: 4px solid #d54e96;
-      border-radius: 0 9px 9px 0;
 
       font-family:
         'DM Sans',
         Arial,
         sans-serif;
 
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 1.75;
-
-      color: #543349;
-    }
-
-    .love-lab-content > p:not(.love-lab-lead) {
-      margin: 0 0 19px;
-
-      font-family:
-        'DM Sans',
-        Arial,
-        sans-serif;
-
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 1.85;
-
-      color: #40313b;
-    }
-
-    .love-lab-content em {
-      color: #9c316c;
-    }
-
-    /* RECADO DO LOVE LAB */
-
-    .love-lab-message {
-      position: relative;
-
-      margin: 25px 0 20px;
-      padding: 19px 18px;
-
-      background: #f5c7df;
-
-      border: 1.5px solid #ba6793;
-      border-radius: 12px;
-
-      box-shadow: 3px 4px 0 #e7a2c2;
-    }
-
-    .love-lab-message::before {
-      content: "💌";
-
-      position: absolute;
-      top: -18px;
-      right: 12px;
-
-      font-size: 29px;
-
-      transform: rotate(12deg);
-    }
-
-    .love-lab-message h4 {
-      margin: 0 0 10px;
-
-      font-family:
-        'DM Sans',
-        Arial,
-        sans-serif;
-
-      font-size: 13px;
+      font-size: clamp(18px, 2vw, 23px);
       font-weight: 800;
-      line-height: 1.5;
-
-      color: #852b5d;
+      line-height: 1.4;
     }
 
-    .love-lab-message p {
-      margin: 0;
+    .love-lab-preview p {
+      margin: 0 0 14px;
+
+      color: #513347;
 
       font-family:
         'DM Sans',
@@ -365,17 +218,197 @@
       font-size: 14px;
       font-weight: 600;
       line-height: 1.8;
-
-      color: #542c44;
     }
 
-    /* REFERÊNCIA CIENTÍFICA */
+    .love-lab-read {
+      display: inline-block;
+
+      padding: 9px 0;
+
+      background: transparent;
+      border: 0;
+
+      color: #b52a79;
+
+      font-family:
+        'DM Sans',
+        Arial,
+        sans-serif;
+
+      font-size: 13px;
+      font-weight: 800;
+
+      text-decoration: underline;
+      text-underline-offset: 4px;
+
+      cursor: pointer;
+    }
+
+    .love-lab-read:hover {
+      color: #e34298;
+    }
+
+    .love-lab-read:focus-visible {
+      outline: 3px solid #a42c70;
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    /* ========================================
+       LOVE LAB — JANELINHA COMPLETA
+       ======================================== */
+
+    .love-lab-modal {
+      padding: 13px 5px 18px;
+    }
+
+    .love-lab-modal-header {
+      text-align: center;
+
+      padding: 24px 18px;
+
+      background: linear-gradient(
+        130deg,
+        #efd6f3,
+        #f7d6e8,
+        #ffe8f2
+      );
+
+      border: 1px solid #d7a4c4;
+      border-radius: 15px;
+    }
+
+    .love-lab-modal-tag {
+      display: inline-block;
+
+      padding: 7px 12px;
+
+      background: #fff1a9;
+      border: 1px solid #9c6c85;
+      border-radius: 30px;
+
+      color: #79425e;
+
+      font: 700 11px 'DM Mono', monospace;
+    }
+
+    .modal-inner .love-lab-modal-title {
+      margin: 17px 0 8px;
+
+      color: #a42c70;
+
+      font-family:
+        'Playfair Display',
+        Georgia,
+        serif;
+
+      font-size: clamp(27px, 4vw, 39px);
+      font-weight: 800;
+      font-style: italic;
+      line-height: 1.2;
+    }
+
+    .love-lab-modal-subtitle {
+      margin: 0;
+
+      color: #80506b;
+
+      font: 700 12px 'DM Mono', monospace;
+    }
+
+    .love-lab-modal-paper {
+      max-width: 760px;
+      margin: 18px auto 0;
+
+      padding: clamp(19px, 4vw, 40px);
+
+      background: #fffaf7;
+
+      border: 1px solid #e1bacb;
+      border-radius: 16px;
+
+      box-shadow: 0 4px 15px rgba(80, 30, 55, .07);
+    }
+
+    .love-lab-modal-paper h3 {
+      margin: 0 0 22px;
+
+      color: #802b59;
+
+      font-family:
+        'DM Sans',
+        Arial,
+        sans-serif;
+
+      font-size: clamp(22px, 3vw, 29px);
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .modal-inner .love-lab-modal-paper > p {
+      max-width: 65ch;
+
+      margin: 0 auto 23px;
+
+      color: #3e313b;
+
+      font-family:
+        'DM Sans',
+        Arial,
+        sans-serif;
+
+      font-size: clamp(16px, 1.8vw, 18px);
+      font-weight: 400;
+      line-height: 1.9;
+    }
+
+    .modal-inner .love-lab-modal-paper > p.love-lab-lead {
+      padding: 19px;
+
+      background: #ffe3ef;
+
+      border-left: 4px solid #d54e96;
+      border-radius: 0 10px 10px 0;
+
+      color: #543349;
+      font-weight: 700;
+    }
+
+    .love-lab-message {
+      margin: 30px 0 25px;
+      padding: 22px;
+
+      background: #f5c7df;
+
+      border: 1.5px solid #ba6793;
+      border-radius: 12px;
+
+      box-shadow: 3px 4px 0 #e7a2c2;
+    }
+
+    .love-lab-message h4 {
+      margin: 0 0 11px;
+
+      color: #852b5d;
+
+      font-family: 'DM Sans', Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .modal-inner .love-lab-message p {
+      margin: 0;
+
+      color: #542c44;
+
+      font-family: 'DM Sans', Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.85;
+    }
 
     .love-lab-source {
-      position: relative;
-
-      margin-top: 22px;
-      padding: 15px;
+      padding: 18px;
 
       background: #e9e0f4;
 
@@ -385,77 +418,37 @@
 
     .love-lab-source strong {
       display: block;
-
-      margin-bottom: 7px;
-
-      font-family:
-        'DM Sans',
-        Arial,
-        sans-serif;
-
-      font-size: 12px;
-      font-weight: 800;
+      margin-bottom: 10px;
 
       color: #69406e;
+
+      font-size: 14px;
+      font-weight: 800;
     }
 
-    .love-lab-source p {
+    .modal-inner .love-lab-source p {
       margin: 0;
 
-      font-family:
-        'DM Sans',
-        Arial,
-        sans-serif;
-
-      font-size: 12px;
-      line-height: 1.7;
-
       color: #56435e;
+
+      font-size: 14px;
+      line-height: 1.8;
     }
 
-    .love-lab-footer {
-      padding: 11px 15px;
-
-      background: #f5d5e6;
-      border-top: 1px solid #dba7c3;
+    .love-lab-modal-footer {
+      padding: 18px 8px 0;
 
       color: #a34277;
 
-      font-family:
-        'Playfair Display',
-        Georgia,
-        serif;
-
-      font-size: 13px;
-      font-style: italic;
-      font-weight: 700;
-
       text-align: center;
+
+      font: italic 700 15px
+        'Playfair Display', Georgia, serif;
     }
 
-    /* ======================================
-       RESPOSTA EM TELAS MENORES
-       ====================================== */
-
-    @media (max-width: 700px) {
-
-      .love-lab-header {
-        padding: 21px 16px;
-      }
-
-      .love-lab-content {
-        padding: 19px 17px;
-      }
-
-      .love-lab-brand {
-        font-size: 27px;
-      }
-
-      .love-lab-title {
-        font-size: 23px;
-      }
-
-    }
+    /* ========================================
+       RESPONSIVIDADE
+       ======================================== */
 
     @media (max-width: 440px) {
 
@@ -468,32 +461,39 @@
           "percebe";
       }
 
-      .love-lab-content {
-        padding: 16px 13px;
+      .love-lab-preview {
+        padding: 16px 14px;
       }
 
-      .love-lab-header {
-        padding: 19px 13px;
+      .love-lab-preview h3 {
+        font-size: 19px;
       }
 
-      .love-lab-content > p:not(.love-lab-lead),
-      .love-lab-lead,
-      .love-lab-message p {
-        font-size: 13px;
+      .love-lab-preview p {
+        font-size: 13.5px;
+      }
+
+      .love-lab-modal-paper {
+        padding: 17px 13px;
+      }
+
+      .love-lab-message {
+        padding: 17px;
       }
 
     }
 
   </style>
+
 </head>
 
 <body>
 
   <div class="site">
 
-    <!-- ====================================
+    <!-- =====================================
          CABEÇALHO
-         ==================================== -->
+         ===================================== -->
 
     <header class="masthead">
 
@@ -543,9 +543,9 @@
 
     </header>
 
-    <!-- ====================================
+    <!-- =====================================
          MENU
-         ==================================== -->
+         ===================================== -->
 
     <nav class="nav">
 
@@ -592,9 +592,9 @@
 
     </nav>
 
-    <!-- ====================================
+    <!-- =====================================
          PLAYER DO SPOTIFY
-         ==================================== -->
+         ===================================== -->
 
     <section class="now">
 
@@ -689,15 +689,13 @@
         ON REPEAT ♡
       </span>
 
-      <span class="player-doodle">
-        ♫
-      </span>
+      <span class="player-doodle">♫</span>
 
     </section>
 
-    <!-- ====================================
+    <!-- =====================================
          REVISTA
-         ==================================== -->
+         ===================================== -->
 
     <main id="content">
 
@@ -721,9 +719,9 @@
 
         </div>
 
-        <!-- ====================================
-             PRIMEIRA COLUNA
-             ==================================== -->
+        <!-- =====================================
+             COLUNA ESQUERDA
+             ===================================== -->
 
         <article class="article main-article">
 
@@ -761,13 +759,9 @@
 
             </div>
 
-            <!-- POLAROID -->
-
             <div class="crush-polaroid">
 
-              <span class="polaroid-clip">
-                ⌁
-              </span>
+              <span class="polaroid-clip">⌁</span>
 
               <img
                 id="photoArtist"
@@ -775,9 +769,7 @@
                 alt="Foto da artista"
               >
 
-              <span>
-                CRUSH ALERT! ♡
-              </span>
+              <span>CRUSH ALERT! ♡</span>
 
             </div>
 
@@ -796,9 +788,9 @@
 
         </article>
 
-        <!-- ====================================
-             SEGUNDA COLUNA
-             ==================================== -->
+        <!-- =====================================
+             COLUNA CENTRAL
+             ===================================== -->
 
         <div class="middle-column">
 
@@ -818,9 +810,7 @@
 
           </article>
 
-          <!-- ====================================
-               ANÁLISE, CURIOSIDADES E DETALHES
-               ==================================== -->
+          <!-- OUTRAS MATÉRIAS -->
 
           <div class="editorial-stacks">
 
@@ -886,8 +876,7 @@
 
           </div>
 
-          <!-- O ID DO VIBE CHECK PERMANECE
-               ESCONDIDO PARA O APP.JS FUNCIONAR -->
+          <!-- ID PRESERVADO PARA O APP.JS -->
 
           <div
             id="vibes"
@@ -907,9 +896,9 @@
 
           </article>
 
-          <!-- ====================================
-               LOVE LAB — EXPERIMENTOS DO CORAÇÃO
-               ==================================== -->
+          <!-- =====================================
+               LOVE LAB — APENAS A PRÉVIA
+               ===================================== -->
 
           <article
             class="love-lab"
@@ -927,117 +916,42 @@
                 ♡ LOVE LAB — Experimentos do coração
               </h2>
 
-              <p class="love-lab-edition">
-                XOXO MY MUSIC DIARY · SCIENCE OF LOVE ♡
-              </p>
-
             </div>
 
-            <div class="love-lab-content">
+            <div class="love-lab-preview">
 
-              <h3 class="love-lab-title">
-                💘 Por que a gente não consegue tirar
-                o crush da cabeça?
+              <h3>
+                💘 Por que a gente não consegue
+                tirar o crush da cabeça?
               </h3>
 
-              <p class="love-lab-lead">
-                Você deita para dormir, fecha os olhos
-                e... adivinha quem aparece nos seus
-                pensamentos? Sim, aquela pessoa DE NOVO!
-                Mas será que existe uma explicação
-                científica para isso?
-              </p>
-
               <p>
-                Em <em>stupid song</em>, Olivia Rodrigo
-                conta que passa as madrugadas sonhando
-                com alguém e sente uma paixão tão intensa
-                que parece estar perdendo o controle dos
-                próprios pensamentos. E, acredite, a
-                ciência já investigou algo muito parecido!
+                Você deita para dormir, fecha os
+                olhos e... adivinha quem aparece
+                nos seus pensamentos? Sim, aquela
+                pessoa DE NOVO! Mas será que
+                existe uma explicação científica
+                para isso?
               </p>
 
-              <p>
-                Em 2005, pesquisadores liderados por
-                Arthur Aron e Helen Fisher analisaram
-                o cérebro de pessoas intensamente
-                apaixonadas. Ao observarem fotografias
-                de quem amavam, os participantes
-                apresentaram atividade em regiões
-                relacionadas à motivação e à recompensa,
-                incluindo áreas associadas à dopamina.
-              </p>
+              <button
+                class="love-lab-read"
+                id="readLoveLab"
+                type="button"
+                aria-haspopup="dialog"
+              >
+                Ler matéria completa →
+              </button>
 
-              <p>
-                Isso ajuda a explicar por que uma pessoa
-                apaixonada pode concentrar tanta atenção
-                em alguém. O cérebro passa a atribuir
-                um valor especial àquela pessoa, e até
-                pequenas interações podem ganhar uma
-                importância enorme.
-              </p>
-
-              <p>
-                E sabe aquela sensação de ficar imaginando
-                conversas, encontros e situações que nem
-                aconteceram? Os pensamentos recorrentes
-                sobre a pessoa amada também são
-                características estudadas nas fases
-                iniciais da paixão.
-              </p>
-
-              <!-- RECADO DO LOVE LAB -->
-
-              <div class="love-lab-message">
-
-                <h4>
-                  💌 O RECADO DO LOVE LAB:
-                </h4>
-
-                <p>
-                  Sentir borboletas no estômago é uma
-                  delícia, mas intensidade não é sinônimo
-                  de reciprocidade! Seu cérebro pode
-                  estar completamente encantado por
-                  alguém antes mesmo de você descobrir
-                  se o sentimento é correspondido.
-                </p>
-
-              </div>
-
-              <!-- FONTE CIENTÍFICA -->
-
-              <div class="love-lab-source">
-
-                <strong>
-                  🔬 CIÊNCIA POR TRÁS DO CRUSH:
-                </strong>
-
-                <p>
-                  Aron e colaboradores (2005) —
-                  <em>
-                    Reward, Motivation, and Emotion
-                    Systems Associated With Early-Stage
-                    Intense Romantic Love
-                  </em>.
-                </p>
-
-              </div>
-
-            </div>
-
-            <div class="love-lab-footer">
-              ♡ LOVE LAB · Porque até o coração tem
-              seus mistérios! ♡
             </div>
 
           </article>
 
         </div>
 
-        <!-- ====================================
-             TERCEIRA COLUNA
-             ==================================== -->
+        <!-- =====================================
+             COLUNA DIREITA
+             ===================================== -->
 
         <aside class="right-column">
 
@@ -1058,8 +972,8 @@
             </h3>
 
             <p id="quizIntro">
-              Uma paixão que começa com frio na barriga...
-              soa familiar?
+              Uma paixão que começa com frio
+              na barriga... soa familiar?
             </p>
 
             <div
@@ -1099,8 +1013,8 @@
               class="mood-subtitle"
               id="moodDescription"
             >
-              Pequenos recortes de uma paixão que
-              parece um filme...
+              Pequenos recortes de uma paixão
+              que parece um filme...
             </p>
 
             <div
@@ -1108,7 +1022,7 @@
               id="moodCollage"
             >
 
-              <!-- PRIMEIRA FOTO -->
+              <!-- FOTO 1 -->
 
               <figure class="mood-shot shot-one">
 
@@ -1123,7 +1037,7 @@
 
               </figure>
 
-              <!-- SEGUNDA FOTO -->
+              <!-- FOTO 2 -->
 
               <figure class="mood-shot shot-two">
 
@@ -1138,7 +1052,7 @@
 
               </figure>
 
-              <!-- TERCEIRA FOTO -->
+              <!-- FOTO 3 -->
 
               <figure class="mood-shot shot-three">
 
@@ -1153,15 +1067,14 @@
 
               </figure>
 
-              <!-- ADESIVOS DO MOODBOARD -->
+              <!-- ADESIVOS -->
 
               <div class="mood-note note-one">
                 crush alert! ♡
               </div>
 
               <div class="mood-note note-two">
-                dear diary...<br>
-                i'm in love!
+                dear diary...<br>i'm in love!
               </div>
 
               <span class="collage-star">
@@ -1171,8 +1084,8 @@
             </div>
 
             <p class="mood-footer">
-              ✶ um universo inteiro dentro de
-              uma música ✶
+              ✶ um universo inteiro dentro
+              de uma música ✶
             </p>
 
           </article>
@@ -1183,9 +1096,7 @@
 
     </main>
 
-    <!-- ====================================
-         RODAPÉ
-         ==================================== -->
+    <!-- RODAPÉ -->
 
     <footer>
       feito com ♡, glitter e dramas musicais ·
@@ -1194,9 +1105,9 @@
 
   </div>
 
-  <!-- ====================================
-       JANELAS DA REVISTA
-       ==================================== -->
+  <!-- =====================================
+       JANELA USADA PELO SITE
+       ===================================== -->
 
   <div
     class="modal hidden"
@@ -1223,17 +1134,139 @@
 
   </div>
 
-  <!-- ====================================
+  <!-- =====================================
+       TEXTO COMPLETO DO LOVE LAB
+       GUARDADO AQUI, NÃO VISÍVEL NA PÁGINA
+       ===================================== -->
+
+  <template id="loveLabFullArticle">
+
+    <article class="love-lab-modal">
+
+      <div class="love-lab-modal-header">
+
+        <span class="love-lab-modal-tag">
+          EDIÇÃO #01 | OS MISTÉRIOS DA PAIXÃO
+        </span>
+
+        <h2 class="love-lab-modal-title">
+          ♡ LOVE LAB — Experimentos do coração
+        </h2>
+
+        <p class="love-lab-modal-subtitle">
+          XOXO MY MUSIC DIARY · SCIENCE OF LOVE ♡
+        </p>
+
+      </div>
+
+      <div class="love-lab-modal-paper">
+
+        <h3>
+          💘 Por que a gente não consegue
+          tirar o crush da cabeça?
+        </h3>
+
+        <p class="love-lab-lead">
+          Você deita para dormir, fecha os olhos e...
+          adivinha quem aparece nos seus pensamentos?
+          Sim, aquela pessoa DE NOVO! Mas será que
+          existe uma explicação científica para isso?
+        </p>
+
+        <p>
+          Em <em>stupid song</em>, Olivia Rodrigo conta
+          que passa as madrugadas sonhando com alguém
+          e sente uma paixão tão intensa que parece
+          estar perdendo o controle dos próprios
+          pensamentos. E, acredite, a ciência já
+          investigou algo muito parecido!
+        </p>
+
+        <p>
+          Em 2005, pesquisadores liderados por Arthur
+          Aron e Helen Fisher analisaram o cérebro
+          de pessoas intensamente apaixonadas.
+          Ao observarem fotografias de quem amavam,
+          os participantes apresentaram atividade
+          em regiões relacionadas à motivação e à
+          recompensa, incluindo áreas associadas
+          à dopamina.
+        </p>
+
+        <p>
+          Isso ajuda a explicar por que uma pessoa
+          apaixonada pode concentrar tanta atenção
+          em alguém. O cérebro passa a atribuir
+          um valor especial àquela pessoa, e até
+          pequenas interações podem ganhar uma
+          importância enorme.
+        </p>
+
+        <p>
+          E sabe aquela sensação de ficar imaginando
+          conversas, encontros e situações que nem
+          aconteceram? Os pensamentos recorrentes
+          sobre a pessoa amada também são
+          características estudadas nas fases
+          iniciais da paixão.
+        </p>
+
+        <div class="love-lab-message">
+
+          <h4>
+            💌 O RECADO DO LOVE LAB:
+          </h4>
+
+          <p>
+            Sentir borboletas no estômago é uma delícia,
+            mas intensidade não é sinônimo de
+            reciprocidade! Seu cérebro pode estar
+            completamente encantado por alguém
+            antes mesmo de você descobrir se
+            o sentimento é correspondido.
+          </p>
+
+        </div>
+
+        <div class="love-lab-source">
+
+          <strong>
+            🔬 CIÊNCIA POR TRÁS DO CRUSH:
+          </strong>
+
+          <p>
+            Aron e colaboradores (2005) —
+            <em>
+              Reward, Motivation, and Emotion
+              Systems Associated With Early-Stage
+              Intense Romantic Love
+            </em>.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="love-lab-modal-footer">
+        ♡ LOVE LAB · Porque até o coração
+        tem seus mistérios! ♡
+      </div>
+
+    </article>
+
+  </template>
+
+  <!-- =====================================
        JAVASCRIPT ORIGINAL
-       SPOTIFY, TRADUÇÕES E TESTES
-       ==================================== -->
+       NÃO ALTERAR O SPOTIFY
+       ===================================== -->
 
   <script src="app.js" defer></script>
 
-  <!-- ====================================
-       SINOPSE DE DROP DEAD
-       LOVE LAB EXCLUSIVO DE STUPID SONG
-       ==================================== -->
+  <!-- =====================================
+       FUNÇÕES EXTRAS
+       SINOPSE DE DROP DEAD E LOVE LAB
+       ===================================== -->
 
   <script>
 
@@ -1244,14 +1277,37 @@
         const about =
           "Sabe aquela paixão que chega do nada e faz seu coração bater a mil? É exatamente disso que Olivia Rodrigo fala em “drop dead”! A cantora conta sobre a emoção de conhecer alguém especial e ficar completamente encantada, entre borboletas no estômago, indiretas para o crush e mil fantasias românticas. O problema? Ela quer ir com calma, mas já está imaginando um futuro juntinho dessa pessoa! Ai, quem nunca, né?";
 
-        const text = document.querySelector('#aboutText');
-        const title = document.querySelector('#articleTitle');
-        const artist = document.querySelector('#articleArtist');
-        const loveLab = document.querySelector('#loveLab');
+        const text =
+          document.querySelector('#aboutText');
+
+        const title =
+          document.querySelector('#articleTitle');
+
+        const artist =
+          document.querySelector('#articleArtist');
+
+        const loveLab =
+          document.querySelector('#loveLab');
+
+        const readLoveLab =
+          document.querySelector('#readLoveLab');
+
+        const template =
+          document.querySelector('#loveLabFullArticle');
+
+        const modalElement =
+          document.querySelector('#modal');
+
+        const modalBody =
+          document.querySelector('#modalBody');
 
         if (!text || !title || !artist) {
           return;
         }
+
+        /* =====================================
+           IDENTIFICA QUAL MÚSICA ESTÁ ABERTA
+           ===================================== */
 
         const update = () => {
 
@@ -1270,20 +1326,15 @@
           const isStupid =
             songTitle === 'stupid song' && isOlivia;
 
-          /* Sinopse original de drop dead */
+          /* SINOPSE ORIGINAL DE DROP DEAD */
 
           if (isDrop && text.textContent !== about) {
             text.textContent = about;
           }
 
           /*
-            O LOVE LAB DESTA EDIÇÃO
-            SÓ APARECE EM STUPID SONG.
-
-            Assim, quando outra música
-            for selecionada, não aparecerá
-            uma matéria sobre Olivia Rodrigo
-            no lugar errado.
+            LOVE LAB DESTA EDIÇÃO
+            SÓ APARECE EM STUPID SONG
           */
 
           if (loveLab) {
@@ -1292,19 +1343,74 @@
 
         };
 
-        /* Observa as mudanças de música */
+        /* =====================================
+           BOTÃO PARA ABRIR A MATÉRIA COMPLETA
+           ===================================== */
 
-        const watch = new MutationObserver(update);
+        if (
+          readLoveLab &&
+          template &&
+          modalElement &&
+          modalBody
+        ) {
 
-        [text, title, artist].forEach(element => {
+          readLoveLab.addEventListener(
+            'click',
+            () => {
 
-          watch.observe(element, {
-            childList: true,
-            characterData: true,
-            subtree: true
-          });
+              /*
+                Usa a mesma janelinha do site,
+                sem modificar as funções
+                existentes do app.js.
+              */
 
-        });
+              modalBody.innerHTML =
+                template.innerHTML;
+
+              modalElement.classList.remove('hidden');
+
+              document.body.style.overflow =
+                'hidden';
+
+              const modalScroller =
+                modalElement.querySelector(
+                  '.modal-inner'
+                );
+
+              if (modalScroller) {
+                modalScroller.scrollTop = 0;
+              }
+
+              const closeButton =
+                document.querySelector('#closeModal');
+
+              if (closeButton) {
+                closeButton.focus();
+              }
+
+            }
+          );
+
+        }
+
+        /* =====================================
+           ATUALIZA QUANDO MUDA A MÚSICA
+           ===================================== */
+
+        const watch =
+          new MutationObserver(update);
+
+        [text, title, artist].forEach(
+          element => {
+
+            watch.observe(element, {
+              childList: true,
+              characterData: true,
+              subtree: true
+            });
+
+          }
+        );
 
         update();
 
