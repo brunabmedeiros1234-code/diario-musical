@@ -1,9 +1,8 @@
 
-/* ============================================
+/* ==========================================
    XOXO MY MUSIC DIARY ♡
-   REVISTA SCRAPBOOK — VERSÃO ENCAIXADA
-   ARQUIVO STYLES.CSS COMPLETO
-   ============================================ */
+   REVISTA TEEN — SCRAPBOOK EDITION
+   ========================================== */
 
 :root {
   --ink: #2b1725;
@@ -32,8 +31,7 @@ body {
   background: #ffe4f0;
 }
 
-button,
-input {
+button, input {
   font: inherit;
 }
 
@@ -56,9 +54,9 @@ img {
   max-width: 100%;
 }
 
-/* ============================================
-   PÁGINA INTEIRA
-   ============================================ */
+/* ==========================================
+   PÁGINA
+   ========================================== */
 
 .site {
   width: min(100%, 1450px);
@@ -70,9 +68,9 @@ img {
   border-right: 1px solid #dca2bc;
 }
 
-/* ============================================
+/* ==========================================
    CABEÇALHO
-   ============================================ */
+   ========================================== */
 
 .masthead {
   min-height: 145px;
@@ -108,17 +106,9 @@ img {
   font-weight: 800;
 }
 
-.pill.pink {
-  background: #f9aad0;
-}
-
-.pill.yellow {
-  background: #fff0a3;
-}
-
-.pill.mint {
-  background: #e0f7e9;
-}
+.pill.pink { background: #f9aad0; }
+.pill.yellow { background: #fff0a3; }
+.pill.mint { background: #e0f7e9; }
 
 .slogan {
   color: #a23670;
@@ -183,9 +173,9 @@ img {
   color: #b32d78;
 }
 
-/* ============================================
+/* ==========================================
    MENU
-   ============================================ */
+   ========================================== */
 
 .nav {
   display: flex;
@@ -244,9 +234,9 @@ img {
   padding: 0 12px;
 }
 
-/* ============================================
-   PLAYER DO SPOTIFY
-   ============================================ */
+/* ==========================================
+   PLAYER
+   ========================================== */
 
 .now {
   position: relative;
@@ -425,10 +415,9 @@ img {
   font-size: 33px;
 }
 
-/* ============================================
+/* ==========================================
    ÁREA PRINCIPAL
-   SEM BURACOS DE FUNDO
-   ============================================ */
+   ========================================== */
 
 #content {
   background: #fff9fc;
@@ -437,18 +426,16 @@ img {
 
 .feature-grid {
   display: grid;
-
   grid-template-columns:
-    minmax(0, 1.14fr)
-    minmax(0, 1.16fr)
-    minmax(255px, 0.9fr);
+    minmax(0, 1.08fr)
+    minmax(0, 1.22fr)
+    minmax(255px, .91fr);
 
   align-items: stretch;
   gap: 8px;
   padding: 8px;
 
   background: #fff6fa;
-
   border: 2px solid #9c5a80;
   border-radius: 16px;
   box-shadow: 3px 4px #e999bc;
@@ -458,8 +445,6 @@ img {
   min-width: 0;
 }
 
-/* O fundo de cada coluna vira papel da revista */
-
 .middle-column,
 .right-column {
   min-width: 0;
@@ -467,15 +452,11 @@ img {
   display: flex;
   flex-direction: column;
   gap: 8px;
-
   padding: 7px;
-
   background: #fff9fc;
   border: 1px solid #edc8d9;
   border-radius: 13px;
 }
-
-/* Coluna central sem vazio exposto */
 
 .middle-column {
   background:
@@ -487,15 +468,13 @@ img {
     #fff8fc;
 }
 
-/* Coluna direita acompanhando a revista */
-
 .right-column {
   background: #fff4fa;
 }
 
-/* ============================================
-   CAMINHO DA MÚSICA
-   ============================================ */
+/* ==========================================
+   BREADCRUMB
+   ========================================== */
 
 .breadcrumb {
   grid-column: 1 / -1;
@@ -503,14 +482,11 @@ img {
   align-items: center;
   flex-wrap: wrap;
   gap: 9px;
-
   margin: -3px -3px 1px;
   padding: 8px 12px;
-
   border: 1px solid #dba2be;
   border-radius: 9px;
   background: #fff4f9;
-
   font: 800 10px var(--mono);
 }
 
@@ -519,9 +495,9 @@ img {
   font-size: 16px;
 }
 
-/* ============================================
-   CARTÕES DA REVISTA
-   ============================================ */
+/* ==========================================
+   CARTÕES
+   ========================================== */
 
 .article {
   position: relative;
@@ -539,19 +515,17 @@ img {
   height: 100%;
 }
 
-/* ============================================
+/* ==========================================
    MATÉRIA PRINCIPAL
-   ============================================ */
+   ========================================== */
 
 .article-intro {
   position: relative;
   display: flex;
   align-items: center;
   gap: 12px;
-
   min-height: 315px;
   padding: 17px 13px 15px;
-
   background: #fffafa;
 }
 
@@ -584,9 +558,9 @@ img {
 }
 
 .text-intro p {
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 600;
-  line-height: 1.57;
+  line-height: 1.65;
   margin: 0 0 12px;
 }
 
@@ -624,9 +598,9 @@ img {
   font: 800 10px var(--body);
 }
 
-/* ============================================
+/* ==========================================
    POLAROID
-   ============================================ */
+   ========================================== */
 
 .crush-polaroid {
   position: relative;
@@ -674,20 +648,18 @@ img {
   text-shadow: 1px 1px white;
 }
 
-/* ============================================
+/* ==========================================
    TRADUÇÃO
-   ============================================ */
+   ========================================== */
 
 .translation-heading {
   position: relative;
   margin: 12px 11px 8px;
   padding: 12px 8px;
-
   background: #ffb7d8;
   border: 1px solid #a36b8a;
   border-radius: 9px;
   box-shadow: 2px 3px #d68caf;
-
   text-align: center;
   font: italic 800 clamp(17px, 1.9vw, 23px) var(--title);
 }
@@ -710,62 +682,51 @@ img {
   color: #dc397f;
 }
 
-/* A tradução fica mais compacta */
-
 .lyrics {
   flex: 0 1 auto;
-
   min-height: 390px;
-  max-height: 570px;
-
+  max-height: 540px;
   margin: 6px 12px 13px;
-  padding: 13px;
-
+  padding: 14px;
   overflow-y: auto;
-
   background: #fffdfd;
   border: 1px solid #f1c6da;
   border-radius: 7px;
-
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 1.85;
-
+  line-height: 1.9;
   white-space: pre-line;
   overflow-wrap: break-word;
-
   scrollbar-width: thin;
   scrollbar-color: #eb8cb9 #fff0f8;
 }
 
-/* ============================================
-   BLOCOS EDITORIAIS
-   ============================================ */
+/* ==========================================
+   CARTÕES EDITORIAIS
+   ========================================== */
 
 .compact {
-  padding: 0 12px 11px;
+  padding: 0 12px 12px;
 }
 
 .compact h3 {
-  margin: 0 -12px 10px;
-  padding: 9px 12px;
-
+  margin: 0 -12px 11px;
+  padding: 10px 12px;
   font: italic 800 clamp(18px, 1.7vw, 24px)/1.2 var(--title);
-
   color: #532640;
   background: #ffdce9;
   border-bottom: 1px solid #e9b0ce;
 }
 
 .compact p {
-  font-size: 12.5px;
-  line-height: 1.64;
-  margin: 8px 0;
+  font-size: 13.5px;
+  line-height: 1.75;
+  margin: 9px 0;
 }
 
-/* ============================================
+/* ==========================================
    SOBRE A MÚSICA
-   ============================================ */
+   ========================================== */
 
 .about-song {
   background: #fff8fb;
@@ -777,9 +738,9 @@ img {
 }
 
 #aboutText {
-  font-size: 13.5px;
-  line-height: 1.7;
-  margin: 5px 0 10px;
+  font-size: 14px;
+  line-height: 1.75;
+  margin: 6px 0 12px;
 }
 
 .card-doodle {
@@ -790,45 +751,39 @@ img {
   font-size: 22px;
 }
 
-/* ============================================
-   QUATRO CARTÕES CENTRAIS
-   ============================================ */
+/* ==========================================
+   ORGANIZAÇÃO DOS CARTÕES DO MEIO
+   ========================================== */
 
 .editorial-stacks {
   display: grid;
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
-
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-areas:
     "vibe curios"
     "psy percebe";
-
   gap: 8px;
-  align-items: stretch;
+  align-items: start;
 }
 
-.editorial-stacks .vibe {
-  grid-area: vibe;
+.editorial-stacks > .article {
+  min-width: 0;
+  align-self: start;
+  height: auto;
 }
 
-.editorial-stacks .curios {
-  grid-area: curios;
-}
+.editorial-stacks .vibe { grid-area: vibe; }
+.editorial-stacks .curios { grid-area: curios; }
+.editorial-stacks .psychology { grid-area: psy; }
+.editorial-stacks .percebe { grid-area: percebe; }
 
-.editorial-stacks .psychology {
-  grid-area: psy;
-}
-
-.editorial-stacks .percebe {
-  grid-area: percebe;
-}
-
-/* ============================================
+/* ==========================================
    VIBE CHECK
-   ============================================ */
+   ========================================== */
 
 .vibe {
   background: #fff6d9;
+  min-height: 0;
+  padding-bottom: 12px;
 }
 
 .vibe h3 {
@@ -839,17 +794,17 @@ img {
   display: flex;
   align-items: center;
   gap: 5px;
-  margin: 12px 0;
-  font-size: 10px;
+  margin: 13px 0;
+  font-size: 11px;
   font-weight: 800;
 }
 
 .vibe-line > span:first-child {
-  min-width: 63px;
+  min-width: 65px;
 }
 
 .meter {
-  height: 11px;
+  height: 12px;
   flex: 1;
   overflow: hidden;
   border: 1px solid #bb7194;
@@ -860,11 +815,11 @@ img {
 .meter i {
   display: block;
   height: 100%;
-  background: #ed4c9c;
+  background: #ed4c9b;
 }
 
 .vibe-line b {
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .vibe::after {
@@ -872,14 +827,14 @@ img {
   position: absolute;
   right: 9px;
   bottom: 4px;
-  font-size: 22px;
+  font-size: 20px;
   color: #ecb939;
   pointer-events: none;
 }
 
-/* ============================================
+/* ==========================================
    CURIOSIDADES
-   ============================================ */
+   ========================================== */
 
 .curios {
   background: #fff5fa;
@@ -899,8 +854,8 @@ img {
 
 #curiosityPreview p,
 #percebePreview p {
-  font-size: 12px;
-  line-height: 1.6;
+  font-size: 13px;
+  line-height: 1.7;
   margin: 8px 0;
 }
 
@@ -915,9 +870,9 @@ img {
   pointer-events: none;
 }
 
-/* ============================================
+/* ==========================================
    ANÁLISE PSICOLÓGICA
-   ============================================ */
+   ========================================== */
 
 .psychology {
   background: #fff8ff;
@@ -925,15 +880,16 @@ img {
 
 .psychology h3 {
   background: #e6cef2;
+  font-size: clamp(17px, 1.65vw, 22px);
 }
 
 .psychology #psyPreview {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 11;
+  -webkit-line-clamp: 12;
   overflow: hidden;
-  font-size: 12.5px;
-  line-height: 1.65;
+  font-size: 13.5px;
+  line-height: 1.75;
 }
 
 .psychology::after {
@@ -946,9 +902,9 @@ img {
   pointer-events: none;
 }
 
-/* ============================================
+/* ==========================================
    VOCÊ PERCEBEU?
-   ============================================ */
+   ========================================== */
 
 .percebe {
   background: #fffdf0;
@@ -968,9 +924,9 @@ img {
   pointer-events: none;
 }
 
-/* ============================================
+/* ==========================================
    BOTÕES DE LEITURA
-   ============================================ */
+   ========================================== */
 
 .text-button {
   border: 0;
@@ -979,7 +935,7 @@ img {
   color: #bb2677;
   text-decoration: underline;
   text-underline-offset: 3px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 800;
   text-align: left;
 }
@@ -988,18 +944,16 @@ img {
   color: #eb4495;
 }
 
-/* ============================================
+/* ==========================================
    ESSA MÚSICA É PRA VOCÊ SE...
-   ============================================ */
+   ========================================== */
 
 .foryou {
-  position: relative;
-
-  flex-grow: 1;
-  min-height: 170px;
-
+  flex-grow: 0;
+  flex-shrink: 0;
+  min-height: 0;
+  padding-bottom: 57px;
   background: #fff2fa;
-  padding-bottom: 47px;
 }
 
 .foryou h3 {
@@ -1009,23 +963,19 @@ img {
 }
 
 #forYou .for-you-copy {
-  font-size: 13.5px;
-  line-height: 1.7;
+  font-size: 14px;
+  line-height: 1.8;
   margin: 11px 3px;
 }
-
-/* Decoração sem texto novo */
 
 .foryou::after {
   content: "♡   ✧   ♡";
   position: absolute;
   right: 16px;
   bottom: 6px;
-
   color: #e24797;
-  font-size: 26px;
-  letter-spacing: 9px;
-
+  font-size: 24px;
+  letter-spacing: 8px;
   pointer-events: none;
 }
 
@@ -1034,24 +984,19 @@ img {
   position: absolute;
   left: 15px;
   bottom: 15px;
-
   padding: 5px 10px;
-
   background: #fff0a3;
   color: #89375f;
-
   border: 1px solid #b47d94;
   box-shadow: 2px 2px #d699b5;
-
   font: italic 800 12px var(--title);
   transform: rotate(-7deg);
-
   pointer-events: none;
 }
 
-/* ============================================
+/* ==========================================
    CARTÕES DA DIREITA
-   ============================================ */
+   ========================================== */
 
 .side-card {
   padding: 46px 12px 13px;
@@ -1063,24 +1008,19 @@ img {
   position: absolute;
   top: 12px;
   left: 12px;
-
   display: inline-block;
   transform: rotate(-5deg);
-
   padding: 6px 10px;
-
   background: #fff1a6;
-
   border: 1px solid #765744;
   box-shadow: 2px 3px #ba9d70;
-
   font: italic 800 15px var(--title);
   z-index: 3;
 }
 
-/* ============================================
+/* ==========================================
    CRUSH TEST
-   ============================================ */
+   ========================================== */
 
 .lived-card {
   background: linear-gradient(#ffebf5, #fff8fb);
@@ -1092,9 +1032,9 @@ img {
 }
 
 .lived-card > p {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
-  line-height: 1.52;
+  line-height: 1.6;
   margin: 4px 0 15px;
 }
 
@@ -1116,17 +1056,12 @@ img {
   display: flex;
   align-items: flex-start;
   gap: 9px;
-
   padding: 10px 9px;
-
   border: 1.5px dashed #e67fae;
   border-radius: 8px;
-
   background: #fffdfd;
-
-  font-size: 12px;
-  line-height: 1.42;
-
+  font-size: 12.5px;
+  line-height: 1.5;
   cursor: pointer;
 }
 
@@ -1141,16 +1076,12 @@ img {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-
   flex: 0 0 26px;
   height: 26px;
-
   background: white;
   color: #c52c7a;
-
   border: 2px solid #624153;
   border-radius: 6px;
-
   font-size: 20px;
 }
 
@@ -1167,14 +1098,10 @@ img {
   width: 100%;
   margin-top: 13px;
   padding: 12px 8px;
-
   background: #fff0a0;
-
   border: 1.5px solid #634638;
   border-radius: 12px;
-
   box-shadow: 2px 3px #9e7d5c;
-
   font-size: 14px;
   font-weight: 800;
 }
@@ -1194,16 +1121,14 @@ img {
   text-align: center;
 }
 
-/* ============================================
+/* ==========================================
    PHOTO DIARY
-   ============================================ */
+   ========================================== */
 
 .moodboard-card {
   flex-grow: 1;
-
   display: flex;
   flex-direction: column;
-
   background: #ffe9f4;
 }
 
@@ -1215,28 +1140,21 @@ img {
 
 .mood-subtitle {
   margin: 3px 0 15px;
-  font-size: 12px;
-  line-height: 1.6;
+  font-size: 13px;
+  line-height: 1.65;
 }
-
-/* Moodboard com altura equilibrada */
 
 .mood-collage {
   position: relative;
   isolation: isolate;
-
   flex: 1;
   min-height: 330px;
-
   overflow: hidden;
-
   border: 1.5px dashed #db91b3;
   border-radius: 10px;
-
   background:
     radial-gradient(#e8a9c8 1px, transparent 1px),
     linear-gradient(140deg, #ffe4f1, #ffcce6);
-
   background-size: 9px 9px, auto;
 }
 
@@ -1244,12 +1162,9 @@ img {
   position: absolute;
   margin: 0;
   padding: 6px 6px 25px;
-
   border: 1px solid #785269;
-
   background: white;
   box-shadow: 3px 4px #b4829c;
-
   text-align: center;
 }
 
@@ -1264,7 +1179,6 @@ img {
   bottom: 5px;
   left: 0;
   width: 100%;
-
   color: #ad4181;
   font: italic 700 12px var(--title);
 }
@@ -1299,13 +1213,10 @@ img {
 .mood-note {
   position: absolute;
   padding: 8px;
-
   background: #fff1a2;
   color: #6b3b52;
-
   border: 1px solid #976f86;
   box-shadow: 2px 3px #bd91a7;
-
   font: italic 800 12px var(--title);
   z-index: 5;
 }
@@ -1327,60 +1238,46 @@ img {
   position: absolute;
   right: 3%;
   bottom: 41%;
-
   color: #ffd641;
   font-size: 35px;
   z-index: 6;
-
   text-shadow: 1px 1px #8c5371;
 }
 
 .mood-footer {
   margin: 14px 0 0;
   color: #bc4c89;
-
   text-align: center;
   font: italic 700 12px var(--title);
 }
 
-/* Adesivo XOXO */
-
 .moodboard-card::after {
   content: "XOXO ♡";
-
   position: absolute;
   right: 16px;
   bottom: 29px;
-
   padding: 5px 10px;
-
   background: #fff0aa;
   color: #b83d7d;
-
   border: 1px solid #b9779e;
   box-shadow: 2px 2px #e7a1c3;
-
   font: italic 800 13px var(--title);
-
   transform: rotate(8deg);
   pointer-events: none;
 }
 
-/* ============================================
+/* ==========================================
    JANELINHAS
-   ============================================ */
+   ========================================== */
 
 .modal {
   position: fixed;
   inset: 0;
   z-index: 9999;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 16px;
-
   background: #2b1726bb;
 }
 
@@ -1391,21 +1288,14 @@ img {
 
 .modal-inner {
   position: relative;
-
   width: min(930px, 100%);
   max-height: 92vh;
-
   overflow-y: auto;
-
   padding: 25px;
-
   border: 2px solid #683d55;
   border-radius: 18px;
-
   background: #fffaf7;
-
   box-shadow: 6px 7px #df87ae;
-
   scrollbar-width: thin;
   scrollbar-color: #d77eab #ffe7f3;
 }
@@ -1425,15 +1315,11 @@ img {
   float: right;
   top: 0;
   z-index: 5;
-
   width: 40px;
   height: 40px;
-
   border: 2px solid #4e3142;
   border-radius: 50%;
-
   background: #ff9ecb;
-
   font-size: 23px;
   font-weight: 800;
 }
@@ -1441,12 +1327,9 @@ img {
 .modal-inner .action {
   padding: 11px 15px;
   margin: 6px;
-
   border: 2px solid #5d394b;
   border-radius: 10px;
-
   background: #ffc3df;
-
   font-weight: 800;
 }
 
@@ -1465,10 +1348,8 @@ img {
 .result {
   padding: 13px;
   margin: 8px 0;
-
   border: 1px solid #d99aba;
   border-radius: 10px;
-
   background: #fff0f8;
   cursor: pointer;
 }
@@ -1477,18 +1358,15 @@ img {
   background: #fff0a7;
 }
 
-/* ============================================
+/* ==========================================
    CURIOSIDADES EM PÁGINAS
-   ============================================ */
+   ========================================== */
 
 .chapter-pager {
   --page-ink: #812749;
   --page-bg: #f5c6d9;
-
   padding: 20px;
-
   background: #e9a8c5;
-
   border: 2px solid #8b305c;
   border-radius: 18px;
 }
@@ -1496,7 +1374,6 @@ img {
 .chapter-pager--percebe {
   --page-ink: #805022;
   --page-bg: #fff4c7;
-
   background: #f2d58c;
   border-color: #a77935;
 }
@@ -1520,27 +1397,20 @@ img {
 .chapter-pager-count {
   display: inline-block;
   padding: 7px 15px;
-
   background: #fff9fb;
   color: var(--page-ink);
-
   border: 1px solid var(--page-ink);
   border-radius: 25px;
-
   font: 800 11px var(--mono);
 }
 
 .chapter-pager-paper {
   position: relative;
-
   background: var(--page-bg);
-
   border: 2px solid var(--page-ink);
   border-radius: 16px;
-
   padding: 43px clamp(15px, 3vw, 32px) 27px;
   margin: 15px 0;
-
   min-height: 245px;
   box-shadow: 3px 4px #ad7895;
 }
@@ -1549,23 +1419,17 @@ img {
   position: absolute;
   top: -9px;
   right: 16px;
-
   background: #fff8fb;
   color: var(--page-ink);
-
   border: 1px solid var(--page-ink);
-
   padding: 6px 10px;
   transform: rotate(5deg);
-
   font: italic 800 13px var(--title);
 }
 
 .chapter-pager-paper .chapter-page-title {
   color: var(--page-ink);
-
   font: 800 clamp(19px, 2.6vw, 24px)/1.42 Arial, sans-serif;
-
   margin: 0 0 21px;
   overflow-wrap: anywhere;
 }
@@ -1591,13 +1455,10 @@ img {
 
 .chapter-pager-button {
   padding: 10px 17px;
-
   border: 2px solid #60354d;
   border-radius: 24px;
-
   background: #8b305c;
   color: white;
-
   font-size: 13px;
   font-weight: 800;
 }
@@ -1608,13 +1469,13 @@ img {
 }
 
 .chapter-pager-button:disabled {
-  opacity: 0.45;
+  opacity: .45;
   cursor: not-allowed;
 }
 
-/* ============================================
-   LEITURA DA ANÁLISE PSICOLÓGICA
-   ============================================ */
+/* ==========================================
+   ANÁLISE PSICOLÓGICA COMPLETA
+   ========================================== */
 
 .modal-inner:has(#modalBody > p:nth-of-type(3)) {
   width: min(980px, 96vw);
@@ -1624,10 +1485,8 @@ img {
 
 #modalBody:has(> p:nth-of-type(3)) {
   background: #fff9f5;
-
   border: 1px solid #d9a9b9;
   border-radius: 16px;
-
   padding: clamp(20px, 4vw, 42px);
 }
 
@@ -1635,9 +1494,7 @@ img {
   max-width: 700px;
   margin: 0 auto 27px;
   padding-bottom: 22px;
-
   border-bottom: 2px solid #e2b7c5;
-
   color: #8e315d;
   text-align: center;
   font-style: normal;
@@ -1646,7 +1503,6 @@ img {
 .modal-inner #modalBody:has(> p:nth-of-type(3)) > p {
   max-width: 65ch;
   margin: 0 auto 25px;
-
   color: #392f35;
   font-size: clamp(16px, 1.8vw, 18px);
   line-height: 1.9;
@@ -1655,38 +1511,31 @@ img {
 .modal-inner #modalBody:has(> p:nth-of-type(3)) > p:first-of-type {
   font-weight: 800;
   font-size: clamp(18px, 2.3vw, 23px);
-
   color: #612c44;
-
   line-height: 1.45;
   padding-bottom: 15px;
-
   border-bottom: 1px solid #e4c1ce;
 }
 
-/* ============================================
+/* ==========================================
    RODAPÉ
-   ============================================ */
+   ========================================== */
 
 footer {
   padding: 17px;
   text-align: center;
   color: #8f3969;
-
   font: italic 700 14px var(--title);
-
   background: #f8b9d8;
   border-top: 2px solid #ba6d94;
-
   margin-top: 9px;
 }
 
-/* ============================================
+/* ==========================================
    TABLETS
-   ============================================ */
+   ========================================== */
 
 @media (max-width: 1100px) {
-
   .feature-grid {
     grid-template-columns:
       minmax(0, 1fr)
@@ -1700,10 +1549,8 @@ footer {
 
   .right-column {
     grid-column: 1 / -1;
-
     display: grid;
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .moodboard-card {
@@ -1730,12 +1577,11 @@ footer {
   }
 }
 
-/* ============================================
+/* ==========================================
    CELULARES
-   ============================================ */
+   ========================================== */
 
 @media (max-width: 700px) {
-
   .site {
     padding: 0 7px 12px;
   }
@@ -1873,8 +1719,7 @@ footer {
 
   .right-column {
     display: grid;
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .mood-collage {
@@ -1903,16 +1748,15 @@ footer {
 
   .foryou {
     flex-grow: 0;
-    min-height: 160px;
+    min-height: 0;
   }
 }
 
-/* ============================================
+/* ==========================================
    CELULARES PEQUENOS
-   ============================================ */
+   ========================================== */
 
 @media (max-width: 520px) {
-
   .right-column {
     grid-template-columns: 1fr;
   }
@@ -1936,11 +1780,11 @@ footer {
   }
 
   .compact p {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .vibe-line {
-    font-size: 9px;
+    font-size: 10px;
   }
 
   .vibe-line > span:first-child {
@@ -1991,16 +1835,13 @@ footer {
 }
 
 @media (max-width: 375px) {
-
   .editorial-stacks {
     grid-template-columns: 1fr;
-  }
-
-  .editorial-stacks .vibe,
-  .editorial-stacks .curios,
-  .editorial-stacks .psychology,
-  .editorial-stacks .percebe {
-    grid-area: auto;
+    grid-template-areas:
+      "vibe"
+      "curios"
+      "psy"
+      "percebe";
   }
 
   .nav-btn {
@@ -2008,7 +1849,6 @@ footer {
   }
 }
 
-/* ============================================
-   FIM DO STYLES.CSS
-   XOXO MY MUSIC DIARY ♡
-   ============================================ */
+/* ==========================================
+   FIM — XOXO MY MUSIC DIARY ♡
+   ========================================== */
