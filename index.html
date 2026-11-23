@@ -5,23 +5,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ffd5e8">
-  <meta name="description" content="XOXO My Music Diary, sua revista musical de letras, crushes, curiosidades e psicologia.">
+
   <title>XOXO My Music Diary ♡</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,600;1,700;1,800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=xoxo-honeybee-moodboard-04">
+  <link rel="stylesheet" href="styles.css?v=xoxo-honeybee-05">
 
   <style>
-    /* =========================================
-       ORGANIZAÇÃO ATUAL DA REVISTA
-       ========================================= */
+    /* =====================================
+       ORGANIZAÇÃO DA REVISTA
+       ===================================== */
 
     .middle-column .editorial-stacks {
       display: grid;
-      grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+      grid-template-columns:
+        minmax(0,1fr) minmax(0,1fr);
       grid-template-areas:
         "psychology psychology"
         "curios percebe";
@@ -42,8 +44,8 @@
     }
 
     .middle-column .editorial-stacks > .article {
-      height: auto;
       min-width: 0;
+      height: auto;
       align-self: start;
     }
 
@@ -59,14 +61,14 @@
 
     #articleDescription {
       font: 500 clamp(13px,1.1vw,15px)/1.75
-        "DM Sans", Arial, sans-serif;
+        "DM Sans",Arial,sans-serif;
       color: #432c3d;
       white-space: pre-line;
     }
 
-    /* =========================================
+    /* =====================================
        LOVE LAB
-       ========================================= */
+       ===================================== */
 
     .love-lab {
       flex: 0 0 auto;
@@ -84,7 +86,9 @@
     .love-lab-header {
       position: relative;
       padding: 17px;
-      background: linear-gradient(120deg,#efd6f3,#f8d5e7,#ffe3ef);
+      background: linear-gradient(
+        120deg,#efd6f3,#f8d5e7,#ffe3ef
+      );
       border-bottom: 1px dashed #c68da9;
     }
 
@@ -93,8 +97,8 @@
       position: absolute;
       top: 7px;
       right: 12px;
-      font-size: 27px;
       color: #c64a8c;
+      font-size: 27px;
     }
 
     .love-lab-tag {
@@ -105,7 +109,6 @@
       border-radius: 4px;
       color: #713a55;
       font: 700 10px "DM Mono",monospace;
-      transform: rotate(-2deg);
     }
 
     .love-lab-brand {
@@ -123,13 +126,15 @@
     .love-lab-preview h3 {
       margin: 0 0 13px;
       color: #802b59;
-      font: 800 clamp(18px,2vw,23px)/1.4 "DM Sans",Arial,sans-serif;
+      font: 800 clamp(18px,2vw,23px)/1.4
+        "DM Sans",Arial,sans-serif;
     }
 
     .love-lab-preview p {
       margin: 0 0 14px;
       color: #513347;
-      font: 600 14px/1.8 "DM Sans",Arial,sans-serif;
+      font: 600 14px/1.8
+        "DM Sans",Arial,sans-serif;
     }
 
     .love-lab-read {
@@ -137,13 +142,14 @@
       background: transparent;
       padding: 9px 0;
       color: #b52a79;
-      text-decoration: underline;
-      text-underline-offset: 4px;
       font: 800 13px "DM Sans",Arial,sans-serif;
+      text-decoration: underline;
       cursor: pointer;
     }
 
-    /* JANELA DO LOVE LAB */
+    /* =====================================
+       JANELINHA DO LOVE LAB
+       ===================================== */
 
     .love-lab-modal {
       padding: 13px 5px 18px;
@@ -154,7 +160,9 @@
       text-align: center;
       border: 1px solid #d7a4c4;
       border-radius: 15px;
-      background: linear-gradient(130deg,#efd6f3,#f7d6e8,#ffe8f2);
+      background: linear-gradient(
+        130deg,#efd6f3,#f7d6e8,#ffe8f2
+      );
     }
 
     .love-lab-modal-tag {
@@ -221,7 +229,8 @@
 
     .modal-inner .love-lab-message p {
       color: #542c44;
-      font: 600 16px/1.85 "DM Sans",Arial,sans-serif;
+      font: 600 16px/1.85
+        "DM Sans",Arial,sans-serif;
     }
 
     .love-lab-source {
@@ -242,34 +251,43 @@
       line-height: 1.8;
     }
 
-    /* =========================================
-       MOODBOARD EXCLUSIVO DE HONEYBEE
-       QUATRO POLAROIDS
-       ========================================= */
+    /* =====================================
+       MOODBOARD DE HONEYBEE
+       QUATRO FOTOS DIFERENTES
+       ===================================== */
 
     #moodCollage.honeybee-collage {
       position: relative;
       isolation: isolate;
       min-height: 510px;
       max-height: none;
+      overflow: hidden;
+
       background:
         radial-gradient(#d8ad72 1px,transparent 1px),
-        linear-gradient(145deg,#fff4d7,#f7d9b3 55%,#f5d5e4);
+        linear-gradient(
+          145deg,#fff4d7,#f7d9b3 55%,#f5d5e4
+        );
+
       background-size: 11px 11px,auto;
+
       border: 1.5px dashed #b78b69;
-      overflow: hidden;
     }
 
     #moodCollage.honeybee-collage .mood-shot {
       position: absolute;
+      margin: 0;
       padding: 6px 6px 23px;
+
       background: #fffaf2;
       border: 1px solid #8d6558;
-      box-shadow: 4px 5px 0 rgba(101,55,45,.24);
-      margin: 0;
+
+      box-shadow:
+        4px 5px 0 rgba(101,55,45,.24);
     }
 
     #moodCollage.honeybee-collage .mood-shot img {
+      display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -277,11 +295,12 @@
 
     #moodCollage.honeybee-collage .mood-shot figcaption {
       color: #9c5b64;
-      font: italic 700 12px "Playfair Display",Georgia,serif;
+      font: italic 700 12px
+        "Playfair Display",Georgia,serif;
       text-align: center;
     }
 
-    /* FOTO 1: CASAL SOB O POSTE */
+    /* PRIMEIRA FOTO: ENCONTRO */
 
     #moodCollage.honeybee-collage .shot-one {
       width: 75%;
@@ -294,7 +313,7 @@
       z-index: 2;
     }
 
-    /* FOTO 2: CARTAS */
+    /* SEGUNDA FOTO: CARTAS */
 
     #moodCollage.honeybee-collage .shot-two {
       width: 60%;
@@ -307,20 +326,20 @@
       z-index: 3;
     }
 
-    /* FOTO 3: TOQUE E LUZ */
+    /* TERCEIRA FOTO: TOQUE */
 
     #moodCollage.honeybee-collage .shot-three {
       width: 56%;
       height: 35%;
-      left: 4%;
       top: 54%;
+      left: 4%;
       right: auto;
       bottom: auto;
       transform: rotate(-7deg);
       z-index: 4;
     }
 
-    /* FOTO 4: ABELHINHA */
+    /* QUARTA FOTO: ABELHINHA */
 
     #moodCollage.honeybee-collage .shot-four {
       width: 47%;
@@ -359,8 +378,6 @@
       z-index: 8;
     }
 
-    /* DETALHES DOURADOS DA EDIÇÃO */
-
     .moodboard-card:has(.honeybee-collage) {
       background: #fff2df;
     }
@@ -373,6 +390,34 @@
       content: "honeybee ♡";
       background: #ffe7a0;
       color: #906038;
+    }
+
+    /*
+      Se a foto da abelha não existir,
+      mostramos um aviso, NÃO outra foto.
+    */
+
+    .honeybee-photo-error {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 8px;
+      text-align: center;
+      background: #ffe9b8;
+      color: #8a5632;
+    }
+
+    .honeybee-photo-error span {
+      font-size: 33px;
+    }
+
+    .honeybee-photo-error small {
+      font: 700 11px/1.5
+        "DM Sans",Arial,sans-serif;
     }
 
     @media (max-width: 700px) {
@@ -392,10 +437,6 @@
           "percebe";
       }
 
-      .love-lab-preview {
-        padding: 16px 14px;
-      }
-
       #moodCollage.honeybee-collage {
         height: 540px;
         min-height: 540px;
@@ -411,10 +452,12 @@
   <!-- CABEÇALHO -->
 
   <header class="masthead">
+
     <span class="masthead-star star-left">☆</span>
     <span class="masthead-star star-right">✦</span>
 
     <div class="brand-center">
+
       <div class="top-labels">
         <span class="pill pink">♡ CAPRICHO MOOD</span>
         <span class="pill yellow">EDIÇÃO ESPECIAL</span>
@@ -430,23 +473,43 @@
       <p class="subbrand">
         ♡ LETRAS · CRUSHES · CURIOSIDADES · PSICOLOGIA ♡
       </p>
+
     </div>
 
     <div class="top-polaroid">
       <img src="assets/olivia-top.webp" alt="Olivia Rodrigo">
       <span>dear diary ♡</span>
     </div>
+
   </header>
 
   <!-- MENU -->
 
   <nav class="nav">
-    <button class="nav-btn" data-view="home">⌂ HOME</button>
-    <button class="nav-btn active" data-view="music">♫ MÚSICAS</button>
-    <button class="nav-btn" data-view="artists">☆ ARTISTAS</button>
-    <button class="nav-btn" data-view="playlists">☷ PLAYLISTS</button>
-    <button class="nav-btn" data-view="tests">♡ TESTES</button>
-    <button class="nav-btn" data-view="about">ⓘ SOBRE</button>
+
+    <button class="nav-btn" data-view="home">
+      ⌂ HOME
+    </button>
+
+    <button class="nav-btn active" data-view="music">
+      ♫ MÚSICAS
+    </button>
+
+    <button class="nav-btn" data-view="artists">
+      ☆ ARTISTAS
+    </button>
+
+    <button class="nav-btn" data-view="playlists">
+      ☷ PLAYLISTS
+    </button>
+
+    <button class="nav-btn" data-view="tests">
+      ♡ TESTES
+    </button>
+
+    <button class="nav-btn" data-view="about">
+      ⓘ SOBRE
+    </button>
 
     <div class="search-box">
       <input
@@ -454,14 +517,24 @@
         placeholder="Buscar no XOXO..."
         aria-label="Buscar músicas"
       >
-      <button id="searchGo" type="button" aria-label="Buscar">⌕</button>
+
+      <button
+        id="searchGo"
+        type="button"
+        aria-label="Buscar"
+      >
+        ⌕
+      </button>
     </div>
+
   </nav>
 
-  <!-- PLAYER DO SPOTIFY -->
+  <!-- PLAYER -->
 
   <section class="now">
+
     <div class="hero-person">
+
       <img
         id="heroPortrait"
         src="assets/olivia-hero.webp"
@@ -471,38 +544,51 @@
       <div class="torn-label" id="heroArtist">
         OLIVIA<br>RODRIGO ♡
       </div>
+
     </div>
 
     <div class="player">
+
       <div class="cover-wrap">
+
         <img
           id="albumCover"
           src="assets/album-drop-dead.webp"
           alt="Capa da música"
         >
+
       </div>
 
       <div class="player-info">
+
         <span class="playing" id="playingStatus">
           ♡ NA REVISTA
         </span>
 
-        <h2 id="playerTitle">drop dead - Olivia Rodrigo</h2>
+        <h2 id="playerTitle">
+          drop dead - Olivia Rodrigo
+        </h2>
 
         <div class="seek">
+
           <span id="elapsed">0:00</span>
+
           <div class="progress">
             <div id="progressFill"></div>
           </div>
+
           <span id="duration">0:00</span>
+
         </div>
 
         <p id="syncNote">
           Sua trilha sonora virou matéria de revista ♡
         </p>
+
       </div>
 
       <div class="spotify-panel">
+
         <strong>
           ◉ <small>Ouça no</small><br>Spotify.
         </strong>
@@ -524,37 +610,61 @@
         >
           ♡ Conectar Spotify
         </button>
+
       </div>
+
     </div>
 
-    <span class="repeat-sticker">ON REPEAT ♡</span>
-    <span class="player-doodle">♫</span>
+    <span class="repeat-sticker">
+      ON REPEAT ♡
+    </span>
+
+    <span class="player-doodle">
+      ♫
+    </span>
+
   </section>
 
-  <!-- REVISTA -->
+  <!-- CONTEÚDO -->
 
   <main id="content">
+
     <section class="feature-grid">
 
       <div class="breadcrumb">
+
         <span>♡ HOME</span>
+
         <span class="crumb-separator">›</span>
+
         <span>MÚSICAS</span>
+
         <span class="crumb-separator">›</span>
-        <span id="crumbTitle">DROP DEAD - OLIVIA RODRIGO</span>
+
+        <span id="crumbTitle">
+          DROP DEAD - OLIVIA RODRIGO
+        </span>
+
       </div>
 
-      <!-- COLUNA 1: MATÉRIA E TRADUÇÃO -->
+      <!-- COLUNA 1 -->
 
       <article class="article main-article">
+
         <div class="article-intro">
 
           <span class="intro-heart">♡</span>
           <span class="intro-star">✦</span>
 
           <div class="text-intro">
-            <h2 id="articleTitle">drop dead</h2>
-            <h3 id="articleArtist">Olivia Rodrigo</h3>
+
+            <h2 id="articleTitle">
+              drop dead
+            </h2>
+
+            <h3 id="articleArtist">
+              Olivia Rodrigo
+            </h3>
 
             <div class="intro-highlight">
               Aquela paixão que entra na sua cabeça
@@ -570,9 +680,11 @@
               <span>#romance</span>
               <span>#oliviarodrigo</span>
             </div>
+
           </div>
 
           <div class="crush-polaroid">
+
             <span class="polaroid-clip">⌁</span>
 
             <img
@@ -582,7 +694,9 @@
             >
 
             <span>CRUSH ALERT! ♡</span>
+
           </div>
+
         </div>
 
         <div class="translation-heading">
@@ -590,22 +704,29 @@
         </div>
 
         <div class="lyrics" id="lyricsText"></div>
+
       </article>
 
-      <!-- COLUNA 2: MATÉRIAS -->
+      <!-- COLUNA 2 -->
 
       <div class="middle-column">
 
         <article class="article compact about-song">
+
           <h3>♡ Sobre o que é essa música?</h3>
+
           <p id="aboutText"></p>
+
           <span class="card-doodle">〰♡</span>
+
         </article>
 
         <div class="editorial-stacks">
 
           <article class="article compact psychology">
+
             <h3>🧠 Análise Psicológica</h3>
+
             <p id="psyPreview"></p>
 
             <button
@@ -615,10 +736,13 @@
             >
               Ler análise completa →
             </button>
+
           </article>
 
           <article class="article compact curios">
+
             <h3>☆ Curiosidades</h3>
+
             <div id="curiosityPreview"></div>
 
             <button
@@ -628,10 +752,13 @@
             >
               Ler todas as curiosidades →
             </button>
+
           </article>
 
           <article class="article compact percebe">
+
             <h3>♡ Você percebeu?</h3>
+
             <div id="percebePreview"></div>
 
             <button
@@ -641,20 +768,27 @@
             >
               Ler todos os detalhes →
             </button>
+
           </article>
+
         </div>
 
         <div id="vibes" hidden aria-hidden="true"></div>
 
         <article class="article compact foryou">
+
           <h3>♡ Essa música é pra você se...</h3>
+
           <div id="forYou"></div>
+
         </article>
 
         <!-- LOVE LAB -->
 
         <article class="love-lab" id="loveLab" hidden>
+
           <div class="love-lab-header">
+
             <span class="love-lab-tag">
               EDIÇÃO #01 | OS MISTÉRIOS DA PAIXÃO
             </span>
@@ -662,9 +796,11 @@
             <h2 class="love-lab-brand">
               ♡ LOVE LAB: Experimentos do coração
             </h2>
+
           </div>
 
           <div class="love-lab-preview">
+
             <h3>
               💘 Por que a gente não consegue
               tirar o crush da cabeça?
@@ -686,17 +822,23 @@
             >
               Ler matéria completa →
             </button>
+
           </div>
+
         </article>
 
       </div>
 
-      <!-- COLUNA 3: TESTE E MOODBOARD -->
+      <!-- COLUNA 3 -->
 
       <aside class="right-column">
 
         <article class="article side-card lived-card">
-          <span class="sticky-tag">♡ CRUSH TEST!</span>
+
+          <span class="sticky-tag">
+            ♡ CRUSH TEST!
+          </span>
+
           <span class="quiz-icon">✧</span>
 
           <h3>Você já viveu isso?</h3>
@@ -724,10 +866,16 @@
             id="livedOutcome"
             aria-live="polite"
           ></div>
+
         </article>
 
+        <!-- MOODBOARD -->
+
         <article class="article side-card moodboard-card">
-          <span class="sticky-tag">📸 PHOTO DIARY ♡</span>
+
+          <span class="sticky-tag">
+            📸 PHOTO DIARY ♡
+          </span>
 
           <h3>♡ Moodboard da música</h3>
 
@@ -742,31 +890,43 @@
           <div class="mood-collage" id="moodCollage">
 
             <figure class="mood-shot shot-one">
+
               <img
                 src="assets/mood-bar.webp"
                 alt="Primeira foto do moodboard"
               >
-              <figcaption>11 PM · date night ♡</figcaption>
+
+              <figcaption>
+                11 PM · date night ♡
+              </figcaption>
+
             </figure>
 
             <figure class="mood-shot shot-two">
+
               <img
                 src="assets/mood-versailles.webp"
                 alt="Segunda foto do moodboard"
               >
-              <figcaption>just like heaven ♡</figcaption>
+
+              <figcaption>
+                just like heaven ♡
+              </figcaption>
+
             </figure>
 
             <figure class="mood-shot shot-three">
+
               <img
                 src="assets/mood-hands.webp"
                 alt="Terceira foto do moodboard"
               >
-              <figcaption>hold my hand ♡</figcaption>
-            </figure>
 
-            <!-- A QUARTA FOTO SERÁ CRIADA
-                 APENAS QUANDO HONEYBEE ESTIVER ABERTA -->
+              <figcaption>
+                hold my hand ♡
+              </figcaption>
+
+            </figure>
 
             <div class="mood-note note-one">
               crush alert! ♡
@@ -777,15 +937,20 @@
             </div>
 
             <span class="collage-star">✦</span>
+
           </div>
 
           <p class="mood-footer">
-            ✶ um universo inteiro dentro de uma música ✶
+            ✶ um universo inteiro dentro
+            de uma música ✶
           </p>
+
         </article>
 
       </aside>
+
     </section>
+
   </main>
 
   <footer>
@@ -795,7 +960,7 @@
 
 </div>
 
-<!-- JANELAS DO SITE -->
+<!-- JANELA DA REVISTA -->
 
 <div
   class="modal hidden"
@@ -804,7 +969,9 @@
   aria-modal="true"
   aria-label="Detalhes"
 >
+
   <div class="modal-inner">
+
     <button
       class="close-modal"
       id="closeModal"
@@ -813,15 +980,21 @@
     >
       ✕
     </button>
+
     <div id="modalBody"></div>
+
   </div>
+
 </div>
 
-<!-- LOVE LAB ORIGINAL DE STUPID SONG -->
+<!-- LOVE LAB DE STUPID SONG -->
 
 <template id="loveLabFullArticle">
+
   <article class="love-lab-modal">
+
     <div class="love-lab-modal-header">
+
       <span class="love-lab-modal-tag">
         EDIÇÃO #01 | OS MISTÉRIOS DA PAIXÃO
       </span>
@@ -829,9 +1002,11 @@
       <h2 class="love-lab-modal-title">
         ♡ LOVE LAB: Experimentos do coração
       </h2>
+
     </div>
 
     <div class="love-lab-modal-paper">
+
       <h3>
         💘 Por que a gente não consegue tirar
         o crush da cabeça?
@@ -845,22 +1020,24 @@
       </p>
 
       <p>
-        Em <em>stupid song</em>, Olivia Rodrigo conta
-        que passa as madrugadas sonhando com alguém
-        e sente uma paixão tão intensa que parece
-        estar perdendo o controle dos próprios pensamentos.
-        E, acredite, a ciência já investigou algo
-        muito parecido!
+        Em <em>stupid song</em>, Olivia Rodrigo
+        conta que passa as madrugadas sonhando
+        com alguém e sente uma paixão tão intensa
+        que parece estar perdendo o controle
+        dos próprios pensamentos.
+        E, acredite, a ciência já investigou
+        algo muito parecido!
       </p>
 
       <p>
-        Em 2005, pesquisadores liderados por Arthur Aron
-        e Helen Fisher analisaram o cérebro de pessoas
-        intensamente apaixonadas. Ao observarem
-        fotografias de quem amavam, os participantes
-        apresentaram atividade em regiões relacionadas
-        à motivação e à recompensa, incluindo áreas
-        associadas à dopamina.
+        Em 2005, pesquisadores liderados por
+        Arthur Aron e Helen Fisher analisaram
+        o cérebro de pessoas intensamente
+        apaixonadas. Ao observarem fotografias
+        de quem amavam, os participantes
+        apresentaram atividade em regiões
+        relacionadas à motivação e à recompensa,
+        incluindo áreas associadas à dopamina.
       </p>
 
       <p>
@@ -868,55 +1045,75 @@
         apaixonada pode concentrar tanta atenção
         em alguém. O cérebro passa a atribuir
         um valor especial àquela pessoa, e até
-        pequenas interações podem ganhar uma
-        importância enorme.
+        pequenas interações podem ganhar
+        uma importância enorme.
       </p>
 
       <p>
-        E sabe aquela sensação de ficar imaginando
-        conversas, encontros e situações que nem
-        aconteceram? Os pensamentos recorrentes
-        sobre a pessoa amada também são características
-        estudadas nas fases iniciais da paixão.
+        E sabe aquela sensação de ficar
+        imaginando conversas, encontros e situações
+        que nem aconteceram? Os pensamentos
+        recorrentes sobre a pessoa amada
+        também são características estudadas
+        nas fases iniciais da paixão.
       </p>
 
       <div class="love-lab-message">
+
         <h4>💌 O RECADO DO LOVE LAB:</h4>
+
         <p>
-          Sentir borboletas no estômago é uma delícia,
-          mas intensidade não é sinônimo de reciprocidade!
-          Seu cérebro pode estar completamente encantado
-          por alguém antes mesmo de você descobrir
-          se o sentimento é correspondido.
+          Sentir borboletas no estômago é uma
+          delícia, mas intensidade não é sinônimo
+          de reciprocidade! Seu cérebro pode estar
+          completamente encantado por alguém
+          antes mesmo de você descobrir se
+          o sentimento é correspondido.
         </p>
+
       </div>
 
       <div class="love-lab-source">
-        <strong>🔬 CIÊNCIA POR TRÁS DO CRUSH:</strong>
+
+        <strong>
+          🔬 CIÊNCIA POR TRÁS DO CRUSH:
+        </strong>
+
         <p>
           Aron e colaboradores (2005).
           <em>
             Reward, Motivation, and Emotion Systems
-            Associated With Early-Stage Intense Romantic Love.
+            Associated With Early-Stage Intense
+            Romantic Love.
           </em>
         </p>
+
       </div>
+
     </div>
+
   </article>
+
 </template>
 
-<!-- SPOTIFY ORIGINAL E MÚSICAS -->
+<!-- NÃO ALTERAR O SPOTIFY -->
 
 <script src="app.js" defer></script>
+
+<!-- DADOS DA MÚSICA HONEYBEE -->
+
 <script src="honeybee.js" defer></script>
 
-<!-- AJUSTES EDITORIAIS E FOTOS -->
+<!-- CONTROLE DO MOODBOARD E DAS MATÉRIAS -->
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  const title = document.querySelector("#articleTitle");
-  const artist = document.querySelector("#articleArtist");
+  const title =
+    document.querySelector("#articleTitle");
+
+  const artist =
+    document.querySelector("#articleArtist");
 
   const description =
     document.querySelector("#articleDescription");
@@ -924,7 +1121,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const aboutText =
     document.querySelector("#aboutText");
 
-  const loveLab =
+  const lab =
     document.querySelector("#loveLab");
 
   const labButton =
@@ -933,13 +1130,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const labTemplate =
     document.querySelector("#loveLabFullArticle");
 
-  const modalElement =
+  const modal =
     document.querySelector("#modal");
 
   const modalBody =
     document.querySelector("#modalBody");
 
+  const collage =
+    document.querySelector("#moodCollage");
+
+  const moodDescription =
+    document.querySelector("#moodDescription");
+
   if (!title || !artist) return;
+
+  /* ========================================
+     TEXTOS EDITORIAIS
+     ======================================== */
 
   const aboutDropDead =
     "Sabe aquela paixão que chega do nada e faz seu coração bater a mil? É exatamente disso que Olivia Rodrigo fala em “drop dead”! A cantora conta sobre a emoção de conhecer alguém especial e ficar completamente encantada, entre borboletas no estômago, indiretas para o crush e mil fantasias românticas. O problema? Ela quer ir com calma, mas já está imaginando um futuro juntinho dessa pessoa! Ai, quem nunca, né?";
@@ -950,59 +1157,274 @@ document.addEventListener("DOMContentLoaded", () => {
   const stupidCover =
     "assets/stupid-song-cover.png";
 
-  const moodboard = document.querySelector("#moodCollage");
-  const moodDescription = document.querySelector("#moodDescription");
+  /* ========================================
+     QUATRO IMAGENS DE HONEYBEE
+     ======================================== */
 
-  const honeybeeImages = [
+  const honeybeePhotos = [
     {
-      src: "assets/honeybee-encontro.jpg",
-      caption: "after dark ♡"
+      file: "assets/honeybee-encontro.jpg",
+      caption: "sweet love ♡"
     },
     {
-      src: "assets/honeybee-cartas.jpg",
+      file: "assets/honeybee-cartas.jpg",
       caption: "love letters ♡"
     },
     {
-      src: "assets/honeybee-toque.jpg",
+      file: "assets/honeybee-toque.jpg",
       caption: "you are here ♡"
     },
     {
-      src: "assets/honeybee-abelha.jpg",
+      file: "assets/honeybee-abelha.jpg",
       caption: "my honeybee ♡"
     }
   ];
 
-  const originalCaptions = moodboard
-    ? Array.from(
-        moodboard.querySelectorAll(".mood-shot figcaption"),
-        el => el.textContent
-      )
-    : [];
+  /*
+    A foto da abelhinha é a QUARTA.
+
+    Não existe mais nenhuma instrução
+    para substituí-la pela foto do toque.
+  */
+
+  const originalCollageHTML =
+    collage ? collage.innerHTML : "";
+
+  const originalMoodText =
+    moodDescription
+      ? moodDescription.textContent
+      : "";
+
+  let honeybeeMounted = false;
 
   function songName() {
-    return title.textContent.trim().toLowerCase();
+    return title.textContent
+      .trim()
+      .toLowerCase();
   }
 
-  function singerName() {
-    return artist.textContent.trim().toLowerCase();
+  function artistName() {
+    return artist.textContent
+      .trim()
+      .toLowerCase();
   }
 
   function isSong(name) {
-    return songName() === name &&
-      singerName().includes("olivia rodrigo");
+    return (
+      songName() === name &&
+      artistName().includes("olivia rodrigo")
+    );
   }
 
-  function setImage(img, src) {
-    if (img && img.getAttribute("src") !== src) {
-      img.setAttribute("src", src);
+  function setImage(img, file) {
+    if (!img) return;
+
+    if (img.getAttribute("src") !== file) {
+      img.setAttribute("src", file);
     }
   }
 
+  /* ========================================
+     CRIA UMA POLAROID
+     ======================================== */
+
+  function createPolaroid(photo, number) {
+
+    const figure =
+      document.createElement("figure");
+
+    figure.className =
+      "mood-shot shot-" +
+      ["one", "two", "three", "four"][number];
+
+    const img =
+      document.createElement("img");
+
+    img.alt =
+      "Moodboard honeybee: " + photo.caption;
+
+    img.src = photo.file;
+
+    img.loading = "lazy";
+
+    /*
+      CORREÇÃO PRINCIPAL:
+
+      Se a imagem não existir, aparece
+      um aviso no lugar dela.
+
+      Nunca repete a foto do toque.
+    */
+
+    img.addEventListener("error", () => {
+
+      if (!figure.contains(img)) return;
+
+      const warning =
+        document.createElement("div");
+
+      warning.className =
+        "honeybee-photo-error";
+
+      const emoji =
+        document.createElement("span");
+
+      emoji.textContent =
+        number === 3 ? "🐝" : "♡";
+
+      const message =
+        document.createElement("small");
+
+      message.textContent =
+        "Confira a foto " +
+        photo.file.split("/").pop() +
+        " na pasta assets.";
+
+      warning.append(emoji, message);
+
+      img.replaceWith(warning);
+
+    }, { once: true });
+
+    const caption =
+      document.createElement("figcaption");
+
+    caption.textContent =
+      photo.caption;
+
+    figure.append(img, caption);
+
+    return figure;
+  }
+
+  /* ========================================
+     MONTA O MOODBOARD DE HONEYBEE
+     ======================================== */
+
+  function showHoneybeeMoodboard() {
+
+    if (!collage) return;
+
+    /*
+      Não monta várias vezes.
+      Isso evita polaroids duplicadas.
+    */
+
+    if (honeybeeMounted) return;
+
+    honeybeeMounted = true;
+
+    collage.classList.add(
+      "honeybee-collage"
+    );
+
+    /*
+      Preserva os adesivos originais.
+    */
+
+    const notes =
+      collage.querySelectorAll(".mood-note");
+
+    const firstNote =
+      notes[0] ? notes[0] : null;
+
+    const secondNote =
+      notes[1] ? notes[1] : null;
+
+    const star =
+      collage.querySelector(".collage-star");
+
+    /*
+      Remove somente as polaroids antigas.
+    */
+
+    collage.querySelectorAll(
+      ".mood-shot"
+    ).forEach(photo => photo.remove());
+
+    /*
+      Insere as quatro fotografias
+      na ordem certa.
+    */
+
+    honeybeePhotos.forEach((photo, index) => {
+
+      const figure =
+        createPolaroid(photo, index);
+
+      collage.appendChild(figure);
+
+    });
+
+    if (firstNote) {
+      firstNote.textContent =
+        "sweet love ♡";
+    }
+
+    if (secondNote) {
+      secondNote.textContent =
+        "dear diary... ♡";
+    }
+
+    if (star) {
+      star.textContent = "✦";
+    }
+
+    if (moodDescription) {
+      moodDescription.textContent =
+        "Um amor doce e acolhedor: encontros à noite, cartas apaixonadas, carinho e uma abelhinha dourada. 🐝💛";
+    }
+  }
+
+  /* ========================================
+     RESTAURA O MOODBOARD DAS OUTRAS MÚSICAS
+     ======================================== */
+
+  function restoreMoodboard() {
+
+    if (!collage || !honeybeeMounted) {
+      return;
+    }
+
+    honeybeeMounted = false;
+
+    collage.classList.remove(
+      "honeybee-collage"
+    );
+
+    collage.innerHTML =
+      originalCollageHTML;
+
+    if (moodDescription) {
+      moodDescription.textContent =
+        originalMoodText;
+    }
+
+    /*
+      Pede ao app.js para atualizar
+      as fotos próprias da música,
+      se essa função estiver disponível.
+    */
+
+    if (typeof renderMoodboard === "function") {
+      renderMoodboard();
+    }
+  }
+
+  /* ========================================
+     OUTRAS EDIÇÕES
+     ======================================== */
+
   function updateEditorial() {
 
-    const drop = isSong("drop dead");
-    const stupid = isSong("stupid song");
-    const honeybee = isSong("honeybee");
+    const drop =
+      isSong("drop dead");
+
+    const stupid =
+      isSong("stupid song");
+
+    const honeybee =
+      isSong("honeybee");
 
     if (
       drop &&
@@ -1020,9 +1442,14 @@ document.addEventListener("DOMContentLoaded", () => {
       description.textContent = introStupid;
     }
 
-    if (loveLab && !honeybee) {
-      loveLab.hidden = !stupid;
+    if (lab && !honeybee) {
+      lab.hidden = !stupid;
     }
+
+    /*
+      A capa específica de stupid song
+      continua como antes.
+    */
 
     if (stupid) {
       [
@@ -1030,176 +1457,78 @@ document.addEventListener("DOMContentLoaded", () => {
         "#heroPortrait",
         "#photoArtist"
       ].forEach(selector => {
-        setImage(document.querySelector(selector), stupidCover);
+
+        const img =
+          document.querySelector(selector);
+
+        setImage(img, stupidCover);
+
       });
     }
-  }
-
-  /*
-    MOODBOARD DE QUATRO FOTOS.
-
-    As outras músicas continuam com
-    três fotos e seus próprios arquivos.
-  */
-
-  let moodboardIsHoneybee = false;
-
-  function updateHoneybeeMoodboard() {
-    if (!moodboard) return;
-
-    const honeybee = isSong("honeybee");
 
     if (honeybee) {
-
-      if (!moodboardIsHoneybee) {
-        moodboard.classList.add("honeybee-collage");
-
-        const notes =
-          moodboard.querySelectorAll(".mood-note");
-
-        if (notes[0]) notes[0].textContent = "sweet love ♡";
-        if (notes[1]) notes[1].textContent = "dear diary... ♡";
-
-        if (moodDescription) {
-          moodDescription.textContent =
-            "Encontros à noite, cartas de amor, gestos de carinho e uma abelhinha dourada. Um amor tão doce que dá vontade de guardar para sempre. 🐝💛";
-        }
-
-        const photos =
-          moodboard.querySelectorAll(".mood-shot");
-
-        if (photos.length === 3) {
-          const fourth = document.createElement("figure");
-          fourth.className = "mood-shot shot-four";
-
-          const image = document.createElement("img");
-          image.alt = "Abelhinha dourada de honeybee";
-          image.src = honeybeeImages[3].src;
-
-          /*
-            Se a imagem da abelha ainda não
-            estiver no GitHub, mostra a
-            imagem do toque provisoriamente.
-          */
-          image.addEventListener("error", () => {
-            if (!image.src.endsWith("honeybee-toque.jpg")) {
-              image.src = "assets/honeybee-toque.jpg";
-            }
-          });
-
-          const caption = document.createElement("figcaption");
-          caption.textContent = honeybeeImages[3].caption;
-
-          fourth.append(image, caption);
-          moodboard.appendChild(fourth);
-        }
-
-        moodboardIsHoneybee = true;
-      }
-
-      const photos = moodboard.querySelectorAll(".mood-shot");
-
-      photos.forEach((figure, index) => {
-        const config = honeybeeImages[index];
-        if (!config) return;
-
-        const img = figure.querySelector("img");
-        const caption = figure.querySelector("figcaption");
-
-        /*
-          A quarta imagem possui um fallback
-          próprio para arquivo ainda ausente.
-        */
-        if (index < 3) {
-          setImage(img, config.src);
-        }
-
-        if (caption && caption.textContent !== config.caption) {
-          caption.textContent = config.caption;
-        }
-      });
-
-    } else if (moodboardIsHoneybee) {
-
-      moodboard.classList.remove("honeybee-collage");
-
-      const fourth = moodboard.querySelector(".shot-four");
-      if (fourth) fourth.remove();
-
-      const notes = moodboard.querySelectorAll(".mood-note");
-
-      if (notes[0]) {
-        notes[0].textContent = "crush alert! ♡";
-      }
-
-      if (notes[1]) {
-        notes[1].innerHTML = "dear diary...<br>i'm in love!";
-      }
-
-      const photos = moodboard.querySelectorAll(".mood-shot");
-
-      photos.forEach((figure, index) => {
-        const caption = figure.querySelector("figcaption");
-        if (caption && originalCaptions[index]) {
-          caption.textContent = originalCaptions[index];
-        }
-      });
-
-      moodboardIsHoneybee = false;
-
-      /*
-        O app.js já controla as fotos
-        das outras músicas. Pedimos
-        uma atualização após remover
-        a quarta polaroid.
-      */
-
-      if (typeof renderMoodboard === "function") {
-        renderMoodboard();
-      }
+      showHoneybeeMoodboard();
+    } else {
+      restoreMoodboard();
     }
   }
 
-  function updateAll() {
-    updateEditorial();
-    updateHoneybeeMoodboard();
+  /* ========================================
+     ABRE O LOVE LAB
+     ======================================== */
+
+  if (
+    labButton &&
+    labTemplate &&
+    modal &&
+    modalBody
+  ) {
+
+    labButton.addEventListener("click", () => {
+
+      modalBody.innerHTML =
+        labTemplate.innerHTML;
+
+      modal.classList.remove("hidden");
+
+      document.body.style.overflow =
+        "hidden";
+
+      const scroll =
+        modal.querySelector(".modal-inner");
+
+      if (scroll) {
+        scroll.scrollTop = 0;
+      }
+
+      const close =
+        document.querySelector("#closeModal");
+
+      if (close) close.focus();
+
+    });
   }
 
-  /*
-    ACOMPANHA MUDANÇAS DE MÚSICA
-  */
+  /* ========================================
+     OBSERVA AS TROCAS DE MÚSICA
+     ======================================== */
 
-  const songObserver = new MutationObserver(updateAll);
+  const observer =
+    new MutationObserver(updateEditorial);
 
   [title, artist].forEach(element => {
-    songObserver.observe(element, {
+
+    observer.observe(element, {
       childList: true,
       subtree: true,
       characterData: true
     });
+
   });
 
   /*
-    Quando app.js renderizar novamente
-    as fotos, honeybee mantém as quatro.
-  */
-
-  if (moodboard) {
-    const imagesObserver = new MutationObserver(() => {
-      if (isSong("honeybee")) {
-        updateHoneybeeMoodboard();
-      }
-    });
-
-    imagesObserver.observe(moodboard, {
-      subtree: true,
-      attributes: true,
-      attributeFilter: ["src"]
-    });
-  }
-
-  /*
-    CAPA DE STUPID SONG
+    Se o app.js atualizar a capa de
+    stupid song, mantém o arquivo correto.
   */
 
   const playerImages = [
@@ -1208,40 +1537,28 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("#photoArtist")
   ].filter(Boolean);
 
-  const playerObserver = new MutationObserver(() => {
-    if (isSong("stupid song")) {
-      playerImages.forEach(img => setImage(img, stupidCover));
-    }
-  });
+  const playerObserver =
+    new MutationObserver(() => {
+
+      if (!isSong("stupid song")) return;
+
+      playerImages.forEach(img => {
+        setImage(img, stupidCover);
+      });
+
+    });
 
   playerImages.forEach(img => {
+
     playerObserver.observe(img, {
       attributes: true,
       attributeFilter: ["src"]
     });
+
   });
 
-  /*
-    BOTÃO DO LOVE LAB
-    O honeybee.js substitui o conteúdo
-    do template quando a música muda.
-  */
+  updateEditorial();
 
-  if (labButton && labTemplate && modalElement && modalBody) {
-    labButton.addEventListener("click", () => {
-      modalBody.innerHTML = labTemplate.innerHTML;
-      modalElement.classList.remove("hidden");
-      document.body.style.overflow = "hidden";
-
-      const scroll = modalElement.querySelector(".modal-inner");
-      if (scroll) scroll.scrollTop = 0;
-
-      const close = document.querySelector("#closeModal");
-      if (close) close.focus();
-    });
-  }
-
-  updateAll();
 });
 </script>
 
